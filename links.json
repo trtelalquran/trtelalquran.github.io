@@ -14,6 +14,6 @@
     {"name": "Spotify", "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM", "icon": "podcast"},
     {"name": "Amazon Music", "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc", "icon": "podcast"},
     {"name": "Apple Podcasts", "url": "", "icon": "podcast"},
-    {"name": "Podcast Index", "url": "", "icon": "podcast"}
+    {"name": "Podcast Index", "url": "https://podcastindex.org/podcast/8101232", "icon": "podcast"}
   ]
 }

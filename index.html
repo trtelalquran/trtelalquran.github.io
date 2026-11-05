@@ -72,6 +72,9 @@ h2{font-family:Amiri,serif;color:var(--green);font-size:1.3rem;margin:26px 4px 1
 .dl a{font-size:.82rem;text-decoration:none;border-radius:999px;padding:6px 12px;white-space:nowrap}
 .dl a.pg{color:var(--green);border:1px solid var(--line)}
 .dl a.zp{background:var(--green);color:#fff}
+.caster{padding:16px}
+.caster iframe{width:100%;height:300px;border:0;border-radius:12px;display:block;background:#fff}
+.casterBtn{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:999px;border:1px solid var(--line);color:var(--green);text-decoration:none;font-weight:500}
 footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;font-size:.85rem;opacity:0;transition:.3s;pointer-events:none}
 .toast.show{opacity:1}
@@ -105,8 +108,14 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     <div class="err" id="err"></div>
   </section>
 
-  <h2>شارك الإذاعة</h2>
-  <div class="share">
+  <h2>البث المباشر عبر Caster</h2>
+  <section class="card caster">
+    <p class="hint" style="margin:0 0 10px">نفس التلاوات على خادم بث (إذاعة Caster). المشغّل أعلاه يعمل دائمًا حتى لو توقف هذا البث.</p>
+    <iframe src="https://widgets.cloud.caster.fm/player/?token=af88eef3-5061-4f59-8986-03b3f6c5e9e7&theme=light&color=2f6b4f" title="مشغّل إذاعة Caster" loading="lazy" allow="autoplay"></iframe>
+    <a class="casterBtn" href="https://trtel-alquran.ismyradio.com" target="_blank" rel="noopener">افتح صفحة إذاعة Caster</a>
+  </section>
+
+  <h2>شارك الإذاعة</h2>  <div class="share">
     <a id="shWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>واتساب</a>
     <a id="shTg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#229ED9"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/></svg>تليجرام</a>
     <a id="shX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#111"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>X</a>
