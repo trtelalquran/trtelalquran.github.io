@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>تلاوات من القرآن — إذاعة مباشرة</title>
-<meta name="description" content="إذاعة تلاوات قرآنية مباشرة على مدار الساعة: السور متتالية من الفاتحة إلى الناس بقارئ مختلف لكل سورة.">
-<meta name="theme-color" content="#2f6b4f">
+<meta name="description" content="إذاعة تلاوات قرآنية مباشرة على مدار الساعة لأئمة الحرمين وقرّاء آخرين.">
+<meta name="theme-color" content="#0f7c66">
 <meta property="og:type" content="website">
 <meta property="og:title" content="تلاوات من القرآن — إذاعة مباشرة 24 ساعة">
-<meta property="og:description" content="استمع الآن: السور متتالية من الفاتحة إلى الناس بقارئ مختلف لكل سورة، بلا توقف.">
+<meta property="og:description" content="استمع الآن إلى تلاوات قرآنية مباشرة على مدار الساعة، بلا توقف.">
 <meta property="og:image" content="https://trtelalquran.github.io/logo1200.jpg">
 <meta property="og:url" content="https://trtelalquran.github.io/">
 <link rel="canonical" href="https://trtelalquran.github.io/">
@@ -18,155 +18,234 @@
 <link rel="apple-touch-icon" href="logo512.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script>
+/* يطبّق الوضع واللغة المحفوظين قبل الرسم لتجنّب الوميض */
+(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;var l=localStorage.getItem('lang');if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';}}catch(e){}})();
+</script>
 <style>
-:root{--bg:#f6f4ee;--card:#fff;--ink:#1f2a24;--muted:#6b7a71;--green:#2f6b4f;--green2:#3f8a66;--soft:#e7efe9;--line:#e3e0d6;--gold:#b08d3c}
+/* الهوية: بطاقات زجاجية فوق تدرّج زمردي/فيروزي، بعيدًا عن الكحلي والذهبي */
+:root{
+  --bg1:#d9efe6;--bg2:#cfe2ee;--bg3:#eef5ea;
+  --glass:rgba(255,255,255,.55);--glass2:rgba(255,255,255,.72);--edge:rgba(255,255,255,.85);--shadow:rgba(16,60,52,.12);
+  --ink:#10302a;--muted:#4e6b63;--accent:#0f7c66;--accent2:#1f8fa6;--accentInk:#fff;
+  --clockBg:rgba(15,124,102,.10);--clockInk:#0b6654;--day:#1f8fa6;--soft:rgba(15,124,102,.12);--danger:#b42318;
+  --display:Amiri,'Traditional Arabic',serif;--body:Tajawal,system-ui,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg1:#07241f;--bg2:#0a1d2e;--bg3:#0d2b26;
+  --glass:rgba(255,255,255,.07);--glass2:rgba(255,255,255,.11);--edge:rgba(255,255,255,.16);--shadow:rgba(0,0,0,.35);
+  --ink:#e6f4ef;--muted:#9bb8af;--accent:#43c9a5;--accent2:#6cc4e3;--accentInk:#062019;
+  --clockBg:rgba(67,201,165,.10);--clockInk:#7fe3c6;--day:#6cc4e3;--soft:rgba(67,201,165,.14);--danger:#ff8a80;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg1:#07241f;--bg2:#0a1d2e;--bg3:#0d2b26;
+  --glass:rgba(255,255,255,.07);--glass2:rgba(255,255,255,.11);--edge:rgba(255,255,255,.16);--shadow:rgba(0,0,0,.35);
+  --ink:#e6f4ef;--muted:#9bb8af;--accent:#43c9a5;--accent2:#6cc4e3;--accentInk:#062019;
+  --clockBg:rgba(67,201,165,.10);--clockInk:#7fe3c6;--day:#6cc4e3;--soft:rgba(67,201,165,.14);--danger:#ff8a80;
+  color-scheme:dark;}}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:Tajawal,system-ui,sans-serif;line-height:1.6;-webkit-tap-highlight-color:transparent}
-.wrap{max-width:640px;margin:0 auto;padding:20px 16px 40px}
-header{text-align:center;margin:8px 0 18px}
-header h1{font-family:Amiri,serif;font-size:2rem;margin:6px 0 0;color:var(--green)}
-header p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 6px 24px rgba(31,42,36,.06)}
-.player{text-align:center}
-.cover{width:170px;height:170px;border-radius:24px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.18);display:block;margin:0 auto 16px}
-.live{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:#b42318;background:#fdecea;border-radius:999px;padding:3px 10px}
-.live i{width:8px;height:8px;border-radius:50%;background:#d92d20;animation:pulse 1.4s infinite}
-.live.off{color:var(--muted);background:#eee}.live.off i{background:#999;animation:none}
+body{min-height:100vh;color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-tap-highlight-color:transparent;
+  background:radial-gradient(1200px 600px at 85% -10%,var(--bg2),transparent 60%),radial-gradient(900px 600px at -10% 40%,var(--bg3),transparent 60%),var(--bg1);background-attachment:fixed}
+.wrap{max-width:640px;margin:0 auto;padding:14px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:22px;box-shadow:0 8px 30px var(--shadow);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+
+/* الشريط العلوي */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.modes{display:flex;gap:6px;padding:4px;border-radius:999px}
+.ib{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer}
+.ib svg{width:20px;height:20px}
+.ib[aria-pressed="true"]{background:var(--accent);color:var(--accentInk)}
+.lang{border:1px solid var(--edge);background:var(--glass);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-weight:700;cursor:pointer;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+
+/* الساعة */
+.clock{padding:18px;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6px 16px}
+.clock .day{font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--day);line-height:1.1}
+.clock .dates{text-align:end;font-weight:700;font-size:1.05rem}
+.clock .dates small{display:block;font-weight:500;color:var(--muted);font-size:.9rem}
+.clock .time{grid-column:1/-1;margin-top:8px;text-align:center;font-weight:800;font-size:clamp(2.4rem,11vw,3.6rem);letter-spacing:.02em;color:var(--clockInk);
+  background:var(--clockBg);border:1px solid var(--edge);border-radius:18px;padding:6px 10px;font-variant-numeric:tabular-nums;direction:ltr}
+.clock .time span{font-size:.5em;margin-inline-start:.3em}
+html[lang="en"] .clock .day{font-family:var(--body);font-size:2rem}
+
+header{text-align:center;margin:22px 0 14px}
+header h1{font-family:var(--display);font-size:2.1rem;margin:0;color:var(--accent)}
+header p{margin:0;color:var(--muted)}
+
+/* المشغّل */
+.player{text-align:center;padding:22px}
+.cover{width:156px;height:156px;border-radius:50%;object-fit:cover;box-shadow:0 10px 30px var(--shadow);border:4px solid var(--edge);display:block;margin:0 auto 14px}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--danger);background:var(--glass2);border:1px solid var(--edge);border-radius:999px;padding:3px 10px}
+.live i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.4s infinite}
+.live.off{color:var(--muted)}.live.off i{animation:none}
 @keyframes pulse{50%{opacity:.25}}
-.surah{font-family:Amiri,serif;font-size:1.75rem;font-weight:700;margin:10px 0 0;line-height:1.4}
-.reciter{color:var(--green);font-weight:500;font-size:1.1rem}
+@media (prefers-reduced-motion:reduce){.live i{animation:none}}
+.surah{font-family:var(--display);font-size:1.7rem;font-weight:700;margin:10px 0 0;line-height:1.4}
+html[lang="en"] .surah{font-family:var(--body);font-size:1.4rem}
+.reciter{color:var(--accent);font-weight:500;font-size:1.1rem}
 .bar{height:6px;background:var(--soft);border-radius:999px;overflow:hidden;margin:18px 0 6px}
-.bar>div{height:100%;width:0;background:var(--green2);transition:width .5s linear}
-.times{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
+.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s linear}
+.times{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
 .times span{direction:ltr}
 .play #icPause{display:none}.play.playing #icPlay{display:none}.play.playing #icPause{display:block}
-.controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px}
-.play{width:84px;height:84px;border-radius:50%;border:0;background:var(--green);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 20px rgba(47,107,79,.35)}
+.controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px;flex-wrap:wrap}
+.play{width:84px;height:84px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--accentInk);cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 22px var(--shadow)}
 .play:active{transform:scale(.96)}
 .play svg{width:36px;height:36px}
-.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px;font:inherit;font-size:.9rem;cursor:pointer}
-.btn:hover{border-color:var(--green2)}
+.btn{border:1px solid var(--edge);background:var(--glass2);color:var(--ink);border-radius:999px;padding:9px 16px;font:inherit;font-size:.9rem;cursor:pointer}
 .btn[hidden]{display:none}
 .next{margin-top:16px;color:var(--muted);font-size:.9rem}
 .next b{color:var(--ink);font-weight:500}
 .vol{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;color:var(--muted)}
-.vol input{width:140px;accent-color:var(--green)}
-h2{font-family:Amiri,serif;color:var(--green);font-size:1.3rem;margin:26px 4px 10px}
+.vol svg{width:18px;height:18px}
+.vol input{width:140px;accent-color:var(--accent)}
+.err{color:var(--danger);font-size:.85rem;margin-top:8px;min-height:1em}
+
+h2{font-family:var(--display);color:var(--accent);font-size:1.35rem;margin:26px 4px 10px}
+html[lang="en"] h2{font-family:var(--body);font-weight:700;font-size:1.15rem}
 .share{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font:inherit;font-size:.8rem;cursor:pointer}
+.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:16px;color:var(--ink);text-decoration:none;font:inherit;font-size:.8rem;cursor:pointer}
 .share svg{width:22px;height:22px}
-.links{display:grid;gap:8px}
-.links a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none}
-.links a:hover{border-color:var(--green2)}
-.links .ic{width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--green);display:grid;place-items:center;flex:none}
+.xic{fill:var(--ink)}
+.links{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.links a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;text-decoration:none}
+.links .ic{width:36px;height:36px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;flex:none}
 .links .ic svg{width:18px;height:18px}
-.links small{display:block;color:var(--muted);font-size:.75rem;direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw}
-.hint{color:var(--muted);font-size:.85rem;margin:-4px 4px 10px}
-.dl{display:grid;gap:8px}
-.dl .row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.links .tx{min-width:0;flex:1;font-weight:500}
+.links small{display:block;color:var(--muted);font-size:.75rem;direction:ltr;text-align:start;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
+.links .first{background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--accentInk);border-color:transparent}
+.links .first .ic{background:rgba(255,255,255,.2);color:inherit}
+.links .first small{color:inherit;opacity:.85}
+.hint{color:var(--muted);font-size:.85rem;margin:0 0 10px}
+.howto{padding:20px}
+.howto h3{font-family:var(--display);color:var(--accent);font-size:1.1rem;margin:4px 0 8px}
+html[lang="en"] .howto h3{font-family:var(--body)}
+.howto h3:not(:first-child){margin-top:18px}
+.howto ul{margin:8px 0 0;padding-inline-start:18px;font-size:.9rem}
+.howto li{margin:6px 0}
+.copyrow{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:12px;padding:6px;margin:6px 0}
+.copyrow code{flex:1;min-width:0;direction:ltr;text-align:left;font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-inline:6px}
+.cp{border:0;background:var(--accent);color:var(--accentInk);border-radius:999px;padding:6px 14px;font:inherit;font-size:.8rem;cursor:pointer;text-decoration:none;white-space:nowrap}
+details.dlbox{margin-top:26px;padding:0;overflow:hidden}
+details.dlbox summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--display);color:var(--accent);font-size:1.3rem;font-weight:700}
+html[lang="en"] details.dlbox summary{font-family:var(--body);font-size:1.1rem}
+details.dlbox summary::-webkit-details-marker{display:none}
+details.dlbox summary svg{width:22px;height:22px;transition:transform .2s}
+details.dlbox[open] summary svg{transform:rotate(180deg)}
+.dlin{padding:0 16px 18px}
+.dl{display:grid;gap:8px;margin-top:10px;grid-template-columns:minmax(0,1fr)}
+.dl .row{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;background:var(--glass2);border:1px solid var(--edge)}
 .dl .nm{flex:1;min-width:0}
 .dl .nm b{display:block;font-weight:500}
 .dl .nm small{color:var(--muted);font-size:.78rem}
 .dl a{font-size:.82rem;text-decoration:none;border-radius:999px;padding:6px 12px;white-space:nowrap}
-.dl a.pg{color:var(--green);border:1px solid var(--line)}
-.dl a.zp{background:var(--green);color:#fff}
-.howto h3{font-family:Amiri,serif;color:var(--green);font-size:1.1rem;margin:4px 0 8px}
-.howto h3:not(:first-child){margin-top:18px}
-.howto ul{margin:8px 0 0;padding-inline-start:18px;font-size:.9rem}
-.howto li{margin:6px 0}
-.copyrow{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:12px;padding:6px 6px 6px 10px;margin:6px 0}
-.copyrow code{flex:1;min-width:0;direction:ltr;text-align:left;font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cp{border:0;background:var(--green);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:.8rem;cursor:pointer;text-decoration:none;white-space:nowrap}
-.caster{padding:16px}
-.caster iframe{width:100%;height:300px;border:0;border-radius:12px;display:block;background:#fff}
-.casterBtn{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:999px;border:1px solid var(--line);color:var(--green);text-decoration:none;font-weight:500}
+.dl a.pg{color:var(--accent);border:1px solid var(--edge)}
+.dl a.zp{background:var(--accent);color:var(--accentInk)}
 footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;font-size:.85rem;opacity:0;transition:.3s;pointer-events:none}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg1);padding:8px 16px;border-radius:999px;font-size:.85rem;opacity:0;transition:.3s;pointer-events:none}
 .toast.show{opacity:1}
-.err{color:#b42318;font-size:.85rem;margin-top:8px;min-height:1em}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <div class="topbar">
+    <div class="modes glass" role="group" data-i18n-aria="themeGroup" aria-label="وضع العرض">
+      <button class="ib" id="tLight" data-i18n-aria="light" aria-label="الوضع الفاتح" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="ib" id="tDark" data-i18n-aria="dark" aria-label="الوضع الداكن" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
+      </button>
+    </div>
+    <button class="lang" id="langBtn" lang="en">English</button>
+  </div>
+
+  <section class="glass clock" aria-live="off">
+    <div class="day" id="cDay">…</div>
+    <div class="dates"><span id="cHijri"></span><small id="cGreg"></small></div>
+    <div class="time" id="cTime">--:--:--</div>
+  </section>
+
   <header>
-    <h1>تلاوات من القرآن</h1>
-    <p>إذاعة مباشرة على مدار الساعة · من الفاتحة إلى الناس بقارئ مختلف لكل سورة</p>
+    <h1 data-i18n="title">تلاوات من القرآن</h1>
+    <p data-i18n="sub">إذاعة مباشرة على مدار الساعة</p>
   </header>
 
-  <section class="card player">
-    <img class="cover" src="logo512.jpg" alt="شعار القرآن الكريم">
+  <section class="glass player">
+    <img class="cover" src="logo512.jpg" alt="تلاوات من القرآن" data-i18n-alt="title">
     <span id="live" class="live"><i></i><span id="liveTxt">مباشر</span></span>
     <div class="surah" id="surah">…</div>
     <div class="reciter" id="reciter"></div>
     <div class="bar"><div id="prog"></div></div>
     <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
     <div class="controls">
-      <button class="btn" id="nextBtn" title="السورة التالية">السورة التالية</button>
+      <button class="btn" id="nextBtn" data-i18n="nextBtn">السورة التالية</button>
       <button class="play" id="playBtn" aria-label="تشغيل">
         <svg id="icPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <svg id="icPause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
       </button>
-      <button class="btn" id="liveBtn" hidden>العودة للبث المباشر</button>
+      <button class="btn" id="liveBtn" data-i18n="backLive" hidden>العودة للبث المباشر</button>
     </div>
-    <div class="vol"><span>🔈</span><input id="vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="الصوت"></div>
-    <div class="next">التالي: <b id="next">…</b></div>
+    <div class="vol"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/></svg><input id="vol" type="range" min="0" max="1" step="0.05" value="1" data-i18n-aria="volume" aria-label="الصوت"></div>
+    <div class="next"><span data-i18n="nextLbl">التالي:</span> <b id="next">…</b></div>
     <div class="err" id="err"></div>
   </section>
 
-  <h2>البث المباشر عبر Caster</h2>
-  <section class="card caster">
-    <p class="hint" style="margin:0 0 10px">نفس التلاوات على خادم بث (إذاعة Caster). المشغّل أعلاه يعمل دائمًا حتى لو توقف هذا البث.</p>
-    <iframe src="https://widgets.cloud.caster.fm/player/?token=af88eef3-5061-4f59-8986-03b3f6c5e9e7&theme=light&color=2f6b4f" title="مشغّل إذاعة Caster" loading="lazy" allow="autoplay"></iframe>
-    <a class="casterBtn" href="https://trtel-alquran.ismyradio.com" target="_blank" rel="noopener">افتح صفحة إذاعة Caster</a>
-  </section>
-
-  <h2>شارك الإذاعة</h2>  <div class="share">
-    <a id="shWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>واتساب</a>
-    <a id="shTg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#229ED9"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/></svg>تليجرام</a>
-    <a id="shX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#111"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>X</a>
-    <button id="shCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>نسخ الرابط</button>
+  <h2 data-i18n="shareH">شارك الإذاعة</h2>
+  <div class="share">
+    <a class="glass" id="shWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg><span data-i18n="wa">واتساب</span></a>
+    <a class="glass" id="shTg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#229ED9"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/></svg><span data-i18n="tg">تليجرام</span></a>
+    <a class="glass" id="shX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path class="xic" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>X</a>
+    <button class="glass" id="shCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n="copyLink">نسخ الرابط</span></button>
   </div>
 
-  <h2>روابط القنوات</h2>
+  <h2 data-i18n="linksH">روابط القنوات</h2>
   <div class="links" id="links"></div>
 
-  <h2>الاستماع في تطبيقك</h2>
-  <section class="card howto">
-    <h3>١. قائمة التشغيل M3U (إذاعة بلا توقف)</h3>
-    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/radio.m3u">نسخ</button></div>
-    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u">نسخ</button></div>
-    <p class="hint">الأولى دورات بقرّاء مختلفين، والثانية بترتيب المصحف.</p>
+  <h2 data-i18n="appsH">الاستماع في تطبيقك</h2>
+  <section class="glass howto">
+    <h3 data-i18n="m3uH">١. قائمة التشغيل M3U (إذاعة بلا توقف)</h3>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/radio.m3u">نسخ</button></div>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u">نسخ</button></div>
+    <p class="hint" data-i18n="m3uHint">الأولى دورات بقرّاء مختلفين، والثانية بترتيب المصحف.</p>
     <ul>
-      <li><b>الكمبيوتر (VLC):</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</li>
-      <li><b>أندرويد (VLC):</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل، ثم فعّل التكرار من شاشة التشغيل.</li>
-      <li><b>آيفون (VLC):</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة»، ثم فعّل التكرار.</li>
+      <li data-i18n-html="vlcPc"><b>الكمبيوتر (VLC):</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</li>
+      <li data-i18n-html="vlcAnd"><b>أندرويد (VLC):</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل، ثم فعّل التكرار من شاشة التشغيل.</li>
+      <li data-i18n-html="vlcIos"><b>آيفون (VLC):</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة»، ثم فعّل التكرار.</li>
     </ul>
-    <h3>٢. خلاصة البودكاست RSS (حلقات تُحدَّث تلقائيًا)</h3>
-    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast.xml</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/podcast.xml">نسخ</button></div>
+    <h3 data-i18n="rssH">٢. خلاصة البودكاست RSS (حلقات تُحدَّث تلقائيًا)</h3>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast.xml</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/podcast.xml">نسخ</button></div>
     <ul>
-      <li><b>Podcast Addict / AntennaPod (أندرويد):</b> زر الإضافة (+) ← «إضافة برابط RSS» ← الصق الرابط.</li>
-      <li><b>Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</li>
-      <li><b>Overcast (آيفون):</b> (+) ← «Add URL» ← الصق الرابط.</li>
-      <li><b>Apple Podcasts:</b> المكتبة ← «⋯» أو «تعديل» ← «متابعة برنامج بالرابط» (Follow a Show by URL) ← الصق الرابط.</li>
+      <li data-i18n-html="rssAnd"><b>Podcast Addict / AntennaPod (أندرويد):</b> زر الإضافة (+) ← «إضافة برابط RSS» ← الصق الرابط.</li>
+      <li data-i18n-html="rssPc"><b>Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</li>
+      <li data-i18n-html="rssOv"><b>Overcast (آيفون):</b> (+) ← «Add URL» ← الصق الرابط.</li>
+      <li data-i18n-html="rssAp"><b>Apple Podcasts:</b> المكتبة ← «⋯» أو «تعديل» ← «متابعة برنامج بالرابط» (Follow a Show by URL) ← الصق الرابط.</li>
     </ul>
   </section>
 
-  <h2>تحميل التلاوات</h2>
-  <section class="card howto">
-    <h3>تحميل كل التلاوات دفعة واحدة</h3>
-    <p class="hint" style="margin:0 0 8px">958 تلاوة بحجم يقارب 23 جيجا؛ لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
-    <div class="copyrow"><code>all-urls.txt</code><a class="cp" href="all-urls.txt" download>تحميل القائمة</a></div>
-    <ul>
-      <li><b>الكمبيوتر:</b> برنامج JDownloader أو Internet Download Manager ← «إضافة روابط» ← الصق محتوى الملف أو استورده.</li>
-      <li><b>أندرويد:</b> تطبيق ADM ← استيراد قائمة الروابط من الملف.</li>
-    </ul>
-  </section>
-  <p class="hint" style="margin-top:14px">أو حمّل كل قارئ وحده: افتح صفحته للاستماع وتحميل ملف واحد، أو حمّل مجلده كاملًا بصيغة ZIP.</p>
-  <div class="dl" id="dl"></div>
+  <details class="glass dlbox" id="dlbox">
+    <summary><span data-i18n="dlH">تحميل التلاوات</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+    <div class="dlin">
+      <div class="howto" style="padding:0">
+        <h3 data-i18n="dlAllH">تحميل كل التلاوات دفعة واحدة</h3>
+        <p class="hint" data-i18n="dlAllHint">958 تلاوة بحجم يقارب 23 جيجا؛ لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
+        <div class="copyrow"><code>all-urls.txt</code><a class="cp" href="all-urls.txt" download data-i18n="dlList">تحميل القائمة</a></div>
+        <ul>
+          <li data-i18n-html="dlPc"><b>الكمبيوتر:</b> برنامج JDownloader أو Internet Download Manager ← «إضافة روابط» ← الصق محتوى الملف أو استورده.</li>
+          <li data-i18n-html="dlAnd"><b>أندرويد:</b> تطبيق ADM ← استيراد قائمة الروابط من الملف.</li>
+        </ul>
+      </div>
+      <p class="hint" style="margin-top:14px" data-i18n="dlEach">أو حمّل كل قارئ وحده: افتح صفحته للاستماع وتحميل ملف واحد، أو حمّل مجلده كاملًا بصيغة ZIP.</p>
+      <div class="dl" id="dl"></div>
+    </div>
+  </details>
 
-  <footer>ترتيل القرآن · التلاوات من أرشيف <a href="https://archive.org/details/trtel-alquran-feed" style="color:inherit">archive.org</a></footer>
+  <footer><span data-i18n="foot">ترتيل القرآن · التلاوات من أرشيف</span> <a href="https://archive.org/details/@trtel_alquran">archive.org</a></footer>
 </div>
 <div class="toast" id="toast"></div>
 <audio id="audio" preload="none"></audio>
@@ -174,6 +253,98 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
 <script>
 (() => {
   const $ = id => document.getElementById(id);
+  const root = document.documentElement;
+  const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                  set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} } };
+
+  /* ---------- اللغة ---------- */
+  const EN = {
+    title: 'Tilawat min al-Quran', sub: 'Live Quran recitation radio, around the clock',
+    nextBtn: 'Next surah', backLive: 'Back to live', nextLbl: 'Next:', volume: 'Volume',
+    shareH: 'Share the radio', wa: 'WhatsApp', tg: 'Telegram', copyLink: 'Copy link',
+    linksH: 'Our channels', appsH: 'Listen in your app', copy: 'Copy',
+    m3uH: '1. M3U playlist (non-stop radio)', m3uHint: 'The first rotates reciters; the second follows the Mushaf order.',
+    vlcPc: '<b>Computer (VLC):</b> copy the link → open VLC → Media → Open Network Stream (Ctrl+N) → paste → Play. Then turn on Loop to repeat forever.',
+    vlcAnd: '<b>Android (VLC):</b> copy the link → open VLC → More → New stream → paste → Play, then turn on repeat.',
+    vlcIos: '<b>iPhone (VLC):</b> copy the link → open VLC → Network → Network Stream → paste → Open Network Stream, then turn on repeat.',
+    rssH: '2. Podcast RSS feed (updates automatically)',
+    rssAnd: '<b>Podcast Addict / AntennaPod (Android):</b> + → Add by RSS URL → paste the link.',
+    rssPc: '<b>Pocket Casts:</b> Search → paste the link in the search box → Subscribe.',
+    rssOv: '<b>Overcast (iPhone):</b> + → Add URL → paste the link.',
+    rssAp: '<b>Apple Podcasts:</b> Library → ⋯ or Edit → Follow a Show by URL → paste the link.',
+    dlH: 'Download the recitations', dlAllH: 'Download everything at once',
+    dlAllHint: '958 recitations, about 23 GB. It is too large for one ZIP, so use this list of links in a download manager to get them all at once:',
+    dlList: 'Download list',
+    dlPc: '<b>Computer:</b> JDownloader or Internet Download Manager → Add links → paste or import the file.',
+    dlAnd: '<b>Android:</b> ADM app → import the link list from the file.',
+    dlEach: 'Or download one reciter: open their page to listen or save single files, or get the whole folder as a ZIP.',
+    foot: 'Tartil al-Quran · recitations hosted on', themeGroup: 'Display mode', light: 'Light mode', dark: 'Dark mode',
+    live: 'Live', notLive: 'Off live', play: 'Play', pause: 'Pause', copied: 'Link copied',
+    loadErr: 'Could not load this recitation, moving to the next…', plErr: 'Could not load the playlist.',
+    recit: 'recitations', page: 'Page', gb: 'GB', mb: 'MB',
+    shareMsg: 'Listen to "Tilawat min al-Quran", live Quran radio around the clock'
+  };
+  const AR = {}; // يُملأ من النصوص الأصلية في الصفحة
+  const ARX = { live: 'مباشر', notLive: 'خارج البث المباشر', play: 'تشغيل', pause: 'إيقاف', copied: 'تم نسخ الرابط',
+    loadErr: 'تعذّر تحميل هذا المقطع، ننتقل للتالي…', plErr: 'تعذّر تحميل قائمة التشغيل.', recit: 'تلاوة', page: 'الصفحة', gb: 'جيجا', mb: 'ميجا',
+    shareMsg: 'استمع لإذاعة «تلاوات من القرآن» مباشرة على مدار الساعة' };
+  document.querySelectorAll('[data-i18n]').forEach(e => AR[e.dataset.i18n] = e.textContent);
+  document.querySelectorAll('[data-i18n-html]').forEach(e => AR[e.dataset.i18nHtml] = e.innerHTML);
+  document.querySelectorAll('[data-i18n-aria]').forEach(e => AR[e.dataset.i18nAria] = e.getAttribute('aria-label'));
+  document.querySelectorAll('[data-i18n-alt]').forEach(e => AR['alt_' + e.dataset.i18nAlt] = e.alt);
+  Object.assign(AR, ARX);
+  let lang = store.get('lang') === 'en' ? 'en' : 'ar';
+  const T = k => (lang === 'en' ? EN : AR)[k] ?? AR[k] ?? k;
+
+  const SURAH_EN = ['Al-Fatihah','Al-Baqarah','Aal Imran','An-Nisa','Al-Maidah','Al-Anam','Al-Araf','Al-Anfal','At-Tawbah','Yunus','Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl','Al-Isra','Al-Kahf','Maryam','Taha','Al-Anbiya','Al-Hajj','Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml','Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab','Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir','Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf','Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur','An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah','Al-Hashr','Al-Mumtahanah','As-Saff','Al-Jumuah','Al-Munafiqun','At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqah','Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyamah','Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir','Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala','Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha','Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah','Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil','Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad','Al-Ikhlas','Al-Falaq','An-Nas'];
+  const SURAH_AR = ['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
+  const SMAP = new Map(SURAH_AR.map((a, i) => [a, SURAH_EN[i]]));
+  const SRE = new RegExp('(^|[\\s،(])(' + SURAH_AR.slice().sort((a, b) => b.length - a.length).join('|') + ')(?=$|[\\s،)])', 'g');
+  const trTitle = t => lang !== 'en' ? t : t.replace(/^سورة\s+/, 'Surah ').replace(SRE, (m, p, s) => (p === '،' ? ',' : p) + SMAP.get(s))
+      .replace(/،/g, ',').replace(/(\d+)هـ/g, '$1 AH').replace(/مختارات من (\d+) سورة - أولها/, 'Selections from $1 surahs, starting with');
+  const trRec = r => lang === 'en' && r === 'تلاوات متنوعة' ? 'Various reciters' : r;
+
+  function applyLang() {
+    root.lang = lang; root.dir = lang === 'en' ? 'ltr' : 'rtl';
+    document.querySelectorAll('[data-i18n]').forEach(e => e.textContent = T(e.dataset.i18n));
+    document.querySelectorAll('[data-i18n-html]').forEach(e => e.innerHTML = T(e.dataset.i18nHtml));
+    document.querySelectorAll('[data-i18n-aria]').forEach(e => e.setAttribute('aria-label', T(e.dataset.i18nAria)));
+    $('langBtn').textContent = lang === 'en' ? 'العربية' : 'English';
+    $('langBtn').lang = lang === 'en' ? 'ar' : 'en';
+    renderLinks(); renderDl(); tick(); setLiveUI(); setPlaying(!audio.paused); setShare();
+    if (PL && idx >= 0) show(idx);
+  }
+  $('langBtn').onclick = () => { lang = lang === 'en' ? 'ar' : 'en'; store.set('lang', lang === 'en' ? 'en' : null); applyLang(); };
+
+  /* ---------- الوضع الفاتح/الداكن ---------- */
+  const sysDark = matchMedia('(prefers-color-scheme: dark)');
+  function paintTheme() {
+    const t = root.dataset.theme || (sysDark.matches ? 'dark' : 'light');
+    $('tLight').setAttribute('aria-pressed', t === 'light'); $('tDark').setAttribute('aria-pressed', t === 'dark');
+  }
+  const setTheme = t => { root.dataset.theme = t; store.set('theme', t); paintTheme(); };
+  $('tLight').onclick = () => setTheme('light'); $('tDark').onclick = () => setTheme('dark');
+  sysDark.addEventListener && sysDark.addEventListener('change', paintTheme); paintTheme();
+
+  /* ---------- الساعة ---------- */
+  function tick() {
+    const d = new Date(), en = lang === 'en';
+    let day, hijri, greg;
+    try {
+      day = d.toLocaleDateString(en ? 'en-GB' : 'ar-SA-u-nu-latn', { weekday: 'long' });
+      hijri = d.toLocaleDateString(en ? 'en-GB-u-ca-islamic-umalqura' : 'ar-SA-u-ca-islamic-umalqura-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' });
+      greg = d.toLocaleDateString(en ? 'en-GB' : 'ar-SA-u-ca-gregory-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { day = ''; hijri = ''; greg = d.toDateString(); }
+    hijri = en ? hijri.replace(/\s*AH$/, '') + ' AH' : hijri.replace(/\s*هـ$/, '') + 'هـ';
+    greg = en ? greg : 'الموافق ' + greg.replace(/\s*م$/, '') + 'م';
+    $('cDay').textContent = day; $('cHijri').textContent = hijri; $('cGreg').textContent = greg;
+    let h = d.getHours(); const am = h < 12; h = h % 12 || 12;
+    const p = n => String(n).padStart(2, '0');
+    $('cTime').innerHTML = `${p(h)}:${p(d.getMinutes())}:${p(d.getSeconds())}<span>${en ? (am ? 'AM' : 'PM') : (am ? 'ص' : 'م')}</span>`;
+  }
+  setInterval(tick, 1000);
+
+  /* ---------- المشغّل المتزامن ---------- */
   const audio = $('audio');
   let PL = null, cum = [], epoch = 0;
   let idx = -1, live = true, wantPlay = false, switching = false;
@@ -192,19 +363,19 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
 
   function show(i) {
     const it = PL.items[i], nx = PL.items[(i + 1) % PL.items.length];
-    $('surah').textContent = it.t; $('reciter').textContent = it.r;
-    $('next').textContent = nx.t + (nx.r ? ' — ' + nx.r : '');
+    $('surah').textContent = trTitle(it.t); $('reciter').textContent = trRec(it.r);
+    $('next').textContent = trTitle(nx.t) + (nx.r ? ' — ' + trRec(nx.r) : '');
     $('dur').textContent = fmt(it.d);
-    document.title = it.t + ' — تلاوات من القرآن';
+    document.title = trTitle(it.t) + ' — ' + T('title');
     if ('mediaSession' in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: it.t, artist: it.r, album: 'تلاوات من القرآن',
+      navigator.mediaSession.metadata = new MediaMetadata({ title: trTitle(it.t), artist: trRec(it.r), album: T('title'),
         artwork: [{ src: 'logo512.jpg', sizes: '512x512', type: 'image/jpeg' }] });
     }
   }
 
   function setLiveUI() {
     $('live').classList.toggle('off', !live);
-    $('liveTxt').textContent = live ? 'مباشر' : 'خارج البث المباشر';
+    $('liveTxt').textContent = live ? T('live') : T('notLive');
     $('liveBtn').hidden = live;
   }
 
@@ -218,28 +389,22 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   }
 
   function goLive() { live = true; setLiveUI(); const [i, off] = livePos(); load(i, off); }
-
-  function next() {
-    live = false; setLiveUI();
-    load((idx + 1) % PL.items.length, 0);
-  }
-
-  function setPlaying(p) { $('playBtn').classList.toggle('playing', p); $('playBtn').setAttribute('aria-label', p ? 'إيقاف' : 'تشغيل'); }
+  function next() { live = false; setLiveUI(); load((idx + 1) % PL.items.length, 0); }
+  function setPlaying(p) { $('playBtn').classList.toggle('playing', p); $('playBtn').setAttribute('aria-label', p ? T('pause') : T('play')); }
 
   $('playBtn').onclick = () => {
-    if (audio.paused) {
-      wantPlay = true;
-      if (live) goLive(); else audio.play().catch(()=>{});
-    } else { wantPlay = false; audio.pause(); }
+    if (!PL) return;
+    if (audio.paused) { wantPlay = true; if (live) goLive(); else audio.play().catch(()=>{}); }
+    else { wantPlay = false; audio.pause(); }
   };
-  $('nextBtn').onclick = next;
+  $('nextBtn').onclick = () => PL && next();
   $('liveBtn').onclick = goLive;
   $('vol').oninput = e => audio.volume = e.target.value;
 
   audio.onplay = () => setPlaying(true);
   audio.onpause = () => setPlaying(false);
   audio.onended = () => { if (live) goLive(); else load((idx + 1) % PL.items.length, 0); };
-  audio.onerror = () => { if (switching || !audio.src) return; $('err').textContent = 'تعذّر تحميل هذا المقطع، ننتقل للتالي…'; setTimeout(() => audio.onended(), 3000); };
+  audio.onerror = () => { if (switching || !audio.src) return; $('err').textContent = T('loadErr'); setTimeout(() => audio.onended(), 3000); };
 
   setInterval(() => {
     if (!PL) return;
@@ -259,21 +424,22 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('play', () => $('playBtn').click());
     navigator.mediaSession.setActionHandler('pause', () => { wantPlay = false; audio.pause(); });
-    navigator.mediaSession.setActionHandler('nexttrack', next);
+    navigator.mediaSession.setActionHandler('nexttrack', () => PL && next());
   }
 
-  // المشاركة
-  const url = location.href.split('#')[0], msg = 'استمع لإذاعة «تلاوات من القرآن» مباشرة على مدار الساعة';
-  $('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(msg + '\n' + url);
-  $('shTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(msg);
-  $('shX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url);
-  $('shCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('تم نسخ الرابط'); } catch (e) { prompt('انسخ الرابط:', url); } };
+  /* ---------- المشاركة والنسخ ---------- */
+  const url = location.href.split('#')[0];
+  function setShare() {
+    const msg = T('shareMsg');
+    $('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(msg + '\n' + url);
+    $('shTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(msg);
+    $('shX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url);
+  }
+  const copy = async t => { try { await navigator.clipboard.writeText(t); toast(T('copied')); } catch (e) { prompt('', t); } };
+  $('shCopy').onclick = () => copy(url);
+  document.querySelectorAll('button.cp[data-copy]').forEach(b => b.onclick = () => copy(b.dataset.copy));
 
-  document.querySelectorAll('button.cp[data-copy]').forEach(b => b.onclick = async () => {
-    try { await navigator.clipboard.writeText(b.dataset.copy); toast('تم نسخ الرابط'); } catch (e) { prompt('انسخ الرابط:', b.dataset.copy); }
-  });
-
-  // الروابط
+  /* ---------- الروابط ---------- */
   const ICONS = {
     radio: '<path d="M4 9h16v11H4z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="14.5" r="2.5" fill="currentColor"/><path d="M7 9l10-5" stroke="currentColor" stroke-width="2"/>',
     telegram: '<path fill="currentColor" d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/>',
@@ -284,25 +450,28 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     rss: '<path fill="none" stroke="currentColor" stroke-width="2" d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor"/>',
     podcast: '<circle cx="12" cy="11" r="3" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 14v7M6.3 16a8 8 0 1 1 11.4 0"/>'
   };
-  fetch('links.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
-    $('links').innerHTML = j.links.filter(l => l.url).map(l =>
-      `<a href="${l.url}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[l.icon] || ICONS.list}</svg></span><span>${l.name}<small>${l.url.replace(/^https?:\/\//, '')}</small></span></a>`).join('');
-  }).catch(() => {});
+  let LINKS = [], DL = [];
+  function renderLinks() {
+    $('links').innerHTML = LINKS.filter(l => l.url).map((l, i) =>
+      `<a class="glass${i ? '' : ' first'}" href="${l.url}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[l.icon] || ICONS.list}</svg></span><span class="tx">${lang === 'en' && l.en ? l.en : l.name}<small>${l.url.replace(/^https?:\/\//, '')}</small></span></a>`).join('');
+  }
+  function renderDl() {
+    const sz = mb => mb >= 1000 ? (mb / 1000).toFixed(1) + ' ' + T('gb') : mb + ' ' + T('mb');
+    $('dl').innerHTML = DL.map(x => `<div class="row"><div class="nm"><b>${trRec(x.r)}</b><small>${x.n} ${T('recit')} · ${sz(x.mb)}</small></div>` +
+      `<a class="pg" href="${x.page}" target="_blank" rel="noopener">${T('page')}</a><a class="zp" href="${x.zip}" rel="noopener">ZIP</a></div>`).join('');
+  }
+  fetch('links.json', { cache: 'no-store' }).then(r => r.json()).then(j => { LINKS = j.links; renderLinks(); }).catch(() => {});
+  fetch('downloads.json', { cache: 'no-store' }).then(r => r.json()).then(list => { DL = list; renderDl(); }).catch(() => {});
 
-  // التحميل
-  fetch('downloads.json', { cache: 'no-store' }).then(r => r.json()).then(list => {
-    const gb = mb => mb >= 1000 ? (mb / 1000).toFixed(1) + ' جيجا' : mb + ' ميجا';
-    $('dl').innerHTML = list.map(x => `<div class="row"><div class="nm"><b>${x.r}</b><small>${x.n} تلاوة · ${gb(x.mb)}</small></div>` +
-      `<a class="pg" href="${x.page}" target="_blank" rel="noopener">الصفحة</a><a class="zp" href="${x.zip}" rel="noopener">ZIP</a></div>`).join('');
-  }).catch(() => {});
-
-  // القائمة
+  /* ---------- القائمة ---------- */
   fetch('playlist.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
     PL = j; epoch = Date.parse(j.epoch) / 1000;
     let s = 0; cum = j.items.map(it => { const c = s; s += it.d; return c; });
     PL.total = s;
     const [i, off] = livePos(); idx = i; show(i); paint(off); setLiveUI();
-  }).catch(() => { $('err').textContent = 'تعذّر تحميل قائمة التشغيل.'; });
+  }).catch(() => { $('err').textContent = T('plErr'); });
+
+  applyLang();
 })();
 </script>
 </body>
