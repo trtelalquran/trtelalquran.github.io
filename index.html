@@ -70,7 +70,7 @@ a{color:inherit}
 .clock .dates small{display:block;font-weight:500;color:var(--muted);font-size:.9rem}
 .clock .time{grid-column:1/-1;margin-top:8px;text-align:center;font-weight:800;font-size:clamp(2.4rem,11vw,3.6rem);letter-spacing:.02em;color:var(--clockInk);
   background:var(--clockBg);border:1px solid var(--edge);border-radius:18px;padding:6px 10px;font-variant-numeric:tabular-nums;direction:ltr}
-.clock .time span{font-size:.5em;margin-inline-start:.3em}
+.clock .time{display:flex;justify-content:center;align-items:center;gap:.3em}.clock .time b{font-weight:inherit}.clock .time span{font-size:.55em}
 html[lang="en"] .clock .day{font-family:var(--body);font-size:2rem}
 
 header{text-align:center;margin:22px 0 14px}
@@ -341,7 +341,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     $('cDay').textContent = day; $('cHijri').textContent = hijri; $('cGreg').textContent = greg;
     let h = d.getHours(); const am = h < 12; h = h % 12 || 12;
     const p = n => String(n).padStart(2, '0');
-    $('cTime').innerHTML = `${p(h)}:${p(d.getMinutes())}:${p(d.getSeconds())}<span>${en ? (am ? 'AM' : 'PM') : (am ? 'ص' : 'م')}</span>`;
+    $('cTime').innerHTML = `<span>${en ? (am ? 'AM' : 'PM') : (am ? 'ص' : 'م')}</span><b>${p(h)}:${p(d.getMinutes())}:${p(d.getSeconds())}</b>`;
   }
   setInterval(tick, 1000);
 
