@@ -50,6 +50,12 @@
       "icon": "podcast"
     },
     {
+      "name": "بودكاست يوتيوب",
+      "en": "YouTube podcast",
+      "url": "https://www.youtube.com/@trtelalquran/podcasts",
+      "icon": "youtube"
+    },
+    {
       "name": "Apple Podcasts",
       "en": "Apple Podcasts",
       "url": "",
