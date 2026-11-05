@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تلاوات من القرآن — إذاعة مباشرة</title>
+<meta name="description" content="إذاعة تلاوات قرآنية مباشرة على مدار الساعة: السور متتالية من الفاتحة إلى الناس بقارئ مختلف لكل سورة.">
+<meta name="theme-color" content="#2f6b4f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="تلاوات من القرآن — إذاعة مباشرة 24 ساعة">
+<meta property="og:description" content="استمع الآن: السور متتالية من الفاتحة إلى الناس بقارئ مختلف لكل سورة، بلا توقف.">
+<meta property="og:image" content="https://trtelalquran.github.io/logo1200.jpg">
+<meta property="og:url" content="https://trtelalquran.github.io/">
+<link rel="canonical" href="https://trtelalquran.github.io/">
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo512.jpg">
+<link rel="apple-touch-icon" href="logo512.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#1f2a24;--muted:#6b7a71;--green:#2f6b4f;--green2:#3f8a66;--soft:#e7efe9;--line:#e3e0d6;--gold:#b08d3c}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Tajawal,system-ui,sans-serif;line-height:1.6;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+header{text-align:center;margin:8px 0 18px}
+header h1{font-family:Amiri,serif;font-size:2rem;margin:6px 0 0;color:var(--green)}
+header p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 6px 24px rgba(31,42,36,.06)}
+.player{text-align:center}
+.cover{width:170px;height:170px;border-radius:24px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.18);display:block;margin:0 auto 16px}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:#b42318;background:#fdecea;border-radius:999px;padding:3px 10px}
+.live i{width:8px;height:8px;border-radius:50%;background:#d92d20;animation:pulse 1.4s infinite}
+.live.off{color:var(--muted);background:#eee}.live.off i{background:#999;animation:none}
+@keyframes pulse{50%{opacity:.25}}
+.surah{font-family:Amiri,serif;font-size:1.75rem;font-weight:700;margin:10px 0 0;line-height:1.4}
+.reciter{color:var(--green);font-weight:500;font-size:1.1rem}
+.bar{height:6px;background:var(--soft);border-radius:999px;overflow:hidden;margin:18px 0 6px}
+.bar>div{height:100%;width:0;background:var(--green2);transition:width .5s linear}
+.times{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem}
+.times span{direction:ltr}
+.play #icPause{display:none}.play.playing #icPlay{display:none}.play.playing #icPause{display:block}
+.controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px}
+.play{width:84px;height:84px;border-radius:50%;border:0;background:var(--green);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 20px rgba(47,107,79,.35)}
+.play:active{transform:scale(.96)}
+.play svg{width:36px;height:36px}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px;font:inherit;font-size:.9rem;cursor:pointer}
+.btn:hover{border-color:var(--green2)}
+.btn[hidden]{display:none}
+.next{margin-top:16px;color:var(--muted);font-size:.9rem}
+.next b{color:var(--ink);font-weight:500}
+.vol{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;color:var(--muted)}
+.vol input{width:140px;accent-color:var(--green)}
+h2{font-family:Amiri,serif;color:var(--green);font-size:1.3rem;margin:26px 4px 10px}
+.share{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);text-decoration:none;font:inherit;font-size:.8rem;cursor:pointer}
+.share svg{width:22px;height:22px}
+.links{display:grid;gap:8px}
+.links a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none}
+.links a:hover{border-color:var(--green2)}
+.links .ic{width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--green);display:grid;place-items:center;flex:none}
+.links .ic svg{width:18px;height:18px}
+.links small{display:block;color:var(--muted);font-size:.75rem;direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw}
+.hint{color:var(--muted);font-size:.85rem;margin:-4px 4px 10px}
+.dl{display:grid;gap:8px}
+.dl .row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.dl .nm{flex:1;min-width:0}
+.dl .nm b{display:block;font-weight:500}
+.dl .nm small{color:var(--muted);font-size:.78rem}
+.dl a{font-size:.82rem;text-decoration:none;border-radius:999px;padding:6px 12px;white-space:nowrap}
+.dl a.pg{color:var(--green);border:1px solid var(--line)}
+.dl a.zp{background:var(--green);color:#fff}
+footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;font-size:.85rem;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+.err{color:#b42318;font-size:.85rem;margin-top:8px;min-height:1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>تلاوات من القرآن</h1>
+    <p>إذاعة مباشرة على مدار الساعة · من الفاتحة إلى الناس بقارئ مختلف لكل سورة</p>
+  </header>
+
+  <section class="card player">
+    <img class="cover" src="logo512.jpg" alt="شعار القرآن الكريم">
+    <span id="live" class="live"><i></i><span id="liveTxt">مباشر</span></span>
+    <div class="surah" id="surah">…</div>
+    <div class="reciter" id="reciter"></div>
+    <div class="bar"><div id="prog"></div></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <div class="controls">
+      <button class="btn" id="nextBtn" title="السورة التالية">السورة التالية</button>
+      <button class="play" id="playBtn" aria-label="تشغيل">
+        <svg id="icPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="icPause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+      </button>
+      <button class="btn" id="liveBtn" hidden>العودة للبث المباشر</button>
+    </div>
+    <div class="vol"><span>🔈</span><input id="vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="الصوت"></div>
+    <div class="next">التالي: <b id="next">…</b></div>
+    <div class="err" id="err"></div>
+  </section>
+
+  <h2>شارك الإذاعة</h2>
+  <div class="share">
+    <a id="shWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>واتساب</a>
+    <a id="shTg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#229ED9"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/></svg>تليجرام</a>
+    <a id="shX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#111"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>X</a>
+    <button id="shCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>نسخ الرابط</button>
+  </div>
+
+  <h2>روابطنا</h2>
+  <div class="links" id="links"></div>
+
+  <h2>تحميل التلاوات</h2>
+  <p class="hint">كل قارئ في مجلد على الأرشيف: افتح الصفحة للاستماع أو تحميل ملف واحد، أو حمّل المجلد كاملًا بصيغة ZIP.</p>
+  <div class="dl" id="dl"></div>
+
+  <footer>ترتيل القرآن · التلاوات من أرشيف <a href="https://archive.org/details/trtel-alquran-feed" style="color:inherit">archive.org</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+<audio id="audio" preload="none"></audio>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const audio = $('audio');
+  let PL = null, cum = [], epoch = 0;
+  let idx = -1, live = true, wantPlay = false, switching = false;
+
+  const fmt = s => { s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = String(s % 60).padStart(2, '0');
+    return h ? `${h}:${String(m).padStart(2, '0')}:${x}` : `${m}:${x}`; };
+  const toast = t => { const e = $('toast'); e.textContent = t; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 1800); };
+
+  // موضع البث المباشر الآن: [رقم المقطع، الثانية داخله]
+  function livePos() {
+    const pos = ((Date.now() / 1000 - epoch) % PL.total + PL.total) % PL.total;
+    let lo = 0, hi = cum.length - 1;
+    while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (cum[mid] <= pos) lo = mid; else hi = mid - 1; }
+    return [lo, pos - cum[lo]];
+  }
+
+  function show(i) {
+    const it = PL.items[i], nx = PL.items[(i + 1) % PL.items.length];
+    $('surah').textContent = it.t; $('reciter').textContent = it.r;
+    $('next').textContent = nx.t + (nx.r ? ' — ' + nx.r : '');
+    $('dur').textContent = fmt(it.d);
+    document.title = it.t + ' — تلاوات من القرآن';
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({ title: it.t, artist: it.r, album: 'تلاوات من القرآن',
+        artwork: [{ src: 'logo512.jpg', sizes: '512x512', type: 'image/jpeg' }] });
+    }
+  }
+
+  function setLiveUI() {
+    $('live').classList.toggle('off', !live);
+    $('liveTxt').textContent = live ? 'مباشر' : 'خارج البث المباشر';
+    $('liveBtn').hidden = live;
+  }
+
+  function load(i, offset) {
+    idx = i; show(i); switching = true; $('err').textContent = '';
+    audio.src = PL.items[i].u;
+    const seek = () => { try { if (offset > 1) audio.currentTime = offset; } catch (e) {} switching = false; if (wantPlay) audio.play().catch(()=>{}); };
+    audio.addEventListener('loadedmetadata', seek, { once: true });
+    audio.load();
+    if (wantPlay) audio.play().catch(()=>{});
+  }
+
+  function goLive() { live = true; setLiveUI(); const [i, off] = livePos(); load(i, off); }
+
+  function next() {
+    live = false; setLiveUI();
+    load((idx + 1) % PL.items.length, 0);
+  }
+
+  function setPlaying(p) { $('playBtn').classList.toggle('playing', p); $('playBtn').setAttribute('aria-label', p ? 'إيقاف' : 'تشغيل'); }
+
+  $('playBtn').onclick = () => {
+    if (audio.paused) {
+      wantPlay = true;
+      if (live) goLive(); else audio.play().catch(()=>{});
+    } else { wantPlay = false; audio.pause(); }
+  };
+  $('nextBtn').onclick = next;
+  $('liveBtn').onclick = goLive;
+  $('vol').oninput = e => audio.volume = e.target.value;
+
+  audio.onplay = () => setPlaying(true);
+  audio.onpause = () => setPlaying(false);
+  audio.onended = () => { if (live) goLive(); else load((idx + 1) % PL.items.length, 0); };
+  audio.onerror = () => { if (switching || !audio.src) return; $('err').textContent = 'تعذّر تحميل هذا المقطع، ننتقل للتالي…'; setTimeout(() => audio.onended(), 3000); };
+
+  setInterval(() => {
+    if (!PL) return;
+    if (live) {
+      const [i, off] = livePos();
+      if (audio.paused) { if (i !== idx) show(idx = i); paint(off); }
+      else if (i !== idx) goLive();               // الساعة هي المرجع في البث المباشر
+      else paint(audio.currentTime || off);
+    } else paint(audio.currentTime);
+  }, 1000);
+
+  function paint(t) {
+    const d = PL.items[idx] ? PL.items[idx].d : 1;
+    $('cur').textContent = fmt(t); $('prog').style.width = Math.min(100, t / d * 100) + '%';
+  }
+
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', () => $('playBtn').click());
+    navigator.mediaSession.setActionHandler('pause', () => { wantPlay = false; audio.pause(); });
+    navigator.mediaSession.setActionHandler('nexttrack', next);
+  }
+
+  // المشاركة
+  const url = location.href.split('#')[0], msg = 'استمع لإذاعة «تلاوات من القرآن» مباشرة على مدار الساعة';
+  $('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(msg + '\n' + url);
+  $('shTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(msg);
+  $('shX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url);
+  $('shCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('تم نسخ الرابط'); } catch (e) { prompt('انسخ الرابط:', url); } };
+
+  // الروابط
+  const ICONS = {
+    radio: '<path d="M4 9h16v11H4z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="14.5" r="2.5" fill="currentColor"/><path d="M7 9l10-5" stroke="currentColor" stroke-width="2"/>',
+    telegram: '<path fill="currentColor" d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 12.8 1.8 11.3c-1-.3-1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/>',
+    whatsapp: '<path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/>',
+    youtube: '<path fill="currentColor" d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8zM10 15V9l5.2 3z"/>',
+    archive: '<path fill="none" stroke="currentColor" stroke-width="2" d="M3 4h18v4H3zM5 8v12h14V8M10 12h4"/>',
+    list: '<path fill="none" stroke="currentColor" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+    rss: '<path fill="none" stroke="currentColor" stroke-width="2" d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor"/>',
+    podcast: '<circle cx="12" cy="11" r="3" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 14v7M6.3 16a8 8 0 1 1 11.4 0"/>'
+  };
+  fetch('links.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
+    $('links').innerHTML = j.links.filter(l => l.url).map(l =>
+      `<a href="${l.url}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[l.icon] || ICONS.list}</svg></span><span>${l.name}<small>${l.url.replace(/^https?:\/\//, '')}</small></span></a>`).join('');
+  }).catch(() => {});
+
+  // التحميل
+  fetch('downloads.json', { cache: 'no-store' }).then(r => r.json()).then(list => {
+    const gb = mb => mb >= 1000 ? (mb / 1000).toFixed(1) + ' جيجا' : mb + ' ميجا';
+    $('dl').innerHTML = list.map(x => `<div class="row"><div class="nm"><b>${x.r}</b><small>${x.n} تلاوة · ${gb(x.mb)}</small></div>` +
+      `<a class="pg" href="${x.page}" target="_blank" rel="noopener">الصفحة</a><a class="zp" href="${x.zip}" rel="noopener">ZIP</a></div>`).join('');
+  }).catch(() => {});
+
+  // القائمة
+  fetch('playlist.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
+    PL = j; epoch = Date.parse(j.epoch) / 1000;
+    let s = 0; cum = j.items.map(it => { const c = s; s += it.d; return c; });
+    PL.total = s;
+    const [i, off] = livePos(); idx = i; show(i); paint(off); setLiveUI();
+  }).catch(() => { $('err').textContent = 'تعذّر تحميل قائمة التشغيل.'; });
+})();
+</script>
+</body>
+</html>

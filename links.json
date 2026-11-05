@@ -1,0 +1,19 @@
+{
+  "_note": "عدّل الروابط هنا فقط. أي رابط فارغ \"\" لا يظهر في الصفحة.",
+  "links": [
+    {"name": "إذاعة تلاوات على Caster", "url": "https://trtel-alquran.ismyradio.com", "icon": "radio"},
+    {"name": "قناة التليجرام الصوتية", "url": "https://t.me/trtelalquran_r", "icon": "telegram"},
+    {"name": "قناة التليجرام العامة", "url": "https://t.me/trtelalquran", "icon": "telegram"},
+    {"name": "قناة الواتساب", "url": "https://whatsapp.com/channel/0029Va8nWpA6LwHgMLopMe1x", "icon": "whatsapp"},
+    {"name": "يوتيوب — القناة الصوتية", "url": "https://youtube.com/@telalquran", "icon": "youtube"},
+    {"name": "يوتيوب — القناة المرئية", "url": "https://youtube.com/@trtelalquran", "icon": "youtube"},
+    {"name": "حساب الأرشيف", "url": "https://archive.org/details/trtel-alquran-feed", "icon": "archive"},
+    {"name": "راديو M3U (للـ VLC)", "url": "https://archive.org/download/trtel-alquran-feed/radio.m3u", "icon": "list"},
+    {"name": "بترتيب المصحف M3U", "url": "https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u", "icon": "list"},
+    {"name": "خلاصة البودكاست RSS", "url": "https://archive.org/download/trtel-alquran-feed/podcast.xml", "icon": "rss"},
+    {"name": "Spotify", "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM", "icon": "podcast"},
+    {"name": "Amazon Music", "url": "", "icon": "podcast"},
+    {"name": "Apple Podcasts", "url": "", "icon": "podcast"},
+    {"name": "Podcast Index", "url": "", "icon": "podcast"}
+  ]
+}
