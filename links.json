@@ -12,7 +12,7 @@
     {"name": "بترتيب المصحف M3U", "url": "https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u", "icon": "list"},
     {"name": "خلاصة البودكاست RSS", "url": "https://archive.org/download/trtel-alquran-feed/podcast.xml", "icon": "rss"},
     {"name": "Spotify", "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM", "icon": "podcast"},
-    {"name": "Amazon Music", "url": "", "icon": "podcast"},
+    {"name": "Amazon Music", "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc", "icon": "podcast"},
     {"name": "Apple Podcasts", "url": "", "icon": "podcast"},
     {"name": "Podcast Index", "url": "", "icon": "podcast"}
   ]
