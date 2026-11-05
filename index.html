@@ -72,6 +72,13 @@ h2{font-family:Amiri,serif;color:var(--green);font-size:1.3rem;margin:26px 4px 1
 .dl a{font-size:.82rem;text-decoration:none;border-radius:999px;padding:6px 12px;white-space:nowrap}
 .dl a.pg{color:var(--green);border:1px solid var(--line)}
 .dl a.zp{background:var(--green);color:#fff}
+.howto h3{font-family:Amiri,serif;color:var(--green);font-size:1.1rem;margin:4px 0 8px}
+.howto h3:not(:first-child){margin-top:18px}
+.howto ul{margin:8px 0 0;padding-inline-start:18px;font-size:.9rem}
+.howto li{margin:6px 0}
+.copyrow{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:12px;padding:6px 6px 6px 10px;margin:6px 0}
+.copyrow code{flex:1;min-width:0;direction:ltr;text-align:left;font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp{border:0;background:var(--green);color:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:.8rem;cursor:pointer;text-decoration:none;white-space:nowrap}
 .caster{padding:16px}
 .caster iframe{width:100%;height:300px;border:0;border-radius:12px;display:block;background:#fff}
 .casterBtn{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:999px;border:1px solid var(--line);color:var(--green);text-decoration:none;font-weight:500}
@@ -122,11 +129,41 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     <button id="shCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>نسخ الرابط</button>
   </div>
 
-  <h2>روابطنا</h2>
+  <h2>روابط القنوات</h2>
   <div class="links" id="links"></div>
 
+  <h2>الاستماع في تطبيقك</h2>
+  <section class="card howto">
+    <h3>١. قائمة التشغيل M3U (إذاعة بلا توقف)</h3>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/radio.m3u">نسخ</button></div>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u">نسخ</button></div>
+    <p class="hint">الأولى دورات بقرّاء مختلفين، والثانية بترتيب المصحف.</p>
+    <ul>
+      <li><b>الكمبيوتر (VLC):</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</li>
+      <li><b>أندرويد (VLC):</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل، ثم فعّل التكرار من شاشة التشغيل.</li>
+      <li><b>آيفون (VLC):</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة»، ثم فعّل التكرار.</li>
+    </ul>
+    <h3>٢. خلاصة البودكاست RSS (حلقات تُحدَّث تلقائيًا)</h3>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast.xml</code><button class="cp" data-copy="https://archive.org/download/trtel-alquran-feed/podcast.xml">نسخ</button></div>
+    <ul>
+      <li><b>Podcast Addict / AntennaPod (أندرويد):</b> زر الإضافة (+) ← «إضافة برابط RSS» ← الصق الرابط.</li>
+      <li><b>Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</li>
+      <li><b>Overcast (آيفون):</b> (+) ← «Add URL» ← الصق الرابط.</li>
+      <li><b>Apple Podcasts:</b> المكتبة ← «⋯» أو «تعديل» ← «متابعة برنامج بالرابط» (Follow a Show by URL) ← الصق الرابط.</li>
+    </ul>
+  </section>
+
   <h2>تحميل التلاوات</h2>
-  <p class="hint">كل قارئ في مجلد على الأرشيف: افتح الصفحة للاستماع أو تحميل ملف واحد، أو حمّل المجلد كاملًا بصيغة ZIP.</p>
+  <section class="card howto">
+    <h3>تحميل كل التلاوات دفعة واحدة</h3>
+    <p class="hint" style="margin:0 0 8px">958 تلاوة بحجم يقارب 23 جيجا؛ لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
+    <div class="copyrow"><code>all-urls.txt</code><a class="cp" href="all-urls.txt" download>تحميل القائمة</a></div>
+    <ul>
+      <li><b>الكمبيوتر:</b> برنامج JDownloader أو Internet Download Manager ← «إضافة روابط» ← الصق محتوى الملف أو استورده.</li>
+      <li><b>أندرويد:</b> تطبيق ADM ← استيراد قائمة الروابط من الملف.</li>
+    </ul>
+  </section>
+  <p class="hint" style="margin-top:14px">أو حمّل كل قارئ وحده: افتح صفحته للاستماع وتحميل ملف واحد، أو حمّل مجلده كاملًا بصيغة ZIP.</p>
   <div class="dl" id="dl"></div>
 
   <footer>ترتيل القرآن · التلاوات من أرشيف <a href="https://archive.org/details/trtel-alquran-feed" style="color:inherit">archive.org</a></footer>
@@ -231,6 +268,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   $('shTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(msg);
   $('shX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url);
   $('shCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('تم نسخ الرابط'); } catch (e) { prompt('انسخ الرابط:', url); } };
+
+  document.querySelectorAll('button.cp[data-copy]').forEach(b => b.onclick = async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); toast('تم نسخ الرابط'); } catch (e) { prompt('انسخ الرابط:', b.dataset.copy); }
+  });
 
   // الروابط
   const ICONS = {
