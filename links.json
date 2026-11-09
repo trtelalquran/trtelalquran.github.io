@@ -60,6 +60,12 @@
       "en": "Caster radio",
       "url": "https://trtel-alquran.ismyradio.com",
       "icon": "radio"
+    },
+    {
+      "name": "Player FM",
+      "en": "Player FM",
+      "url": "https://player.fm/series/trtyl-lqran",
+      "icon": "podcast"
     }
   ]
 }
