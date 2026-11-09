@@ -32,10 +32,10 @@
       "icon": "whatsapp"
     },
     {
-      "name": "Spotify",
-      "en": "Spotify",
-      "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM",
-      "icon": "podcast"
+      "name": "بودكاست يوتيوب",
+      "en": "YouTube podcast",
+      "url": "https://www.youtube.com/@trtelalquran/podcasts",
+      "icon": "youtube"
     },
     {
       "name": "Amazon",
@@ -48,12 +48,6 @@
       "en": "Podcast Index",
       "url": "https://podcastindex.org/podcast/8101232",
       "icon": "podcast"
-    },
-    {
-      "name": "بودكاست يوتيوب",
-      "en": "YouTube podcast",
-      "url": "https://www.youtube.com/@trtelalquran/podcasts",
-      "icon": "youtube"
     },
     {
       "name": "Apple Podcasts",
