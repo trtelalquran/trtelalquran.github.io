@@ -35,7 +35,7 @@ https://archive.org/download/trtel-alquran-adel-rayan/027-059%20%D8%A7%D9%84%D9%
 https://archive.org/download/trtel-alquran-rayan-al-muhaisni/028-014%20%D8%A7%D9%84%D9%82%D8%B5%D8%B5%2014-35.mp3
 https://archive.org/download/trtel-alquran-khalid-al-ghamdi/030-001%20%D8%A7%D9%84%D8%B1%D9%88%D9%85%201-60.mp3
 https://archive.org/download/trtel-alquran-alwalid-al-shamsan/031-001%20%D9%84%D9%82%D9%85%D8%A7%D9%86%201-24%20-%201445%D9%87%D9%80.mp3
-https://archive.org/download/trtel-alquran-abdulaziz-al-zahrani/036-030%20%D9%8A%D8%B3%2030-40.m4a
+https://archive.org/download/trtel-alquran-abdulaziz-al-zahrani/036-030%20%D9%8A%D8%B3%2030-40.mp3
 https://archive.org/download/trtel-alquran-ahmad-hamed/039-052%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%2052-75.mp3
 https://archive.org/download/trtel-alquran-ali-jaber/042-003%20%D8%A7%D9%84%D8%B4%D9%88%D8%B1%D9%89%203-53%20-%201407%D9%87%D9%80.mp3
 https://archive.org/download/trtel-alquran-hazza-al-balushi/052-001%20%D8%A7%D9%84%D8%B7%D9%88%D8%B1%201-49.mp3
@@ -269,7 +269,7 @@ https://archive.org/download/trtel-alquran-abdullah-al-buaijan/033-001%20%D8%A7%
 https://archive.org/download/trtel-alquran-maher-al-muaiqly/036-055%20%D9%8A%D8%B3%2055-83.mp3
 https://archive.org/download/trtel-alquran-majed-al-zamil/049-001%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B1%D8%A7%D8%AA%201-18.mp3
 https://archive.org/download/trtel-alquran-okasha-kameny/079-001%20%D8%A7%D9%84%D9%86%D8%A7%D8%B2%D8%B9%D8%A7%D8%AA%201-46%20-%20%D8%A8%D8%B1%D9%88%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D9%8A%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%83%D8%B3%D8%A7%D8%A6%D9%8A.mp3
-https://archive.org/download/trtel-alquran-majed-al-zamil/002-001%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9%201-286.m4a
+https://archive.org/download/trtel-alquran-majed-al-zamil/002-001%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9%201-286.mp3
 https://archive.org/download/trtel-alquran-unknown-reciters/003-098%20%D8%A2%D9%84%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%2098-101.mp3
 https://archive.org/download/trtel-alquran-saud-al-shuraim/004-025%20%D8%A7%D9%84%D9%86%D8%B3%D8%A7%D8%A1%2025-99%20-%201427%D9%87%D9%80.mp3
 https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/006-165%20%D8%A7%D9%84%D8%A3%D8%B9%D8%B1%D8%A7%D9%81%201-206%20-%201416%D9%87%D9%80.mp3
@@ -492,7 +492,7 @@ https://archive.org/download/trtel-alquran-majed-al-zamil/087-001%20%D8%A7%D9%84
 https://archive.org/download/trtel-alquran-saud-al-shuraim/002-271%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9%20271-286%D8%8C%20%D8%A2%D9%84%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%201-63%20-%201425%D9%87%D9%80.mp3
 https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/013-001%20%D8%A7%D9%84%D8%B1%D8%B9%D8%AF%201-43%20-%201416%D9%87%D9%80.mp3
 https://archive.org/download/trtel-alquran-khalid-al-jaleel/015-045%20%D8%A7%D9%84%D8%AD%D8%AC%D8%B1%2045-51.mp3
-https://archive.org/download/trtel-alquran-unknown-reciters/039-053%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%2053-54.aac
+https://archive.org/download/trtel-alquran-unknown-reciters/039-053%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%2053-54.mp3
 https://archive.org/download/trtel-alquran-majed-al-zamil/088-001%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B4%D9%8A%D8%A9%201-26.mp3
 https://archive.org/download/trtel-alquran-saud-al-shuraim/002-272%20%D8%A7%D9%84%D8%A8%D9%82%D8%B1%D8%A9%20272-286%D8%8C%20%D8%A2%D9%84%20%D8%B9%D9%85%D8%B1%D8%A7%D9%86%201-63.mp3
 https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/013-001%20%D8%A7%D9%84%D8%B1%D8%B9%D8%AF%201-43%20-%201416%D9%87%D9%80%20%282%29.mp3
@@ -693,7 +693,7 @@ https://archive.org/download/trtel-alquran-saud-al-shuraim/010-026%20%D9%8A%D9%8
 https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/039-001%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%201-75%20-%201416%D9%87%D9%80%20%282%29.mp3
 https://archive.org/download/trtel-alquran-khalid-al-jaleel/040-026%20%D8%BA%D8%A7%D9%81%D8%B1%2026-52.mp3
 https://archive.org/download/trtel-alquran-saud-al-shuraim/010-026%20%D9%8A%D9%88%D9%86%D8%B3%2026-109%20-%201425%D9%87%D9%80.mp3
-https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/039-001%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%201-75%20-%201416%D9%87%D9%80%20%283%29.m4a
+https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/039-001%20%D8%A7%D9%84%D8%B2%D9%85%D8%B1%201-75%20-%201416%D9%87%D9%80%20%283%29.mp3
 https://archive.org/download/trtel-alquran-khalid-al-jaleel/041-001%20%D9%81%D8%B5%D9%84%D8%AA%201-54.mp3
 https://archive.org/download/trtel-alquran-saud-al-shuraim/010-026%20%D9%8A%D9%88%D9%86%D8%B3%2026-109%20-%201426%D9%87%D9%80.mp3
 https://archive.org/download/trtel-alquran-abdulaziz-al-ahmad/040-001%20%D8%BA%D8%A7%D9%81%D8%B1%201-85%20-%201416%D9%87%D9%80.mp3
