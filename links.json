@@ -1,11 +1,17 @@
 {
-  "_note": "عدّل الروابط هنا فقط. الترتيب هنا هو ترتيب الصفحة، وأي رابط فارغ \"\" لا يظهر. name بالعربية وen بالإنجليزية.",
+  "_note": "عدّل الروابط هنا فقط. الترتيب هنا هو ترتيب الصفحة، وأي رابط فارغ \"\" لا يظهر. name بالعربية وen بالإنجليزية. more:true يضع الرابط في قائمة «منصات أخرى» المنسدلة.",
   "links": [
     {
       "name": "قناة التليجرام الصوتية",
       "en": "Telegram audio channel",
       "url": "https://t.me/trtelalquran_r",
       "icon": "telegram"
+    },
+    {
+      "name": "بودكاست يوتيوب",
+      "en": "YouTube podcast",
+      "url": "https://www.youtube.com/playlist?list=PLOk-39G-QomI",
+      "icon": "youtube"
     },
     {
       "name": "قناة التليجرام",
@@ -20,52 +26,66 @@
       "icon": "youtube"
     },
     {
-      "name": "حساب الأرشيف",
-      "en": "Internet Archive",
-      "url": "https://archive.org/details/@trtel_alquran",
-      "icon": "archive"
-    },
-    {
       "name": "قناة الواتساب",
       "en": "WhatsApp channel",
       "url": "https://whatsapp.com/channel/0029Va8nWpA6LwHgMLopMe1x",
       "icon": "whatsapp"
     },
     {
-      "name": "بودكاست يوتيوب",
-      "en": "YouTube podcast",
-      "url": "https://www.youtube.com/playlist?list=PLOk-39G-QomI",
-      "icon": "youtube"
+      "name": "حساب الأرشيف",
+      "en": "Internet Archive",
+      "url": "https://archive.org/details/@trtel_alquran",
+      "icon": "archive",
+      "more": true
     },
     {
       "name": "Amazon",
       "en": "Amazon",
       "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc",
-      "icon": "podcast"
+      "icon": "podcast",
+      "more": true
     },
     {
       "name": "Podcast Index",
       "en": "Podcast Index",
       "url": "https://podcastindex.org/podcast/8101232",
-      "icon": "podcast"
+      "icon": "podcast",
+      "more": true
     },
     {
       "name": "Apple Podcasts",
       "en": "Apple Podcasts",
       "url": "",
-      "icon": "podcast"
+      "icon": "podcast",
+      "more": true
     },
     {
       "name": "إذاعة Caster",
       "en": "Caster radio",
       "url": "https://trtel-alquran.ismyradio.com",
-      "icon": "radio"
+      "icon": "radio",
+      "more": true
     },
     {
       "name": "Player FM",
       "en": "Player FM",
       "url": "https://player.fm/series/trtyl-lqran",
-      "icon": "podcast"
+      "icon": "podcast",
+      "more": true
+    },
+    {
+      "name": "Pocket Casts",
+      "en": "Pocket Casts",
+      "url": "https://pca.st/qq2gfp4n",
+      "icon": "podcast",
+      "more": true
+    },
+    {
+      "name": "iHeart",
+      "en": "iHeart",
+      "url": "https://www.iheart.com/podcast/349433680/",
+      "icon": "podcast",
+      "more": true
     }
   ]
 }

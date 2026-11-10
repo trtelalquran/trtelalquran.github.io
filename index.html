@@ -122,15 +122,23 @@ html[lang="en"] h2{font-family:var(--body);font-weight:700;font-size:1.15rem}
 .share a,.share button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border-radius:16px;color:var(--ink);text-decoration:none;font:inherit;font-size:.8rem;cursor:pointer}
 .share svg{width:22px;height:22px}
 .xic{fill:var(--ink)}
-.links{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
-.links a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;text-decoration:none}
-.links .ic{width:36px;height:36px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.links{display:grid;gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.links a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:16px;text-decoration:none;min-width:0}
+.links a:last-child:nth-child(odd){grid-column:1/-1}
+.links .ic{width:34px;height:34px;border-radius:11px;background:var(--soft);color:var(--accent);display:grid;place-items:center;flex:none}
 .links .ic svg{width:18px;height:18px}
-.links .tx{min-width:0;flex:1;font-weight:500}
-.links small{display:block;color:var(--muted);font-size:.75rem;direction:ltr;text-align:start;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
+.links .tx{min-width:0;flex:1;font-weight:500;font-size:.92rem;line-height:1.35}
+.links small{display:block;color:var(--muted);font-size:.68rem;direction:ltr;text-align:start;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
 .links .first{background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--accentInk);border-color:transparent}
 .links .first .ic{background:rgba(255,255,255,.2);color:inherit}
 .links .first small{color:inherit;opacity:.85}
+details.more{margin-top:8px;padding:0;overflow:hidden}
+details.more summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;color:var(--accent)}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary svg{width:20px;height:20px;transition:transform .2s}
+details.more[open] summary svg{transform:rotate(180deg)}
+details.more .links{padding:0 10px 10px}
+details.more .links a{background:var(--glass2);border:1px solid var(--edge)}
 .hint{color:var(--muted);font-size:.85rem;margin:0 0 10px}
 .howto{padding:20px}
 .howto h3{font-family:var(--display);color:var(--accent);font-size:1.1rem;margin:4px 0 8px}
@@ -141,12 +149,15 @@ html[lang="en"] .howto h3{font-family:var(--body)}
 .copyrow{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:12px;padding:6px;margin:6px 0}
 .copyrow code{flex:1;min-width:0;direction:ltr;text-align:left;font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-inline:6px}
 .cp{border:0;background:var(--accent);color:var(--accentInk);border-radius:999px;padding:6px 14px;font:inherit;font-size:.8rem;cursor:pointer;text-decoration:none;white-space:nowrap}
-details.dev{margin:6px 0;border:1px solid var(--line,rgba(127,127,127,.25));border-radius:12px;overflow:hidden}
-details.dev summary{list-style:none;cursor:pointer;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;font-weight:700}
-details.dev summary::-webkit-details-marker{display:none}
-details.dev summary svg{width:18px;height:18px;transition:transform .2s}
-details.dev[open] summary svg{transform:rotate(180deg)}
-details.dev p{margin:0;padding:0 14px 10px}
+.devs{margin:8px 0 4px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.tab{display:flex;align-items:center;justify-content:center;gap:4px;padding:9px 6px;border:1px solid var(--edge);background:var(--glass2);color:var(--ink);border-radius:12px;font:inherit;font-size:.88rem;font-weight:700;cursor:pointer;min-width:0}
+.tab svg{width:16px;height:16px;flex:none;transition:transform .2s}
+.tab[aria-expanded="true"]{background:var(--accent);color:var(--accentInk);border-color:transparent}
+.tab[aria-expanded="true"] svg{transform:rotate(180deg)}
+.pane{margin-top:6px;padding:10px 14px;border-radius:12px;background:var(--soft);font-size:.9rem}
+.pane[hidden]{display:none}
+.pane p{margin:0}.pane p+p{margin-top:8px}
 details.dlbox{margin-top:26px;padding:0;overflow:hidden}
 details.dlbox summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--display);color:var(--accent);font-size:1.3rem;font-weight:700}
 html[lang="en"] details.dlbox summary{font-family:var(--body);font-size:1.1rem}
@@ -222,6 +233,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
 
   <h2 data-i18n="linksH">روابط القنوات</h2>
   <div class="links" id="links"></div>
+  <details class="glass more" id="moreBox" hidden>
+    <summary><span data-i18n="moreH">منصات أخرى</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+    <div class="links" id="links2"></div>
+  </details>
 
   <h2 data-i18n="appsH">الاستماع في تطبيقك</h2>
   <section class="glass howto">
@@ -229,41 +244,32 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/radio.m3u">نسخ</button></div>
     <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u">نسخ</button></div>
     <p class="hint" data-i18n="m3uHint">الأولى دورات بقرّاء مختلفين، والثانية بترتيب المصحف.</p>
-    <details class="dev"><summary><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="vlcPc"><b>VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="vlcIos"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة»، ثم فعّل التكرار.</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="vlcAnd"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل، ثم فعّل التكرار من شاشة التشغيل.</p>
-    </details>
+    <div class="devs">
+      <div class="tabs"><button class="tab" aria-expanded="false" aria-controls="pn10"><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn11"><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn12"><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
+      <div class="pane" id="pn10" hidden><p data-i18n-html="vlcPc"><b>VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</p></div>
+      <div class="pane" id="pn11" hidden><p data-i18n-html="vlcIos"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة»، ثم فعّل التكرار.</p></div>
+      <div class="pane" id="pn12" hidden><p data-i18n-html="vlcAnd"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل، ثم فعّل التكرار من شاشة التشغيل.</p></div>
+    </div>
     <h3 data-i18n="rssH">٢. خلاصة البودكاست RSS (حلقات تُحدَّث تلقائيًا)</h3>
     <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast.xml</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/podcast.xml">نسخ</button></div>
-    <details class="dev"><summary><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="rssPc"><b>Pocket Casts</b> (pocketcasts.com أو التطبيق): البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</p>
-      <p data-i18n-html="rssMac"><b>Apple Podcasts (ماك):</b> قائمة «ملف» ← «متابعة برنامج بالرابط» ← الصق الرابط.</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="rssAp"><b>Apple Podcasts:</b> المكتبة ← «⋯» أو «تعديل» ← «متابعة برنامج بالرابط» (Follow a Show by URL) ← الصق الرابط.</p>
-      <p data-i18n-html="rssOv"><b>Overcast:</b> (+) ← «Add URL» ← الصق الرابط.</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="rssAnd"><b>Podcast Addict / AntennaPod:</b> زر الإضافة (+) ← «إضافة برابط RSS» ← الصق الرابط.</p>
-      <p data-i18n-html="rssPcA"><b>Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</p>
-    </details>
+    <div class="devs">
+      <div class="tabs"><button class="tab" aria-expanded="false" aria-controls="pn20"><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn21"><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn22"><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
+      <div class="pane" id="pn20" hidden><p data-i18n-html="rssPc"><b>Pocket Casts</b> (pocketcasts.com أو التطبيق): البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</p>
+      <p data-i18n-html="rssMac"><b>Apple Podcasts (ماك):</b> قائمة «ملف» ← «متابعة برنامج بالرابط» ← الصق الرابط.</p></div>
+      <div class="pane" id="pn21" hidden><p data-i18n-html="rssAp"><b>Apple Podcasts:</b> المكتبة ← «⋯» أو «تعديل» ← «متابعة برنامج بالرابط» (Follow a Show by URL) ← الصق الرابط.</p>
+      <p data-i18n-html="rssOv"><b>Overcast:</b> (+) ← «Add URL» ← الصق الرابط.</p></div>
+      <div class="pane" id="pn22" hidden><p data-i18n-html="rssAnd"><b>Podcast Addict / AntennaPod:</b> زر الإضافة (+) ← «إضافة برابط RSS» ← الصق الرابط.</p>
+      <p data-i18n-html="rssPcA"><b>Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</p></div>
+    </div>
     <h3 data-i18n="liveH">٣. رابط البث المباشر (إذاعة حية)</h3>
     <div class="copyrow"><code>https://usa3.fastcast4u.com/proxy/trtelalquran/stream</code><button class="cp" data-i18n="copy" data-copy="https://usa3.fastcast4u.com/proxy/trtelalquran/stream">نسخ</button></div>
     <p class="hint" data-i18n="liveHint">نفس البث المتواصل على مدار الساعة، يعمل في VLC وتطبيقات الراديو ومشغلات السيارة.</p>
-    <details class="dev"><summary><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="livePc"><b>VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل.</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="liveIos"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة».</p>
-    </details>
-    <details class="dev"><summary><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <p data-i18n-html="liveAnd"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل. أو أضفه في أي تطبيق راديو يقبل إضافة محطة برابط.</p>
-    </details>
+    <div class="devs">
+      <div class="tabs"><button class="tab" aria-expanded="false" aria-controls="pn30"><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn31"><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn32"><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
+      <div class="pane" id="pn30" hidden><p data-i18n-html="livePc"><b>VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل.</p></div>
+      <div class="pane" id="pn31" hidden><p data-i18n-html="liveIos"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة».</p></div>
+      <div class="pane" id="pn32" hidden><p data-i18n-html="liveAnd"><b>VLC:</b> انسخ الرابط ← افتح VLC ← «المزيد» ← «بث جديد» (New stream) ← الصق الرابط ← تشغيل. أو أضفه في أي تطبيق راديو يقبل إضافة محطة برابط.</p></div>
+    </div>
   </section>
 
   <details class="glass dlbox" id="dlbox">
@@ -300,7 +306,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     title: 'Tilawat min al-Quran al-Karim', sub: 'Live Quran recitation radio, around the clock',
     nextBtn: 'Next surah', backLive: 'Back to live', nextLbl: 'Next:', volume: 'Volume',
     shareH: 'Share the radio', wa: 'WhatsApp', tg: 'Telegram', copyLink: 'Copy link',
-    linksH: 'Our channels', appsH: 'Listen in your app', copy: 'Copy',
+    linksH: 'Our channels', moreH: 'More platforms', appsH: 'Listen in your app', copy: 'Copy',
     m3uH: '1. M3U playlist (non-stop radio)', m3uHint: 'The first rotates reciters; the second follows the Mushaf order.',
     vlcPc: '<b>VLC:</b> copy the link → open VLC → Media → Open Network Stream (Ctrl+N) → paste → Play. Then turn on Loop to repeat forever.',
     vlcAnd: '<b>VLC:</b> copy the link → open VLC → More → New stream → paste → Play, then turn on repeat.',
@@ -510,9 +516,12 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     podcast: '<circle cx="12" cy="11" r="3" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" d="M12 14v7M6.3 16a8 8 0 1 1 11.4 0"/>'
   };
   let LINKS = [], DL = [];
+  const linkHtml = (l, hi) => `<a class="glass${hi ? ' first' : ''}" href="${l.url}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[l.icon] || ICONS.list}</svg></span><span class="tx">${lang === 'en' && l.en ? l.en : l.name}<small>${l.url.replace(/^https?:\/\/(www\.)?/, '')}</small></span></a>`;
   function renderLinks() {
-    $('links').innerHTML = LINKS.filter(l => l.url).map((l, i) =>
-      `<a class="glass${i ? '' : ' first'}" href="${l.url}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24">${ICONS[l.icon] || ICONS.list}</svg></span><span class="tx">${lang === 'en' && l.en ? l.en : l.name}<small>${l.url.replace(/^https?:\/\//, '')}</small></span></a>`).join('');
+    const ok = LINKS.filter(l => l.url), main = ok.filter(l => !l.more), more = ok.filter(l => l.more);
+    $('links').innerHTML = main.map((l, i) => linkHtml(l, i < 2)).join('');
+    $('links2').innerHTML = more.map(l => linkHtml(l, false)).join('');
+    $('moreBox').hidden = !more.length;
   }
   function renderDl() {
     const sz = mb => mb >= 1000 ? (mb / 1000).toFixed(1) + ' ' + T('gb') : mb + ' ' + T('mb');
@@ -521,6 +530,15 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   }
   fetch('links.json', { cache: 'no-store' }).then(r => r.json()).then(j => { LINKS = j.links; renderLinks(); }).catch(() => {});
   fetch('downloads.json', { cache: 'no-store' }).then(r => r.json()).then(list => { DL = list; renderDl(); }).catch(() => {});
+
+  /* ---------- أزرار الأجهزة: واحد مفتوح فقط في كل مجموعة ---------- */
+  document.querySelectorAll('.devs').forEach(g => {
+    const tabs = [...g.querySelectorAll('.tab')];
+    tabs.forEach(t => t.onclick = () => {
+      const open = t.getAttribute('aria-expanded') !== 'true';
+      tabs.forEach(o => { o.setAttribute('aria-expanded', o === t && open); $(o.getAttribute('aria-controls')).hidden = !(o === t && open); });
+    });
+  });
 
   /* ---------- القائمة ---------- */
   fetch('playlist.json', { cache: 'no-store' }).then(r => r.json()).then(j => {
