@@ -89,7 +89,14 @@ header p{margin:0;color:var(--muted)}
 
 /* المشغّل */
 .player{text-align:center;padding:22px}
-.cover{width:156px;height:156px;border-radius:50%;object-fit:cover;box-shadow:0 10px 30px var(--shadow);border:4px solid var(--edge);display:block;margin:0 auto 14px}
+/* الشعار: زجاج أبيض ثلجي والزخرفة بلون الثيم (اعتمده أيوب 2026-11-10) */
+.cover{width:156px;height:156px;border-radius:50%;position:relative;overflow:hidden;margin:0 auto 14px;border:1px solid var(--edge);
+  background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(255,255,255,.35));box-shadow:0 10px 30px var(--shadow),inset 0 1px 0 rgba(255,255,255,.6);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
+.cover::after{content:"";position:absolute;inset:3%;background:linear-gradient(160deg,var(--accent),var(--accent2));
+  -webkit-mask:url(logo-mask.png) center/contain no-repeat;mask:url(logo-mask.png) center/contain no-repeat}
+:root[data-theme="dark"] .cover{background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04))}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cover{background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04))}}
 .live{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--danger);background:var(--glass2);border:1px solid var(--edge);border-radius:999px;padding:3px 10px}
 .live i{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.4s infinite}
 .live.off{color:var(--muted)}.live.off i{animation:none}
@@ -204,7 +211,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   </header>
 
   <section class="glass player">
-    <img class="cover" src="logo512.jpg" alt="تلاوات من القرآن الكريم" data-i18n-alt="title">
+    <div class="cover" role="img" aria-label="تلاوات من القرآن الكريم" data-i18n-aria="title"></div>
     <span id="live" class="live"><i></i><span id="liveTxt">مباشر</span></span>
     <div class="surah" id="surah">…</div>
     <div class="reciter" id="reciter"></div>
