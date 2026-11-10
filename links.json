@@ -1,5 +1,5 @@
 {
-  "_note": "عدّل الروابط هنا فقط. الترتيب هنا هو ترتيب الصفحة، وأي رابط فارغ \"\" لا يظهر. name بالعربية وen بالإنجليزية. more:true يضع الرابط في قائمة «منصات أخرى» المنسدلة.",
+  "_note": "عدّل الروابط هنا فقط. الترتيب هنا هو ترتيب الصفحة، وأي رابط فارغ \"\" لا يظهر. name بالعربية وen بالإنجليزية. more:true يضع الرابط في قائمة «منصات أخرى» المنسدلة. إذا بقيت بطاقة وحدة في آخر القائمة تأخذ عرض الصف، ولهذا إذاعة Caster آخر شي.",
   "links": [
     {
       "name": "قناة التليجرام الصوتية",
@@ -35,8 +35,7 @@
       "name": "حساب الأرشيف",
       "en": "Internet Archive",
       "url": "https://archive.org/details/@trtel_alquran",
-      "icon": "archive",
-      "more": true
+      "icon": "archive"
     },
     {
       "name": "Amazon",
@@ -60,15 +59,8 @@
       "more": true
     },
     {
-      "name": "إذاعة Caster",
-      "en": "Caster radio",
-      "url": "https://trtel-alquran.ismyradio.com",
-      "icon": "radio",
-      "more": true
-    },
-    {
-      "name": "Player FM",
-      "en": "Player FM",
+      "name": "بودكاست Player FM",
+      "en": "Player FM podcast",
       "url": "https://player.fm/series/trtyl-lqran",
       "icon": "podcast",
       "more": true
@@ -85,6 +77,28 @@
       "en": "iHeart",
       "url": "https://www.iheart.com/podcast/349433680/",
       "icon": "podcast",
+      "more": true
+    },
+    {
+      "name": "Spotify",
+      "en": "Spotify",
+      "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM",
+      "icon": "podcast",
+      "more": true
+    },
+    {
+      "name": "Deezer",
+      "en": "Deezer",
+      "url": "",
+      "icon": "podcast",
+      "more": true,
+      "_wait": "https://www.deezer.com/show/1003735891 (لم يُنشر بعد)"
+    },
+    {
+      "name": "إذاعة Caster",
+      "en": "Caster radio",
+      "url": "https://trtel-alquran.ismyradio.com/player",
+      "icon": "radio",
       "more": true
     }
   ]
