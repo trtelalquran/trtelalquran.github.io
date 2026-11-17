@@ -102,6 +102,13 @@
       "more": true
     },
     {
+      "name": "إذاعة myTuner",
+      "en": "myTuner radio",
+      "url": "https://mytuner-radio.com/radio/tlwt-mn-lqran-524104/",
+      "icon": "radio",
+      "more": true
+    },
+    {
       "name": "إذاعة TuneIn",
       "en": "TuneIn radio",
       "url": "https://tunein.com/radio/s364448/",
