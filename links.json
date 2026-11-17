@@ -95,6 +95,13 @@
       "_wait": "https://www.deezer.com/show/1003735891 (لم يُنشر بعد)"
     },
     {
+      "name": "إذاعة Online Radio Box",
+      "en": "Online Radio Box radio",
+      "url": "https://onlineradiobox.com/sa/trtelalquran/",
+      "icon": "radio",
+      "more": true
+    },
+    {
       "name": "إذاعة TuneIn",
       "en": "TuneIn radio",
       "url": "https://tunein.com/radio/s364448/",
