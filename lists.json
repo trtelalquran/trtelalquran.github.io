@@ -1,0 +1,466 @@
+{
+ "mushaf": [
+  {
+   "name": "المصحف المرتل - إبراهيم بن الأخضر القيم",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-ibrahim-al-akhdar.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-ibrahim-al-akhdar-urls.txt",
+   "n": 114,
+   "hours": 33.5,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-ibrahim-al-akhdar",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-ibrahim-al-akhdar",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. صلاح بن محمد البدير",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-salah-al-budair.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-salah-al-budair-urls.txt",
+   "n": 114,
+   "hours": 21.7,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-salah-al-budair",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-salah-al-budair",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. عبدالباري بن عواض الثبيتي",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulbari-al-thubaity.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulbari-al-thubaity-urls.txt",
+   "n": 114,
+   "hours": 19.4,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdulbari-al-thubaity",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulbari-al-thubaity",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - عبدالعزيز بن صالح وعبدالمجيد الجبرتي",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulaziz-bin-saleh-and-al-jabarti.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulaziz-bin-saleh-and-al-jabarti-urls.txt",
+   "n": 114,
+   "hours": 13.7,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdulaziz-bin-saleh-and-al-jabarti",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulaziz-bin-saleh-and-al-jabarti",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. عبدالله بن عواد الجهني",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdullah-al-juhany.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdullah-al-juhany-urls.txt",
+   "n": 114,
+   "hours": 20.7,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdullah-al-juhany",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdullah-al-juhany",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. عبدالمحسن بن محمد القاسم",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulmohsen-al-qasim.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulmohsen-al-qasim-urls.txt",
+   "n": 114,
+   "hours": 20.8,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdulmohsen-al-qasim",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulmohsen-al-qasim",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. عبدالودود بن مقبول حنيف",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulwadood-haneef.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-abdulwadood-haneef-urls.txt",
+   "n": 114,
+   "hours": 18.0,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdulwadood-haneef",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulwadood-haneef",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. علي بن عبدالرحمن الحذيفي",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-ali-al-hudhaify.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-ali-al-hudhaify-urls.txt",
+   "n": 114,
+   "hours": 20.0,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-ali-al-hudhaify",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-ali-al-hudhaify",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. ماهر بن حمد المعيقلي",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-maher-al-muaiqly.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-maher-al-muaiqly-urls.txt",
+   "n": 114,
+   "hours": 22.5,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-maher-al-muaiqly",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-maher-al-muaiqly",
+   "sort": 0
+  },
+  {
+   "name": "المصحف المرتل - د. محمد أيوب",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-muhammad-ayyub.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-muhammad-ayyub-urls.txt",
+   "n": 114,
+   "hours": 19.6,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-muhammad-ayyub",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-muhammad-ayyub",
+   "sort": 0
+  },
+  {
+   "name": "مصحف الحرمين - د. صلاح بن محمد البدير",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-salah-al-budair-haramain.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/mushaf-salah-al-budair-haramain-urls.txt",
+   "n": 114,
+   "hours": 21.6,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-salah-al-budair-haramain",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-salah-al-budair-haramain",
+   "sort": 0
+  }
+ ],
+ "tarawih": [
+  {
+   "name": "تراويح المسجد النبوي 1447هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1447.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1447-urls.txt",
+   "n": 114,
+   "hours": 23.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1447",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1447",
+   "sort": 1447
+  },
+  {
+   "name": "تراويح المسجد النبوي 1446هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1446.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1446-urls.txt",
+   "n": 114,
+   "hours": 23.6,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1446",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1446",
+   "sort": 1446
+  },
+  {
+   "name": "تراويح المسجد النبوي 1445هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1445.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1445-urls.txt",
+   "n": 114,
+   "hours": 23.4,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1445",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1445",
+   "sort": 1445
+  },
+  {
+   "name": "تراويح المسجد النبوي 1444هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1444.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1444-urls.txt",
+   "n": 114,
+   "hours": 22.5,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1444",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1444",
+   "sort": 1444
+  },
+  {
+   "name": "تراويح المسجد النبوي 1443هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1443.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1443-urls.txt",
+   "n": 114,
+   "hours": 21.7,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1443",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1443",
+   "sort": 1443
+  },
+  {
+   "name": "تراويح المسجد النبوي 1442هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1442.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1442-urls.txt",
+   "n": 114,
+   "hours": 22.3,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1442",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1442",
+   "sort": 1442
+  },
+  {
+   "name": "تراويح المسجد النبوي 1441هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1441.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1441-urls.txt",
+   "n": 114,
+   "hours": 22.8,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1441",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1441",
+   "sort": 1441
+  },
+  {
+   "name": "تراويح المسجد النبوي 1440هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1440.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1440-urls.txt",
+   "n": 114,
+   "hours": 22.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1440",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1440",
+   "sort": 1440
+  },
+  {
+   "name": "تراويح المسجد النبوي 1439هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1439.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1439-urls.txt",
+   "n": 114,
+   "hours": 23.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1439",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1439",
+   "sort": 1439
+  },
+  {
+   "name": "تراويح المسجد النبوي 1438هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1438.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1438-urls.txt",
+   "n": 114,
+   "hours": 23.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1438",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1438",
+   "sort": 1438
+  },
+  {
+   "name": "تراويح المسجد النبوي 1437هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1437.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1437-urls.txt",
+   "n": 114,
+   "hours": 22.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1437",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1437",
+   "sort": 1437
+  },
+  {
+   "name": "تراويح المسجد النبوي 1435هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1435.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1435-urls.txt",
+   "n": 114,
+   "hours": 20.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1435",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1435",
+   "sort": 1435
+  },
+  {
+   "name": "تراويح المسجد النبوي 1434هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1434.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1434-urls.txt",
+   "n": 114,
+   "hours": 21.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1434",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1434",
+   "sort": 1434
+  },
+  {
+   "name": "تراويح المسجد النبوي 1433هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1433.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1433-urls.txt",
+   "n": 114,
+   "hours": 20.7,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1433",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1433",
+   "sort": 1433
+  },
+  {
+   "name": "تراويح المسجد النبوي 1432هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1432.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1432-urls.txt",
+   "n": 114,
+   "hours": 21.9,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1432",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1432",
+   "sort": 1432
+  },
+  {
+   "name": "تراويح المسجد النبوي 1431هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1431.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1431-urls.txt",
+   "n": 114,
+   "hours": 22.4,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1431",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1431",
+   "sort": 1431
+  },
+  {
+   "name": "تراويح المسجد النبوي 1430هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1430.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1430-urls.txt",
+   "n": 114,
+   "hours": 22.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1430",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1430",
+   "sort": 1430
+  },
+  {
+   "name": "تراويح المسجد النبوي 1429هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1429.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1429-urls.txt",
+   "n": 114,
+   "hours": 21.1,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1429",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1429",
+   "sort": 1429
+  },
+  {
+   "name": "تراويح المسجد النبوي 1428هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1428.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1428-urls.txt",
+   "n": 114,
+   "hours": 21.7,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1428",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1428",
+   "sort": 1428
+  },
+  {
+   "name": "تراويح المسجد النبوي 1427هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1427.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1427-urls.txt",
+   "n": 114,
+   "hours": 21.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1427",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1427",
+   "sort": 1427
+  },
+  {
+   "name": "تراويح المسجد النبوي 1426هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1426.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1426-urls.txt",
+   "n": 114,
+   "hours": 20.9,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1426",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1426",
+   "sort": 1426
+  },
+  {
+   "name": "تراويح المسجد النبوي 1425هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1425.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1425-urls.txt",
+   "n": 114,
+   "hours": 20.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1425",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1425",
+   "sort": 1425
+  },
+  {
+   "name": "تراويح المسجد النبوي 1424هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1424.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1424-urls.txt",
+   "n": 114,
+   "hours": 19.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1424",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1424",
+   "sort": 1424
+  },
+  {
+   "name": "تراويح المسجد النبوي 1423هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1423.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1423-urls.txt",
+   "n": 114,
+   "hours": 21.4,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1423",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1423",
+   "sort": 1423
+  },
+  {
+   "name": "تراويح المسجد النبوي 1422هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1422.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1422-urls.txt",
+   "n": 114,
+   "hours": 20.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1422",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1422",
+   "sort": 1422
+  },
+  {
+   "name": "تراويح المسجد النبوي 1421هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1421.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1421-urls.txt",
+   "n": 114,
+   "hours": 20.7,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1421",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1421",
+   "sort": 1421
+  },
+  {
+   "name": "تراويح المسجد النبوي 1420هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1420.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1420-urls.txt",
+   "n": 114,
+   "hours": 20.8,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1420",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1420",
+   "sort": 1420
+  },
+  {
+   "name": "تراويح المسجد النبوي 1419هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1419.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1419-urls.txt",
+   "n": 114,
+   "hours": 21.4,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1419",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1419",
+   "sort": 1419
+  },
+  {
+   "name": "تراويح المسجد النبوي 1418هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1418.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1418-urls.txt",
+   "n": 106,
+   "hours": 19.3,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1418",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1418",
+   "sort": 1418
+  },
+  {
+   "name": "تراويح المسجد النبوي 1417هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1417.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1417-urls.txt",
+   "n": 114,
+   "hours": 19.0,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1417",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1417",
+   "sort": 1417
+  },
+  {
+   "name": "تراويح المسجد النبوي 1416هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1416.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1416-urls.txt",
+   "n": 114,
+   "hours": 20.2,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1416",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1416",
+   "sort": 1416
+  },
+  {
+   "name": "تراويح المسجد النبوي 1415هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1415.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1415-urls.txt",
+   "n": 114,
+   "hours": 20.3,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1415",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1415",
+   "sort": 1415
+  },
+  {
+   "name": "تراويح المسجد النبوي 1413هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1413.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1413-urls.txt",
+   "n": 114,
+   "hours": 20.7,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1413",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1413",
+   "sort": 1413
+  },
+  {
+   "name": "تراويح المسجد النبوي 1412هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1412.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1412-urls.txt",
+   "n": 114,
+   "hours": 19.6,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1412",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1412",
+   "sort": 1412
+  },
+  {
+   "name": "تراويح المسجد النبوي 1411هـ",
+   "m3u": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1411.m3u",
+   "urls": "https://archive.org/download/trtel-alquran-feed/lists/tarawih-1411-urls.txt",
+   "n": 114,
+   "hours": 19.3,
+   "page": "https://archive.org/details/trtel-alquran-tarawih-1411",
+   "zip": "https://archive.org/compress/trtel-alquran-tarawih-1411",
+   "sort": 1411
+  }
+ ]
+}
