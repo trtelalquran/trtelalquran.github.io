@@ -164,6 +164,8 @@ html[lang="en"] .howto h3{font-family:var(--body)}
 .howto h3:not(:first-child){margin-top:18px}
 .howto ul{margin:8px 0 0;padding-inline-start:18px;font-size:.9rem}
 .howto li{margin:6px 0}
+.plsel{width:100%;margin:8px 0 2px;padding:10px 12px;border-radius:12px;border:1px solid var(--line, rgba(127,127,127,.3));background:var(--soft);color:inherit;font:inherit}
+.plbtns{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
 .copyrow{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:12px;padding:6px;margin:6px 0}
 .copyrow code{flex:1;min-width:0;direction:ltr;text-align:left;font-size:.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-inline:6px}
 .cp{border:0;background:var(--accent);color:var(--accentInk);border-radius:999px;padding:6px 14px;font:inherit;font-size:.8rem;cursor:pointer;text-decoration:none;white-space:nowrap}
@@ -261,10 +263,12 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
 
   <h2 data-i18n="appsH">الاستماع في تطبيقك</h2>
   <section class="glass howto">
-    <h3 data-i18n="m3uH">١. قائمة التشغيل M3U (إذاعة بلا توقف)</h3>
+    <h3 data-i18n="m3uH">١. قوائم التشغيل M3U</h3>
     <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/radio.m3u">نسخ</button></div>
-    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/all-by-mushaf.m3u">نسخ</button></div>
-    <p class="hint" data-i18n="m3uHint">الأولى دورات بقرّاء مختلفين، والثانية بترتيب المصحف.</p>
+    <p class="hint" data-i18n="m3uHint">الرابط الأول إذاعة بقرّاء مختلفين. واختر من القائمة مصحفًا كاملًا أو سنة من تراويح المسجد النبوي:</p>
+    <select id="plSel" class="plsel" aria-label="قوائم المصاحف والتراويح"></select>
+    <div class="copyrow"><code id="plUrl"></code><button class="cp" id="plCopy" data-i18n="copy">نسخ</button></div>
+    <div class="plbtns"><a class="cp" id="plUrls" href="#" download data-i18n="plUrlsBtn">روابط التحميل</a><a class="cp" id="plZip" href="#" rel="noopener">ZIP</a><a class="cp" id="plPage" href="#" target="_blank" rel="noopener" data-i18n="page">الصفحة</a></div>
     <div class="devs">
       <div class="tabs"><button class="tab" aria-expanded="false" aria-controls="pn10"><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn11"><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn12"><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
       <div class="pane" id="pn10" hidden><p data-i18n-html="vlcPc"><b>VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. ثم فعّل زر التكرار ليعيد القائمة بلا نهاية.</p></div>
@@ -273,6 +277,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     </div>
     <h3 data-i18n="rssH">٢. خلاصة البودكاست RSS (حلقات تُحدَّث تلقائيًا)</h3>
     <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast.xml</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/podcast.xml">نسخ</button></div>
+    <p class="hint" data-i18n="rssMus">مصاحف مرتلة كاملة، كل مصحف موسم:</p>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast-mushaf.xml</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/podcast-mushaf.xml">نسخ</button></div>
+    <p class="hint" data-i18n="rssTar">تراويح المسجد النبوي، كل سنة موسم:</p>
+    <div class="copyrow"><code>https://archive.org/download/trtel-alquran-feed/podcast-tarawih.xml</code><button class="cp" data-i18n="copy" data-copy="https://archive.org/download/trtel-alquran-feed/podcast-tarawih.xml">نسخ</button></div>
     <div class="devs">
       <div class="tabs"><button class="tab" aria-expanded="false" aria-controls="pn20"><span data-i18n="devPc">الكمبيوتر</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn21"><span data-i18n="devIos">الآيفون</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><button class="tab" aria-expanded="false" aria-controls="pn22"><span data-i18n="devAnd">الأندرويد</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button></div>
       <div class="pane" id="pn20" hidden><p data-i18n-html="rssPc"><b>Pocket Casts</b> (pocketcasts.com أو التطبيق): البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.</p>
@@ -298,7 +306,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     <div class="dlin">
       <div class="howto" style="padding:0">
         <h3 data-i18n="dlAllH">تحميل كل التلاوات دفعة واحدة</h3>
-        <p class="hint" data-i18n="dlAllHint">958 تلاوة بحجم يقارب 23 جيجا؛ لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
+        <p class="hint" data-i18n="dlAllHint">6,504 تلاوة بحجم يقارب 48 جيجا؛ لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
         <div class="copyrow"><code>all-urls.txt</code><a class="cp" href="all-urls.txt" download data-i18n="dlList">تحميل القائمة</a></div>
         <ul>
           <li data-i18n-html="dlPc"><b>الكمبيوتر:</b> برنامج JDownloader أو Internet Download Manager ← «إضافة روابط» ← الصق محتوى الملف أو استورده.</li>
@@ -328,7 +336,8 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     nextBtn: 'Next surah', backLive: 'Back to live', nextLbl: 'Next:', volume: 'Volume',
     shareH: 'Share the radio', wa: 'WhatsApp', tg: 'Telegram', copyLink: 'Copy link',
     linksH: 'Our channels', moreH: 'More platforms', appsH: 'Listen in your app', copy: 'Copy',
-    m3uH: '1. M3U playlist (non-stop radio)', m3uHint: 'The first rotates reciters; the second follows the Mushaf order.',
+    m3uH: '1. M3U playlists', m3uHint: 'The first link is a radio of rotating reciters. Or pick a complete Mushaf or a year of Tarawih from the Prophet\'s Mosque:',
+    plUrlsBtn: 'Download links', plMus: 'Complete Mushafs', plTar: 'Tarawih of the Prophet\'s Mosque', rssMus: 'Complete recited Mushafs, one season each:', rssTar: 'Tarawih of the Prophet\'s Mosque, one season per year:',
     vlcPc: '<b>VLC:</b> copy the link → open VLC → Media → Open Network Stream (Ctrl+N) → paste → Play. Then turn on Loop to repeat forever.',
     vlcAnd: '<b>VLC:</b> copy the link → open VLC → More → New stream → paste → Play, then turn on repeat.',
     vlcIos: '<b>VLC:</b> copy the link → open VLC → Network → Network Stream → paste → Open Network Stream, then turn on repeat.',
@@ -346,7 +355,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     liveAnd: '<b>VLC:</b> copy the link → open VLC → More → New stream → paste → Play. Or add it in any radio app that accepts a station URL.',
     devPc: 'Computer', devIos: 'iPhone', devAnd: 'Android',
     dlH: 'Download the recitations', dlAllH: 'Download everything at once',
-    dlAllHint: '958 recitations, about 23 GB. It is too large for one ZIP, so use this list of links in a download manager to get them all at once:',
+    dlAllHint: '6,504 recitations, about 48 GB. It is too large for one ZIP, so use this list of links in a download manager to get them all at once:',
     dlList: 'Download list',
     dlPc: '<b>Computer:</b> JDownloader or Internet Download Manager → Add links → paste or import the file.',
     dlAnd: '<b>Android:</b> ADM app → import the link list from the file.',
@@ -358,7 +367,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
     shareMsg: 'Listen to "Tilawat min al-Quran", live Quran radio around the clock'
   };
   const AR = {}; // يُملأ من النصوص الأصلية في الصفحة
-  const ARX = { live: 'مباشر', notLive: 'خارج البث المباشر', play: 'تشغيل', pause: 'إيقاف', copied: 'تم نسخ الرابط',
+  const ARX = { plMus: 'المصاحف المكتملة', plTar: 'تراويح المسجد النبوي', live: 'مباشر', notLive: 'خارج البث المباشر', play: 'تشغيل', pause: 'إيقاف', copied: 'تم نسخ الرابط',
     loadErr: 'تعذّر تحميل هذا المقطع، ننتقل للتالي…', plErr: 'تعذّر تحميل قائمة التشغيل.', recit: 'تلاوة', page: 'الصفحة', gb: 'جيجا', mb: 'ميجا',
     shareMsg: 'استمع لإذاعة «تلاوات من القرآن الكريم» مباشرة على مدار الساعة' };
   document.querySelectorAll('[data-i18n]').forEach(e => AR[e.dataset.i18n] = e.textContent);
@@ -374,11 +383,13 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   const SMAP = new Map(SURAH_AR.map((a, i) => [a, SURAH_EN[i]]));
   const SRE = new RegExp('(^|[\\s،(])(' + SURAH_AR.slice().sort((a, b) => b.length - a.length).join('|') + ')(?=$|[\\s،)])', 'g');
   const trTitle = t => lang !== 'en' ? t : t.replace(/^سورة\s+/, 'Surah ').replace(SRE, (m, p, s) => (p === '،' ? ',' : p) + SMAP.get(s))
-      .replace(/،/g, ',').replace(/(\d+)هـ/g, '$1 AH').replace(/مختارات من (\d+) سورة - أولها/, 'Selections from $1 surahs, starting with');
-  const REC_EN = {"أحمد بن طالب حميد": "Ahmad bin Talib Humaid", "أحمد حامد": "Ahmad Hamed", "أحمد ديبان": "Ahmad Deban", "أنس جلهوم": "Anas Jalhoum", "إبراهيم البصيلي": "Ibrahim Al-Busaili", "الوليد الشمسان": "Al-Waleed Al-Shamsan", "بدر التركي": "Badr Al-Turki", "بندر بليلة": "Bandar Baleelah", "تلاوات متنوعة": "Various reciters", "حازم سيف": "Hazem Saif", "خالد الجليل": "Khalid Al-Jaleel", "خالد الغامدي": "Khalid Al-Ghamdi", "ريان المحيسني": "Rayan Al-Muhaisni", "محمد المحيسني": "Muhammad Al-Muhaisni", "سعود الشريم": "Saud Al-Shuraim", "صلاح البدير": "Salah Al-Budair", "شعيب البدري": "Shuaib Al-Badri", "حسين آل الشيخ": "Hussain Al-Sheikh", "عادل ريان": "Adel Rayan", "عاصم اللحيدان": "Asim Al-Luhaidan", "عبدالعزيز الأحمد": "Abdulaziz Al-Ahmad", "عبدالعزيز الزهراني": "Abdulaziz Al-Zahrani", "عبدالعزيز بن صالح": "Abdulaziz bin Saleh", "عبدالله البعيجان": "Abdullah Al-Buaijan", "عبدالله الجهني": "Abdullah Al-Juhany", "عبدالله الموسى": "Abdullah Al-Mousa", "عبدالمحسن القاسم": "Abdulmohsen Al-Qasim", "عكاشة كميني": "Okasha Kameny", "علي جابر": "Ali Jaber", "فارس عباد": "Fares Abbad", "ماجد الزامل": "Majed Al-Zamil", "ماهر المعيقلي": "Maher Al-Muaiqly", "محمد أيوب": "Muhammad Ayyub", "محمد الغزالي": "Muhammad Al-Ghazali", "هزاع البلوشي": "Hazza Al-Balushi", "يوسف العيدروس": "Yousef Al-Aidarous"};
+      .replace(/،/g, ',').replace(/(\d+)هـ/g, '$1 AH').replace(/مختارات من (\d+) سورة - أولها/, 'Selections from $1 surahs, starting with')
+      .replace(/تراويح المسجد النبوي/g, "Tarawih of the Prophet's Mosque").replace(/المصحف المرتل/g, 'Recited Mushaf').replace(/مصحف الحرمين/g, 'Haramain Mushaf').replace(/مصحف غير مكتمل/g, 'Incomplete Mushaf');
+  const REC_EN = {"خالد بن فهد الجليل": "Khalid Al-Jaleel", "د. صلاح بن محمد البدير": "Dr. Salah Al-Budair", "د. سعود بن إبراهيم الشريم": "Dr. Saud Al-Shuraim", "د. عبدالله بن عبدالرحمن البعيجان": "Dr. Abdullah Al-Buaijan", "د. عبدالعزيز بن عبدالله الأحمد": "Dr. Abdulaziz Al-Ahmad", "د. الوليد بن خالد الشمسان": "Dr. Al-Waleed Al-Shamsan", "عكاشة بن حسن كميني": "Okasha Kameny", "د. ماهر بن حمد المعيقلي": "Dr. Maher Al-Muaiqly", "أحمد بن محمد ديبان": "Ahmad Deban", "د. علي بن عبدالله جابر": "Dr. Ali Jaber", "د. بندر بن عبدالعزيز بليلة": "Dr. Bandar Baleelah", "د. محمد أيوب": "Dr. Muhammad Ayyub", "إبراهيم بن الأخضر القيم": "Ibrahim Al-Akhdar", "د. عبدالله بن عواد الجهني": "Dr. Abdullah Al-Juhany", "د. عبدالباري بن عواض الثبيتي": "Dr. Abdulbari Al-Thubaity", "عبدالعزيز بن صالح وعبدالمجيد الجبرتي": "Abdulaziz bin Saleh & Abdulmajeed Al-Jabarti", "د. عبدالمحسن بن محمد القاسم": "Dr. Abdulmohsen Al-Qasim", "د. عبدالودود بن مقبول حنيف": "Dr. Abdulwadood Haneef", "د. علي بن عبدالرحمن الحذيفي": "Dr. Ali Al-Hudhaify", "د. حسين بن عبدالعزيز آل الشيخ": "Dr. Hussain Al-Sheikh", "د. خالد بن سليمان المهنا": "Dr. Khalid Al-Muhanna", "د. خالد بن علي الغامدي": "Dr. Khalid Al-Ghamdi", "سعد بن سعيد الغامدي": "Saad Al-Ghamdi", "محمد بن خليل القارئ": "Muhammad Khalil Al-Qari", "تراويح المسجد النبوي": "Tarawih of the Prophet's Mosque", "أحمد بن طالب حميد": "Ahmad bin Talib Humaid", "أحمد حامد": "Ahmad Hamed", "أحمد ديبان": "Ahmad Deban", "أنس جلهوم": "Anas Jalhoum", "إبراهيم البصيلي": "Ibrahim Al-Busaili", "الوليد الشمسان": "Al-Waleed Al-Shamsan", "بدر التركي": "Badr Al-Turki", "بندر بليلة": "Bandar Baleelah", "تلاوات متنوعة": "Various reciters", "حازم سيف": "Hazem Saif", "خالد الجليل": "Khalid Al-Jaleel", "خالد الغامدي": "Khalid Al-Ghamdi", "ريان المحيسني": "Rayan Al-Muhaisni", "محمد المحيسني": "Muhammad Al-Muhaisni", "سعود الشريم": "Saud Al-Shuraim", "صلاح البدير": "Salah Al-Budair", "شعيب البدري": "Shuaib Al-Badri", "حسين آل الشيخ": "Hussain Al-Sheikh", "عادل ريان": "Adel Rayan", "عاصم اللحيدان": "Asim Al-Luhaidan", "عبدالعزيز الأحمد": "Abdulaziz Al-Ahmad", "عبدالعزيز الزهراني": "Abdulaziz Al-Zahrani", "عبدالعزيز بن صالح": "Abdulaziz bin Saleh", "عبدالله البعيجان": "Abdullah Al-Buaijan", "عبدالله الجهني": "Abdullah Al-Juhany", "عبدالله الموسى": "Abdullah Al-Mousa", "عبدالمحسن القاسم": "Abdulmohsen Al-Qasim", "عكاشة كميني": "Okasha Kameny", "علي جابر": "Ali Jaber", "فارس عباد": "Fares Abbad", "ماجد الزامل": "Majed Al-Zamil", "ماهر المعيقلي": "Maher Al-Muaiqly", "محمد أيوب": "Muhammad Ayyub", "محمد الغزالي": "Muhammad Al-Ghazali", "هزاع البلوشي": "Hazza Al-Balushi", "يوسف العيدروس": "Yousef Al-Aidarous"};
   const trRec = r => lang !== 'en' || !r ? r : r.split('، ').map(n => REC_EN[n] || n).join(', ');
 
   function applyLang() {
+    try { renderLists(); } catch (e) {}
     root.lang = lang; root.dir = lang === 'en' ? 'ltr' : 'rtl';
     document.querySelectorAll('[data-i18n]').forEach(e => e.textContent = T(e.dataset.i18n));
     document.querySelectorAll('[data-i18n-html]').forEach(e => e.innerHTML = T(e.dataset.i18nHtml));
@@ -551,6 +562,29 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
   }
   fetch('links.json', { cache: 'no-store' }).then(r => r.json()).then(j => { LINKS = j.links; renderLinks(); }).catch(() => {});
   fetch('downloads.json', { cache: 'no-store' }).then(r => r.json()).then(list => { DL = list; renderDl(); }).catch(() => {});
+
+
+  /* ---------- قوائم المصاحف والتراويح (قائمة منسدلة واحدة) ---------- */
+  let LISTS = null;
+  function renderLists() {
+    if (!LISTS) return;
+    const sel = $('plSel'), cur = sel.value;
+    const radio = 'https://archive.org/download/trtel-alquran-feed/radio.m3u';
+    const opt = (v, t) => `<option value="${v}">${t}</option>`;
+    sel.innerHTML = opt('radio', lang === 'en' ? 'Radio: rotating reciters' : 'الإذاعة: قرّاء متنوعون') +
+      `<optgroup label="${T('plMus')}">` + LISTS.mushaf.map((x, i) => opt('m' + i, x.name.replace(/^(.+?) - (.+)$/, (m, a, b) => trTitle(a) + ' - ' + trRec(b)))).join('') + '</optgroup>' +
+      `<optgroup label="${T('plTar')}">` + LISTS.tarawih.map((x, i) => opt('t' + i, trTitle(x.name))).join('') + '</optgroup>';
+    if (cur) sel.value = cur;
+    const pick = () => {
+      const v = sel.value, x = v === 'radio' ? null : LISTS[v[0] === 'm' ? 'mushaf' : 'tarawih'][+v.slice(1)];
+      const u = x ? x.m3u : radio;
+      $('plUrl').textContent = u; $('plCopy').onclick = () => copy(u);
+      ['plUrls', 'plZip', 'plPage'].forEach(id => $(id).hidden = !x);
+      if (x) { $('plUrls').href = x.urls; $('plZip').href = x.zip; $('plPage').href = x.page; }
+    };
+    sel.onchange = pick; pick();
+  }
+  fetch('lists.json', { cache: 'no-store' }).then(r => r.json()).then(j => { LISTS = j; renderLists(); }).catch(() => {});
 
   /* ---------- أزرار الأجهزة: واحد مفتوح فقط في كل مجموعة ---------- */
   document.querySelectorAll('.devs').forEach(g => {
