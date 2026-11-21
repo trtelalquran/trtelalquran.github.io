@@ -38,6 +38,12 @@
       "icon": "archive"
     },
     {
+      "name": "إذاعة ترتيل المباشرة",
+      "en": "Trtel live radio",
+      "url": "https://radio.trtel.vip",
+      "icon": "radio"
+    },
+    {
       "name": "Amazon",
       "en": "Amazon",
       "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc",
