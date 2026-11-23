@@ -1,139 +1,94 @@
 {
-  "_note": "عدّل الروابط هنا فقط. الترتيب هنا هو ترتيب الصفحة، وأي رابط فارغ \"\" لا يظهر. name بالعربية وen بالإنجليزية. more:true يضع الرابط في قائمة «منصات أخرى» المنسدلة. إذا بقيت بطاقة وحدة في آخر القائمة تأخذ عرض الصف. الإذاعات (TuneIn وSHOUTcast وCaster) آخر شي.",
+  "_note": "main:true = القنوات الظاهرة، والباقي تحت «أخرى» بنفس الترتيب. أي رابط فارغ لا يظهر.",
   "links": [
     {
-      "name": "قناة التليجرام الصوتية",
-      "en": "Telegram audio channel",
+      "name": "تليجرام الصوتية",
+      "en": "Telegram Audio",
       "url": "https://t.me/trtelalquran_r",
-      "icon": "telegram"
+      "icon": "telegram",
+      "main": true
     },
     {
       "name": "بودكاست يوتيوب",
-      "en": "YouTube podcast",
-      "url": "https://www.youtube.com/playlist?list=PLOk-39G-QomI",
-      "icon": "youtube"
-    },
-    {
-      "name": "قناة التليجرام",
-      "en": "Telegram channel",
-      "url": "https://t.me/trtelalquran",
-      "icon": "telegram"
-    },
-    {
-      "name": "قناة اليوتيوب",
-      "en": "YouTube channel",
-      "url": "https://youtube.com/@trtelalquran",
-      "icon": "youtube"
-    },
-    {
-      "name": "قناة الواتساب",
-      "en": "WhatsApp channel",
-      "url": "https://whatsapp.com/channel/0029Va8nWpA6LwHgMLopMe1x",
-      "icon": "whatsapp"
-    },
-    {
-      "name": "حساب الأرشيف",
-      "en": "Internet Archive",
-      "url": "https://archive.org/details/@trtel_alquran",
-      "icon": "archive"
-    },
-    {
-      "name": "إذاعة ترتيل المباشرة",
-      "en": "Trtel live radio",
-      "url": "https://radio.trtel.vip",
-      "icon": "radio"
-    },
-    {
-      "name": "Amazon",
-      "en": "Amazon",
-      "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc",
-      "icon": "podcast",
-      "more": true
-    },
-    {
-      "name": "Podcast Index",
-      "en": "Podcast Index",
-      "url": "https://podcastindex.org/podcast/8101232",
-      "icon": "podcast",
-      "more": true
-    },
-    {
-      "name": "Apple Podcasts",
-      "en": "Apple Podcasts",
-      "url": "https://podcasts.apple.com/podcast/id6835754365",
-      "icon": "podcast",
-      "more": true
-    },
-    {
-      "name": "بودكاست Player FM",
-      "en": "Player FM podcast",
-      "url": "https://player.fm/series/trtyl-lqran",
-      "icon": "podcast",
-      "more": true
-    },
-    {
-      "name": "Pocket Casts",
-      "en": "Pocket Casts",
-      "url": "https://pca.st/qq2gfp4n",
-      "icon": "podcast",
-      "more": true
-    },
-    {
-      "name": "iHeart",
-      "en": "iHeart",
-      "url": "https://www.iheart.com/podcast/349433680/",
-      "icon": "podcast",
-      "more": true
+      "en": "YouTube Podcast",
+      "url": "https://youtube.com/playlist?list=PLOk-39G-QomI",
+      "icon": "youtube",
+      "main": true
     },
     {
       "name": "Spotify",
       "en": "Spotify",
       "url": "https://open.spotify.com/show/5VnEMfCUTlDjc7T2QOPiUM",
-      "icon": "podcast",
-      "more": true
+      "icon": "spotify",
+      "main": true
+    },
+    {
+      "name": "Apple Podcasts",
+      "en": "Apple Podcasts",
+      "url": "https://podcasts.apple.com/podcast/id6835754365",
+      "icon": "apple",
+      "main": true
+    },
+    {
+      "name": "تليجرام المرئية",
+      "en": "Telegram (video)",
+      "url": "https://t.me/trtelalquran",
+      "icon": "telegram"
+    },
+    {
+      "name": "يوتيوب",
+      "en": "YouTube",
+      "url": "https://youtube.com/@trtelalquran",
+      "icon": "youtube"
+    },
+    {
+      "name": "واتساب",
+      "en": "WhatsApp",
+      "url": "https://whatsapp.com/channel/0029Va8nWpA6LwHgMLopMe1x",
+      "icon": "whatsapp"
+    },
+    {
+      "url": "https://www.instagram.com/trtel.alquran",
+      "name": "انستجرام",
+      "en": "Instagram",
+      "icon": "instagram"
+    },
+    {
+      "name": "الأرشيف",
+      "en": "Internet Archive",
+      "url": "https://archive.org/details/@trtel_alquran",
+      "icon": "archive"
+    },
+    {
+      "name": "Amazon",
+      "en": "Amazon",
+      "url": "https://music.amazon.com/podcasts/6d5a9133-ca93-49a2-b32a-f5b7841dc0fc",
+      "icon": "amazon"
+    },
+    {
+      "name": "إذاعة TuneIn",
+      "en": "TuneIn radio",
+      "url": "https://tunein.com/radio/s364448/",
+      "icon": "tunein"
+    },
+    {
+      "url": "https://www.facebook.com/profile.php?id=61596505418252",
+      "name": "فيسبوك",
+      "en": "Facebook",
+      "icon": "facebook"
+    },
+    {
+      "url": "https://www.threads.com/@trtel.alquran",
+      "name": "ثريدز",
+      "en": "Threads",
+      "icon": "threads"
     },
     {
       "name": "Deezer",
       "en": "Deezer",
       "url": "",
       "icon": "podcast",
-      "more": true,
       "_wait": "https://www.deezer.com/show/1003735891 (لم يُنشر بعد)"
-    },
-    {
-      "name": "إذاعة Online Radio Box",
-      "en": "Online Radio Box radio",
-      "url": "https://onlineradiobox.com/sa/trtelalquran/",
-      "icon": "radio",
-      "more": true
-    },
-    {
-      "name": "إذاعة myTuner",
-      "en": "myTuner radio",
-      "url": "https://mytuner-radio.com/radio/tlwt-mn-lqran-524104/",
-      "icon": "radio",
-      "more": true
-    },
-    {
-      "name": "إذاعة TuneIn",
-      "en": "TuneIn radio",
-      "url": "https://tunein.com/radio/s364448/",
-      "icon": "radio",
-      "more": true
-    },
-    {
-      "name": "إذاعة SHOUTcast",
-      "en": "SHOUTcast radio",
-      "url": "https://usa3.fastcast4u.com/proxy/trtelalquran/stream",
-      "icon": "radio",
-      "more": true
-    },
-    {
-      "name": "إذاعة Caster",
-      "en": "Caster radio",
-      "url": "https://trtel-alquran.ismyradio.com/player",
-      "icon": "radio",
-      "more": true
     }
   ]
 }
