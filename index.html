@@ -180,7 +180,9 @@ html[dir="ltr"] #nextBtn .l1 svg{transform:none}
 .two button[aria-expanded="true"]{border-bottom:3px solid var(--ink)}
 .panel{padding-top:6px}
 .it{margin-top:12px}
-.it .alt{margin:10px 0 0;padding:0 8px;font-size:13px;color:var(--mut)}.it .alt b{font-weight:700;color:inherit}
+.it .alt{margin:10px 0 0;padding:0 8px;font-size:13px;color:var(--mut);background:none;border:0;display:flex;align-items:center;gap:5px;cursor:pointer;text-align:start;font-family:inherit}
+.it .alt svg{width:14px;height:14px;flex:none;transition:transform .15s}.it .alt[aria-expanded="true"] svg{transform:rotate(180deg)}
+#pListen .it .url[hidden]{display:none}.it .alt b{font-weight:700;color:inherit}
 .it>b{display:block;font:700 17px var(--display)}
 .sm{font-size:13px;color:var(--mut);margin:8px 0 0}
 .url{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px dashed var(--gold)}
@@ -482,8 +484,8 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
         <div class="devtxt" id="devtxt"></div>
         <div class="it"><b data-i18n-html="liveH"><span>1. إذاعة ترتيل المباشرة، <i class="hx">بث مباشر (راديو)</i></span></b>
           <div class="url"><a class="lnk" href="https://radio.trtel.vip/aac" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><code>https://radio.trtel.vip/aac</code></a><button class="cp" type="button" data-i18n="copy" data-copy="https://radio.trtel.vip/aac">نسخ</button></div>
-          <p class="alt"><b data-i18n="altLiveH">رابط آخر</b> <span data-i18n="altLiveD">متوافق مع كل الأجهزة بما فيها القديمة</span></p>
-          <div class="url"><a class="lnk" href="https://radio.trtel.vip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><code>https://radio.trtel.vip</code></a><button class="cp" type="button" data-i18n="copy" data-copy="https://radio.trtel.vip">نسخ</button></div>
+          <button type="button" class="alt" id="altBtn" aria-expanded="false" aria-controls="altUrl"><b data-i18n="altLiveH">رابط آخر</b> <span data-i18n="altLiveD">متوافق مع كل الأجهزة بما فيها القديمة</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+          <div class="url" id="altUrl" hidden><a class="lnk" href="https://radio.trtel.vip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><code>https://radio.trtel.vip</code></a><button class="cp" type="button" data-i18n="copy" data-copy="https://radio.trtel.vip">نسخ</button></div>
         </div>
         <div class="it"><b data-i18n-html="m3uH"><span>2. قائمة التشغيل M3U <i class="hx">(والتحميل)</i></span></b>
           <div class="pick" id="plBox">
@@ -1051,6 +1053,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     $('chips').innerHTML = rest.map(a).join('');
     $('moreBtn').hidden = !rest.length;
   }
+  $('altBtn').onclick = () => { const u = $('altUrl'); u.hidden = !u.hidden; $('altBtn').setAttribute('aria-expanded', !u.hidden); }; // رابط البث الآخر مطوي حتى يُضغط
   $('moreBtn').onclick = () => { const c = $('chips'); c.hidden = !c.hidden; $('moreBtn').setAttribute('aria-expanded', !c.hidden); };
   /* ---------- قوائم M3U للمصاحف والتراويح ---------- */
   const RADIO_M3U = 'https://archive.org/download/trtel-alquran-feed/radio.m3u';
