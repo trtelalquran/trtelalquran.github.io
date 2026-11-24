@@ -27,6 +27,10 @@
 </script>
 <link rel="icon" href="logo512.jpg?v=2">
 <link rel="apple-touch-icon" href="logo512.jpg?v=2">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ترتيل">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -355,6 +359,28 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
 .chan .chips{margin-top:12px}
 /* التاريخ بلون أغمق (2026-11-23) */
 .when{color:var(--ink)}
+/* زر «أضف للشاشة الرئيسية» بجانب المشاركة، وشريط يظهر مرة لزائر الجوال (2026-11-24) */
+.frow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.frow .btn.fshare{margin:0}
+.btn.fshare.inst svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;width:15px;height:15px}
+.ibar{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;background:var(--panel);color:var(--ink);border:1px solid var(--gold);border-radius:14px;padding:10px 12px;box-shadow:0 10px 30px #0003;max-width:436px;margin:auto}
+.ibar img{width:42px;height:42px;border-radius:10px;flex:none}
+.ibar .tx{flex:1;line-height:1.35;min-width:0}.ibar .tx b{display:block;font:700 16px var(--display)}.ibar .tx span{font-size:12.5px;color:var(--mut)}
+.ibar .go{background:var(--on);color:var(--on-ink);border:0;border-radius:999px;padding:7px 14px;font-weight:700;font-size:13.5px;white-space:nowrap}
+.ibar .x{background:none;border:0;color:var(--mut);font-size:22px;line-height:1;padding:0 4px}
+.ishade{position:fixed;inset:0;background:#0006;z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.isheet{background:var(--panel);color:var(--ink);width:100%;max-width:460px;border-radius:18px 18px 0 0;padding:18px 20px calc(22px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px #0003}
+@media (min-width:920px){.ishade{align-items:center}.isheet{border-radius:18px;max-width:520px}}
+.isheet h3{font:700 21px var(--display);margin:0 0 4px;text-align:center}
+.isheet .sub{text-align:center;color:var(--mut);font-size:13px;margin:0 0 12px}
+.isheet ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.isheet li{counter-increment:s;display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.isheet li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--on);color:var(--on-ink);display:grid;place-items:center;font-size:13px;font-weight:700}
+.isheet .k{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:7px;padding:1px 7px;background:var(--bg);font-weight:600;white-space:nowrap}
+.isheet .k svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.isheet .k svg.f{fill:currentColor;stroke:none}
+.isheet .ok{display:block;margin:16px auto 0;background:var(--on);color:var(--on-ink);border:0;border-radius:999px;padding:8px 28px;font-weight:700}
+.isheet .arrow{text-align:center;color:var(--rec);font-size:13px;margin:10px 0 0}
 </style>
 </head>
 <body>
@@ -456,12 +482,21 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   <div class="chips" id="chips" hidden></div>
 
   <footer>
+    <div class="frow">
     <button class="btn fshare" id="shareBtn" type="button"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.2 1l-7-4a3 3 0 0 0 0-2l7-4A3 3 0 1 0 15 5a3 3 0 0 0 .1.7l-7 4a3 3 0 1 0 0 4.6l7 4A3 3 0 1 0 18 16z"/></svg><span data-i18n="shareH">شارك الإذاعة</span></button>
+    <button class="btn fshare inst" id="instBtn" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/></svg><span data-i18n="instH">أضف للشاشة الرئيسية</span></button>
+    </div>
     <p class="lead" data-i18n="waqf">هذه الإذاعة وقف لله تعالى، ساهم في نشرها، فالدال على الخير كفاعله.</p>
     <p><span data-i18n="mailL">للملاحظات والاقتراحات، ومن له حق في مادة نحذفها فور طلبه:</span> <a class="mail" href="mailto:info@trtel.vip">info@trtel.vip</a></p>
   </footer>
 </div>
 <div class="toast" id="toast" hidden></div>
+<div class="ibar" id="ibar" role="dialog" data-i18n-aria="instBarL" aria-label="أضف ترتيل للشاشة الرئيسية" hidden>
+  <img src="icon-192.png" width="42" height="42" alt="">
+  <div class="tx"><b data-i18n="instBarH">ترتيل على شاشتك</b><span data-i18n="instBarS">افتح الإذاعة بلمسة مثل التطبيق</span></div>
+  <button class="go" id="ibarGo" type="button" data-i18n="instAdd">إضافة</button>
+  <button class="x" id="ibarX" type="button" data-i18n-aria="close" aria-label="إغلاق">×</button>
+</div>
 <audio id="audio" preload="none"></audio>
 
 <script>
@@ -508,7 +543,12 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     play: 'Play', pause: 'Pause', copied: 'Link copied',
     loadErr: 'Could not load this recitation, moving to the next…', plErr: 'Could not load the playlist.',
     recit: 'recitations', gb: 'GB', mb: 'MB',
-    shareMsg: 'Listen to "Tilawat min al-Quran", live Quran radio around the clock'
+    shareMsg: 'Listen to "Tilawat min al-Quran", live Quran radio around the clock',
+    instH: 'Add to Home Screen', instBarH: 'Trtel on your screen', instBarS: 'Open the radio in one tap, like an app', instAdd: 'Add', close: 'Close', instBarL: 'Add Trtel to your home screen',
+    instT: 'Add Trtel to your Home Screen', instTpc: 'Add Trtel to your desktop', instOk: 'Done', instDone: 'Trtel was added',
+    instIosS: 'iPhone and iPad (Safari and Chrome)', instIos1: 'Tap the Share button {share} in the browser bar', instIos2: 'Choose {add}', instIos3: 'Tap {ok} at the top', instIosA: 'Add to Home Screen', instIosN: 'In Safari the Share button is in the bottom bar',
+    instAndS: 'Firefox and other browsers', instAnd1: 'Open the menu {dots}', instAnd2: 'Choose {add} or “Install”', instAnd3: 'Confirm with {ok}', instAndA: 'Add to Home screen',
+    instPcS: 'In Chrome and Edge the install window appears directly. Other browsers:', instPc1: 'Safari on Mac: {file} → {dock}', instPc2: 'Firefox: drag the lock icon from the address bar onto your desktop', instPc3: 'Or bookmark the page {ctrl}', instFile: 'File', instDock: 'Add to Dock'
   };
   const AR = {}; // يُملأ من النصوص الأصلية في الصفحة
   const ARX = {
@@ -531,7 +571,11 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     rssPcA: '<b>رابط RSS في Pocket Casts:</b> البحث ← الصق الرابط في خانة البحث مباشرة ← اشترك.',
     play: 'تشغيل', pause: 'إيقاف', copied: 'تم نسخ الرابط',
     loadErr: 'تعذّر تحميل هذا المقطع، ننتقل للتالي…', plErr: 'تعذّر تحميل قائمة التشغيل.', recit: 'تلاوة', gb: 'جيجا', mb: 'ميجا',
-    shareMsg: 'استمع لإذاعة «تلاوات من القرآن الكريم» مباشرة على مدار الساعة'
+    shareMsg: 'استمع لإذاعة «تلاوات من القرآن الكريم» مباشرة على مدار الساعة',
+    instT: 'أضف ترتيل للشاشة الرئيسية', instTpc: 'أضف ترتيل لسطح المكتب', instOk: 'تم', instDone: 'تمت إضافة ترتيل',
+    instIosS: 'آيفون وآيباد (سفاري وكروم)', instIos1: 'اضغط زر المشاركة {share} في شريط المتصفح', instIos2: 'اختر {add}', instIos3: 'اضغط {ok} أعلى الشاشة', instIosA: 'إضافة إلى الشاشة الرئيسية', instIosN: 'في سفاري زر المشاركة في الشريط السفلي',
+    instAndS: 'فايرفوكس والمتصفحات الأخرى', instAnd1: 'افتح القائمة {dots}', instAnd2: 'اختر {add} أو «تثبيت»', instAnd3: 'أكّد بـ {ok}', instAndA: 'إضافة إلى الشاشة الرئيسية',
+    instPcS: 'في كروم وإيدج تظهر نافذة التثبيت مباشرة. وفي غيرهما:', instPc1: 'سفاري على الماك: {file} ← {dock}', instPc2: 'فايرفوكس: اسحب القفل من شريط العنوان إلى سطح المكتب', instPc3: 'أو أضف الصفحة للمفضلة {ctrl}', instFile: 'ملف', instDock: 'إضافة إلى Dock'
   };
   document.querySelectorAll('[data-i18n]').forEach(e => AR[e.dataset.i18n] = e.textContent);
   document.querySelectorAll('[data-i18n-html]').forEach(e => AR[e.dataset.i18nHtml] = e.innerHTML);
@@ -827,6 +871,65 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     const d = { title: T('title'), text: T('shareMsg'), url };
     if (navigator.share) navigator.share(d).catch(() => {}); else copy(T('shareMsg') + '\n' + url);
   };
+
+  /* ---------- أضف للشاشة الرئيسية: تثبيت مباشر حيث يدعمه المتصفح، وإلا شرح بالخطوات ---------- */
+  const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(ua);
+  const mobile = isIOS || isAndroid || matchMedia('(pointer:coarse) and (max-width:919px)').matches;
+  let deferredPrompt = null;
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+  const hideInstall = () => { $('instBtn').hidden = true; $('ibar').hidden = true; };
+  if (standalone()) hideInstall();
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
+  addEventListener('appinstalled', () => { deferredPrompt = null; hideInstall(); store.set('installed', '1'); toast(T('instDone')); });
+  const K = t => '<span class="k">' + t + '</span>';
+  const IC_SHARE = '<svg viewBox="0 0 24 24" style="color:#1a73e8"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5v10h14V11h-1"/></svg>';
+  const IC_PLUS = '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/></svg>';
+  const IC_DOTS = '<svg class="f" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>';
+  const fill = (k, m) => T(k).replace(/\{(\w+)\}/g, (x, n) => m[n] || '');
+  function installSheet() {
+    let title = T('instT'), sub, steps, note = '';
+    if (isIOS) { sub = T('instIosS'); note = T('instIosN');
+      steps = [fill('instIos1', { share: K(IC_SHARE) }), fill('instIos2', { add: K(IC_PLUS + ' ' + T('instIosA')) }), fill('instIos3', { ok: K(T('instAdd')) })]; }
+    else if (mobile) { sub = T('instAndS');
+      steps = [fill('instAnd1', { dots: K(IC_DOTS) }), fill('instAnd2', { add: K(T('instAndA')) }), fill('instAnd3', { ok: K(T('instAdd')) })]; }
+    else { title = T('instTpc'); sub = T('instPcS');
+      steps = [fill('instPc1', { file: K(T('instFile')), dock: K(T('instDock')) }), T('instPc2'), fill('instPc3', { ctrl: K(/Mac/.test(navigator.platform) ? '⌘+D' : 'Ctrl+D') })]; }
+    const sh = document.createElement('div'); sh.className = 'ishade';
+    sh.innerHTML = '<div class="isheet" role="dialog" aria-modal="true" aria-labelledby="instTi"><h3 id="instTi"></h3><p class="sub"></p><ol>' + steps.map(s => '<li><span>' + s + '</span></li>').join('') + '</ol>' + (note ? '<p class="arrow">⬇ ' + note + '</p>' : '') + '<button class="ok" type="button"></button></div>';
+    sh.querySelector('h3').textContent = title; sh.querySelector('.sub').textContent = sub; sh.querySelector('.ok').textContent = T('instOk');
+    const close = () => { sh.remove(); removeEventListener('keydown', esc); };
+    const esc = e => { if (e.key === 'Escape') close(); };
+    sh.onclick = e => { if (e.target === sh || e.target.closest('.ok')) close(); };
+    addEventListener('keydown', esc);
+    document.body.appendChild(sh); sh.querySelector('.ok').focus();
+  }
+  function doInstall() {
+    $('ibar').hidden = true;
+    if (deferredPrompt) { const p = deferredPrompt; deferredPrompt = null; p.prompt(); p.userChoice && p.userChoice.catch(() => {}); }
+    else installSheet();
+  }
+  $('instBtn').onclick = doInstall;
+  $('ibarGo').onclick = () => { store.set('instBar', Date.now()); doInstall(); };
+  $('ibarX').onclick = () => { $('ibar').hidden = true; store.set('instBar', Date.now()); };
+  /* الشريط: للجوال فقط، بعد دقيقة استماع، ومرة كل 30 يومًا */
+  const barOk = () => mobile && !standalone() && !store.get('installed') && !(Date.now() - (+store.get('instBar') || 0) < 30 * 864e5);
+  let barT = 0;
+  audio.addEventListener('play', () => { if (barOk() && !barT) barT = setTimeout(() => { if (!audio.paused && barOk()) $('ibar').hidden = false; }, 60000); });
+  audio.addEventListener('pause', () => { clearTimeout(barT); barT = 0; });
+  /* تشغيل تلقائي فقط عند فتح الموقع من أيقونة الشاشة الرئيسية؛ إن منعه المتصفح (مثل آيفون) يبقى زر التشغيل كما هو */
+  if (standalone() || /[?&]source=pwa\b/.test(location.search)) {
+    let tries = 0;
+    const auto = () => {
+      if (!cur) { if (++tries < 40) setTimeout(auto, 250); return; }
+      if (!audio.paused) return;
+      $('playBtn').click();
+      setTimeout(() => { if (audio.paused && wantPlay) { wantPlay = false; setPlaying(false); } }, 4000);
+    };
+    setTimeout(auto, 300);
+  }
 
   /* ---------- شرح الأجهزة: واحد مفتوح فقط ---------- */
   const DEV = { pc: ['vlcPc', 'rssPc', 'rssMac'], ios: ['vlcIos', 'rssAp', 'rssOv'], and: ['vlcAnd', 'rssAnd', 'rssPcA'] };
