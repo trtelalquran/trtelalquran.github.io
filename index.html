@@ -919,6 +919,17 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   let barT = 0;
   audio.addEventListener('play', () => { if (barOk() && !barT) barT = setTimeout(() => { if (!audio.paused && barOk()) $('ibar').hidden = false; }, 60000); });
   audio.addEventListener('pause', () => { clearTimeout(barT); barT = 0; });
+  /* تشغيل تلقائي فقط عند فتح الموقع من أيقونة الشاشة الرئيسية؛ إن منعه المتصفح (مثل آيفون) يبقى زر التشغيل كما هو */
+  if (standalone() || /[?&]source=pwa\b/.test(location.search)) {
+    let tries = 0;
+    const auto = () => {
+      if (!cur) { if (++tries < 40) setTimeout(auto, 250); return; }
+      if (!audio.paused) return;
+      $('playBtn').click();
+      setTimeout(() => { if (audio.paused && wantPlay) { wantPlay = false; setPlaying(false); } }, 4000);
+    };
+    setTimeout(auto, 300);
+  }
 
   /* ---------- شرح الأجهزة: واحد مفتوح فقط ---------- */
   const DEV = { pc: ['vlcPc', 'rssPc', 'rssMac'], ios: ['vlcIos', 'rssAp', 'rssOv'], and: ['vlcAnd', 'rssAnd', 'rssPcA'] };
