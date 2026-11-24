@@ -104,6 +104,16 @@ button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--re
 /* الآن */
 .big{font:700 46px/1.2 var(--display);text-align:center;margin:8px 0 0;text-wrap:balance}
 .big.long{font-size:25px;line-height:1.5}
+/* أيقونة المصحف بجانب اسم السورة (2026-11-24): تفتح mushaf.html على موضع التلاوة في تبويب مستقل */
+.hrow{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 0}
+.hrow .big{margin:0;min-width:0}
+.mus{flex:none;display:flex;flex-direction:column;align-items:center;gap:1px;border:1px solid var(--gold);border-radius:12px;padding:6px 7px 3px;color:var(--gold);background:var(--panel);font:600 10.5px/1.2 var(--body);text-decoration:none;box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 14%,transparent)}
+.mus svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+:root[data-skin="blue"] .mus{border-color:transparent;background:var(--soft);color:var(--on);box-shadow:none}
+/* وضع التضمين داخل صفحة المصحف (?embed=1): المشغّل وحده */
+html.embed .top,html.embed .side,html.embed footer,html.embed .ibar,html.embed .logo{display:none!important}
+html.embed .wrap{zoom:1!important;padding-top:6px}
+html.embed .grid{display:block}
 .ay{text-align:center;color:var(--mut);font-size:13.5px;min-height:21px}
 .rc{text-align:center;color:var(--rec);font:700 22px var(--display);margin-top:2px;min-height:34px}
 /* المؤشر: الفاتحة يمين والناس يسار دائمًا */
@@ -407,7 +417,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
         <ul class="picklist" role="listbox" hidden></ul>
       </div>
       <div class="hint" id="hint"></div>
-      <h1 class="big" id="big">…</h1>
+      <div class="hrow"><h1 class="big" id="big">…</h1><a class="mus" id="musBtn" href="mushaf.html" target="trtelMushaf" data-i18n-aria="musL" aria-label="افتح المصحف على هذه السورة"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13"/></svg><span data-i18n="mus">المصحف</span></a></div>
       <div class="ay" id="ay"></div>
       <div class="rc" id="rc"></div>
       <div class="dial" id="dial">
@@ -511,7 +521,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     title: 'Tilawat min al-Quran al-Karim', themeGroup: 'Theme', thPaper: 'Paper theme', thBlue: 'Blue theme', thDark: 'Dark theme', playerL: 'Player',
     tabNab: "Recitations<small>Prophet's Mosque</small>", tabTrt: 'Tartil<small>Radio</small>', tabTar: "Tarawih<small>Prophet's Mosque</small>",
     stNab: "Recitations of the Prophet's Mosque", stTrt: 'Tartil Radio', stTar: "Tarawih of the Prophet's Mosque",
-    fatiha: 'Al-Fatihah', nas: 'An-Nas', nextBtn: 'Next surah', backLive: 'Back to live', surahW: 'Surah',
+    fatiha: 'Al-Fatihah', nas: 'An-Nas', nextBtn: 'Next surah', mus: 'Mushaf', musL: 'Open the Mushaf at this surah', backLive: 'Back to live', surahW: 'Surah',
     lblMus: 'Mushaf', lblYear: 'Year', lblList: 'List',
     allImams: 'Radio of all imams', allImamsSub: 'Each surah by a different imam',
     allTar: 'Tarawih radio', allTarSub: 'Oldest to newest', hintTar: 'From the oldest year to the newest, then repeats',
@@ -741,11 +751,35 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     const stName = T(st.station === 'trtel' ? 'stTrt' : st.station === 'nabawi' ? 'stNab' : 'stTar');
     const full = (x.long ? x.big : T('surahW') + ' ' + x.big);
     document.title = full + ' — ' + T('title');
+    musRef = mref(it); $('musBtn').href = 'mushaf.html#s=' + musRef.s + '&a=' + musRef.a + (musRef.to ? '&to=' + musRef.to : '');
+    nowMsg = { k: 'now', s: musRef.s, a: musRef.a, to: musRef.to, label: full + (x.ay ? ' · ' + x.ay : '') + (x.rc ? ' · ' + x.rc : '') }; tellNow();
     if ('mediaSession' in navigator && window.MediaMetadata) {
       navigator.mediaSession.metadata = new MediaMetadata({ title: full + (x.ay ? ' · ' + x.ay : ''), artist: x.rc, album: stName,
         artwork: [{ src: 'logo512.jpg', sizes: '512x512', type: 'image/jpeg' }] });
     }
   }
+  /* ---------- المصحف (2026-11-24): موضع التلاوة = السورة + أول آية في عنوان المقطع ---------- */
+  let musRef = { s: 1, a: 1 }, nowMsg = null, bc = null;
+  const EMBED = /[?&]embed=1\b/.test(location.search), tabId = Math.random().toString(36).slice(2);
+  if (EMBED) root.classList.add('embed');
+  function mref(it) { let s = it.s, m = null;
+    if (it.t) { const t = it.t.replace(/^سورة\s+/, ''); let best = -1; // السورة من اسمها في العنوان إن وُجد (أدق من رقم الملف)، ثم أول آية بعدها
+      SURAH_AR.forEach((n, i) => { if (t.startsWith(n) && (t.length === n.length || t[n.length] === ' ') && (best < 0 || n.length > SURAH_AR[best].length)) best = i; });
+      if (best >= 0) { s = best; m = t.slice(SURAH_AR[best].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); }
+      else { const i = t.indexOf(SURAH_AR[s]); if (i >= 0) m = t.slice(i + SURAH_AR[s].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); } }
+    return { s: s + 1, a: m ? +m[1] : 1, to: m ? +(m[2] || m[1]) : 0 }; }
+  function tellNow() { if (bc && nowMsg) try { bc.postMessage(Object.assign({ playing: !audio.paused }, nowMsg)); } catch (e) {} }
+  try { bc = new BroadcastChannel('trtel');
+    bc.onmessage = e => { const m = e.data || {};
+      if (m.k === 'ask') tellNow();
+      else if (m.k === 'playing' && m.id !== tabId && !audio.paused) { wantPlay = false; audio.pause(); } }; // مشغّل واحد فقط يعمل بين التبويبات
+  } catch (e) {}
+  $('musBtn').onclick = e => {
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    if (EMBED) { if (bc) bc.postMessage({ k: 'goto', s: musRef.s, a: musRef.a }); return; } // داخل صفحة المصحف: انقل المصحف نفسه
+    const w = window.open($('musBtn').href, 'trtelMushaf'); if (!w) location.href = $('musBtn').href;
+  };
   function paint(t) { if (!cur) return; const it = cur.items[cur.idx]; $('tm').textContent = fmt(Math.min(t, it.d)) + ' / ' + fmt(it.d); }
   const isLoaded = () => !!loaded && cur && loaded.key === cur.key && loaded.idx === cur.idx;
 
@@ -791,8 +825,8 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   };
   $('nextBtn').onclick = next;
 
-  audio.onplay = () => setPlaying(true);
-  audio.onpause = () => setPlaying(false);
+  audio.onplay = () => { setPlaying(true); if (bc) try { bc.postMessage({ k: 'playing', id: tabId }); } catch (e) {} tellNow(); };
+  audio.onpause = () => { setPlaying(false); tellNow(); };
   audio.onended = () => {
     if (!cur) return; const n = cur.items.length;
     if (cur.radio && cur.live) { const [i, off] = livePos(cur); if (i === cur.idx) load((cur.idx + 1) % n, 0); else load(i, off); }
