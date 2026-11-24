@@ -114,6 +114,17 @@ button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--re
 html.embed .top,html.embed .side,html.embed footer,html.embed .ibar,html.embed .logo{display:none!important}
 html.embed .wrap{zoom:1!important;padding-top:6px}
 html.embed .grid{display:block}
+/* قراءة المصحف داخل الصفحة نفسها في الشاشات العريضة (2026-11-24): مشغّل واحد فقط، والمصحف بجانبه */
+#musFrame{position:fixed;top:0;right:0;height:100%;width:calc(100% - 440px);border:0;background:var(--bg);z-index:5}
+html.mread,html.mread body{overflow:hidden}
+html.mread .top,html.mread .side,html.mread footer,html.mread .ibar,html.mread .logo,html.mread .toast{display:none!important}
+html.mread .wrap{position:fixed;top:0;bottom:0;left:0;width:440px;max-width:none;margin:0;overflow:auto;zoom:1!important;padding:18px 22px;border-inline-end:1px solid var(--line)}
+html.mread .grid{display:block}
+html.mread .player{padding:0!important;min-width:0}
+html.mread.mleft #musFrame{right:auto;left:0}
+html.mread.mleft .wrap{left:auto;right:0}
+html.mread.mtwo .wrap{display:none}
+html.mread.mtwo #musFrame{width:100%}
 .ay{text-align:center;color:var(--mut);font-size:13.5px;min-height:21px}
 .rc{text-align:center;color:var(--rec);font:700 22px var(--display);margin-top:2px;min-height:34px}
 /* المؤشر: الفاتحة يمين والناس يسار دائمًا */
@@ -768,18 +779,35 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
       if (best >= 0) { s = best; m = t.slice(SURAH_AR[best].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); }
       else { const i = t.indexOf(SURAH_AR[s]); if (i >= 0) m = t.slice(i + SURAH_AR[s].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); } }
     return { s: s + 1, a: m ? +m[1] : 1, to: m ? +(m[2] || m[1]) : 0 }; }
-  function tellNow() { if (bc && nowMsg) try { bc.postMessage(Object.assign({ playing: !audio.paused }, nowMsg)); } catch (e) {} }
+  function tellNow() { if (bc && nowMsg) try { bc.postMessage(Object.assign({ playing: !audio.paused, id: tabId }, nowMsg)); } catch (e) {} }
   try { bc = new BroadcastChannel('trtel');
     bc.onmessage = e => { const m = e.data || {};
       if (m.k === 'ask') tellNow();
+      else if (m.k === 'cmd' && m.to === tabId && m.c === 'toggle') $('playBtn').click(); // زر التشغيل في شريط «يُتلى الآن» داخل المصحف
       else if (m.k === 'playing' && m.id !== tabId && !audio.paused) { wantPlay = false; audio.pause(); } }; // مشغّل واحد فقط يعمل بين التبويبات
   } catch (e) {}
   $('musBtn').onclick = e => {
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
     e.preventDefault();
-    if (EMBED) { if (bc) bc.postMessage({ k: 'goto', s: musRef.s, a: musRef.a }); return; } // داخل صفحة المصحف: انقل المصحف نفسه
-    const w = window.open($('musBtn').href, 'trtelMushaf'); if (!w) location.href = $('musBtn').href;
+    if (EMBED || $('musFrame')) { if (bc) bc.postMessage({ k: 'goto', s: musRef.s, a: musRef.a }); return; } // المصحف مفتوح: انقله لموضع التلاوة
+    if (wideMQ.matches) { openReader(); return; } // الشاشات العريضة: المصحف داخل الصفحة بجانب المشغّل نفسه
+    const w = window.open($('musBtn').href, 'trtelMushaf'); if (!w) location.href = $('musBtn').href; // الجوال: تبويب مستقل والصوت مستمر هنا
   };
+  const wideMQ = matchMedia('(min-width:1000px) and (orientation:landscape)');
+  function readerLayout() { const v = store.get('mushaf:view') === 'radio' ? 'radio' : 'two', s = store.get('mushaf:side') === 'l' ? 'l' : 'r';
+    root.classList.toggle('mtwo', v === 'two'); root.classList.toggle('mleft', s === 'l'); }
+  function openReader() {
+    const f = document.createElement('iframe'); f.id = 'musFrame'; f.title = T('mus'); f.src = 'mushaf.html?in=1' + $('musBtn').getAttribute('href').replace(/^[^#]*/, '');
+    readerLayout(); document.body.appendChild(f); root.classList.add('mread');
+    try { history.pushState({ mread: 1 }, ''); } catch (e) {}
+    setTimeout(() => { try { f.focus(); } catch (e) {} }, 300);
+  }
+  function closeReader() { const f = $('musFrame'); if (f) f.remove(); root.classList.remove('mread', 'mtwo', 'mleft'); render(); }
+  addEventListener('popstate', () => { if ($('musFrame')) closeReader(); });
+  wideMQ.addEventListener('change', () => { if (!wideMQ.matches && $('musFrame')) { closeReader(); try { if (history.state && history.state.mread) history.back(); } catch (e) {} } });
+  addEventListener('message', e => { if (e.origin !== location.origin || !e.data) return;
+    if (e.data.k === 'mview') readerLayout();
+    else if (e.data.k === 'mclose') { if (history.state && history.state.mread) history.back(); else closeReader(); } });
   function paint(t) { if (!cur) return; const it = cur.items[cur.idx]; $('tm').textContent = fmt(Math.min(t, it.d)) + ' / ' + fmt(it.d); }
   const isLoaded = () => !!loaded && cur && loaded.key === cur.key && loaded.idx === cur.idx;
 
