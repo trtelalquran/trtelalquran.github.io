@@ -117,6 +117,8 @@ html.in body[data-view="radio"] .now{display:none}
 .tf{border-top:1px dashed var(--line);margin-top:8px;padding-top:9px;overflow:auto;min-height:0}
 .tf h4{font:700 15px var(--display);color:var(--gold);margin-bottom:4px}
 .tf p{font-size:15px;line-height:1.95}
+.tf .tfg{font-size:12.5px;color:var(--mut);margin-bottom:4px}
+.tf .qw{color:var(--rec);font-weight:600}
 .tf .src{font-size:11px;color:var(--mut);margin-top:8px}
 .tf .src a{color:inherit}
 
@@ -195,7 +197,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     <button type="button" id="aMark" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="aMarkT">علامة توقف</span></button>
     <button type="button" id="aTf" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h6M8 11h6"/></svg><span data-i="tafsir">التفسير المختصر</span></button>
   </div>
-  <div class="tf" id="tf" hidden><h4 data-i="tfH">المختصر في التفسير</h4><p id="tfP" dir="rtl" lang="ar"></p>
+  <div class="tf" id="tf" hidden><h4 data-i="tfH">المختصر في التفسير</h4><div class="tfg" id="tfG" hidden></div><p id="tfP" dir="rtl" lang="ar"></p>
     <div class="src"><span data-i="tfSrc">المصدر: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية</span> (<a href="https://tafsir.net" target="_blank" rel="noopener">tafsir.net</a>)</div></div>
 </div>
 
@@ -221,7 +223,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
                   set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} } };
   const jget = (k, d) => { try { const v = JSON.parse(store.get(k)); return v == null ? d : v; } catch (e) { return d; } };
   const en = root.lang === 'en';
-  const AR = { back: 'الرجوع للإذاعة', copy: 'نسخ الآية', tafsir: 'التفسير المختصر', tfH: 'المختصر في التفسير', mushaf: 'المصحف', page: 'صفحة',
+  const AR = { back: 'الرجوع للإذاعة', copy: 'نسخ الآية', tafsir: 'التفسير المختصر', tfGroup: 'تفسير الآيات {a}-{b} معًا', tfH: 'المختصر في التفسير', mushaf: 'المصحف', page: 'صفحة',
     tfSrc: 'المصدر: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية', tSurahs: 'السور', tJuz: 'الأجزاء', tMarks: 'العلامات', tSearch: 'البحث',
     index: 'الفهرس', search: 'البحث', marks: 'العلامات', close: 'إغلاق', swap: 'تبديل الجانبين', surah: 'سورة', juz: 'الجزء', ayah: 'الآية', ayat: 'آياتها',
     pageOf: 'صفحة {p} من 604', pagesOf: 'الصفحتان {a}-{b}', viewTwo: 'صفحتان', viewRadio: 'صفحة واحدة مع الإذاعة', mark: 'علامة توقف', unmark: 'إزالة العلامة',
@@ -229,8 +231,8 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     resume: 'آخر موضع لك', resGo: 'تابع من حيث توقفت', resNo: 'إغلاق', noMarks: 'لا توجد علامات توقف بعد. اضغط على أي آية ثم «علامة توقف».',
     sPh: 'اكتب كلمة أو أكثر للبحث في القرآن', sCount: '{n} آية · اضغط على النتيجة لفتح صفحتها', sNone: 'لا توجد نتائج', sLoad: 'جارٍ تحميل فهرس البحث…', more: 'عرض المزيد',
     loading: '…', errLoad: 'تعذّر التحميل، تحقق من الاتصال ثم أعد المحاولة.', retry: 'إعادة المحاولة', lastPos: 'آخر موضع وصلت له',
-    credit: 'نص المصحف: مجمع الملك فهد لطباعة المصحف الشريف (رواية حفص، خط KFGQPC Uthmanic Hafs). ترقيم الصفحات وفهرس البحث: Tanzil.net. التفسير: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية (tafsir.net)، برخصة CC BY 4.0.' };
-  const EN = { back: 'Back to radio', copy: 'Copy verse', tafsir: 'Brief tafsir', tfH: 'Al-Mukhtasar fi al-Tafsir', mushaf: 'Mushaf', page: 'Page',
+    credit: 'نص المصحف: مجمع الملك فهد لطباعة المصحف الشريف (رواية حفص، خط KFGQPC Uthmanic Hafs). ترقيم الصفحات وفهرس البحث: Tanzil.net. التفسير: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية (tafsir.net)، من قاعدة بيانات المركز الرسمية برخصة CC BY 4.0.' };
+  const EN = { back: 'Back to radio', copy: 'Copy verse', tafsir: 'Brief tafsir', tfGroup: 'Verses {a}-{b} explained together', tfH: 'Al-Mukhtasar fi al-Tafsir', mushaf: 'Mushaf', page: 'Page',
     tfSrc: 'Source: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies', tSurahs: 'Surahs', tJuz: 'Juz', tMarks: 'Bookmarks', tSearch: 'Search',
     index: 'Index', search: 'Search', marks: 'Bookmarks', close: 'Close', swap: 'Swap sides', surah: 'Surah', juz: 'Juz', ayah: 'Verse', ayat: 'verses',
     pageOf: 'Page {p} of 604', pagesOf: 'Pages {a}-{b}', viewTwo: 'Two pages', viewRadio: 'One page + radio', mark: 'Bookmark', unmark: 'Remove bookmark',
@@ -385,9 +387,12 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     store.set('mushaf:marks', JSON.stringify(m.slice(0, 200)));
     $('aMark').setAttribute('aria-pressed', !had); $('aMarkT').textContent = T(!had ? 'unmark' : 'mark'); paintSel(); tip(T(had ? 'unmarked' : 'marked')); };
   $('aTf').onclick = async () => { if (!sel) return; const on = $('tf').hidden; $('aTf').setAttribute('aria-pressed', on); $('tf').hidden = !on; if (!on) return;
-    const [s, a] = sel; $('tfP').textContent = T('loading');
+    const [s, a] = sel; $('tfG').hidden = true; $('tfP').textContent = T('loading');
     try { const t = await (TAF[s] || (TAF[s] = getJ('mushaf/t/' + s + '.json').catch(e => { delete TAF[s]; throw e; })));
-      if (sel && sel[0] === s && sel[1] === a) $('tfP').textContent = t[a - 1] || ''; }
+      if (!(sel && sel[0] === s && sel[1] === a)) return;
+      const x = t[a - 1] || '', g = Array.isArray(x), txt = g ? x[2] : x; // [من، إلى، نص] = تفسير مشترك لمجموعة آيات
+      $('tfG').hidden = !g; if (g) $('tfG').textContent = T('tfGroup').replace('{a}', x[0]).replace('{b}', x[1]);
+      $('tfP').innerHTML = esc(txt).replace(/_([^_\n]+)_/g, '<span class="qw">$1</span>').replace(/_/g, ''); }
     catch (e) { $('tfP').textContent = T('errLoad'); } };
 
   /* ---------- الفهرس والعلامات والبحث ---------- */
