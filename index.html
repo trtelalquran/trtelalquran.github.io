@@ -770,7 +770,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     }
   }
   /* ---------- المصحف (2026-11-24): موضع التلاوة = السورة + أول آية في عنوان المقطع ---------- */
-  let musRef = { s: 1, a: 1 }, nowMsg = null, bc = null;
+  let musRef = { s: 1, a: 1 }, nowMsg = null, bc = null, nowN = 0;
   const EMBED = /[?&]embed=1\b/.test(location.search), tabId = Math.random().toString(36).slice(2);
   if (EMBED) root.classList.add('embed');
   function mref(it) { let s = it.s, m = null;
@@ -779,7 +779,9 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
       if (best >= 0) { s = best; m = t.slice(SURAH_AR[best].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); }
       else { const i = t.indexOf(SURAH_AR[s]); if (i >= 0) m = t.slice(i + SURAH_AR[s].length).match(/^\s+(\d+)(?:-(\d+))?(?!\d*هـ)/); } }
     return { s: s + 1, a: m ? +m[1] : 1, to: m ? +(m[2] || m[1]) : 0 }; }
-  function tellNow() { if (bc && nowMsg) try { bc.postMessage(Object.assign({ playing: !audio.paused, id: tabId }, nowMsg)); } catch (e) {} }
+  const nowD = () => cur && cur.items[cur.idx] ? cur.items[cur.idx].d || 0 : 0;
+  const nowT = () => !cur ? 0 : isLoaded() ? audio.currentTime || 0 : cur.radio && cur.live ? (livePos(cur)[0] === cur.idx ? livePos(cur)[1] : 0) : 0;
+  function tellNow() { if (bc && nowMsg) try { bc.postMessage(Object.assign({ playing: !audio.paused, id: tabId, t: nowT(), d: nowD() }, nowMsg)); } catch (e) {} }
   try { bc = new BroadcastChannel('trtel');
     bc.onmessage = e => { const m = e.data || {};
       if (m.k === 'ask') tellNow();
@@ -790,12 +792,11 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
     e.preventDefault();
     if (EMBED || $('musFrame')) { if (bc) bc.postMessage({ k: 'goto', s: musRef.s, a: musRef.a }); return; } // المصحف مفتوح: انقله لموضع التلاوة
-    if (wideMQ.matches) { openReader(); return; } // الشاشات العريضة: المصحف داخل الصفحة بجانب المشغّل نفسه
-    const w = window.open($('musBtn').href, 'trtelMushaf'); if (!w) location.href = $('musBtn').href; // الجوال: تبويب مستقل والصوت مستمر هنا
+    openReader(); // المصحف داخل الصفحة نفسها: بجانب المشغّل في الشاشات العريضة، ويملأ الشاشة في الجوال (مشغّل واحد والصوت مستمر)
   };
   const wideMQ = matchMedia('(min-width:1000px) and (orientation:landscape)');
   function readerLayout() { const v = store.get('mushaf:view') === 'radio' ? 'radio' : 'two', s = store.get('mushaf:side') === 'l' ? 'l' : 'r';
-    root.classList.toggle('mtwo', v === 'two'); root.classList.toggle('mleft', s === 'l'); }
+    root.classList.toggle('mtwo', v === 'two' || !wideMQ.matches); root.classList.toggle('mleft', s === 'l'); }
   function openReader() {
     const f = document.createElement('iframe'); f.id = 'musFrame'; f.title = T('mus'); f.src = 'mushaf.html?in=1' + $('musBtn').getAttribute('href').replace(/^[^#]*/, '');
     readerLayout(); document.body.appendChild(f); root.classList.add('mread');
@@ -804,7 +805,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   }
   function closeReader() { const f = $('musFrame'); if (f) f.remove(); root.classList.remove('mread', 'mtwo', 'mleft'); render(); }
   addEventListener('popstate', () => { if ($('musFrame')) closeReader(); });
-  wideMQ.addEventListener('change', () => { if (!wideMQ.matches && $('musFrame')) { closeReader(); try { if (history.state && history.state.mread) history.back(); } catch (e) {} } });
+  wideMQ.addEventListener('change', () => { if ($('musFrame')) readerLayout(); });
   addEventListener('message', e => { if (e.origin !== location.origin || !e.data) return;
     if (e.data.k === 'mview') readerLayout();
     else if (e.data.k === 'mclose') { if (history.state && history.state.mread) history.back(); else closeReader(); } });
@@ -873,6 +874,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
       else if ((i + 1) % n === cur.idx && cur.items[i].d - off < 8) paint(audio.currentTime); // سبقنا الساعة بثوانٍ
       else goLive();                                                                        // الساعة هي المرجع في البث المباشر
     } else paint(isLoaded() ? audio.currentTime : 0);
+    if ($('musFrame') || !audio.paused) { if (++nowN % 3 === 0) tellNow(); } // موضع التلاوة للمصحف (للتتبّع)
   }, 1000);
 
   if ('mediaSession' in navigator) { try {
