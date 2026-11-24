@@ -61,7 +61,7 @@ svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke
 .now .pp{margin:0;border:0;padding:0;width:26px;height:26px;border-radius:50%;background:var(--on-ink);color:var(--on);display:grid;place-items:center;flex:none}
 .now .pp svg{width:14px;height:14px;fill:currentColor;stroke:none}
 html.in .wide-only{display:inline-flex}
-html.in body[data-view="radio"] .now{display:none}
+html.in body[data-view="radio"] .now .pp{display:none}
 
 .stage{flex:1;min-height:0;display:flex;gap:14px;padding:10px 12px 0;justify-content:center}
 .pages{flex:1;min-width:0;display:flex;justify-content:center;max-width:760px}
@@ -227,7 +227,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     tfSrc: 'المصدر: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية', tSurahs: 'السور', tJuz: 'الأجزاء', tMarks: 'العلامات', tSearch: 'البحث',
     index: 'الفهرس', search: 'البحث', marks: 'العلامات', close: 'إغلاق', swap: 'تبديل الجانبين', surah: 'سورة', juz: 'الجزء', ayah: 'الآية', ayat: 'آياتها',
     pageOf: 'صفحة {p} من 604', pagesOf: 'الصفحتان {a}-{b}', viewTwo: 'صفحتان', viewRadio: 'صفحة واحدة مع الإذاعة', mark: 'علامة توقف', unmark: 'إزالة العلامة',
-    copied: '✓ تم نسخ الآية', marked: '✓ وُضعت علامة التوقف', unmarked: 'أُزيلت العلامة', now: 'يُتلى الآن', follow: 'تتبّع الصفحة', play: 'تشغيل', pause: 'إيقاف مؤقت', start: 'بداية التلاوة',
+    copied: '✓ تم نسخ الآية', marked: '✓ وُضعت علامة التوقف', unmarked: 'أُزيلت العلامة', now: 'يُتلى الآن', follow: 'تتبّع الصفحة', play: 'تشغيل', pause: 'إيقاف مؤقت', start: 'بداية التلاوة', here: 'يُتلى هنا تقريبًا',
     resume: 'آخر موضع لك', resGo: 'تابع من حيث توقفت', resNo: 'إغلاق', noMarks: 'لا توجد علامات توقف بعد. اضغط على أي آية ثم «علامة توقف».',
     sPh: 'اكتب كلمة أو أكثر للبحث في القرآن', sCount: '{n} آية · اضغط على النتيجة لفتح صفحتها', sNone: 'لا توجد نتائج', sLoad: 'جارٍ تحميل فهرس البحث…', more: 'عرض المزيد',
     loading: '…', errLoad: 'تعذّر التحميل، تحقق من الاتصال ثم أعد المحاولة.', retry: 'إعادة المحاولة', lastPos: 'آخر موضع وصلت له',
@@ -236,7 +236,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     tfSrc: 'Source: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies', tSurahs: 'Surahs', tJuz: 'Juz', tMarks: 'Bookmarks', tSearch: 'Search',
     index: 'Index', search: 'Search', marks: 'Bookmarks', close: 'Close', swap: 'Swap sides', surah: 'Surah', juz: 'Juz', ayah: 'Verse', ayat: 'verses',
     pageOf: 'Page {p} of 604', pagesOf: 'Pages {a}-{b}', viewTwo: 'Two pages', viewRadio: 'One page + radio', mark: 'Bookmark', unmark: 'Remove bookmark',
-    copied: '✓ Verse copied', marked: '✓ Bookmark added', unmarked: 'Bookmark removed', now: 'Now reciting', follow: 'Follow', play: 'Play', pause: 'Pause', start: 'Recitation starts',
+    copied: '✓ Verse copied', marked: '✓ Bookmark added', unmarked: 'Bookmark removed', now: 'Now reciting', follow: 'Follow', play: 'Play', pause: 'Pause', start: 'Recitation starts', here: 'Reciting about here',
     resume: 'Your last position', resGo: 'Continue where I stopped', resNo: 'Dismiss', noMarks: 'No bookmarks yet. Tap any verse, then “Bookmark”.',
     sPh: 'Type an Arabic word or more', sCount: '{n} verses · tap a result to open its page', sNone: 'No results', sLoad: 'Loading search index…', more: 'Show more',
     loading: '…', errLoad: 'Could not load. Check your connection and retry.', retry: 'Retry', lastPos: 'Last position',
@@ -270,10 +270,11 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   /* ---------- الحالة ---------- */
   const wideMQ = matchMedia('(min-width:1000px) and (orientation:landscape)');
   const IN = /[?&]in=1\b/.test(location.search) && window.parent !== window; // داخل صفحة الموقع بجانب المشغّل نفسه
-  if (IN) root.classList.add('in');
+  const pWide = () => { try { return window.parent.matchMedia(wideMQ.media).matches; } catch (e) { return true; } }; // الجوال: المصحف يملأ الشاشة فوق المشغّل نفسه
+  let INW = IN && pWide(); root.classList.toggle('in', INW);
   const toParent = m => { try { window.parent.postMessage(m, location.origin); } catch (e) {} };
   let view = store.get('mushaf:view') === 'radio' ? 'radio' : 'two', side = store.get('mushaf:side') === 'l' ? 'l' : 'r';
-  let cur = 1, sel = null, tag = null, canSave = false, shown = [];
+  let cur = 1, sel = null, tag = null, tagK = 'start', canSave = false, shown = [];
   const two = () => wideMQ.matches && view === 'two';
   const marks = () => jget('mushaf:marks', []);
   const isMarked = (s, a) => marks().some(m => m[0] === s && m[1] === a);
@@ -290,7 +291,8 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   $('bView').onclick = () => { view = view === 'two' ? 'radio' : 'two'; store.set('mushaf:view', view); applyView(); if (IN) toParent({ k: 'mview' }); else show(cur); };
   $('bSwap').onclick = () => { side = side === 'r' ? 'l' : 'r'; store.set('mushaf:side', side); applyView(); if (IN) toParent({ k: 'mview' }); };
   wideMQ.addEventListener('change', () => { applyView(); show(cur); });
-  if (IN) { let w0 = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - w0) > 40) { w0 = innerWidth; show(cur); } }); }
+  if (IN) { let w0 = innerWidth; addEventListener('resize', () => { const w = pWide(); if (w !== INW) { INW = w; root.classList.toggle('in', INW); }
+      if (Math.abs(innerWidth - w0) > 40) { w0 = innerWidth; show(cur); } }); }
 
   /* ---------- رسم الصفحة ---------- */
   function html(rows, n) {
@@ -302,7 +304,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
       if (!open) { h += '<div class="q" dir="rtl" lang="ar">'; open = true; }
       const c = 'a' + (sel && sel[0] === s && sel[1] === a ? ' sel' : '') + (isMarked(s, a) ? ' mark' : '');
       h += '<span class="' + c + '" data-s="' + s + '" data-a="' + a + '" tabindex="0" role="button">'
-        + (tag && tag[0] === s && tag[1] === a ? '<span class="st">' + T('start') + '</span>' : '') + t + ' ' + ind(a) + '</span> ';
+        + (tag && tag[0] === s && tag[1] === a ? '<span class="st">' + T(tagK) + '</span>' : '') + t + ' ' + ind(a) + '</span> ';
     }
     if (open) h += '</div>';
     return h + '</div><div class="pn">' + n + '</div>';
@@ -340,7 +342,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   }
   // يصغّر الخط حتى تدخل الصفحة في الشاشة (بحدّ أدنى، وبعده تمرير داخل الصفحة)
   function fit() {
-    const wide = wideMQ.matches || IN, max = wide ? 34 : Math.max(26, Math.min(40, innerWidth / 21)), min = wide ? 15 : 18, els = [$('pgA'), $('pgB')].filter(e => e.offsetParent && e.firstChild);
+    const wide = wideMQ.matches || INW, max = wide ? 34 : Math.max(26, Math.min(40, innerWidth / 21)), min = wide ? 15 : 18, els = [$('pgA'), $('pgB')].filter(e => e.offsetParent && e.firstChild);
     let lo = min, hi = max;
     const ok = () => els.every(e => e.scrollHeight <= e.clientHeight + 1);
     root.style.setProperty('--fs', hi + 'px'); if (ok()) return;
@@ -352,7 +354,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
 
   function nav(p) { canSave = true; hideResume(); closeSheet(); show(p); }
   function goAyah(s, a, mark) { s = Math.min(114, Math.max(1, s | 0 || 1)); a = Math.min(META.surahs[s - 1][2], Math.max(1, a | 0 || 1));
-    if (mark) tag = [s, a]; show(pageOf(s, a), [s, a]); }
+    if (mark) { tag = [s, a]; tagK = mark === 2 ? 'here' : 'start'; } show(pageOf(s, a), [s, a]); }
 
   addEventListener('keydown', e => { if (!$('drawer').hidden || /INPUT|TEXTAREA/.test(e.target.tagName)) return;
     if (e.key === 'ArrowLeft') $('next').click(); else if (e.key === 'ArrowRight') $('prev').click(); else if (e.key === 'Escape') closeSheet();
@@ -458,13 +460,29 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   /* ---------- الربط مع الإذاعة: ما يُتلى الآن ---------- */
   let NOW = null, fol = store.get('mushaf:follow') === '1', bc = null;
   function follow(v) { fol = v; store.set('mushaf:follow', v ? '1' : null); $('nowF').setAttribute('aria-pressed', v); }
-  $('nowP').onclick = () => { if (NOW && NOW.id && bc) bc.postMessage({ k: 'cmd', c: 'toggle', to: NOW.id }); };
+  // زر التشغيل: داخل صفحة الموقع يضغط زر المشغّل نفسه مباشرة (ضمن لمسة المستخدم فيسمح المتصفح بالصوت)، وفي تبويب مستقل يرسل أمرًا
+  $('nowP').onclick = () => { if (IN) { try { window.parent.document.getElementById('playBtn').click(); return; } catch (e) {} }
+    if (NOW && NOW.id && bc) bc.postMessage({ k: 'cmd', c: 'toggle', to: NOW.id }); };
   $('nowF').textContent = T('follow'); $('nowF').setAttribute('aria-pressed', fol);
-  $('nowF').onclick = () => { if (!NOW) return; follow(!fol); if (fol) { canSave = true; hideResume(); goAyah(NOW.s, NOW.a, true); } };
+  $('nowF').onclick = () => { if (!NOW) return; follow(!fol); if (fol) { canSave = true; hideResume(); EST = 0; track(true); } };
+  // موضع التلاوة التقريبي: نسبة الوقت المنقضي موزعة على آيات المقطع بحسب عدد حروفها (لا توجد توقيتات آية بآية لهذه التسجيلات)
+  let LEN = null, lenP = null, EST = 0;
+  const loadLen = () => lenP || (lenP = fetch('mushaf/len.json').then(r => r.json()).then(j => { LEN = j; }).catch(() => { lenP = null; }));
+  function estAyah(m) { if (!LEN || !META || !(m.d > 0) || !(m.t >= 0)) return 0;
+    const L = LEN[m.s - 1], a = Math.max(1, m.a | 0), b = Math.min(L.length, m.to >= a ? m.to : L.length); if (b <= a) return a;
+    let tot = 0; for (let i = a; i <= b; i++) tot += L[i - 1] + 10; // +10: وقفة رأس الآية
+    let x = Math.min(1, m.t / m.d) * tot; for (let i = a; i <= b; i++) { x -= L[i - 1] + 10; if (x < 0) return i; } return b; }
+  function track(force) { const m = NOW; if (!m || !META) return; const e = estAyah(m);
+    if (!e) { if (force) goAyah(m.s, m.a, true); if (m.d > 0) loadLen().then(() => { if (LEN && NOW && fol) track(force); }); return; }
+    if (e === EST && !force) return;
+    if (!force && (!$('sheet').hidden || !$('drawer').hidden)) return; // لا يُقاطَع من فتح آية أو الفهرس
+    EST = e; goAyah(m.s, e, e === m.a && !(m.t > 15) ? true : 2); }
   function onNow(m) { const ch = !NOW || NOW.s !== m.s || NOW.a !== m.a || NOW.label !== m.label; NOW = m;
-    $('nowTx').textContent = T('now') + ': ' + m.label; $('nowDot').classList.toggle('off', !m.playing); $('now').hidden = false; fit();
+    $('nowTx').textContent = T('now') + ': ' + m.label; $('nowDot').classList.toggle('off', !m.playing);
+    if ($('now').hidden) { $('now').hidden = false; fit(); }
     $('nowPi').setAttribute('d', m.playing ? 'M7 5h4v14H7zm6 0h4v14h-4z' : 'M8 5v14l11-7z'); $('nowP').setAttribute('aria-label', T(m.playing ? 'pause' : 'play'));
-    if (ch && fol && META) goAyah(m.s, m.a, true); }
+    if (ch) EST = 0;
+    if (fol && META) track(ch); }
   try { bc = new BroadcastChannel('trtel'); bc.onmessage = e => { const m = e.data || {};
       if (m.k === 'now') onNow(m);
       else if (m.k === 'goto' && META) { canSave = true; hideResume(); closeDrawer(); goAyah(m.s, m.a, true); } };
