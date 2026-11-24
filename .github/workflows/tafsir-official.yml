@@ -1,6 +1,9 @@
 # تشغيل يدوي: يجلب «المختصر في التفسير» من قاعدة مركز تفسير الرسمية ويضعه في فرع tafsir-data للمراجعة قبل الدمج.
 name: tafsir-official
-on: workflow_dispatch
+on:
+  push:
+    branches: [tafsir-official]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
