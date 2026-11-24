@@ -27,6 +27,3 @@ for s in range(1, 115):
         arr.append(t)
     json.dump(arr, open(f'{out}/{s}.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 print('ok', stats)
-# عينات للمراجعة
-sample = {k: by[k] for k in [(1, 3), (2, 9), (40, 73), (40, 74), (92, 17)]}
-json.dump({f'{k[0]}:{k[1]}': v for k, v in sample.items()}, open(os.path.join(out, '..', 'tafsir_sample.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
