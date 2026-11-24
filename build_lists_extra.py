@@ -71,5 +71,6 @@ for u in old:
 rec = [write('reciter-' + FOLDERS[r], r, grp[r]) for r in sorted(FOLDERS, key=lambda r: -len(grp[r])) if grp[r]]
 rec.append(write('reciter-misc', MISC, grp[MISC]))
 L['reciters'] = rec
-json.dump(L, open('lists.json', 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, separators=(',', ':'))
+L['all'] = {'n': len(urls), 'gb': round(sum(x['mb'] for x in D.values()) / 1000)}  # يظهر عند اختيار «تحميل كل التلاوات»
+json.dump(L, open('lists.json', 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=1)
 print(len(part), 'partial;', len(rec), 'reciters;', sum(x['n'] for x in rec), 'files')

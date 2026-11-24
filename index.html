@@ -190,7 +190,7 @@ html[dir="ltr"] #nextBtn .l1 svg{transform:none}
 .plbtns .cp{font-size:12px;padding:2px 9px}
 .plbtns small{font-size:11.5px;color:var(--mut);white-space:nowrap;margin-inline-start:2px}
 .plbtns [hidden]{display:none}
-@media (max-width:520px){.plbtns .cp{flex:1;white-space:normal;text-align:center;line-height:1.45;padding:4px 6px!important;display:grid;place-items:center}.plbtns small{flex-basis:100%}}
+@media (max-width:520px){.plbtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.plbtns .cp{white-space:normal;text-align:center;line-height:1.45;padding:4px 6px!important;display:grid;place-items:center}.plbtns small{grid-column:1;text-align:center;margin:0;white-space:normal}}
 /* الجزء المميَّز من عنوان البند بلون القيمة المختارة، أغمق قليلًا (وأفتح في الداكن) */
 .it>b .hx{font-style:normal;color:color-mix(in srgb,var(--ink) 78%,#000)}
 :root[data-theme="dark"] .it>b .hx{color:color-mix(in srgb,var(--ink) 55%,#fff)}
@@ -493,6 +493,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
           <div class="url" id="plRow"><code id="plUrl">https://archive.org/download/trtel-alquran-feed/radio.m3u</code><button class="cp" type="button" id="plCopy" data-i18n="copy">نسخ</button></div>
           <div class="plbtns" id="plBtns" hidden><a class="cp" id="plZip" href="#" rel="noopener" data-i18n="plZipBtn">للتحميل بملف مضغوط ZIP</a><a class="cp" id="plPage" href="#" target="_blank" rel="noopener" data-i18n="page">الصفحة في موقع أرشيف</a><a class="cp" id="plUrls" href="#" download data-i18n="plUrlsBtn">روابط تحميل المقاطع</a><small id="plInfo"></small></div>
           <div id="plAll" hidden>
+            <p class="sm" id="plAllInfo"></p>
             <p class="sm" data-i18n="dlAllHint">لكبر الحجم لا يوجد ملف مضغوط واحد، والأسهل قائمة روابط تضعها في برنامج تحميل فينزّلها كلها مرة واحدة:</p>
             <div class="url"><code>all-urls.txt</code><a class="cp" href="all-urls.txt" download data-i18n="dlList">تحميل القائمة</a></div>
             <p class="sm" data-i18n-html="dlPc"><b>الكمبيوتر:</b> برنامج JDownloader أو Internet Download Manager ← «إضافة روابط» ← الصق محتوى الملف أو استورده.</p>
@@ -559,7 +560,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     hintDragDial: 'Drag the dial to choose a surah', hintDragBar: 'Drag the bar to choose a surah',
     dragOff: 'The dial moves when you pick a Mushaf or a year', dragOffBar: 'The bar can be dragged when you pick a Mushaf or a year',
     ofN: 'Surah {n} of 114', ayat: 'Verses', ayah: 'Verse', tarY: 'Tarawih {y} AH',
-    appsH: 'Listen in your app or download', copy: 'Copy', page: 'Page on archive.org', hrs: 'hours',
+    appsH: 'Listen in your app or download', copy: 'Copy', page: 'Page on archive.org', hrs: 'hours', about: 'about',
     m3uH: '<span>2. M3U playlist <i class="hx">(and download)</i></span>', plZipBtn: 'Download as ZIP', plPart: 'Incomplete Mushafs', plRec: 'Recitations by reciter', plAllG: 'Everything', plRadio: 'Radio: rotating reciters', plMus: 'Complete Mushafs', plTar: "Tarawih of the Prophet's Mosque", plUrlsBtn: 'Recitation download links',
     rssH: '3. Podcast RSS feed', lblFeed: 'Feed', fMus: 'Complete recited Mushafs', fTar: "Tarawih of the Prophet's Mosque", fAll: 'Trtel radio: varied reciters', fMusS: 'Complete recited Mushafs; each reciter’s Mushaf is in its own section in the podcast app.', fTarS: "Tarawih prayers of the Prophet's Mosque; each year is in its own section in the podcast app.", fAllS: 'All the radio recitations by varied reciters, in Mushaf order, and new recitations arrive automatically.', copiedHint: 'Link copied. Paste it in your app.', alexaH: '4. Alexa', alexaSay: 'Say: <q>“Alexa, open Quran Recitations”</q>', alexaMore: 'It starts where the website radio is playing. To control it: “Alexa, next” for the next surah, “Alexa, stop”.', alexaBtn: 'Enable the skill in the Alexa store',
     liveH: '<span>1. Trtel live radio, <i class="hx">live stream (radio)</i></span>', altLiveH: 'Another link', altLiveD: 'Works on all devices, including older ones', devPc: 'Computer', devIos: 'iPhone', devAnd: 'Android',
@@ -598,7 +599,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     allTar: 'إذاعة التراويح', allTarSub: 'من الأقدم إلى الأحدث', hintTar: 'من أقدم سنة إلى أحدث سنة ثم تعيد',
     hintDragDial: 'اسحب المؤشر لاختيار السورة', hintDragBar: 'اسحب الشريط لاختيار السورة',
     dragOff: 'المؤشر يتحرك معك عند اختيار مصحف أو سنة', dragOffBar: 'الشريط ينسحب عند اختيار مصحف أو سنة',
-    ofN: 'السورة {n} من 114', ayat: 'الآيات', ayah: 'الآية', tarY: 'تراويح {y}هـ', hrs: 'ساعة', plPart: 'مصاحف غير مكتملة', plRec: 'تلاوات حسب القارئ', plAllG: 'كل التلاوات', dlAllH: 'تحميل كل التلاوات دفعة واحدة',
+    ofN: 'السورة {n} من 114', ayat: 'الآيات', ayah: 'الآية', tarY: 'تراويح {y}هـ', hrs: 'ساعة', about: 'نحو', plPart: 'مصاحف غير مكتملة', plRec: 'تلاوات حسب القارئ', plAllG: 'كل التلاوات', dlAllH: 'تحميل كل التلاوات دفعة واحدة',
     lblFeed: 'الخلاصة', fMus: 'المصاحف المرتلة كاملة', fTar: 'تراويح المسجد النبوي', fAll: 'إذاعة ترتيل: قرّاء متنوعون', fMusS: 'مصاحف مرتلة كاملة، وكل مصحف لقارئ في قسم مستقل داخل تطبيق البودكاست.', fTarS: 'تراويح المسجد النبوي، وكل سنة في قسم مستقل داخل تطبيق البودكاست.', fAllS: 'كل تلاوات الإذاعة لقرّاء متنوعين بترتيب المصحف، وتصلك التلاوات الجديدة تلقائيًا.', copiedHint: 'تم نسخ الرابط، الصقه في تطبيقك.', plRadio: 'الإذاعة: قرّاء متنوعون', plMus: 'المصاحف المكتملة', plTar: 'تراويح المسجد النبوي',
     vlcPc: '<b>رابط M3U أو البث في VLC:</b> انسخ الرابط ← افتح VLC ← قائمة «وسائط» ← «فتح بث شبكي» (Ctrl+N) ← الصق الرابط ← تشغيل. وفعّل زر التكرار مع القوائم.',
     vlcIos: '<b>رابط M3U أو البث في VLC:</b> انسخ الرابط ← افتح VLC ← «الشبكة» ← «تدفق الشبكة» (Network Stream) ← الصق الرابط ← «فتح تدفق الشبكة».',
@@ -943,7 +944,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   function openPanel(w) { const a = w === 'listen', b = w === 'chan'; $('pListen').hidden = !a; $('pChan').hidden = !b; $('bListen').setAttribute('aria-expanded', a); $('bChan').setAttribute('aria-expanded', b); }
   $('bListen').onclick = () => openPanel($('pListen').hidden ? 'listen' : wide.matches ? 'listen' : '');
   $('bChan').onclick = () => openPanel($('pChan').hidden ? 'chan' : wide.matches ? 'chan' : '');
-  openPanel(wide.matches ? 'listen' : 'chan'); // الكمبيوتر: الاستماع مفتوح، والجوال: القنوات ظاهرة كما كانت
+  if (wide.matches) openPanel('listen'); // الكمبيوتر: الاستماع مفتوح، والجوال: لا شيء مفتوح افتراضيًا
   wide.addEventListener && wide.addEventListener('change', e => { if (e.matches && $('pListen').hidden && $('pChan').hidden) openPanel('listen'); });
 
   /* ---------- النسخ والمشاركة ---------- */
@@ -1069,6 +1070,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     const x = plMap[plSel], all = x === 'all', u = x && !all ? x.m3u : RADIO_M3U;
     $('plUrl').textContent = u; $('plCopy').onclick = () => copy(u, $('plCopy'));
     $('plRow').hidden = all; $('plAll').hidden = !all; $('plBtns').hidden = !x || all;
+    if (all && LISTS && LISTS.all) $('plAllInfo').textContent = LISTS.all.n.toLocaleString('en') + ' ' + T('recit') + ' · ' + T('about') + ' ' + LISTS.all.gb + ' ' + T('gb');
     if (x && !all) { $('plUrls').href = x.urls; $('plZip').hidden = !x.zip; $('plPage').hidden = !x.page; if (x.zip) $('plZip').href = x.zip; if (x.page) $('plPage').href = x.page;
       const sz = mb => mb >= 1000 ? (mb / 1000).toFixed(1) + ' ' + T('gb') : mb + ' ' + T('mb');
       $('plInfo').textContent = x.n + ' ' + T('recit') + ' · ' + (x.mb ? sz(x.mb) : x.hours + ' ' + T('hrs')); }
