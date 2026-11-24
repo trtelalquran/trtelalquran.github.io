@@ -8,7 +8,8 @@
    "hours": 33.5,
    "page": "https://archive.org/details/trtel-alquran-mushaf-ibrahim-al-akhdar",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-ibrahim-al-akhdar",
-   "sort": 0
+   "sort": 0,
+   "mb": 717
   },
   {
    "name": "المصحف المرتل - د. صلاح بن محمد البدير",
@@ -18,7 +19,8 @@
    "hours": 21.7,
    "page": "https://archive.org/details/trtel-alquran-mushaf-salah-al-budair",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-salah-al-budair",
-   "sort": 0
+   "sort": 0,
+   "mb": 315
   },
   {
    "name": "المصحف المرتل - د. عبدالباري بن عواض الثبيتي",
@@ -28,7 +30,8 @@
    "hours": 19.4,
    "page": "https://archive.org/details/trtel-alquran-mushaf-abdulbari-al-thubaity",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulbari-al-thubaity",
-   "sort": 0
+   "sort": 0,
+   "mb": 419
   },
   {
    "name": "المصحف المرتل - عبدالعزيز بن صالح وعبدالمجيد الجبرتي",
@@ -38,7 +41,8 @@
    "hours": 13.7,
    "page": "https://archive.org/details/trtel-alquran-mushaf-abdulaziz-bin-saleh-and-al-jabarti",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulaziz-bin-saleh-and-al-jabarti",
-   "sort": 0
+   "sort": 0,
+   "mb": 292
   },
   {
    "name": "المصحف المرتل - د. عبدالله بن عواد الجهني",
@@ -48,7 +52,8 @@
    "hours": 20.7,
    "page": "https://archive.org/details/trtel-alquran-mushaf-abdullah-al-juhany",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdullah-al-juhany",
-   "sort": 0
+   "sort": 0,
+   "mb": 448
   },
   {
    "name": "المصحف المرتل - د. عبدالمحسن بن محمد القاسم",
@@ -58,7 +63,8 @@
    "hours": 20.8,
    "page": "https://archive.org/details/trtel-alquran-mushaf-abdulmohsen-al-qasim",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulmohsen-al-qasim",
-   "sort": 0
+   "sort": 0,
+   "mb": 300
   },
   {
    "name": "المصحف المرتل - د. عبدالودود بن مقبول حنيف",
@@ -68,7 +74,8 @@
    "hours": 18.0,
    "page": "https://archive.org/details/trtel-alquran-mushaf-abdulwadood-haneef",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdulwadood-haneef",
-   "sort": 0
+   "sort": 0,
+   "mb": 388
   },
   {
    "name": "المصحف المرتل - د. علي بن عبدالرحمن الحذيفي",
@@ -78,7 +85,8 @@
    "hours": 20.0,
    "page": "https://archive.org/details/trtel-alquran-mushaf-ali-al-hudhaify",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-ali-al-hudhaify",
-   "sort": 0
+   "sort": 0,
+   "mb": 318
   },
   {
    "name": "المصحف المرتل - د. ماهر بن حمد المعيقلي",
@@ -88,7 +96,8 @@
    "hours": 22.5,
    "page": "https://archive.org/details/trtel-alquran-mushaf-maher-al-muaiqly",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-maher-al-muaiqly",
-   "sort": 0
+   "sort": 0,
+   "mb": 486
   },
   {
    "name": "المصحف المرتل - د. محمد أيوب",
@@ -98,7 +107,8 @@
    "hours": 19.6,
    "page": "https://archive.org/details/trtel-alquran-mushaf-muhammad-ayyub",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-muhammad-ayyub",
-   "sort": 0
+   "sort": 0,
+   "mb": 292
   },
   {
    "name": "مصحف الحرمين - د. صلاح بن محمد البدير",
@@ -108,7 +118,8 @@
    "hours": 21.6,
    "page": "https://archive.org/details/trtel-alquran-mushaf-salah-al-budair-haramain",
    "zip": "https://archive.org/compress/trtel-alquran-mushaf-salah-al-budair-haramain",
-   "sort": 0
+   "sort": 0,
+   "mb": 621
   }
  ],
  "tarawih": [
@@ -120,7 +131,8 @@
    "hours": 23.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1447",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1447",
-   "sort": 1447
+   "sort": 1447,
+   "mb": 528
   },
   {
    "name": "تراويح المسجد النبوي 1446هـ",
@@ -130,7 +142,8 @@
    "hours": 23.6,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1446",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1446",
-   "sort": 1446
+   "sort": 1446,
+   "mb": 681
   },
   {
    "name": "تراويح المسجد النبوي 1445هـ",
@@ -140,7 +153,8 @@
    "hours": 23.4,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1445",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1445",
-   "sort": 1445
+   "sort": 1445,
+   "mb": 548
   },
   {
    "name": "تراويح المسجد النبوي 1444هـ",
@@ -150,7 +164,8 @@
    "hours": 22.5,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1444",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1444",
-   "sort": 1444
+   "sort": 1444,
+   "mb": 486
   },
   {
    "name": "تراويح المسجد النبوي 1443هـ",
@@ -160,7 +175,8 @@
    "hours": 21.7,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1443",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1443",
-   "sort": 1443
+   "sort": 1443,
+   "mb": 626
   },
   {
    "name": "تراويح المسجد النبوي 1442هـ",
@@ -170,7 +186,8 @@
    "hours": 22.3,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1442",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1442",
-   "sort": 1442
+   "sort": 1442,
+   "mb": 484
   },
   {
    "name": "تراويح المسجد النبوي 1441هـ",
@@ -180,7 +197,8 @@
    "hours": 22.8,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1441",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1441",
-   "sort": 1441
+   "sort": 1441,
+   "mb": 619
   },
   {
    "name": "تراويح المسجد النبوي 1440هـ",
@@ -190,7 +208,8 @@
    "hours": 22.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1440",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1440",
-   "sort": 1440
+   "sort": 1440,
+   "mb": 641
   },
   {
    "name": "تراويح المسجد النبوي 1439هـ",
@@ -200,7 +219,8 @@
    "hours": 23.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1439",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1439",
-   "sort": 1439
+   "sort": 1439,
+   "mb": 664
   },
   {
    "name": "تراويح المسجد النبوي 1438هـ",
@@ -210,7 +230,8 @@
    "hours": 23.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1438",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1438",
-   "sort": 1438
+   "sort": 1438,
+   "mb": 669
   },
   {
    "name": "تراويح المسجد النبوي 1437هـ",
@@ -220,7 +241,8 @@
    "hours": 22.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1437",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1437",
-   "sort": 1437
+   "sort": 1437,
+   "mb": 636
   },
   {
    "name": "تراويح المسجد النبوي 1435هـ",
@@ -230,7 +252,8 @@
    "hours": 20.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1435",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1435",
-   "sort": 1435
+   "sort": 1435,
+   "mb": 582
   },
   {
    "name": "تراويح المسجد النبوي 1434هـ",
@@ -240,7 +263,8 @@
    "hours": 21.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1434",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1434",
-   "sort": 1434
+   "sort": 1434,
+   "mb": 457
   },
   {
    "name": "تراويح المسجد النبوي 1433هـ",
@@ -250,7 +274,8 @@
    "hours": 20.7,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1433",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1433",
-   "sort": 1433
+   "sort": 1433,
+   "mb": 448
   },
   {
    "name": "تراويح المسجد النبوي 1432هـ",
@@ -260,7 +285,8 @@
    "hours": 21.9,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1432",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1432",
-   "sort": 1432
+   "sort": 1432,
+   "mb": 474
   },
   {
    "name": "تراويح المسجد النبوي 1431هـ",
@@ -270,7 +296,8 @@
    "hours": 22.4,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1431",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1431",
-   "sort": 1431
+   "sort": 1431,
+   "mb": 484
   },
   {
    "name": "تراويح المسجد النبوي 1430هـ",
@@ -280,7 +307,8 @@
    "hours": 22.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1430",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1430",
-   "sort": 1430
+   "sort": 1430,
+   "mb": 477
   },
   {
    "name": "تراويح المسجد النبوي 1429هـ",
@@ -290,7 +318,8 @@
    "hours": 21.1,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1429",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1429",
-   "sort": 1429
+   "sort": 1429,
+   "mb": 456
   },
   {
    "name": "تراويح المسجد النبوي 1428هـ",
@@ -300,7 +329,8 @@
    "hours": 21.7,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1428",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1428",
-   "sort": 1428
+   "sort": 1428,
+   "mb": 475
   },
   {
    "name": "تراويح المسجد النبوي 1427هـ",
@@ -310,7 +340,8 @@
    "hours": 21.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1427",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1427",
-   "sort": 1427
+   "sort": 1427,
+   "mb": 465
   },
   {
    "name": "تراويح المسجد النبوي 1426هـ",
@@ -320,7 +351,8 @@
    "hours": 20.9,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1426",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1426",
-   "sort": 1426
+   "sort": 1426,
+   "mb": 601
   },
   {
    "name": "تراويح المسجد النبوي 1425هـ",
@@ -330,7 +362,8 @@
    "hours": 20.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1425",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1425",
-   "sort": 1425
+   "sort": 1425,
+   "mb": 582
   },
   {
    "name": "تراويح المسجد النبوي 1424هـ",
@@ -340,7 +373,8 @@
    "hours": 19.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1424",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1424",
-   "sort": 1424
+   "sort": 1424,
+   "mb": 414
   },
   {
    "name": "تراويح المسجد النبوي 1423هـ",
@@ -350,7 +384,8 @@
    "hours": 21.4,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1423",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1423",
-   "sort": 1423
+   "sort": 1423,
+   "mb": 464
   },
   {
    "name": "تراويح المسجد النبوي 1422هـ",
@@ -360,7 +395,8 @@
    "hours": 20.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1422",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1422",
-   "sort": 1422
+   "sort": 1422,
+   "mb": 436
   },
   {
    "name": "تراويح المسجد النبوي 1421هـ",
@@ -370,7 +406,8 @@
    "hours": 20.7,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1421",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1421",
-   "sort": 1421
+   "sort": 1421,
+   "mb": 447
   },
   {
    "name": "تراويح المسجد النبوي 1420هـ",
@@ -380,7 +417,8 @@
    "hours": 20.8,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1420",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1420",
-   "sort": 1420
+   "sort": 1420,
+   "mb": 454
   },
   {
    "name": "تراويح المسجد النبوي 1419هـ",
@@ -390,7 +428,8 @@
    "hours": 21.4,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1419",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1419",
-   "sort": 1419
+   "sort": 1419,
+   "mb": 467
   },
   {
    "name": "تراويح المسجد النبوي 1418هـ",
@@ -400,7 +439,8 @@
    "hours": 19.3,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1418",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1418",
-   "sort": 1418
+   "sort": 1418,
+   "mb": 417
   },
   {
    "name": "تراويح المسجد النبوي 1417هـ",
@@ -410,7 +450,8 @@
    "hours": 19.0,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1417",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1417",
-   "sort": 1417
+   "sort": 1417,
+   "mb": 413
   },
   {
    "name": "تراويح المسجد النبوي 1416هـ",
@@ -420,7 +461,8 @@
    "hours": 20.2,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1416",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1416",
-   "sort": 1416
+   "sort": 1416,
+   "mb": 437
   },
   {
    "name": "تراويح المسجد النبوي 1415هـ",
@@ -430,7 +472,8 @@
    "hours": 20.3,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1415",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1415",
-   "sort": 1415
+   "sort": 1415,
+   "mb": 439
   },
   {
    "name": "تراويح المسجد النبوي 1413هـ",
@@ -440,7 +483,8 @@
    "hours": 20.7,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1413",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1413",
-   "sort": 1413
+   "sort": 1413,
+   "mb": 598
   },
   {
    "name": "تراويح المسجد النبوي 1412هـ",
@@ -450,7 +494,8 @@
    "hours": 19.6,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1412",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1412",
-   "sort": 1412
+   "sort": 1412,
+   "mb": 565
   },
   {
    "name": "تراويح المسجد النبوي 1411هـ",
@@ -460,7 +505,248 @@
    "hours": 19.3,
    "page": "https://archive.org/details/trtel-alquran-tarawih-1411",
    "zip": "https://archive.org/compress/trtel-alquran-tarawih-1411",
-   "sort": 1411
+   "sort": 1411,
+   "mb": 480
   }
- ]
+ ],
+ "partial": [
+  {
+   "name": "مصحف غير مكتمل - أحمد بن طالب حميد",
+   "m3u": "https://trtel.vip/lists/mushaf-ahmad-bin-talib-humaid.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-ahmad-bin-talib-humaid-urls.txt",
+   "n": 29,
+   "hours": 4.3,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-ahmad-bin-talib-humaid",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-ahmad-bin-talib-humaid",
+   "mb": 124
+  },
+  {
+   "name": "مصحف غير مكتمل - د. حسين بن عبدالعزيز آل الشيخ",
+   "m3u": "https://trtel.vip/lists/mushaf-hussain-al-sheikh.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-hussain-al-sheikh-urls.txt",
+   "n": 51,
+   "hours": 2.9,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-hussain-al-sheikh",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-hussain-al-sheikh",
+   "mb": 67
+  },
+  {
+   "name": "مصحف غير مكتمل - د. خالد بن سليمان المهنا",
+   "m3u": "https://trtel.vip/lists/mushaf-khalid-al-muhanna.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-khalid-al-muhanna-urls.txt",
+   "n": 120,
+   "hours": 22.8,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-khalid-al-muhanna",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-khalid-al-muhanna",
+   "mb": 470
+  },
+  {
+   "name": "مصحف غير مكتمل - د. خالد بن علي الغامدي",
+   "m3u": "https://trtel.vip/lists/mushaf-khalid-al-ghamdi.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-khalid-al-ghamdi-urls.txt",
+   "n": 26,
+   "hours": 5.6,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-khalid-al-ghamdi",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-khalid-al-ghamdi",
+   "mb": 162
+  },
+  {
+   "name": "مصحف غير مكتمل - د. عبدالله بن عبدالرحمن البعيجان",
+   "m3u": "https://trtel.vip/lists/mushaf-abdullah-al-buaijan.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-abdullah-al-buaijan-urls.txt",
+   "n": 24,
+   "hours": 4.3,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-abdullah-al-buaijan",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-abdullah-al-buaijan",
+   "mb": 124
+  },
+  {
+   "name": "مصحف غير مكتمل - سعد بن سعيد الغامدي",
+   "m3u": "https://trtel.vip/lists/mushaf-saad-al-ghamdi.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-saad-al-ghamdi-urls.txt",
+   "n": 25,
+   "hours": 5.6,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-saad-al-ghamdi",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-saad-al-ghamdi",
+   "mb": 160
+  },
+  {
+   "name": "مصحف غير مكتمل - محمد بن خليل القارئ",
+   "m3u": "https://trtel.vip/lists/mushaf-muhammad-khalil-al-qari.m3u",
+   "urls": "https://trtel.vip/lists/mushaf-muhammad-khalil-al-qari-urls.txt",
+   "n": 35,
+   "hours": 7.5,
+   "page": "https://archive.org/details/trtel-alquran-mushaf-muhammad-khalil-al-qari",
+   "zip": "https://archive.org/compress/trtel-alquran-mushaf-muhammad-khalil-al-qari",
+   "mb": 211
+  }
+ ],
+ "reciters": [
+  {
+   "name": "د. سعود بن إبراهيم الشريم",
+   "m3u": "https://trtel.vip/lists/reciter-saud-al-shuraim.m3u",
+   "urls": "https://trtel.vip/lists/reciter-saud-al-shuraim-urls.txt",
+   "n": 259,
+   "hours": 87.1
+  },
+  {
+   "name": "خالد بن فهد الجليل",
+   "m3u": "https://trtel.vip/lists/reciter-khalid-al-jaleel.m3u",
+   "urls": "https://trtel.vip/lists/reciter-khalid-al-jaleel-urls.txt",
+   "n": 224,
+   "hours": 54.3
+  },
+  {
+   "name": "د. عبدالعزيز بن عبدالله الأحمد",
+   "m3u": "https://trtel.vip/lists/reciter-abdulaziz-al-ahmad.m3u",
+   "urls": "https://trtel.vip/lists/reciter-abdulaziz-al-ahmad-urls.txt",
+   "n": 169,
+   "hours": 82.3
+  },
+  {
+   "name": "ماجد الزامل",
+   "m3u": "https://trtel.vip/lists/reciter-majed-al-zamil.m3u",
+   "urls": "https://trtel.vip/lists/reciter-majed-al-zamil-urls.txt",
+   "n": 76,
+   "hours": 11.2,
+   "page": "https://archive.org/details/trtel-alquran-majed-al-zamil",
+   "zip": "https://archive.org/compress/trtel-alquran-majed-al-zamil",
+   "mb": 832
+  },
+  {
+   "name": "محمد المحيسني",
+   "m3u": "https://trtel.vip/lists/reciter-muhammad-al-muhaisni.m3u",
+   "urls": "https://trtel.vip/lists/reciter-muhammad-al-muhaisni-urls.txt",
+   "n": 43,
+   "hours": 22.6,
+   "page": "https://archive.org/details/trtel-alquran-muhammad-al-muhaisni",
+   "zip": "https://archive.org/compress/trtel-alquran-muhammad-al-muhaisni",
+   "mb": 1667
+  },
+  {
+   "name": "د. صلاح بن محمد البدير",
+   "m3u": "https://trtel.vip/lists/reciter-salah-al-budair.m3u",
+   "urls": "https://trtel.vip/lists/reciter-salah-al-budair-urls.txt",
+   "n": 29,
+   "hours": 16.4,
+   "page": "https://archive.org/details/trtel-alquran-salah-al-budair",
+   "zip": "https://archive.org/compress/trtel-alquran-salah-al-budair",
+   "mb": 1244
+  },
+  {
+   "name": "د. ماهر بن حمد المعيقلي",
+   "m3u": "https://trtel.vip/lists/reciter-maher-al-muaiqly.m3u",
+   "urls": "https://trtel.vip/lists/reciter-maher-al-muaiqly-urls.txt",
+   "n": 27,
+   "hours": 12.4
+  },
+  {
+   "name": "د. عبدالله بن عبدالرحمن البعيجان",
+   "m3u": "https://trtel.vip/lists/reciter-abdullah-al-buaijan.m3u",
+   "urls": "https://trtel.vip/lists/reciter-abdullah-al-buaijan-urls.txt",
+   "n": 24,
+   "hours": 8.9,
+   "page": "https://archive.org/details/trtel-alquran-abdullah-al-buaijan",
+   "zip": "https://archive.org/compress/trtel-alquran-abdullah-al-buaijan",
+   "mb": 696
+  },
+  {
+   "name": "عكاشة بن حسن كميني",
+   "m3u": "https://trtel.vip/lists/reciter-okasha-kameny.m3u",
+   "urls": "https://trtel.vip/lists/reciter-okasha-kameny-urls.txt",
+   "n": 22,
+   "hours": 3.8
+  },
+  {
+   "name": "حازم سيف",
+   "m3u": "https://trtel.vip/lists/reciter-hazem-saif.m3u",
+   "urls": "https://trtel.vip/lists/reciter-hazem-saif-urls.txt",
+   "n": 8,
+   "hours": 6.4,
+   "page": "https://archive.org/details/trtel-alquran-hazem-saif",
+   "zip": "https://archive.org/compress/trtel-alquran-hazem-saif",
+   "mb": 464
+  },
+  {
+   "name": "د. الوليد بن خالد الشمسان",
+   "m3u": "https://trtel.vip/lists/reciter-alwalid-al-shamsan.m3u",
+   "urls": "https://trtel.vip/lists/reciter-alwalid-al-shamsan-urls.txt",
+   "n": 8,
+   "hours": 0.8,
+   "page": "https://archive.org/details/trtel-alquran-alwalid-al-shamsan",
+   "zip": "https://archive.org/compress/trtel-alquran-alwalid-al-shamsan",
+   "mb": 60
+  },
+  {
+   "name": "أحمد بن طالب حميد",
+   "m3u": "https://trtel.vip/lists/reciter-ahmad-bin-talib-humaid.m3u",
+   "urls": "https://trtel.vip/lists/reciter-ahmad-bin-talib-humaid-urls.txt",
+   "n": 4,
+   "hours": 1.3,
+   "page": "https://archive.org/details/trtel-alquran-ahmad-bin-talib-humaid",
+   "zip": "https://archive.org/compress/trtel-alquran-ahmad-bin-talib-humaid",
+   "mb": 118
+  },
+  {
+   "name": "د. علي بن عبدالله جابر",
+   "m3u": "https://trtel.vip/lists/reciter-ali-jaber.m3u",
+   "urls": "https://trtel.vip/lists/reciter-ali-jaber-urls.txt",
+   "n": 4,
+   "hours": 0.9,
+   "page": "https://archive.org/details/trtel-alquran-ali-jaber",
+   "zip": "https://archive.org/compress/trtel-alquran-ali-jaber",
+   "mb": 83
+  },
+  {
+   "name": "يوسف العيدروس",
+   "m3u": "https://trtel.vip/lists/reciter-yousef-al-aidarous.m3u",
+   "urls": "https://trtel.vip/lists/reciter-yousef-al-aidarous-urls.txt",
+   "n": 2,
+   "hours": 1.8,
+   "page": "https://archive.org/details/trtel-alquran-yousef-al-aidarous",
+   "zip": "https://archive.org/compress/trtel-alquran-yousef-al-aidarous",
+   "mb": 133
+  },
+  {
+   "name": "أحمد بن محمد ديبان",
+   "m3u": "https://trtel.vip/lists/reciter-ahmad-deban.m3u",
+   "urls": "https://trtel.vip/lists/reciter-ahmad-deban-urls.txt",
+   "n": 2,
+   "hours": 0.1,
+   "page": "https://archive.org/details/trtel-alquran-ahmad-deban",
+   "zip": "https://archive.org/compress/trtel-alquran-ahmad-deban",
+   "mb": 10
+  },
+  {
+   "name": "د. محمد أيوب",
+   "m3u": "https://trtel.vip/lists/reciter-muhammad-ayyub.m3u",
+   "urls": "https://trtel.vip/lists/reciter-muhammad-ayyub-urls.txt",
+   "n": 2,
+   "hours": 0.5,
+   "page": "https://archive.org/details/trtel-alquran-muhammad-ayyub",
+   "zip": "https://archive.org/compress/trtel-alquran-muhammad-ayyub",
+   "mb": 39
+  },
+  {
+   "name": "د. بندر بن عبدالعزيز بليلة",
+   "m3u": "https://trtel.vip/lists/reciter-bandar-baleela.m3u",
+   "urls": "https://trtel.vip/lists/reciter-bandar-baleela-urls.txt",
+   "n": 2,
+   "hours": 0.4,
+   "page": "https://archive.org/details/trtel-alquran-bandar-baleela",
+   "zip": "https://archive.org/compress/trtel-alquran-bandar-baleela",
+   "mb": 27
+  },
+  {
+   "name": "تلاوات متنوعة",
+   "m3u": "https://trtel.vip/lists/reciter-misc.m3u",
+   "urls": "https://trtel.vip/lists/reciter-misc-urls.txt",
+   "n": 53,
+   "hours": 13.4
+  }
+ ],
+ "all": {
+  "n": 6504,
+  "gb": 48
+ }
 }
