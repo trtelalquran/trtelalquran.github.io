@@ -166,6 +166,7 @@ html[dir="ltr"] #nextBtn .l1 svg{transform:none}
 .two button[aria-expanded="true"]{border-bottom:3px solid var(--ink)}
 .panel{padding-top:6px}
 .it{margin-top:12px}
+.it .alt{margin:10px 0 0;padding:0 8px;font-size:13px;color:var(--mut)}.it .alt b{font-weight:700;color:inherit}
 .it>b{display:block;font:700 17px var(--display)}
 .sm{font-size:13px;color:var(--mut);margin:8px 0 0}
 .url{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px dashed var(--gold)}
@@ -457,6 +458,8 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
         </div>
         <div class="devtxt" id="devtxt"></div>
         <div class="it"><b data-i18n="liveH">1. إذاعة ترتيل المباشرة، بث مباشر (راديو)</b>
+          <div class="url"><a class="lnk" href="https://radio.trtel.vip/aac" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><code>https://radio.trtel.vip/aac</code></a><button class="cp" type="button" data-i18n="copy" data-copy="https://radio.trtel.vip/aac">نسخ</button></div>
+          <p class="alt"><b data-i18n="altLiveH">رابط آخر</b> <span data-i18n="altLiveD">متوافق مع كل الأجهزة بما فيها القديمة</span></p>
           <div class="url"><a class="lnk" href="https://radio.trtel.vip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><code>https://radio.trtel.vip</code></a><button class="cp" type="button" data-i18n="copy" data-copy="https://radio.trtel.vip">نسخ</button></div>
         </div>
         <div class="it"><b data-i18n="m3uH">2. قائمة التشغيل M3U</b>
@@ -542,7 +545,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     appsH: 'Listen in your app', dlH: 'Download', copy: 'Copy', page: 'Page', files: 'Files',
     m3uH: '2. M3U playlist', plRadio: 'Radio: rotating reciters', plMus: 'Complete Mushafs', plTar: "Tarawih of the Prophet's Mosque", plUrlsBtn: 'Download links',
     rssH: '3. Podcast RSS feed', lblFeed: 'Feed', fMus: 'Complete recited Mushafs', fTar: "Tarawih of the Prophet's Mosque", fAll: 'Trtel radio: varied reciters', fMusS: 'Complete recited Mushafs; each reciter’s Mushaf is in its own section in the podcast app.', fTarS: "Tarawih prayers of the Prophet's Mosque; each year is in its own section in the podcast app.", fAllS: 'All the radio recitations by varied reciters, in Mushaf order, and new recitations arrive automatically.', copiedHint: 'Link copied. Paste it in your app.', alexaH: '4. Alexa', alexaSay: 'Say: <q>“Alexa, open Quran Recitations”</q>', alexaMore: 'It starts where the website radio is playing. To control it: “Alexa, next” for the next surah, “Alexa, stop”.', alexaBtn: 'Enable the skill in the Alexa store',
-    liveH: '1. Trtel live radio, live stream (radio)', devPc: 'Computer', devIos: 'iPhone', devAnd: 'Android',
+    liveH: '1. Trtel live radio, live stream (radio)', altLiveH: 'Another link', altLiveD: 'Works on all devices, including older ones', devPc: 'Computer', devIos: 'iPhone', devAnd: 'Android',
     vlcPc: '<b>M3U or live link in VLC:</b> copy the link → open VLC → Media → Open Network Stream (Ctrl+N) → paste → Play. Turn on Loop for playlists.',
     vlcIos: '<b>M3U or live link in VLC:</b> copy the link → open VLC → Network → Network Stream → paste → Open Network Stream.',
     vlcAnd: '<b>M3U or live link in VLC:</b> copy the link → open VLC → More → New stream → paste → Play. The live link also works in any radio app that accepts a station URL.',
