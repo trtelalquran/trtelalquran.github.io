@@ -812,10 +812,14 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   function paint(t) { if (!cur) return; const it = cur.items[cur.idx]; $('tm').textContent = fmt(Math.min(t, it.d)) + ' / ' + fmt(it.d); }
   const isLoaded = () => !!loaded && cur && loaded.key === cur.key && loaded.idx === cur.idx;
 
+  // التشغيل من سيرفر ترتيل أولًا؛ عند أول فشل منه ننتقل إلى الأرشيف ونبقى عليه بقية الجلسة
+  const ARCH = 'https://archive.org/download/', SRV = 'https://files.trtel.vip/a/';
+  let useSrv = true, lastOff = 0;
+  const srvUrl = u => (useSrv && u.indexOf(ARCH) === 0) ? SRV + u.slice(ARCH.length) : u;
   function load(i, offset) {
     cur.idx = i; loaded = { key: cur.key, idx: i }; render(); paint(offset || 0); switching = true;
     if (!cur.radio) store.set('pos:' + cur.key, i ? String(i) : null);
-    audio.src = cur.items[i].u;
+    lastOff = offset || 0; audio.src = srvUrl(cur.items[i].u);
     const seek = () => { try { if (offset > 1) audio.currentTime = offset; } catch (e) {} switching = false; if (wantPlay) audio.play().catch(() => {}); };
     audio.addEventListener('loadedmetadata', seek, { once: true });
     audio.load();
@@ -861,7 +865,9 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     if (cur.radio && cur.live) { const [i, off] = livePos(cur); if (i === cur.idx) load((cur.idx + 1) % n, 0); else load(i, off); }
     else load((cur.idx + 1) % n, 0);
   };
-  audio.onerror = () => { if (!audio.src || !cur || (audio.error && audio.error.code === 1)) return; switching = false; toast(T('loadErr'));
+  audio.onerror = () => { if (!audio.src || !cur || (audio.error && audio.error.code === 1)) return;
+    if (useSrv && audio.src.indexOf(SRV) === 0) { useSrv = false; if (cur.radio && cur.live) goLive(); else load(cur.idx, audio.currentTime || lastOff); return; }
+    switching = false; toast(T('loadErr'));
     const k = cur.key, i = cur.idx; setTimeout(() => { if (cur && cur.key === k && cur.idx === i && wantPlay) { if (cur.radio) cur.live = false; load((i + 1) % cur.items.length, 0); } }, 3000); };
 
   setInterval(() => {
