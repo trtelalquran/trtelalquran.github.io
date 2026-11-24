@@ -354,7 +354,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
 
   function nav(p) { canSave = true; hideResume(); closeSheet(); show(p); }
   function goAyah(s, a, mark) { s = Math.min(114, Math.max(1, s | 0 || 1)); a = Math.min(META.surahs[s - 1][2], Math.max(1, a | 0 || 1));
-    if (mark) { tag = [s, a]; tagK = mark === 2 ? 'here' : 'start'; } show(pageOf(s, a), [s, a]); }
+    if (mark) tag = mark === 2 ? null : [s, a]; // التتبّع: ومضة فقط بلا وسم show(pageOf(s, a), [s, a]); }
 
   addEventListener('keydown', e => { if (!$('drawer').hidden || /INPUT|TEXTAREA/.test(e.target.tagName)) return;
     if (e.key === 'ArrowLeft') $('next').click(); else if (e.key === 'ArrowRight') $('prev').click(); else if (e.key === 'Escape') closeSheet();
