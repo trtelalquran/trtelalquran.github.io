@@ -1,0 +1,21 @@
+# تشغيل يدوي: يجلب «المختصر في التفسير» من قاعدة مركز تفسير الرسمية ويضعه في فرع tafsir-data للمراجعة قبل الدمج.
+name: tafsir-official
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: download quran.db (Tafsir Center, CC BY 4.0)
+        run: curl -fsSL -o /tmp/quran.db https://huggingface.co/datasets/tafsircenter/tafsir-mcp-data/resolve/main/quran.db && ls -la /tmp/quran.db
+      - run: python3 mushaf/tafsir_official.py /tmp/quran.db
+      - name: push to tafsir-data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b tafsir-data
+          git add mushaf/t mushaf/tafsir_sample.json
+          git commit -m "المختصر في التفسير من قاعدة مركز تفسير الرسمية (quran.db)"
+          git push -f origin tafsir-data
