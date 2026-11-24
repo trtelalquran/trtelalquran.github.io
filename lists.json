@@ -587,7 +587,10 @@
    "m3u": "https://trtel.vip/lists/reciter-saud-al-shuraim.m3u",
    "urls": "https://trtel.vip/lists/reciter-saud-al-shuraim-urls.txt",
    "n": 259,
-   "hours": 87.1
+   "hours": 87.1,
+   "page": "https://archive.org/details/trtel-alquran-saud-al-shuraim",
+   "zip": "https://archive.org/compress/trtel-alquran-saud-al-shuraim",
+   "mb": 6265
   },
   {
    "name": "خالد بن فهد الجليل",
@@ -601,7 +604,10 @@
    "m3u": "https://trtel.vip/lists/reciter-abdulaziz-al-ahmad.m3u",
    "urls": "https://trtel.vip/lists/reciter-abdulaziz-al-ahmad-urls.txt",
    "n": 169,
-   "hours": 82.3
+   "hours": 82.3,
+   "page": "https://archive.org/details/trtel-alquran-abdulaziz-al-ahmad",
+   "zip": "https://archive.org/compress/trtel-alquran-abdulaziz-al-ahmad",
+   "mb": 5769
   },
   {
    "name": "ماجد الزامل",
@@ -638,7 +644,10 @@
    "m3u": "https://trtel.vip/lists/reciter-maher-al-muaiqly.m3u",
    "urls": "https://trtel.vip/lists/reciter-maher-al-muaiqly-urls.txt",
    "n": 27,
-   "hours": 12.4
+   "hours": 12.4,
+   "page": "https://archive.org/details/trtel-alquran-maher-al-muaiqly",
+   "zip": "https://archive.org/compress/trtel-alquran-maher-al-muaiqly",
+   "mb": 961
   },
   {
    "name": "د. عبدالله بن عبدالرحمن البعيجان",
@@ -655,7 +664,10 @@
    "m3u": "https://trtel.vip/lists/reciter-okasha-kameny.m3u",
    "urls": "https://trtel.vip/lists/reciter-okasha-kameny-urls.txt",
    "n": 22,
-   "hours": 3.8
+   "hours": 3.8,
+   "page": "https://archive.org/details/trtel-alquran-okasha-kameny",
+   "zip": "https://archive.org/compress/trtel-alquran-okasha-kameny",
+   "mb": 226
   },
   {
    "name": "حازم سيف",
@@ -738,15 +750,25 @@
    "mb": 27
   },
   {
+   "name": "عبدالمحسن القاسم",
+   "m3u": "https://trtel.vip/lists/reciter-abdulmohsen-al-qasim.m3u",
+   "urls": "https://trtel.vip/lists/reciter-abdulmohsen-al-qasim-urls.txt",
+   "n": 2,
+   "hours": 0.5,
+   "page": "https://archive.org/details/trtel-alquran-abdulmohsen-al-qasim",
+   "zip": "https://archive.org/compress/trtel-alquran-abdulmohsen-al-qasim",
+   "mb": 29
+  },
+  {
    "name": "تلاوات متنوعة",
    "m3u": "https://trtel.vip/lists/reciter-misc.m3u",
    "urls": "https://trtel.vip/lists/reciter-misc-urls.txt",
-   "n": 53,
-   "hours": 13.4
+   "n": 51,
+   "hours": 12.9
   }
  ],
  "all": {
   "n": 6504,
-  "gb": 48
+  "gb": 47
  }
 }
