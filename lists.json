@@ -597,7 +597,10 @@
    "m3u": "https://trtel.vip/lists/reciter-khalid-al-jaleel.m3u",
    "urls": "https://trtel.vip/lists/reciter-khalid-al-jaleel-urls.txt",
    "n": 224,
-   "hours": 54.3
+   "hours": 54.3,
+   "page": "https://archive.org/details/trtel-alquran-khalid-al-jaleel",
+   "zip": "https://archive.org/compress/trtel-alquran-khalid-al-jaleel",
+   "mb": 2654
   },
   {
    "name": "د. عبدالعزيز بن عبدالله الأحمد",
