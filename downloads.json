@@ -498,8 +498,8 @@
  {
   "r": "تلاوات متنوعة",
   "id": "trtel-alquran-unknown-reciters",
-  "n": 73,
-  "mb": 941,
+  "n": 72,
+  "mb": 677,
   "page": "https://archive.org/details/trtel-alquran-unknown-reciters",
   "zip": "https://archive.org/compress/trtel-alquran-unknown-reciters"
  },
@@ -522,8 +522,8 @@
  {
   "r": "خالد بن فهد الجليل",
   "id": "trtel-alquran-khalid-al-jaleel",
-  "n": 176,
-  "mb": 2329,
+  "n": 224,
+  "mb": 2654,
   "page": "https://archive.org/details/trtel-alquran-khalid-al-jaleel",
   "zip": "https://archive.org/compress/trtel-alquran-khalid-al-jaleel"
  },
@@ -538,8 +538,8 @@
  {
   "r": "د. سعود بن إبراهيم الشريم",
   "id": "trtel-alquran-saud-al-shuraim",
-  "n": 257,
-  "mb": 6993,
+  "n": 261,
+  "mb": 6265,
   "page": "https://archive.org/details/trtel-alquran-saud-al-shuraim",
   "zip": "https://archive.org/compress/trtel-alquran-saud-al-shuraim"
  },
@@ -610,8 +610,8 @@
  {
   "r": "د. عبدالعزيز بن عبدالله الأحمد",
   "id": "trtel-alquran-abdulaziz-al-ahmad",
-  "n": 168,
-  "mb": 6027,
+  "n": 170,
+  "mb": 5769,
   "page": "https://archive.org/details/trtel-alquran-abdulaziz-al-ahmad",
   "zip": "https://archive.org/compress/trtel-alquran-abdulaziz-al-ahmad"
  },
@@ -642,16 +642,16 @@
  {
   "r": "عبدالمحسن القاسم",
   "id": "trtel-alquran-abdulmohsen-al-qasim",
-  "n": 1,
-  "mb": 21,
+  "n": 2,
+  "mb": 29,
   "page": "https://archive.org/details/trtel-alquran-abdulmohsen-al-qasim",
   "zip": "https://archive.org/compress/trtel-alquran-abdulmohsen-al-qasim"
  },
  {
   "r": "عكاشة بن حسن كميني",
   "id": "trtel-alquran-okasha-kameny",
-  "n": 19,
-  "mb": 212,
+  "n": 22,
+  "mb": 226,
   "page": "https://archive.org/details/trtel-alquran-okasha-kameny",
   "zip": "https://archive.org/compress/trtel-alquran-okasha-kameny"
  },
@@ -682,8 +682,8 @@
  {
   "r": "د. ماهر بن حمد المعيقلي",
   "id": "trtel-alquran-maher-al-muaiqly",
-  "n": 26,
-  "mb": 962,
+  "n": 27,
+  "mb": 961,
   "page": "https://archive.org/details/trtel-alquran-maher-al-muaiqly",
   "zip": "https://archive.org/compress/trtel-alquran-maher-al-muaiqly"
  },
