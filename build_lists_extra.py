@@ -17,7 +17,7 @@ FOLDERS = {
     'عكاشة بن حسن كميني': 'okasha-kameny', 'حازم سيف': 'hazem-saif', 'د. الوليد بن خالد الشمسان': 'alwalid-al-shamsan',
     'أحمد بن طالب حميد': 'ahmad-bin-talib-humaid', 'د. علي بن عبدالله جابر': 'ali-jaber', 'يوسف العيدروس': 'yousef-al-aidarous',
     'أحمد بن محمد ديبان': 'ahmad-deban', 'د. محمد أيوب': 'muhammad-ayyub', 'د. بندر بن عبدالعزيز بليلة': 'bandar-baleela',
-    'عبدالمحسن القاسم': 'abdulmohsen-al-qasim',  # 2026-11-25: تلاواته صارت في عنصره
+    'د. عبدالمحسن بن محمد القاسم': 'abdulmohsen-al-qasim',  # 2026-11-26: الاسم الموحد في الإذاعة (كان «عبدالمحسن القاسم»)
 }
 MISC = 'تلاوات متنوعة'
 
