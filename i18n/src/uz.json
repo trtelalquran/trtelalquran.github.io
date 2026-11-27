@@ -51,6 +51,7 @@
   "corr": "milodiy {d}", "langs": "Tillar"
  },
  "m": {
+  "trMore": "Boshqa tillar…",
   "back": "Radioga qaytish", "copy": "Oyatni nusxalash", "tafsir": "Qisqa tafsir", "tafsirS": "Tafsir", "tfGroup": "{a}-{b} oyatlar tafsiri birga", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Musʼhaf", "page": "Sahifa",
   "tfSrc": "Manba: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Qurʼoniy tadqiqotlar markazi", "tSurahs": "Suralar", "tJuz": "Poralar", "tMarks": "Belgilar", "tSearch": "Qidiruv",
   "index": "Mundarija", "search": "Qidiruv", "marks": "Belgilar", "close": "Yopish", "swap": "Tomonlarni almashtirish", "surah": "Sura", "juz": "Pora", "ayah": "Oyat", "ayat": "oyat",

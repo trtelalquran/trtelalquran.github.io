@@ -51,6 +51,7 @@
   "corr": "që i përgjigjet {d}", "langs": "Gjuhët"
  },
  "m": {
+  "trMore": "Gjuhë të tjera…",
   "back": "Kthehu te radioja", "copy": "Kopjo ajetin", "tafsir": "Tefsir i shkurtër", "tafsirS": "Tefsiri", "tfGroup": "Tefsiri i ajeteve {a}-{b} së bashku", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mus'hafi", "page": "Faqja",
   "tfSrc": "Burimi: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Qendra Tefsir për Studime Kur'anore", "tSurahs": "Suret", "tJuz": "Xhuzet", "tMarks": "Shënjuesit", "tSearch": "Kërkimi",
   "index": "Pasqyra", "search": "Kërkimi", "marks": "Shënjuesit", "close": "Mbyll", "swap": "Ndërro anët", "surah": "Sureja", "juz": "Xhuzi", "ayah": "Ajeti", "ayat": "ajete",

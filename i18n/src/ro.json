@@ -50,6 +50,7 @@
   "corr": "corespunzător datei de {d}", "langs": "Limbi"
  },
  "m": {
+  "trMore": "Alte limbi…",
   "back": "Înapoi la radio", "copy": "Copiază versetul", "tafsir": "Tafsir pe scurt", "tafsirS": "Tafsir", "tfGroup": "Versetele {a}-{b} explicate împreună", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushaf", "page": "Pagina",
   "tfSrc": "Sursa: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Centrul Tafsir pentru Studii Coranice", "tSurahs": "Sure", "tJuz": "Juz", "tMarks": "Semne de carte", "tSearch": "Căutare",
   "index": "Cuprins", "search": "Căutare", "marks": "Semne de carte", "close": "Închide", "swap": "Inversează părțile", "surah": "Sura", "juz": "Juz", "ayah": "Versetul", "ayat": "versete",

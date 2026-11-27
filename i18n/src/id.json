@@ -50,6 +50,7 @@
   "corr": "bertepatan dengan {d}", "langs": "Bahasa"
  },
  "m": {
+  "trMore": "Bahasa lain…",
   "back": "Kembali ke radio", "copy": "Salin ayat", "tafsir": "Tafsir ringkas", "tafsirS": "Tafsir", "tfGroup": "Tafsir ayat {a}-{b} sekaligus", "tfH": "Al-Mukhtashar fi at-Tafsir", "mushaf": "Mushaf", "page": "Halaman",
   "tfSrc": "Sumber: Al-Mukhtashar fi Tafsir Al-Qur’an Al-Karim, Markaz Tafsir untuk Studi Al-Qur’an", "tSurahs": "Surah", "tJuz": "Juz", "tMarks": "Penanda", "tSearch": "Cari",
   "index": "Daftar isi", "search": "Cari", "marks": "Penanda", "close": "Tutup", "swap": "Tukar sisi", "surah": "Surah", "juz": "Juz", "ayah": "Ayat", "ayat": "ayat",

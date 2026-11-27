@@ -51,6 +51,7 @@
   "corr": "sawa na {d}", "langs": "Lugha"
  },
  "m": {
+  "trMore": "Lugha nyingine…",
   "back": "Rudi kwenye redio", "copy": "Nakili aya", "tafsir": "Tafsir fupi", "tafsirS": "Tafsir", "tfGroup": "Tafsir ya aya {a}-{b} kwa pamoja", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Msahafu", "page": "Ukurasa",
   "tfSrc": "Chanzo: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Kituo cha Tafsir cha Mafunzo ya Qur'ani", "tSurahs": "Sura", "tJuz": "Juzuu", "tMarks": "Alama", "tSearch": "Tafuta",
   "index": "Faharasa", "search": "Tafuta", "marks": "Alama", "close": "Funga", "swap": "Badilisha pande", "surah": "Sura", "juz": "Juzuu", "ayah": "Aya", "ayat": "aya",

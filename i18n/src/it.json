@@ -50,6 +50,7 @@
   "corr": "corrispondente al {d}", "langs": "Lingue"
  },
  "m": {
+  "trMore": "Altre lingue…",
   "back": "Torna alla radio", "copy": "Copia il versetto", "tafsir": "Tafsir sintetico", "tafsirS": "Tafsir", "tfGroup": "Versetti {a}-{b} spiegati insieme", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushaf", "page": "Pagina",
   "tfSrc": "Fonte: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Centro Tafsir per gli Studi Coranici", "tSurahs": "Sure", "tJuz": "Juz", "tMarks": "Segnalibri", "tSearch": "Ricerca",
   "index": "Indice", "search": "Ricerca", "marks": "Segnalibri", "close": "Chiudi", "swap": "Inverti i lati", "surah": "Sura", "juz": "Juz", "ayah": "Versetto", "ayat": "versetti",

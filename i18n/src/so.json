@@ -51,6 +51,7 @@
   "corr": "oo u dhiganta {d}", "langs": "Luqadaha"
  },
  "m": {
+  "trMore": "Luqado kale…",
   "back": "Ku noqo raadiyaha", "copy": "Koobiyee aayadda", "tafsir": "Tafsiir kooban", "tafsirS": "Tafsiir", "tfGroup": "Tafsiirka aayadaha {a}-{b} oo wadajir ah", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Masxafka", "page": "Bog",
   "tfSrc": "Isha: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Xarunta Tafsiir ee Daraasaadka Qur'aanka", "tSurahs": "Suuradaha", "tJuz": "Juz'yada", "tMarks": "Calaamadaha", "tSearch": "Raadin",
   "index": "Tusmada", "search": "Raadin", "marks": "Calaamadaha", "close": "Xir", "swap": "Isku beddel dhinacyada", "surah": "Suuradda", "juz": "Juz'", "ayah": "Aayadda", "ayat": "aayadood",
