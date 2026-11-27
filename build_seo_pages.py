@@ -172,6 +172,11 @@ def load_langs():
 
 LANGS = load_langs()
 LANG_LIST = [[c, L['name'], L['dir']] for c, L in LANGS.items()]
+# لغات بلا واجهة مترجمة: تفتح بواجهة لغة بلدها الرسمية (base) مع ترجمة معانيها، ولا صفحات مستقلة لها (حتى لا تتكرر الصفحات في البحث)
+FALLBACK = {k: v for k, v in J('i18n/src/_fallback.json').items() if not k.startswith('_') and k not in LANGS and (v['base'] in LANGS or v['base'] == 'ar')}
+for c, v in FALLBACK.items():
+    sel = TRSEL.get(c, {})
+    LANG_LIST.append([c, v['name'], v['dir'], v['base'], sel.get('tr') if sel.get('tr') in TRIDX else '', sel.get('tf') if sel.get('tf') in TRIDX else ''])
 ALL = ['ar'] + list(LANGS)
 SRE = re.compile('(^|[\\s،(])(' + '|'.join(sorted(map(re.escape, SURAH_AR), key=len, reverse=True)) + ')(?=$|[\\s،)])')
 
@@ -302,10 +307,14 @@ def alternates(path):
 
 def lang_links(C, path, up):
     if not LANGS: return ''
-    a = ''.join(f'<a href="{up}{"" if c == "ar" else c + "/"}{path}" lang="{c}" hreflang="{c}" data-c="{c}"{" aria-current=\"true\"" if c == C.code else ""}>{E(n)}</a>'
-                for c, n in [('ar', 'العربية')] + [(c, L['name']) for c, L in LANGS.items()])
-    return (f'<details class="lg"><summary>{GLOBE}{E(C.P["langs"])}</summary><div>{a}</div></details>'
-            "<script>document.querySelector('.lg').addEventListener('click',function(e){var a=e.target.closest('a');if(a)try{localStorage.setItem('lang',a.dataset.c)}catch(x){}});</script>")
+    items = [['ar', 'العربية', 'rtl']] + LANG_LIST
+    a = ''.join(f'<a href="{up}{"" if (x[3] if len(x) > 3 else x[0]) == "ar" else (x[3] if len(x) > 3 else x[0]) + "/"}{path}" lang="{x[0]}"'
+                f'{"" if len(x) > 3 else f" hreflang=\"{x[0]}\""} data-i="{i}"{" aria-current=\"true\"" if x[0] == C.code else ""}>{E(x[1])}</a>'
+                for i, x in enumerate(items))
+    js = ("<script>(function(){var A=" + json.dumps(items, ensure_ascii=False, separators=(',', ':')) + ";document.querySelector('.lg').addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;"
+          "var x=A[+a.dataset.i],S=localStorage;try{S.setItem('lang',x[3]||x[0]);if(x[3]){S.setItem('lang2',x[0]);x[4]?S.setItem('mushaf:tr',x[4]):S.removeItem('mushaf:tr');x[5]?S.setItem('mushaf:tf',x[5]):S.removeItem('mushaf:tf');}"
+          "else{S.removeItem('lang2');S.removeItem('mushaf:tr');S.removeItem('mushaf:tf');}}catch(z){}});})();</script>")
+    return f'<details class="lg"><summary>{GLOBE}{E(C.P["langs"])}</summary><div>{a}</div></details>' + js
 
 
 def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld=None):

@@ -131,7 +131,7 @@ def main():
     new, changed, failed = {}, [], []
     from concurrent.futures import ThreadPoolExecutor
     todo = []
-    for key in sorted({k for v in sel.values() for k in v.values() if k}):
+    for key in sorted({k for v in sel.values() for x in v.values() for k in (x if isinstance(x, list) else [x]) if k}):
         t = by_key.get(key)
         if not t:
             print('MISSING in catalog:', key); failed.append(key)
