@@ -48,6 +48,46 @@ def catalog():
     return out
 
 
+PREFIX = {'russian': 'ru', 'italian': 'it', 'malay': 'ms', 'korean': 'ko', 'kazakh': 'kk', 'ukrainian': 'uk', 'bulgarian': 'bg', 'greek': 'el',
+          'hebrew': 'he', 'nepali': 'ne', 'marathi': 'mr', 'georgian': 'ka', 'catalan': 'ca', 'belarusian': 'be', 'chichewa': 'ny', 'circassian': 'kbd',
+          'dagbani': 'dag', 'dari': 'prs', 'iranun': 'ilp', 'kurmanji': 'kmr', 'luganda': 'lg', 'luhya': 'luy', 'malagasy': 'mg', 'shona': 'sn',
+          'yaw': 'yao', 'zulu': 'zu', 'arabic': 'ar'}
+RTL = {'ar', 'fa', 'ur', 'ps', 'ku', 'ug', 'prs', 'he', 'nqo'}
+
+
+def site_cards(cat):
+    """ترجمات تظهر في الصفحة الرئيسية لـQuranEnc ولا تسردها قائمة الـAPI (مثل ترجمات «المختصر» لمركز تفسير): تؤخذ بياناتها (العنوان، الجهة، الإصدار) من بطاقاتها."""
+    import re, html as H
+    def page(loc):
+        req = urllib.request.Request('https://quranenc.com/' + loc, headers={'User-Agent': 'Mozilla/5.0'})
+        return urllib.request.urlopen(req, timeout=90).read().decode('utf-8', 'replace')
+    def cards(h):
+        out = {}
+        for c in h.split('tab_card_header')[1:]:
+            k = re.search(r'/browse/([a-z0-9_]+)"', c); v = re.search(r'(\d\d)/(\d\d)/(\d{4})\s*-\s*V([\d.]+)', c)
+            t = re.search(r'<h2[^>]*>\s*(.*?)\s*</h2>', c, re.S); iss = re.search(r'<small>\s*(.*?)\s*</small>', c, re.S)
+            if k and v and t and k.group(1) not in out:
+                out[k.group(1)] = {'version': v.group(4), 'date': f'{v.group(3)}-{v.group(2)}-{v.group(1)}', 'title': H.unescape(t.group(1)).strip(),
+                                   'issuer': H.unescape(iss.group(1)).strip() if iss else ''}
+        return out
+    en, ar = cards(page('en')), {}
+    try: ar = cards(page('ar'))
+    except Exception as e: print('ar cards failed', e)
+    pre = dict(PREFIX)
+    for t in cat: pre.setdefault(t['key'].split('_')[0], t['language_iso_code'])
+    by = {t['key']: t for t in cat}
+    for k, c in en.items():
+        a = ar.get(k, {})
+        if k in by:
+            by[k]['issuer'] = c['issuer']; by[k]['issuer_ar'] = a.get('issuer'); by[k]['site_version'] = c['version']; continue
+        lang = pre.get(k.split('_')[0])
+        if not lang: print('unknown language for', k); continue
+        cat.append({'key': k, 'language_iso_code': lang, 'direction': 'rtl' if lang in RTL else 'ltr', 'version': c['version'], 'last_update': c['date'],
+                    'title': c['title'], 'description': c['issuer'], 'issuer': c['issuer'], 'title_ar': a.get('title'), 'description_ar': a.get('issuer'),
+                    'issuer_ar': a.get('issuer'), 'from_site': True})
+    return cat
+
+
 def fetch(key):
     """يرجع 114 قائمة بعد التحقق من اكتمال عدد الآيات؛ وإلا يرفع خطأ فلا يُكتب شيء ناقص."""
     res = []
@@ -68,6 +108,8 @@ def fetch(key):
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else 'sync'
     cat = catalog()
+    try: cat = site_cards(cat)
+    except Exception as e: print('site cards failed', e)
     dump(os.path.join(HERE, 'catalog.json'), cat, indent=None)
     print(len(cat), 'translations in catalog;', len({t['language_iso_code'] for t in cat}), 'languages')
     try:   # أسماء السور الرسمية بكل لغة متاحة
@@ -82,28 +124,7 @@ def main():
         print(len(names), 'sowar locales')
     except Exception as e:
         print('sowar names failed', e)
-    if mode == 'list':
-        try:   # فحص مؤقت: مفاتيح الصفحة الرئيسية غير الظاهرة في قائمة الـAPI
-            import re
-            req = urllib.request.Request('https://quranenc.com/en', headers={'User-Agent': 'Mozilla/5.0'})
-            h = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
-            keys = sorted(set(re.findall(r'/browse/([a-z0-9_]+)', h)))
-            have = {t['key'] for t in cat}; extra = [k for k in keys if k not in have]
-            out = ['site keys: ' + ' '.join(keys), 'extra: ' + ' '.join(extra)]
-            for k in extra[:60]:
-                try:
-                    r = get(f'translation/aya/{k}/1/2', tries=1)['result']
-                    out.append(k + ' OK ' + json.dumps(r, ensure_ascii=False)[:300])
-                except Exception as e:
-                    out.append(k + ' ERR ' + str(e))
-                try:
-                    r = get('translations/list/?localization=en&key=' + k, tries=1)
-                except Exception: pass
-            i = h.find('french_mokhtasar'); out.append('HTML: ' + h[max(0, i - 2500):i + 1500])
-            open(os.path.join(HERE, '_probe.txt'), 'w', encoding='utf-8').write('\n'.join(out))
-        except Exception as e:
-            print('probe failed', e)
-        return
+    if mode == 'list': return
     sel = json.load(open(os.path.join(HERE, 'select.json'), encoding='utf-8'))      # {lang: {"tr": key, "tf": key}}
     idx_path = os.path.join(HERE, 'index.json')
     old = json.load(open(idx_path, encoding='utf-8')) if os.path.exists(idx_path) else {}
@@ -125,7 +146,7 @@ def main():
             if have: new[key] = have
             continue
         for s, one in enumerate(data, 1): dump(os.path.join(HERE, key, f'{s}.json'), one)
-        new[key] = {k: t.get(k) for k in ('language_iso_code', 'direction', 'version', 'last_update', 'title', 'title_ar')}
+        new[key] = {k: t.get(k) for k in ('language_iso_code', 'direction', 'version', 'last_update', 'title', 'title_ar', 'issuer', 'issuer_ar') if t.get(k) is not None}
         changed.append(key); print('updated', key, t['version'])
     dump(idx_path, new, indent=None)
     print('changed:', len(changed), 'failed:', len(failed))
