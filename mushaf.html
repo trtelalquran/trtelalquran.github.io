@@ -496,7 +496,8 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     if (tk) { const m = TRI[tk], P = $('tfP'); P.dir = m.direction || 'ltr'; P.lang = m.language_iso_code;
       try { const d = await (TRD[tk + s] || (TRD[tk + s] = getT('' + tk + '/' + s + '.json').catch(e => { TRD[tk + s] = null; throw e; })));
         if (!(sel && sel[0] === s && sel[1] === a)) return;
-        const x = d[a - 1]; P.textContent = Array.isArray(x) ? x[0] + '\n' + x[1] : (x || ''); P.style.whiteSpace = 'pre-line';
+        let x = d[a - 1]; if (typeof x === 'number') x = d[x - 1];   // رقم = نفس تفسير آية سابقة (تفسير السعدي يجمع آيات)
+        P.textContent = Array.isArray(x) ? x[0] + '\n' + x[1] : (x || ''); P.style.whiteSpace = 'pre-line';
         $('tfSrcB').innerHTML = esc(m.title) + ' · ' + esc(T('trVer').replace('{v}', m.version)) + ' · <a href="https://quranenc.com/' + (TRL ? TRL.qe : 'ar') + '/browse/' + tk + '/' + s + '" target="_blank" rel="noopener">QuranEnc.com</a>'; }
       catch (e) { P.textContent = T('errLoad'); }
       return; }
