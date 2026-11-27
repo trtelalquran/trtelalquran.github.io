@@ -170,6 +170,12 @@ body.lb .dkE{font-size:12.5px;padding:4px}body.lb .dkE svg{display:none}
 .tf .src a{color:inherit}
 /* ترجمة المعاني (2026-11-27): من QuranEnc.com كما هي، مع اسم الترجمة ورقم الإصدار */
 .tfs{width:100%;max-width:100%;font:700 14px var(--body),system-ui,sans-serif;color:var(--gold);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 6px;margin-bottom:6px}
+.trov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:16px}.trov[hidden]{display:none}
+.trall{width:min(460px,100%);max-height:min(80vh,640px);display:flex;flex-direction:column;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.trall .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.trall .hd b{font:700 16px var(--body),system-ui,sans-serif}
+.trall .x{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:none;color:inherit;font-size:20px;line-height:1;cursor:pointer}
+.trall .ls{overflow:auto;padding:6px}.trall .ls button{display:block;width:100%;text-align:center;padding:9px 10px;border:0;border-radius:9px;background:none;color:inherit;font:500 14px/1.5 var(--body),system-ui,sans-serif;cursor:pointer}
+.trall .ls button:hover{background:var(--bg2)}.trall .ls button.cur{background:var(--gold);color:#fff}
 .trb{border-bottom:1px dashed var(--line);margin-bottom:9px;padding-bottom:9px}
 .trl{display:flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--gold);margin-bottom:5px}
 .trl select{flex:1;min-width:0;max-width:100%;font:500 13px var(--body),system-ui,sans-serif;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 6px}
@@ -216,6 +222,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
 </style>
 </head>
 <body data-view="radio" data-side="r">
+<div class="trov" id="trAll" hidden></div>
 <header class="bar">
   <a class="back" id="back" href="./"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span data-i="back">Επιστροφή στο ραδιόφωνο</span></a>
   <div class="ttl"><b id="tS">المصحف</b><small id="tP">&nbsp;</small></div>
@@ -524,7 +531,15 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
       el.innerHTML = first + (all ? list : a).map(k => opt(k, cur)).join('') + (!all && rest ? '<option value="+">' + esc(T('trMore')) + '</option>' : '');
       el.value = cur || ''; };
     const wire = (el, list, first, get, set) => { fill(el, list, get(), first, false);
-      el.onchange = e => { if (e.target.value === '+') { fill(el, list, get(), first, true); try { el.focus(); el.showPicker(); } catch (x) {} return; } set(e.target.value); }; };
+      // «أخرى…» تفتح القائمة كاملة في لوحة فوق الصفحة مباشرة، وزر الإغلاق (أو الضغط خارجها أو Esc) يتراجع بلا تغيير
+      const pickAll = () => { const o = $('trAll'), close = () => { o.hidden = true; el.value = get() || ''; document.removeEventListener('keydown', esc2); }, esc2 = e => { if (e.key === 'Escape') close(); };
+        o.innerHTML = '<div class="trall"><div class="hd"><b>' + esc(T('trMore').replace('…', '')) + '</b><button type="button" class="x" aria-label="' + esc(T('close')) + '">×</button></div><div class="ls">' +
+          '<button type="button" data-k=""' + (get() ? '' : ' class="cur"') + '>' + esc(el.options[0].text) + '</button>' + list.map(k => '<button type="button" data-k="' + k + '" dir="auto"' + (k === get() ? ' class="cur"' : '') + '>' + esc(lab(k)) + '</button>').join('') + '</div></div>';
+        o.hidden = false; document.addEventListener('keydown', esc2);
+        o.onclick = e => { const b = e.target.closest('[data-k]'); if (b) { const v = b.dataset.k; o.hidden = true; document.removeEventListener('keydown', esc2); set(v); fill(el, list, v, first, false); return; }
+          if (e.target === o || e.target.closest('.x')) close(); };
+        const c = o.querySelector('.cur'); if (c) c.scrollIntoView({ block: 'center' }); };
+      el.onchange = e => { if (e.target.value === '+') { pickAll(); return; } set(e.target.value); }; };
     // التفسير: المختصر العربي المدمج أولًا، ثم تفاسير لغة الزائر
     const tfs = keys.filter(isTaf).sort(srt), t0 = store.get('mushaf:tf');
     tfKey = t0 === '-' ? '' : t0 && TRI[t0] ? t0 : TRL && TRL.tf && TRI[TRL.tf] ? TRL.tf : '';
