@@ -72,7 +72,7 @@ def main():
     print(len(cat), 'translations in catalog;', len({t['language_iso_code'] for t in cat}), 'languages')
     try:   # أسماء السور الرسمية بكل لغة متاحة
         names = {}
-        for loc in get('translations/sowar_locales'):
+        for loc in get('translations/sowar_locales')['locales']:
             try:
                 d = get('translations/sowar_names?iso_code=' + loc)
                 names[loc] = [d[str(i)] for i in range(1, 115)]
@@ -82,7 +82,28 @@ def main():
         print(len(names), 'sowar locales')
     except Exception as e:
         print('sowar names failed', e)
-    if mode == 'list': return
+    if mode == 'list':
+        try:   # فحص مؤقت: مفاتيح الصفحة الرئيسية غير الظاهرة في قائمة الـAPI
+            import re
+            req = urllib.request.Request('https://quranenc.com/en', headers={'User-Agent': 'Mozilla/5.0'})
+            h = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
+            keys = sorted(set(re.findall(r'/browse/([a-z0-9_]+)', h)))
+            have = {t['key'] for t in cat}; extra = [k for k in keys if k not in have]
+            out = ['site keys: ' + ' '.join(keys), 'extra: ' + ' '.join(extra)]
+            for k in extra[:60]:
+                try:
+                    r = get(f'translation/aya/{k}/1/2', tries=1)['result']
+                    out.append(k + ' OK ' + json.dumps(r, ensure_ascii=False)[:300])
+                except Exception as e:
+                    out.append(k + ' ERR ' + str(e))
+                try:
+                    r = get('translations/list/?localization=en&key=' + k, tries=1)
+                except Exception: pass
+            i = h.find('french_mokhtasar'); out.append('HTML: ' + h[max(0, i - 2500):i + 1500])
+            open(os.path.join(HERE, '_probe.txt'), 'w', encoding='utf-8').write('\n'.join(out))
+        except Exception as e:
+            print('probe failed', e)
+        return
     sel = json.load(open(os.path.join(HERE, 'select.json'), encoding='utf-8'))      # {lang: {"tr": key, "tf": key}}
     idx_path = os.path.join(HERE, 'index.json')
     old = json.load(open(idx_path, encoding='utf-8')) if os.path.exists(idx_path) else {}
