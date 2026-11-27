@@ -12,7 +12,7 @@ import json, os, sys, time, urllib.request
 
 API = 'https://quranenc.com/api/v1/'
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tr')
-AYAT = [s[2] for s in json.load(open(os.path.join(HERE, '..', 'meta.json'), encoding='utf-8'))['surahs']]
+AYAT = [s[2] for s in json.load(open(os.path.join(os.path.dirname(HERE), 'meta.json'), encoding='utf-8'))['surahs']]
 
 
 def get(path, tries=5):
