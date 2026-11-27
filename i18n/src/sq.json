@@ -96,6 +96,14 @@
   "homeOgDesc": "Dëgjoni tani recitime të Kur'anit drejtpërdrejt, ditë e natë, pa ndërprerje.",
   "homeKeywords": "dëgjo Kur'an, Kur'ani online, Kur'an, Kuran, Kurani, Quran, Islam, radio islame, mysliman, myslimanë, recitime Kur'ani, Kur'ani Fisnik, radio Kur'ani, radio Kur'ani drejtpërdrejt, imamët e dy Xhamive të Shenjta, teravi Xhamia e Pejgamberit, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podkast Kur'ani, Kur'ani mp3",
   "musTitle": "Mus'hafi — Tartil",
-  "musDesc": "Mus'hafi Fisnik sipas transmetimit të Hafsit, me përkthimin e kuptimeve dhe Al-Mukhtasar fi al-Tafsir, në faqen e radios Tartil."
+  "musDesc": "Mus'hafi Fisnik sipas transmetimit të Hafsit, me përkthimin e kuptimeve dhe Al-Mukhtasar fi al-Tafsir, në faqen e radios Tartil.",
+  "qTitle": "{s} — teksti arab me përkthimin e kuptimeve | Tartil",
+  "qDesc": "{s} e plotë: {ay} ajete me shkrimin uthmani të Mus'hafit të Medinës, përkthimi i kuptimeve nga QuranEnc dhe recitimet e saj.",
+  "qH1": "{s}: teksti dhe përkthimi i kuptimeve",
+  "qLead": "Sureja nr. {no} në Mus'haf, {ay} ajete, fillon në faqen {pg}.",
+  "qListen": "Dëgjoni recitimet e saj",
+  "qText": "Teksti dhe përkthimi i kuptimeve",
+  "qSrc": "Përkthimi i kuptimeve: {t}, versioni {v}, botuar pa ndryshime nga QuranEnc.com.",
+  "qNote": "Përkthimi përcjell kuptimet e Kur'anit; ai nuk është vetë Kur'ani, i cili është teksti arab më sipër."
  }
 }

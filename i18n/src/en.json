@@ -253,7 +253,15 @@
   "homeOgDesc": "Listen now to live Quran recitations around the clock, without interruption.",
   "homeKeywords": "listen to Quran, Quran online, Quran, Koran, Islam, Islamic radio, Muslim, Quran recitation, Holy Quran, Quran radio, live Quran radio, imams of the Two Holy Mosques, Tarawih Prophet's Mosque, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Quran podcast, Quran mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "The Holy Mushaf in the Hafs narration with translation of the meanings and Al-Mukhtasar fi al-Tafsir, part of the Tartil radio website."
+  "musDesc": "The Holy Mushaf in the Hafs narration with translation of the meanings and Al-Mukhtasar fi al-Tafsir, part of the Tartil radio website.",
+  "qTitle": "{s} — Arabic text with translation of the meanings | Tartil",
+  "qDesc": "Read {s} in full: {ay} verses in the Uthmani script of the Madinah Mushaf, with a translation of the meanings from QuranEnc, and listen to its recitations.",
+  "qH1": "{s}: text and translation of the meanings",
+  "qLead": "Surah number {no} in the Mushaf, {ay} verses, starting on page {pg}.",
+  "qListen": "Listen to its recitations",
+  "qText": "Text and translation of the meanings",
+  "qSrc": "Translation of the meanings: {t}, version {v}, published unchanged from QuranEnc.com.",
+  "qNote": "A translation conveys the meanings of the Quran; it is not the Quran itself, which is the Arabic text above."
  },
  "latinSurahs": true
 }

@@ -248,6 +248,14 @@
     "homeOgDesc": "Escucha ahora recitaciones del Corán en directo, día y noche, sin interrupción.",
     "homeKeywords": "escuchar Corán, Corán online, Corán, Coran, Quran, Islam, radio islámica, musulmán, musulmanes, recitación del Corán, Sagrado Corán, radio Corán, radio Corán en directo, imames de las Dos Sagradas Mezquitas, Tarawih Mezquita del Profeta, Al-Shuraim, Al-Muaiqly, Al-Jaleel, pódcast Corán, Corán mp3",
     "musTitle": "Mushaf — Tartil",
-    "musDesc": "El Noble Mushaf según la lectura de Hafs, con la traducción de los significados y Al-Mukhtasar fi al-Tafsir, en el sitio de la radio Tartil."
+    "musDesc": "El Noble Mushaf según la lectura de Hafs, con la traducción de los significados y Al-Mukhtasar fi al-Tafsir, en el sitio de la radio Tartil.",
+    "qTitle": "{s} — texto árabe con traducción de los significados | Tartil",
+    "qDesc": "Lee {s} completa: {ay} aleyas en la grafía uthmaní del Mushaf de Medina, con la traducción de los significados de QuranEnc, y escucha sus recitaciones.",
+    "qH1": "{s}: texto y traducción de los significados",
+    "qLead": "Sura número {no} del Mushaf, {ay} aleyas, comienza en la página {pg}.",
+    "qListen": "Escuchar sus recitaciones",
+    "qText": "Texto y traducción de los significados",
+    "qSrc": "Traducción de los significados: {t}, versión {v}, publicada sin cambios desde QuranEnc.com.",
+    "qNote": "Una traducción transmite los significados del Corán; no es el Corán en sí, que es el texto árabe de arriba."
   }
 }

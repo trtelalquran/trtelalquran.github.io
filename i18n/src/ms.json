@@ -95,6 +95,14 @@
   "homeOgDesc": "Dengar sekarang tilawah Al-Quran secara langsung, siang dan malam tanpa henti.",
   "homeKeywords": "dengar Al-Quran, Al-Quran dalam talian, Al-Quran online, Al-Quran, Quran, Islam, radio Islam, Muslim, tilawah Al-Quran, bacaan Al-Quran, Al-Quran Al-Karim, radio Al-Quran, radio Al-Quran langsung, imam Haramain, Tarawih Masjid Nabawi, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast Al-Quran, Al-Quran mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Mushaf Syarif riwayat Hafs bersama terjemahan makna dan Al-Mukhtasar fi at-Tafsir, sebahagian daripada laman web Radio Tartil."
+  "musDesc": "Mushaf Syarif riwayat Hafs bersama terjemahan makna dan Al-Mukhtasar fi at-Tafsir, sebahagian daripada laman web Radio Tartil.",
+  "qTitle": "{s} — teks Arab dengan terjemahan makna | Tartil",
+  "qDesc": "Baca {s} sepenuhnya: {ay} ayat dalam rasm Uthmani Mushaf Madinah, bersama terjemahan makna daripada QuranEnc, dan dengar tilawahnya.",
+  "qH1": "{s}: teks dan terjemahan makna",
+  "qLead": "Surah ke-{no} dalam Mushaf, {ay} ayat, bermula pada halaman {pg}.",
+  "qListen": "Dengar tilawahnya",
+  "qText": "Teks dan terjemahan makna",
+  "qSrc": "Terjemahan makna: {t}, versi {v}, diterbitkan tanpa sebarang perubahan daripada QuranEnc.com.",
+  "qNote": "Terjemahan menyampaikan makna Al-Quran; ia bukan Al-Quran itu sendiri, iaitu teks Arab di atas."
  }
 }

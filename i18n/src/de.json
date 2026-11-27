@@ -247,6 +247,14 @@
     "homeOgDesc": "Hören Sie jetzt live Koranrezitationen, Tag und Nacht, ohne Unterbrechung.",
     "homeKeywords": "Koran hören, Koran online, Koran, Quran, Kuran, Islam, islamisches Radio, Muslime, Moslem, Koranrezitation, Heiliger Koran, Koran-Radio, Koran-Radio live, Imame der beiden Heiligen Moscheen, Tarawih Prophetenmoschee, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Koran-Podcast, Koran mp3",
     "musTitle": "Mushaf — Tartil",
-    "musDesc": "Der Edle Mushaf in der Lesart Hafs mit Übersetzung der Bedeutungen und Al-Mukhtasar fi al-Tafsir, auf der Website des Radios Tartil."
+    "musDesc": "Der Edle Mushaf in der Lesart Hafs mit Übersetzung der Bedeutungen und Al-Mukhtasar fi al-Tafsir, auf der Website des Radios Tartil.",
+    "qTitle": "{s} — arabischer Text mit Übersetzung der Bedeutungen | Tartil",
+    "qDesc": "{s} vollständig lesen: {ay} Verse in uthmanischer Schrift des Mushaf von Medina, mit Übersetzung der Bedeutungen von QuranEnc, und Rezitationen anhören.",
+    "qH1": "{s}: Text und Übersetzung der Bedeutungen",
+    "qLead": "Sure Nr. {no} im Mushaf, {ay} Verse, beginnt auf Seite {pg}.",
+    "qListen": "Ihre Rezitationen anhören",
+    "qText": "Text und Übersetzung der Bedeutungen",
+    "qSrc": "Übersetzung der Bedeutungen: {t}, Version {v}, unverändert von QuranEnc.com übernommen.",
+    "qNote": "Eine Übersetzung gibt die Bedeutungen des Korans wieder; sie ist nicht der Koran selbst – der Koran ist der arabische Text oben."
   }
 }

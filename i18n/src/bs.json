@@ -96,6 +96,14 @@
   "homeOgDesc": "Slušajte sada učenje Kur'ana uživo, danonoćno, bez prekida.",
   "homeKeywords": "slušaj Kur'an, Kur'an online, Kur'an, Kuran, Quran, islam, islamski radio, muslimani, musliman, učenje Kur'ana, Časni Kur'an, Kur'an radio, Kur'an uživo, imami dva Harema, teravija Poslanikova džamija, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Kur'an podcast, Kur'an mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Časni Mushaf po rivajetu Hafs, s prijevodom značenja i Al-Mukhtasar fi al-Tafsir, na stranici radija Tartil."
+  "musDesc": "Časni Mushaf po rivajetu Hafs, s prijevodom značenja i Al-Mukhtasar fi al-Tafsir, na stranici radija Tartil.",
+  "qTitle": "{s} — arapski tekst s prijevodom značenja | Tartil",
+  "qDesc": "{s} u cijelosti: {ay} ajeta usmanskim pismom Medinskog Mushafa, s prijevodom značenja s QuranEnc-a, i njena učenja za slušanje.",
+  "qH1": "{s}: tekst i prijevod značenja",
+  "qLead": "{no}. sura u Mushafu, {ay} ajeta, počinje na {pg}. stranici.",
+  "qListen": "Poslušajte njena učenja",
+  "qText": "Tekst i prijevod značenja",
+  "qSrc": "Prijevod značenja: {t}, verzija {v}, objavljen bez izmjena s QuranEnc.com.",
+  "qNote": "Prijevod prenosi značenja Kur'ana, ali nije sam Kur'an; Kur'an je arapski tekst iznad."
  }
 }

@@ -96,6 +96,14 @@
   "homeOgDesc": "Quran tilavətlərini indi canlı dinləyin: gecə-gündüz, fasiləsiz.",
   "homeKeywords": "Quran dinlə, Qurani-Kərim dinlə, Quran onlayn, Quran, Kuran, Qur'an, İslam, İslami radio, müsəlman, Quran tilavəti, Qurani-Kərim, Quran radiosu, canlı Quran radiosu, Hərəmeyn imamları, Məscidi-Nəbəvi təravih, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Quran podkastı, Quran mp3",
   "musTitle": "Müshəf — Tartil",
-  "musDesc": "Həfs rivayəti ilə Müshəfi-Şərif, mənaların tərcüməsi və Al-Mukhtasar fi al-Tafsir ilə birlikdə, Tartil radiosunun saytında."
+  "musDesc": "Həfs rivayəti ilə Müshəfi-Şərif, mənaların tərcüməsi və Al-Mukhtasar fi al-Tafsir ilə birlikdə, Tartil radiosunun saytında.",
+  "qTitle": "{s} — ərəbcə mətn və mənaların tərcüməsi | Tartil",
+  "qDesc": "{s} tam şəkildə: Mədinə Müshəfinin Osmani rəsmi ilə {ay} ayə, QuranEnc-dən mənaların tərcüməsi və tilavətləri.",
+  "qH1": "{s}: mətn və mənaların tərcüməsi",
+  "qLead": "Müshəfdə {no} nömrəli surə, {ay} ayə, {pg} nömrəli səhifədən başlayır.",
+  "qListen": "Tilavətlərini dinləyin",
+  "qText": "Mətn və mənaların tərcüməsi",
+  "qSrc": "Mənaların tərcüməsi: {t}, {v} versiyası, QuranEnc.com saytından dəyişdirilmədən dərc olunub.",
+  "qNote": "Tərcümə Quranın mənalarını çatdırır, Quranın özü deyil; Quran yuxarıdakı ərəbcə mətndir."
  }
 }

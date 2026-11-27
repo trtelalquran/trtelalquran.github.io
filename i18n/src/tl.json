@@ -95,6 +95,14 @@
   "homeOgDesc": "Makinig ngayon sa live na pagbigkas ng Qur'an buong araw at gabi, walang patid.",
   "homeKeywords": "makinig ng Qur'an, Qur'an online, Qur'an, Quran, Koran, Islam, Islamikong radyo, Muslim, pagbigkas ng Qur'an, Banal na Qur'an, Quran recitation, radyo ng Qur'an, live na Qur'an radio, mga imam ng Dalawang Banal na Masjid, Tarawih Masjid an-Nabawi, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Qur'an podcast, Qur'an mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Ang Banal na Mushaf ayon sa riwayah ni Hafs, kasama ang salin ng kahulugan at Al-Mukhtasar fi al-Tafsir, bahagi ng website ng radyo Tartil."
+  "musDesc": "Ang Banal na Mushaf ayon sa riwayah ni Hafs, kasama ang salin ng kahulugan at Al-Mukhtasar fi al-Tafsir, bahagi ng website ng radyo Tartil.",
+  "qTitle": "{s} — tekstong Arabe kasama ang salin ng kahulugan | Tartil",
+  "qDesc": "Basahin nang buo ang {s}: {ay} na ayah sa sulat-Uthmani ng Mushaf ng Madinah, kasama ang salin ng kahulugan mula sa QuranEnc, at pakinggan ang mga pagbigkas nito.",
+  "qH1": "{s}: teksto at salin ng kahulugan",
+  "qLead": "Ika-{no} na surah sa Mushaf, {ay} na ayah, nagsisimula sa pahina {pg}.",
+  "qListen": "Pakinggan ang mga pagbigkas nito",
+  "qText": "Teksto at salin ng kahulugan",
+  "qSrc": "Salin ng kahulugan: {t}, bersiyon {v}, inilathala nang walang pagbabago mula sa QuranEnc.com.",
+  "qNote": "Ang salin ay naghahatid ng kahulugan ng Qur'an; hindi ito ang Qur'an mismo, na siyang tekstong Arabe sa itaas."
  }
 }

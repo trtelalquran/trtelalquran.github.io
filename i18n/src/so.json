@@ -96,6 +96,14 @@
   "homeOgDesc": "Hadda dhageyso tilaawado Qur'aan ah oo toos ah habeen iyo maalin, joogsi la'aan.",
   "homeKeywords": "dhageyso Qur'aan, Qur'aan online, Qur'aan, Quraan, Quran, Islaam, raadiyo Islaami ah, Muslim, Muslimiin, tilaawada Qur'aanka, Qur'aanka Kariimka, raadiyaha Qur'aanka, raadiyo Qur'aan toos ah, imaamyada Labada Xaram, Taraawiixda Masjidka Nabiga, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast Qur'aan, Qur'aan mp3",
   "musTitle": "Masxafka — Tartil",
-  "musDesc": "Masxafka Sharafta leh ee riwaayadda Xafs, oo ay la socdaan turjumaadda macnayaasha iyo Al-Mukhtasar fi al-Tafsir, kana mid ah bogga raadiyaha Tartil."
+  "musDesc": "Masxafka Sharafta leh ee riwaayadda Xafs, oo ay la socdaan turjumaadda macnayaasha iyo Al-Mukhtasar fi al-Tafsir, kana mid ah bogga raadiyaha Tartil.",
+  "qTitle": "{s} — qoraalka Carabiga iyo turjumaadda macnayaasha | Tartil",
+  "qDesc": "Akhri {s} oo dhan: {ay} aayadood oo ku qoran farta Cuthmaaniga ee Masxafka Madiina, turjumaadda macnayaasha QuranEnc, oo dhageyso tilaawadaheeda.",
+  "qH1": "{s}: qoraalka iyo turjumaadda macnayaasha",
+  "qLead": "Suuradda {no} ee Masxafka, {ay} aayadood, waxay ka bilaabantaa bogga {pg}.",
+  "qListen": "Dhageyso tilaawadaheeda",
+  "qText": "Qoraalka iyo turjumaadda macnayaasha",
+  "qSrc": "Turjumaadda macnayaasha: {t}, nuqulka {v}, laga soo daabacay QuranEnc.com iyadoon wax laga beddelin.",
+  "qNote": "Turjumaaddu waxay gudbisaa macnayaasha Qur'aanka; ma aha Qur'aanka laftiisa. Qur'aanku waa qoraalka Carabiga ee kor ku yaal."
  }
 }

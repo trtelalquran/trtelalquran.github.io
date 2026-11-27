@@ -95,6 +95,14 @@
   "homeOgDesc": "Ascultă acum recitări din Coran în direct, zi și noapte, fără întrerupere.",
   "homeKeywords": "ascultă Coran, Coran online, Coran, Quran, Islam, radio islamic, musulman, musulmani, recitare Coran, Sfântul Coran, radio Coran, radio Coran live, imamii celor Două Moschei Sfinte, Tarawih Moscheea Profetului, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast Coran, Coran mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Nobilul Mushaf în lectura Hafs, cu traducerea sensurilor și Al-Mukhtasar fi al-Tafsir, pe site-ul radioului Tartil."
+  "musDesc": "Nobilul Mushaf în lectura Hafs, cu traducerea sensurilor și Al-Mukhtasar fi al-Tafsir, pe site-ul radioului Tartil.",
+  "qTitle": "{s} — text arab cu traducerea sensurilor | Tartil",
+  "qDesc": "Citește {s} integral: {ay} versete în grafia uthmani a Mushafului de la Medina, cu traducerea sensurilor de pe QuranEnc, și ascultă recitările ei.",
+  "qH1": "{s}: textul și traducerea sensurilor",
+  "qLead": "Sura numărul {no} din Mushaf, {ay} versete, începe la pagina {pg}.",
+  "qListen": "Ascultă recitările ei",
+  "qText": "Textul și traducerea sensurilor",
+  "qSrc": "Traducerea sensurilor: {t}, versiunea {v}, publicată fără modificări de pe QuranEnc.com.",
+  "qNote": "O traducere redă sensurile Coranului; ea nu este Coranul însuși, care este textul arab de mai sus."
  }
 }

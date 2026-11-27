@@ -249,6 +249,14 @@
   "homeOgDesc": "Luister nu naar live Koranrecitaties, dag en nacht, zonder onderbreking.",
   "homeKeywords": "Koran luisteren, Koran online, Koran, Quran, Islam, islamitische radio, moslim, moslims, Koranrecitatie, Heilige Koran, Koranradio, live Koranradio, imams van de Twee Heilige Moskeeën, Tarawih Moskee van de Profeet, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Koranpodcast, Koran mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "De Edele Mushaf in de overlevering van Hafs, met vertaling van de betekenissen en Al-Mukhtasar fi al-Tafsir, op de website van radio Tartil."
+  "musDesc": "De Edele Mushaf in de overlevering van Hafs, met vertaling van de betekenissen en Al-Mukhtasar fi al-Tafsir, op de website van radio Tartil.",
+  "qTitle": "{s} — Arabische tekst met vertaling van de betekenissen | Tartil",
+  "qDesc": "Lees {s} volledig: {ay} verzen in het Uthmani-schrift van de Mushaf van Medina, met een vertaling van de betekenissen van QuranEnc, en beluister de recitaties.",
+  "qH1": "{s}: tekst en vertaling van de betekenissen",
+  "qLead": "Soera nummer {no} in de Mushaf, {ay} verzen, begint op pagina {pg}.",
+  "qListen": "Beluister de recitaties",
+  "qText": "Tekst en vertaling van de betekenissen",
+  "qSrc": "Vertaling van de betekenissen: {t}, versie {v}, ongewijzigd overgenomen van QuranEnc.com.",
+  "qNote": "Een vertaling geeft de betekenissen van de Koran weer; zij is niet de Koran zelf, die de Arabische tekst hierboven is."
  }
 }

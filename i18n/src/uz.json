@@ -96,6 +96,14 @@
   "homeOgDesc": "Qurʼon tilovatlarini hozir jonli tinglang: kecha-kunduz, toʻxtovsiz.",
   "homeKeywords": "Qurʼon tinglash, Qurʼon onlayn, Qurʼon, Quron, Qur'on, Куръон, Quran, Islom, islomiy radio, musulmon, Qurʼon tilovati, Qurʼoni karim, Qurʼon radiosi, jonli Qurʼon radiosi, Haramayn imomlari, Masjidi Nabaviy taroveh, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Qurʼon podkast, Qurʼon mp3, Quran mp3",
   "musTitle": "Musʼhaf — Tartil",
-  "musDesc": "Hafs rivoyatidagi Musʼhafi sharif, maʼnolar tarjimasi va Al-Mukhtasar fi al-Tafsir bilan, Tartil radiosi saytida."
+  "musDesc": "Hafs rivoyatidagi Musʼhafi sharif, maʼnolar tarjimasi va Al-Mukhtasar fi al-Tafsir bilan, Tartil radiosi saytida.",
+  "qTitle": "{s} — arabcha matn va maʼnolar tarjimasi | Tartil",
+  "qDesc": "{s} toʻliq: Madina musʼhafining Usmoniy rasmida {ay} oyat, QuranEnc saytidan maʼnolar tarjimasi bilan; tilovatlarini ham tinglang.",
+  "qH1": "{s}: matn va maʼnolar tarjimasi",
+  "qLead": "Musʼhafdagi {no}-sura, {ay} oyat, {pg}-sahifadan boshlanadi.",
+  "qListen": "Tilovatlarini tinglang",
+  "qText": "Matn va maʼnolar tarjimasi",
+  "qSrc": "Maʼnolar tarjimasi: {t}, {v}-versiya, QuranEnc.com saytidan oʻzgarishsiz eʼlon qilingan.",
+  "qNote": "Tarjima Qurʼon maʼnolarini yetkazadi, lekin Qurʼonning oʻzi emas; Qurʼon yuqoridagi arabcha matndir."
  }
 }

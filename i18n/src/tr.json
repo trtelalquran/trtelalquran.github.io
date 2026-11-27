@@ -95,6 +95,14 @@
   "homeOgDesc": "Gece gündüz kesintisiz canlı Kur’an tilavetlerini şimdi dinleyin.",
   "homeKeywords": "Kur’an dinle, Kuran dinle, online Kur’an, Kur’an, Kuran, Kur'an, Quran, İslam, İslami radyo, Müslüman, Kur’an tilaveti, Kur’an-ı Kerim, Kur’an radyosu, canlı Kur’an radyosu, Harameyn imamları, Mescid-i Nebevî teravih, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Kur’an podcast, Kur’an mp3 dinle",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Hafs rivayetiyle Mushaf-ı Şerif; meal ve el-Muhtasar fi’t-Tefsir ile birlikte, Tartil radyo sitesinde."
+  "musDesc": "Hafs rivayetiyle Mushaf-ı Şerif; meal ve el-Muhtasar fi’t-Tefsir ile birlikte, Tartil radyo sitesinde.",
+  "qTitle": "{s} — Arapça metin ve meal | Tartil",
+  "qDesc": "{s} tam metni: Medine Mushafı’ndan resm-i Osmânî ile {ay} ayet, QuranEnc’ten meali ve dinlenebilecek tilavetleri.",
+  "qH1": "{s}: metin ve meal",
+  "qLead": "Mushaf’ta {no}. sure; {ay} ayettir ve {pg}. sayfada başlar.",
+  "qListen": "Tilavetlerini dinleyin",
+  "qText": "Metin ve meal",
+  "qSrc": "Meal: {t}, sürüm {v}; QuranEnc.com’dan değiştirilmeden yayımlanmıştır.",
+  "qNote": "Meal, Kur’an’ın anlamlarını aktarır; Kur’an’ın kendisi değildir. Kur’an, yukarıdaki Arapça metindir."
  }
 }

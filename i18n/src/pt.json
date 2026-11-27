@@ -247,6 +247,14 @@
     "homeOgDesc": "Ouça agora recitações do Alcorão ao vivo, dia e noite, sem interrupção.",
     "homeKeywords": "ouvir Alcorão, Alcorão online, Alcorão, Corão, Quran, Islã, Islão, rádio islâmica, muçulmano, muçulmanos, recitação do Alcorão, Alcorão Sagrado, rádio Alcorão, rádio Alcorão ao vivo, imames das Duas Mesquitas Sagradas, Tarawih Mesquita do Profeta, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast Alcorão, Alcorão mp3",
     "musTitle": "Mushaf — Tartil",
-    "musDesc": "O Nobre Mushaf na leitura de Hafs, com a tradução dos significados e Al-Mukhtasar fi al-Tafsir, no site da rádio Tartil."
+    "musDesc": "O Nobre Mushaf na leitura de Hafs, com a tradução dos significados e Al-Mukhtasar fi al-Tafsir, no site da rádio Tartil.",
+    "qTitle": "{s} — texto árabe com tradução dos significados | Tartil",
+    "qDesc": "Leia a {s} na íntegra: {ay} versículos na grafia uthmani do Mushaf de Medina, com a tradução dos significados da QuranEnc, e ouça suas recitações.",
+    "qH1": "{s}: texto e tradução dos significados",
+    "qLead": "Surata número {no} do Mushaf, {ay} versículos, começa na página {pg}.",
+    "qListen": "Ouvir suas recitações",
+    "qText": "Texto e tradução dos significados",
+    "qSrc": "Tradução dos significados: {t}, versão {v}, publicada sem alterações a partir do QuranEnc.com.",
+    "qNote": "Uma tradução transmite os significados do Alcorão; não é o próprio Alcorão, que é o texto árabe acima."
   }
 }

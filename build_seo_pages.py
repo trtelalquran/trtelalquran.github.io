@@ -117,12 +117,20 @@ def TRJ(name):
         if d and os.path.exists(os.path.join(d, name)): return json.load(open(os.path.join(d, name), encoding='utf-8'))
     import urllib.request
     return json.load(urllib.request.urlopen('https://trtel.vip/quran-tr/' + name, timeout=60))
+def TRF(key, n):
+    """آيات سورة n من ترجمة key (نص، أو [نص، حواشٍ])."""
+    return TRJ(f'{key}/{n}.json')
+QTEXT = J('mushaf/search.json')['q']             # نص المصحف بالرسم العثماني (مجمع الملك فهد) لكل سورة
 SOWAR = TRJ('sowar.json')       # أسماء السور الرسمية بكل لغة من QuranEnc
 TRSEL = TRJ('select.json')      # ترجمة المعاني المعتمدة لكل لغة
 TRIDX = TRJ('index.json')       # الترجمات المحفوظة
 
 # نصوص العربية (الأصل): نفس مفاتيح قسم p في ملفات اللغات
 AR = {
+    'qTitle': '{s} مكتوبة كاملة بالرسم العثماني مع تفسيرها | ترتيل',
+    'qDesc': 'اقرأ {s} مكتوبة كاملة ({ay} آية) بالرسم العثماني من مصحف المدينة، مع تفسيرها من المختصر في تفسير القرآن الكريم، واستمع إلى تلاواتها.',
+    'qH1': '{s} مكتوبة مع تفسيرها', 'qLead': 'السورة رقم {no} في المصحف، وعدد آياتها {ay}، وتبدأ في الصفحة {pg}.',
+    'qListen': 'استمع إلى تلاواتها', 'qText': 'نص السورة مع تفسيرها', 'qSrc': 'التفسير: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية.', 'qNote': '',
     'brand': 'ترتيل', 'siteName': 'ترتيل — تلاوات من القرآن الكريم', 'live': 'الإذاعة المباشرة', 'crumbL': 'مسار الصفحة', 'logoAlt': 'شعار ترتيل',
     'navRec': 'القرّاء والمصاحف', 'navSur': 'السور', 'navMus': 'المصحف', 'play': 'تشغيل', 'dl': 'تحميل',
     'surahX': 'سورة {s}', 'zipAll': 'تحميل الكل ZIP ({mb} MB)', 'm3u': 'قائمة M3U للتطبيقات', 'arch': 'الصفحة في الأرشيف',
@@ -248,6 +256,11 @@ class Ctx:
 
 
 # ---------- القالب ----------
+ind = lambda n: ''.join('٠١٢٣٤٥٦٧٨٩'[int(d)] for d in str(n))   # أرقام الآيات: خط حفص يرسمها علامة آية
+QCSS = ("@font-face{font-family:Hafs;src:url(FONT) format('truetype');font-display:swap}"
+        ".ay{border-bottom:1px solid var(--line);padding:14px 0}.q{font:28px/2.1 Hafs,Amiri,serif;direction:rtl;text-align:right;margin:0 0 6px;color:var(--ink)}.q:empty{min-height:1em}"
+        ".bsm{text-align:center;margin:14px 0}.tx{margin:0;line-height:1.75}.tx b{color:var(--gold)}.fn{font-size:13px;color:var(--mut);white-space:pre-line;margin:6px 0 0}"
+        ".qw{font-weight:700;color:var(--gold)}.src{font-size:13px;color:var(--mut);margin:16px 0}@media(max-width:480px){.q{font-size:24px}}")
 CSS = """:root{--bg:#f5efe2;--bg2:#fbf6ea;--ink:#22303f;--mut:#7d6f52;--gold:#a8873a;--line:#dccfae;--on:#22303f;--on-ink:#f5efe2;
 --display:'Amiri','Traditional Arabic',serif;--body:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;color-scheme:light}
 :root[data-theme="dark"]{--bg:#0f1a26;--bg2:#17283b;--ink:#e9e2d0;--mut:#8fa3b8;--gold:#c9a35a;--line:#23344a;--on:#c9a35a;--on-ink:#0f1a26;color-scheme:dark}
@@ -319,13 +332,24 @@ def lang_links(C, path, up):
     a = ''.join(f'<a href="{up}{"" if (x[3] if len(x) > 3 else x[0]) == "ar" else (x[3] if len(x) > 3 else x[0]) + "/"}{path}" lang="{x[0]}"'
                 f'{"" if len(x) > 3 else f" hreflang=\"{x[0]}\""} data-i="{i}"{" aria-current=\"true\"" if x[0] == C.code else ""}>{E(x[1])}</a>'
                 for i, x in enumerate(items))
-    js = ("<script>(function(){var A=" + json.dumps(items, ensure_ascii=False, separators=(',', ':')) + ";document.querySelector('.lg').addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;"
-          "var x=A[+a.dataset.i],S=localStorage;try{S.setItem('lang',x[3]||x[0]);if(x[3]){S.setItem('lang2',x[0]);x[4]?S.setItem('mushaf:tr',x[4]):S.removeItem('mushaf:tr');x[5]?S.setItem('mushaf:tf',x[5]):S.removeItem('mushaf:tf');}"
-          "else{S.removeItem('lang2');S.removeItem('mushaf:tr');S.removeItem('mushaf:tf');}}catch(z){}});})();</script>")
-    return f'<details class="lg"><summary>{GLOBE}{E(C.P["langs"])}</summary><div>{a}</div></details>' + js
+    return f'<details class="lg"><summary>{GLOBE}{E(C.P["langs"])}</summary><div>{a}</div></details><script src="{up}lg.js?v={SHARED["lg.js"]}" defer></script>'
 
 
-def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld=None):
+def shared_files():
+    """ملفات مشتركة بين كل الصفحات (بدل تكرارها في آلاف الصفحات): seo.css وlg.js، وتُرجع بصمة كل منهما للروابط."""
+    items = [['ar', 'العربية', 'rtl']] + LANG_LIST
+    files = {'seo.css': CSS + QCSS.replace('FONT', 'mushaf/uthmanic_hafs_v22.ttf'),
+             'lg.js': "(function(){var A=" + json.dumps(items, ensure_ascii=False, separators=(',', ':')) + ";document.querySelector('.lg').addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;"
+                      "var x=A[+a.dataset.i],S=localStorage;try{S.setItem('lang',x[3]||x[0]);if(x[3]){S.setItem('lang2',x[0]);x[4]?S.setItem('mushaf:tr',x[4]):S.removeItem('mushaf:tr');x[5]?S.setItem('mushaf:tf',x[5]):S.removeItem('mushaf:tf');}"
+                      "else{S.removeItem('lang2');S.removeItem('mushaf:tr');S.removeItem('mushaf:tf');}}catch(z){}});})();\n"}
+    out = {}
+    for n, c in files.items():
+        open(os.path.join(ROOT, n), 'w', encoding='utf-8').write(c)
+        out[n] = hashlib.md5(c.encode()).hexdigest()[:8]
+    return out
+
+
+def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld=None, quran=False):
     P = C.P
     depth = path.count('/'); up = '../' * depth          # إلى جذر اللغة
     rup = up + ('' if C.ar else '../')                    # إلى جذر الموقع (الملفات المشتركة)
@@ -355,7 +379,7 @@ def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
 <script>{HEAD_JS}{('window.TRUP=' + str(depth) + ';' + REDIR) if C.ar and REDIR else ''}</script>
 <script type="application/ld+json">{json.dumps({'@context': 'https://schema.org', '@graph': ld}, ensure_ascii=False)}</script>
-<style>{CSS}</style>
+<link rel="stylesheet" href="{rup}seo.css?v={SHARED['seo.css']}">
 </head>
 <body>
 <div class="wrap">
@@ -421,7 +445,7 @@ def build_pages(C):
         lst = sorted(by_surah[n], key=lambda pi: ORDER[pi[0]['kind']])
         groups = {}
         for p, it in lst: groups.setdefault(p['kind'], []).append((p, it))
-        body = [f'<div class="chips"><a href="../mushaf.html#s={n}&amp;a=1">{E(P["readMushaf"])}</a>'
+        body = [f'<div class="chips"><a href="../quran/{n}.html">{E(P["qText"])}</a><a href="../mushaf.html#s={n}&amp;a=1">{E(P["readMushaf"])}</a>'
                 + (f'<a href="{n - 1}.html">‹ {E(C.surah(n - 1))}</a>' if n > 1 else '')
                 + (f'<a href="{n + 1}.html">{E(C.surah(n + 1))} ›</a>' if n < 114 else '') + '</div>']
         for k in ['mushaf', 'tarawih', 'partial', 'reciter']:
@@ -440,6 +464,43 @@ def build_pages(C):
         lead = E(C.t('surLead', s=sn, no=n, ay=ay, pg=pg, n=cnt))
         written.append(page(C, f'surah/{n}.html', title, desc, C.surah(n), [(P['navSur'], 'surahs.html'), (C.surah(n), f'surah/{n}.html')],
                             ''.join(body), lead, player=True))
+    # ---------- نص كل سورة مع ترجمة معانيها (أو تفسيرها المختصر في العربية) ----------
+    key = None if C.ar else C.L['tr']
+    if C.ar or key:
+        meta = {} if C.ar else TRIDX[key]
+        tdir, tlang = ('rtl', 'ar') if C.ar else (meta.get('direction', C.dir), meta.get('language_iso_code', C.code))
+        src = (E(P['qSrc']) + ' (<a href="https://tafsir.net" rel="noopener">tafsir.net</a>)') if C.ar else \
+            (E(C.t('qSrc', t=meta['title'], v=meta['version'])) + f' (<a href="https://quranenc.com/{C.L["qe"]}/browse/{key}" rel="noopener">QuranEnc.com</a>)')
+        for n in range(1, 115):
+            ar, en, ay, pg = META[n - 1]
+            q = QTEXT[n - 1]
+            tr = J(f'mushaf/t/{n}.json') if C.ar else TRF(key, n)
+            assert len(q) == ay and len(tr) == ay, (C.code, n)
+            rows = []
+            for k, (qa, t) in enumerate(zip(q, tr), 1):
+                if C.ar:
+                    # المختصر: تفسير مجموعة آيات [من، إلى، النص] يُكتب مرة بعد آخرها، والكلمات المشروحة بين _ _ تُبرز كما في المصحف
+                    a0, a1, t = (t[0], t[1], t[2]) if isinstance(t, list) else (k, k, t)
+                    tx = '' if k != a1 else (f'<p class="tx"><b>{ind(a0) if a0 == a1 else ind(a0) + "–" + ind(a1)}.</b> '
+                                             + re.sub(r'_([^_\n]+)_', r'<span class="qw">\1</span>', E(t)).replace('_', '') + '</p>')
+                    rows.append(f'<div class="ay" id="a{k}"><p class="q">{E(qa)} {ind(k)}</p>{tx}</div>')
+                    continue
+                t, fn = (t[0], t[1]) if isinstance(t, list) else (t, '')
+                # باقي اللغات: نص الآية يُملأ من mushaf/q/N.json (ملف واحد مشترك) حتى لا يتكرر في 43 نسخة
+                rows.append(f'<div class="ay" id="a{k}"><p class="q"></p>'
+                            f'<p class="tx">{"" if re.match(r"^\W{0,2}" + str(k) + r"\b", t) else f"<b>{k}.</b> "}{E(t)}</p>' + (f'<p class="fn">{E(fn)}</p>' if fn else '') + '</div>')
+            bsm = f'<p class="q bsm">{E(QTEXT[0][0])}</p>' if n not in (1, 9) else ''
+            fill = '' if C.ar else (f'<script>fetch("{"../" * 2}mushaf/q/{n}.json").then(function(r){{return r.json()}}).then(function(a){{var d="٠١٢٣٤٥٦٧٨٩";'
+                                    'document.querySelectorAll(".ay .q").forEach(function(p,i){p.textContent=a[i]+" "+String(i+1).replace(/\\d/g,function(x){return d[x]})})}).catch(function(){})</script>')
+            nav = (f'<div class="chips"><a href="../surah/{n}.html">{E(P["qListen"])}</a><a href="../mushaf.html#s={n}&amp;a=1">{E(P["readMushaf"])}</a>'
+                   + (f'<a href="{n - 1}.html">‹ {E(C.surah(n - 1))}</a>' if n > 1 else '')
+                   + (f'<a href="{n + 1}.html">{E(C.surah(n + 1))} ›</a>' if n < 114 else '') + '</div>')
+            note = f'<p class="src">{E(P["qNote"])}</p>' if P.get('qNote') else ''
+            body = nav + f'<div class="qs" lang="{tlang}" dir="{tdir}">' + bsm + ''.join(rows) + '</div>' + f'<p class="src">{src}</p>' + note + nav + fill
+            sn = C.surah(n)
+            written.append(page(C, f'quran/{n}.html', C.t('qTitle', s=sn), C.t('qDesc', s=sn, ay=ay), C.t('qH1', s=sn),
+                                [(P['navSur'], 'surahs.html'), (sn, f'surah/{n}.html'), (P['qText'], f'quran/{n}.html')], body,
+                                E(C.t('qLead', no=n, ay=ay, pg=pg)), quran=True))
     # ---------- الفهرسان ----------
     secs = []
     for k in ['mushaf', 'partial', 'reciter', 'tarawih']:
@@ -535,6 +596,10 @@ def write_lang_js(C):
 
 
 # ---------- التنفيذ ----------
+os.makedirs(os.path.join(ROOT, 'mushaf', 'q'), exist_ok=True)
+for _n, _q in enumerate(QTEXT, 1):
+    json.dump(_q, open(os.path.join(ROOT, 'mushaf', 'q', f'{_n}.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
+SHARED = shared_files()
 ROOT_INDEX = update_root('index.html', '', '<link rel="canonical" href="https://trtel.vip/">')
 ROOT_MUSHAF = update_root('mushaf.html', 'mushaf.html', '<link rel="canonical" href="https://trtel.vip/mushaf.html">')
 REDIR = lang_redirect_js() if LANGS else ''

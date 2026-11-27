@@ -96,6 +96,14 @@
   "homeOgDesc": "Saurari yanzu karatun Alƙur'ani kai tsaye dare da rana, ba tare da tsayawa ba.",
   "homeKeywords": "sauraren Alƙur'ani, Alƙur'ani ta intanet, Alƙur'ani, Alkur'ani, Kur'ani, Quran, Musulunci, rediyon Musulunci, Musulmi, karatun Alƙur'ani, Alƙur'ani Mai Girma, rediyon Alƙur'ani, rediyon Alƙur'ani kai tsaye, limaman Masallatai Biyu Masu Alfarma, Tarawihi Masallacin Annabi, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast na Alƙur'ani, Alƙur'ani mp3",
   "musTitle": "Mushafi — Tartil",
-  "musDesc": "Mushafi Mai Tsarki a riwayar Hafs tare da fassarar ma'anoni da Al-Mukhtasar fi al-Tafsir, a shafin rediyon Tartil."
+  "musDesc": "Mushafi Mai Tsarki a riwayar Hafs tare da fassarar ma'anoni da Al-Mukhtasar fi al-Tafsir, a shafin rediyon Tartil.",
+  "qTitle": "{s} — rubutun Larabci tare da fassarar ma'anoni | Tartil",
+  "qDesc": "Karanta {s} gaba ɗaya: ayoyi {ay} a rubutun Usmani na Mushafin Madina, tare da fassarar ma'anoni daga QuranEnc, kuma ka saurari karatuttukanta.",
+  "qH1": "{s}: rubutu da fassarar ma'anoni",
+  "qLead": "Sura ta {no} a Mushafi, ayoyi {ay}, tana farawa a shafi na {pg}.",
+  "qListen": "Saurari karatuttukanta",
+  "qText": "Rubutu da fassarar ma'anoni",
+  "qSrc": "Fassarar ma'anoni: {t}, bugu na {v}, an wallafa ta daga QuranEnc.com ba tare da wani canji ba.",
+  "qNote": "Fassara tana isar da ma'anonin Alƙur'ani ne kawai; ba ita ce Alƙur'ani kansa ba. Alƙur'ani shi ne rubutun Larabci da ke sama."
  }
 }

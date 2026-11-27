@@ -249,6 +249,14 @@
   "homeOgDesc": "Lyssna nu på direktsända koranrecitationer, dag och natt, utan avbrott.",
   "homeKeywords": "lyssna på Koranen, Koranen online, Koranen, Koran, Quran, islam, islamisk radio, muslim, muslimer, koranrecitation, heliga Koranen, koranradio, koranradio direkt, imamerna i de två heliga moskéerna, Tarawih Profetens moské, Al-Shuraim, Al-Muaiqly, Al-Jaleel, koranpodd, Koranen mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Den ädla Mushafen enligt Hafs läsart, med översättning av betydelserna och Al-Mukhtasar fi al-Tafsir, på radio Tartils webbplats."
+  "musDesc": "Den ädla Mushafen enligt Hafs läsart, med översättning av betydelserna och Al-Mukhtasar fi al-Tafsir, på radio Tartils webbplats.",
+  "qTitle": "{s} — arabisk text med översättning av betydelserna | Tartil",
+  "qDesc": "Läs hela {s}: {ay} verser i uthmanisk skrift enligt Medinamushafen, med översättning av betydelserna från QuranEnc, och lyssna på dess recitationer.",
+  "qH1": "{s}: text och översättning av betydelserna",
+  "qLead": "Sura nummer {no} i Mushafen, {ay} verser, börjar på sidan {pg}.",
+  "qListen": "Lyssna på dess recitationer",
+  "qText": "Text och översättning av betydelserna",
+  "qSrc": "Översättning av betydelserna: {t}, version {v}, publicerad oförändrad från QuranEnc.com.",
+  "qNote": "En översättning förmedlar Koranens betydelser; den är inte själva Koranen, som är den arabiska texten ovan."
  }
 }

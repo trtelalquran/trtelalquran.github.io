@@ -95,6 +95,14 @@
   "homeOgDesc": "Nghe ngay các bài xướng đọc Qur'an trực tiếp suốt ngày đêm, không gián đoạn.",
   "homeKeywords": "nghe Qur'an, nghe kinh Koran, Qur'an, Quran, Koran, Hồi giáo, Islam, radio Hồi giáo, người Hồi giáo, Muslim, xướng đọc Qur'an, Thiên Kinh Qur'an, Kinh Qur'an, radio Qur'an, nghe Qur'an trực tuyến, imam Hai Thánh đường linh thiêng, Tarawih Thánh đường Nabawi, Al-Shuraim, Al-Muaiqly, Al-Jaleel, podcast Qur'an, Qur'an mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "Mushaf thiêng liêng theo bản Hafs, kèm bản dịch ý nghĩa và Al-Mukhtasar fi al-Tafsir, trên trang web của radio Tartil."
+  "musDesc": "Mushaf thiêng liêng theo bản Hafs, kèm bản dịch ý nghĩa và Al-Mukhtasar fi al-Tafsir, trên trang web của radio Tartil.",
+  "qTitle": "{s} — văn bản tiếng Ả Rập kèm bản dịch ý nghĩa | Tartil",
+  "qDesc": "Đọc trọn vẹn {s}: {ay} câu theo lối viết Uthmani của Mushaf Madinah, kèm bản dịch ý nghĩa từ QuranEnc, và nghe các bài xướng đọc.",
+  "qH1": "{s}: văn bản và bản dịch ý nghĩa",
+  "qLead": "Surah thứ {no} trong Mushaf, gồm {ay} câu, bắt đầu ở trang {pg}.",
+  "qListen": "Nghe các bài xướng đọc",
+  "qText": "Văn bản và bản dịch ý nghĩa",
+  "qSrc": "Bản dịch ý nghĩa: {t}, phiên bản {v}, được đăng nguyên vẹn từ QuranEnc.com.",
+  "qNote": "Bản dịch chỉ truyền đạt ý nghĩa của Qur'an, không phải chính Qur'an; Qur'an là văn bản tiếng Ả Rập ở trên."
  }
 }
