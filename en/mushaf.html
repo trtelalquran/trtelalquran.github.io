@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" href="../mushaf/uthmanic_hafs_v22.ttf" as="font" type="font/ttf" crossorigin>
-<script src="../i18n/en.js?v=b0b13b5f"></script>
+<script src="../i18n/en.js?v=151cfa6f"></script>
 <script>
 /* نفس مفاتيح الموقع: الثيم واللغة المحفوظان يُطبَّقان قبل الرسم */
 (function(){try{var d=document.documentElement,t=localStorage.getItem('theme');t=t==='blue'?'blue':(t==='dark'||t==='gold')?'dark':'paper';
@@ -312,6 +312,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
   /* ---------- البيانات ---------- */
   let META = null; const PAGES = {}, PAGES_SYNC = {}, TAF = {};
   const getJ = u => fetch(B + u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  const TRB = '/quran-tr/', getT = u => fetch(TRB + u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });   // ترجمات المعاني في مستودع quran-tr على نفس الدومين
   const page = n => PAGES[n] || (PAGES[n] = getJ('mushaf/p/' + n + '.json').then(d => (PAGES_SYNC[n] = d)).catch(e => { delete PAGES[n]; throw e; }));
   const sName = s => en ? TRL.s[s - 1] : META.surahs[s - 1][0];
   function pageOf(s, a) { const P = META.pages; let lo = 0, hi = 603;
@@ -487,7 +488,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     await trInit();
     const tk = tfKey && TRI[tfKey] ? tfKey : '';   // التفسير المختار (المختصر المترجم أو غيره)، وإلا فالمختصر العربي المدمج
     if (tk) { const m = TRI[tk], P = $('tfP'); P.dir = m.direction || 'ltr'; P.lang = m.language_iso_code;
-      try { const d = await (TRD[tk + s] || (TRD[tk + s] = getJ('mushaf/tr/' + tk + '/' + s + '.json').catch(e => { TRD[tk + s] = null; throw e; })));
+      try { const d = await (TRD[tk + s] || (TRD[tk + s] = getT('' + tk + '/' + s + '.json').catch(e => { TRD[tk + s] = null; throw e; })));
         if (!(sel && sel[0] === s && sel[1] === a)) return;
         const x = d[a - 1]; P.textContent = Array.isArray(x) ? x[0] + '\n' + x[1] : (x || ''); P.style.whiteSpace = 'pre-line';
         $('tfSrcB').innerHTML = esc(m.title) + ' · ' + esc(T('trVer').replace('{v}', m.version)) + ' · <a href="https://quranenc.com/' + (TRL ? TRL.qe : 'ar') + '/browse/' + tk + '/' + s + '" target="_blank" rel="noopener">QuranEnc.com</a>'; }
@@ -502,12 +503,12 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     catch (e) { $('tfP').textContent = T('errLoad'); } }
 
   const TFSRC = $('tfSrcB').innerHTML;
-  /* ---------- ترجمة المعاني: نسخة محفوظة من QuranEnc.com في mushaf/tr/ (لا تظهر في الواجهة العربية) ---------- */
+  /* ---------- ترجمة المعاني: نسخة محفوظة من QuranEnc.com في مستودع quran-tr (trtel.vip/quran-tr/) (لا تظهر في الواجهة العربية) ---------- */
   let TRI = null, trKey = '', tfKey = '', TRD = {}, trP = null;
   /* التفاسير (عربية أو مترجمة: المختصر، الميسر، السعدي…) تُختار في لوحة التفسير، وترجمات المعاني في قائمتها فوقها */
   const isTaf = k => TRI[k].language_iso_code === 'ar' || /mokhtasar|saadi|moyassar|yaseer|nafahat|seraj/.test(k);
   function trInit() { return trP || (trP = (async () => {
-    try { TRI = await getJ('mushaf/tr/index.json'); } catch (e) { TRI = {}; return; }
+    try { TRI = await getT('index.json'); } catch (e) { TRI = {}; return; }
     const keys = Object.keys(TRI); if (!keys.length) return;
     const UL = TRL ? TRL.code : 'ar';
     let nm; try { nm = new Intl.DisplayNames([UL], { type: 'language' }); } catch (e) {}
@@ -533,7 +534,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     const k = trKey, P = $('trP'), F = $('trF'), S = $('trS');
     if (!k) { P.textContent = ''; F.hidden = true; S.textContent = ''; return; }
     const m = TRI[k]; P.dir = m.direction || 'ltr'; P.lang = m.language_iso_code; F.dir = P.dir; P.textContent = T('loading');
-    try { const d = await (TRD[k + s] || (TRD[k + s] = getJ('mushaf/tr/' + k + '/' + s + '.json').catch(e => { delete TRD[k + s]; throw e; })));
+    try { const d = await (TRD[k + s] || (TRD[k + s] = getT('' + k + '/' + s + '.json').catch(e => { delete TRD[k + s]; throw e; })));
       if (!(sel && sel[0] === s && sel[1] === a) || k !== trKey) return;
       const x = d[a - 1], g = Array.isArray(x);
       P.textContent = g ? x[0] : (x || ''); F.hidden = !g; F.textContent = g ? x[1] : '';

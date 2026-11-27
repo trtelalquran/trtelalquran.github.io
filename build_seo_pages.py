@@ -111,12 +111,15 @@ for p in pages:
 # ---------- اللغات ----------
 SRC = os.path.join(ROOT, 'i18n', 'src')
 NAMES = J('i18n/src/_names.json')            # أسماء السور والقرّاء بالحروف اللاتينية (للغات التي لا اسم لها في QuranEnc)
-try: SOWAR = J('mushaf/tr/sowar.json')       # أسماء السور الرسمية بكل لغة من QuranEnc
-except Exception: SOWAR = {}
-try: TRSEL = J('mushaf/tr/select.json')      # ترجمة المعاني المعتمدة لكل لغة
-except Exception: TRSEL = {}
-try: TRIDX = J('mushaf/tr/index.json')
-except Exception: TRIDX = {}
+# بيانات ترجمات المعاني من مستودع quran-tr: نسخة محلية بجانب هذا المستودع إن وُجدت، وإلا من الموقع المنشور
+def TRJ(name):
+    for d in (os.environ.get('QURAN_TR', ''), os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'quran-tr')):
+        if d and os.path.exists(os.path.join(d, name)): return json.load(open(os.path.join(d, name), encoding='utf-8'))
+    import urllib.request
+    return json.load(urllib.request.urlopen('https://trtel.vip/quran-tr/' + name, timeout=60))
+SOWAR = TRJ('sowar.json')       # أسماء السور الرسمية بكل لغة من QuranEnc
+TRSEL = TRJ('select.json')      # ترجمة المعاني المعتمدة لكل لغة
+TRIDX = TRJ('index.json')       # الترجمات المحفوظة
 
 # نصوص العربية (الأصل): نفس مفاتيح قسم p في ملفات اللغات
 AR = {
@@ -515,7 +518,7 @@ def localize(s, C, fname, title, desc, og_title=None, og_desc=None, keywords=Non
         def ld(m):
             g = json.loads(m.group(1))
             for o in g['@graph']:
-                if o['@type'] == 'WebSite': o.update({'name': P['siteName'], 'url': url, 'inLanguage': code}); o.pop('alternateName', None)
+                if o['@type'] == 'WebSite': o.update({'name': P['siteName'], 'url': url, 'inLanguage': code}); o['alternateName'] = ['Tartil', 'Tilawat min al-Quran al-Karim', 'ترتيل', 'تلاوات من القرآن الكريم']
                 if o['@type'] == 'RadioStation': o.update({'name': title, 'url': url, 'description': desc, 'inLanguage': code})
             return '<script type="application/ld+json">\n' + json.dumps(g, ensure_ascii=False) + '\n</script>'
         s = re.sub(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', ld, s, count=1, flags=re.S)
