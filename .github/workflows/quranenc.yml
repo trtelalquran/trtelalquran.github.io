@@ -33,11 +33,10 @@ jobs:
           git add -A mushaf/tr
           if git diff --cached --quiet; then echo "no changes"; exit 0; fi
           if [ "${{ github.ref_name }}" = "main" ]; then
-            B="quranenc-update-$(date +%Y-%m)"
-            git checkout -b "$B"
-            git commit -m "تحديث ترجمات المعاني من QuranEnc ($(date +%Y-%m))"
-            git push -f origin "$B"
-            gh pr create --base main --head "$B" --title "تحديث ترجمات المعاني من QuranEnc ($(date +%Y-%m))" --body "تحديث آلي شهري: صدرت إصدارات جديدة لبعض الترجمات في QuranEnc.com. النصوص منقولة كما هي بلا تعديل. التفاصيل في mushaf/tr/last_sync.txt" || true
+            # تحديث تلقائي بالكامل (قرار أيوب 2026-11-27): النصوص منقولة من QuranEnc كما هي، فتُنشر مباشرة
+            git commit -m "تحديث ترجمات المعاني من QuranEnc ($(date +%Y-%m))" -m "$(cat mushaf/tr/last_sync.txt)"
+            git pull --rebase origin main
+            git push origin HEAD:main
           else
             git commit -m "نسخة ترجمات المعاني من QuranEnc"
             git pull --rebase origin "${{ github.ref_name }}"
