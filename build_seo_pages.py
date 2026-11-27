@@ -165,6 +165,7 @@ def load_langs():
         if L.get('script') in ARABIC_SCRIPT: L['rec'] = dict(L.get('rec') or {})
         sel = TRSEL.get(L.get('trLang', code), {})
         L['tr'] = sel.get('tr') if sel.get('tr') in TRIDX else None
+        L['tf'] = sel.get('tf') if sel.get('tf') in TRIDX else None
         out[code] = L
     return {'en': out['en'], **{k: v for k, v in out.items() if k != 'en'}} if 'en' in out else out
 
@@ -509,7 +510,7 @@ def localize(s, C, fname, title, desc, og_title=None, og_desc=None, keywords=Non
 
 def write_lang_js(C):
     L = C.L
-    obj = {'code': C.code, 'dir': L['dir'], 'loc': L['loc'], 'name': L['name'], 'brand': L['p']['brand'], 'qe': L.get('qe', 'en'), 'tr': L.get('tr'),
+    obj = {'code': C.code, 'dir': L['dir'], 'loc': L['loc'], 'name': L['name'], 'brand': L['p']['brand'], 'qe': L.get('qe', 'en'), 'tr': L.get('tr'), 'tf': L.get('tf'),
            't': L['t'], 'm': L['m'], 'x': L['x'], 's': L['s'], 'rec': L['rec']}
     os.makedirs(os.path.join(ROOT, 'i18n'), exist_ok=True)
     open(os.path.join(ROOT, 'i18n', C.code + '.js'), 'w', encoding='utf-8').write(

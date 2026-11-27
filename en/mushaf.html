@@ -7,20 +7,20 @@
 <meta name="description" content="The Holy Mushaf in the Hafs narration with translation of the meanings and Al-Mukhtasar fi al-Tafsir, part of the Tartil radio website.">
 <meta name="theme-color" content="#f5efe2" id="themeColor">
 <link rel="canonical" href="https://trtel.vip/en/mushaf.html">
-<!--HREFLANG--><link rel="alternate" hreflang="ar" href="https://trtel.vip/mushaf.html"><link rel="alternate" hreflang="en" href="https://trtel.vip/en/mushaf.html"><link rel="alternate" hreflang="x-default" href="https://trtel.vip/mushaf.html"><!--/HREFLANG-->
+<!--HREFLANG--><link rel="alternate" hreflang="ar" href="https://trtel.vip/mushaf.html"><link rel="alternate" hreflang="en" href="https://trtel.vip/en/mushaf.html"><link rel="alternate" hreflang="de" href="https://trtel.vip/de/mushaf.html"><link rel="alternate" hreflang="es" href="https://trtel.vip/es/mushaf.html"><link rel="alternate" hreflang="fr" href="https://trtel.vip/fr/mushaf.html"><link rel="alternate" hreflang="pt" href="https://trtel.vip/pt/mushaf.html"><link rel="alternate" hreflang="x-default" href="https://trtel.vip/mushaf.html"><!--/HREFLANG-->
 <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
 <link rel="apple-touch-icon" href="../icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" href="../mushaf/uthmanic_hafs_v22.ttf" as="font" type="font/ttf" crossorigin>
-<script src="../i18n/en.js?v=f6d6a1e9"></script>
+<script src="../i18n/en.js?v=a19ec2f6"></script>
 <script>
 /* نفس مفاتيح الموقع: الثيم واللغة المحفوظان يُطبَّقان قبل الرسم */
 (function(){try{var d=document.documentElement,t=localStorage.getItem('theme');t=t==='blue'?'blue':(t==='dark'||t==='gold')?'dark':'paper';
 d.setAttribute('data-theme',t==='dark'?'dark':'light');if(t==='blue')d.setAttribute('data-skin','blue');
 }catch(e){}})();
-window.TRLANGS=/*LANGS*/[["en","English","ltr"]]/*/LANGS*/;
+window.TRLANGS=/*LANGS*/[["en","English","ltr"],["de","Deutsch","ltr"],["es","Español","ltr"],["fr","Français","ltr"],["pt","Português","ltr"]]/*/LANGS*/;
 (function(){try{if(window.TRL)return;var L=window.TRLANGS.map(function(x){return x[0]}),l=localStorage.getItem('lang'),p=location.pathname;
 if(!l&&!/bot|crawl|spider|slurp|google|bing|yandex|baidu|lighthouse|preview/i.test(navigator.userAgent)){var n=navigator.languages||[navigator.language||''],z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
 /* العربية تبقى لمن في جهازه العربية بأي ترتيب، ولمن توقيته في بلد عربي ولو كان جهازه بلغة أخرى */
@@ -253,7 +253,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     <button type="button" id="aTf" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h6M8 11h6"/></svg><span id="aTfT" data-i="tafsir">Brief tafsir</span></button>
   </div>
   <div class="tf" id="tf" hidden><div class="trb" id="trB" hidden><label class="trl"><span data-i="trL">Translation of the meanings</span><select id="trSel"></select></label><p id="trP"></p><div class="fn" id="trF" hidden></div><div class="src" id="trS"></div></div><h4 data-i="tfH">Al-Mukhtasar fi al-Tafsir</h4><div class="tfg" id="tfG" hidden></div><p id="tfP" dir="rtl" lang="ar"></p>
-    <div class="src"><span data-i="tfSrc">Source: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies</span> (<a href="https://tafsir.net" target="_blank" rel="noopener">tafsir.net</a>)</div></div>
+    <div class="src" id="tfSrcB"><span data-i="tfSrc">Source: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies</span> (<a href="https://tafsir.net" target="_blank" rel="noopener">tafsir.net</a>)</div></div>
 </div>
 
 <div class="drawer" id="drawer" hidden role="dialog" aria-modal="true">
@@ -480,6 +480,15 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
   $('aTf').onclick = () => showTf($('tf').hidden);
   async function showTf(on) { if (!sel) return; $('aTf').setAttribute('aria-pressed', on); $('tf').hidden = !on; if (!on) return;
     const [s, a] = sel; $('tfG').hidden = true; $('tfP').textContent = T('loading'); showTr(s, a);
+    await trInit();
+    const tk = TRL && TRI && TRL.tf && TRI[TRL.tf] ? TRL.tf : '';   // «المختصر» مترجمًا بلغة الصفحة إن وُجد في QuranEnc، وإلا فالأصل العربي
+    if (tk) { const m = TRI[tk], P = $('tfP'); P.dir = m.direction || 'ltr'; P.lang = m.language_iso_code;
+      try { const d = await (TRD[tk + s] || (TRD[tk + s] = getJ('mushaf/tr/' + tk + '/' + s + '.json').catch(e => { TRD[tk + s] = null; throw e; })));
+        if (!(sel && sel[0] === s && sel[1] === a)) return;
+        const x = d[a - 1]; P.textContent = Array.isArray(x) ? x[0] + '\n' + x[1] : (x || ''); P.style.whiteSpace = 'pre-line';
+        $('tfSrcB').innerHTML = esc(m.title) + ' · ' + esc(T('trVer').replace('{v}', m.version)) + ' · <a href="https://quranenc.com/' + (TRL.qe || 'en') + '/browse/' + tk + '/' + s + '" target="_blank" rel="noopener">QuranEnc.com</a>'; }
+      catch (e) { P.textContent = T('errLoad'); }
+      return; }
     try { const t = await (TAF[s] || (TAF[s] = getJ('mushaf/t/' + s + '.json').catch(e => { delete TAF[s]; throw e; })));
       if (!(sel && sel[0] === s && sel[1] === a)) return;
       const x = t[a - 1] || '', g = Array.isArray(x), txt = g ? x[2] : x; // [من، إلى، نص] = تفسير مشترك لمجموعة آيات
