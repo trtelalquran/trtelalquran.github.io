@@ -70,6 +70,18 @@ def main():
     cat = catalog()
     dump(os.path.join(HERE, 'catalog.json'), cat, indent=None)
     print(len(cat), 'translations in catalog;', len({t['language_iso_code'] for t in cat}), 'languages')
+    try:   # أسماء السور الرسمية بكل لغة متاحة
+        names = {}
+        for loc in get('translations/sowar_locales'):
+            try:
+                d = get('translations/sowar_names?iso_code=' + loc)
+                names[loc] = [d[str(i)] for i in range(1, 115)]
+            except Exception as e:
+                print('sowar', loc, e)
+        if names: dump(os.path.join(HERE, 'sowar.json'), names)
+        print(len(names), 'sowar locales')
+    except Exception as e:
+        print('sowar names failed', e)
     if mode == 'list': return
     sel = json.load(open(os.path.join(HERE, 'select.json'), encoding='utf-8'))      # {lang: {"tr": key, "tf": key}}
     idx_path = os.path.join(HERE, 'index.json')
