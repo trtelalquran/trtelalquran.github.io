@@ -7,6 +7,7 @@
 <meta name="description" content="المصحف الشريف برواية حفص مع المختصر في التفسير، ضمن موقع إذاعة ترتيل.">
 <meta name="theme-color" content="#f5efe2" id="themeColor">
 <link rel="canonical" href="https://trtel.vip/mushaf.html">
+<!--HREFLANG--><link rel="alternate" hreflang="ar" href="https://trtel.vip/mushaf.html"><link rel="alternate" hreflang="en" href="https://trtel.vip/en/mushaf.html"><link rel="alternate" hreflang="x-default" href="https://trtel.vip/mushaf.html"><!--/HREFLANG-->
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,14 @@
 /* نفس مفاتيح الموقع: الثيم واللغة المحفوظان يُطبَّقان قبل الرسم */
 (function(){try{var d=document.documentElement,t=localStorage.getItem('theme');t=t==='blue'?'blue':(t==='dark'||t==='gold')?'dark':'paper';
 d.setAttribute('data-theme',t==='dark'?'dark':'light');if(t==='blue')d.setAttribute('data-skin','blue');
-if(localStorage.getItem('lang')==='en')d.lang='en';}catch(e){}})();
+}catch(e){}})();
+window.TRLANGS=/*LANGS*/[["en","English","ltr"]]/*/LANGS*/;
+(function(){try{if(window.TRL)return;var L=window.TRLANGS.map(function(x){return x[0]}),l=localStorage.getItem('lang'),p=location.pathname;
+if(!l&&!/bot|crawl|spider|slurp|google|bing|yandex|baidu|lighthouse|preview/i.test(navigator.userAgent)){var n=navigator.languages||[navigator.language||''],z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+/* العربية تبقى لمن في جهازه العربية بأي ترتيب، ولمن توقيته في بلد عربي ولو كان جهازه بلغة أخرى */
+var ar=/Riyadh|Dubai|Kuwait|Qatar|Bahrain|Muscat|Baghdad|Amman|Damascus|Beirut|Gaza|Hebron|Aden|Cairo|Tripoli|Tunis|Algiers|Casablanca|El_Aaiun|Khartoum|Nouakchott/.test(z)||n.some(function(x){return /^ar\b/i.test(x)});
+for(var i=0;i<n.length&&!l&&!ar;i++){var c=String(n[i]).toLowerCase(),b=c.split('-')[0];if(L.indexOf(c)>=0)l=c;else if(L.indexOf(b)>=0)l=b;}}
+if(l&&l!=='ar'&&L.indexOf(l)>=0&&location.protocol!=='file:'){var g=p.split('/'),f=g.pop(),u=window.TRUP||0,t=g.splice(g.length-u,u).concat(f==='index.html'?'':f).join('/');location.replace(g.join('/')+'/'+l+'/'+t+location.search+location.hash);}}catch(e){}})();
 </script>
 <style>
 /* صفحة المصحف (2026-11-24): صفحة مستقلة لا تُحمَّل إلا عند الطلب.
@@ -156,6 +164,12 @@ body.lb .dkE{font-size:12.5px;padding:4px}body.lb .dkE svg{display:none}
 .tf .qw{color:var(--rec);font-weight:600}
 .tf .src{font-size:11px;color:var(--mut);margin-top:8px}
 .tf .src a{color:inherit}
+/* ترجمة المعاني (2026-11-27): من QuranEnc.com كما هي، مع اسم الترجمة ورقم الإصدار */
+.trb{border-bottom:1px dashed var(--line);margin-bottom:9px;padding-bottom:9px}
+.trl{display:flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--gold);margin-bottom:5px}
+.trl select{flex:1;min-width:0;max-width:100%;font:500 13px var(--body),system-ui,sans-serif;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 6px}
+.trb p{font-family:var(--body),system-ui,sans-serif;font-size:15.5px;line-height:1.85}
+.trb .fn{font-size:12.5px;color:var(--mut);margin-top:6px;white-space:pre-line;line-height:1.7}
 
 /* الفهرس والبحث */
 .drawer{position:fixed;inset:0;background:var(--bg);z-index:30;display:flex;flex-direction:column}
@@ -193,7 +207,7 @@ body.lb .dkE{font-size:12.5px;padding:4px}body.lb .dkE svg{display:none}
 .toast .bt button{flex:1;text-align:center;border-radius:10px;padding:6px;font-size:13px;border:1px solid var(--line)}
 .toast .bt button:first-child{background:var(--on);color:var(--on-ink);border-color:var(--on)}
 .tip{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(70px + env(safe-area-inset-bottom));background:var(--on);color:var(--on-ink);border-radius:999px;padding:6px 16px;font-size:13px;z-index:40;white-space:nowrap}
-html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,html[lang="en"] .drawer .dh b{font-family:var(--body);font-size:17px}
+html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]) .sheet .hd b,html:not([lang="ar"]) .drawer .dh b{font-family:var(--body);font-size:17px}
 </style>
 </head>
 <body data-view="radio" data-side="r">
@@ -237,7 +251,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     <button type="button" id="aMark" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="aMarkT">علامة توقف</span></button>
     <button type="button" id="aTf" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h6M8 11h6"/></svg><span id="aTfT" data-i="tafsir">التفسير المختصر</span></button>
   </div>
-  <div class="tf" id="tf" hidden><h4 data-i="tfH">المختصر في التفسير</h4><div class="tfg" id="tfG" hidden></div><p id="tfP" dir="rtl" lang="ar"></p>
+  <div class="tf" id="tf" hidden><div class="trb" id="trB" hidden><label class="trl"><span data-i="trL">ترجمة المعاني</span><select id="trSel"></select></label><p id="trP"></p><div class="fn" id="trF" hidden></div><div class="src" id="trS"></div></div><h4 data-i="tfH">المختصر في التفسير</h4><div class="tfg" id="tfG" hidden></div><p id="tfP" dir="rtl" lang="ar"></p>
     <div class="src"><span data-i="tfSrc">المصدر: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية</span> (<a href="https://tafsir.net" target="_blank" rel="noopener">tafsir.net</a>)</div></div>
 </div>
 
@@ -262,7 +276,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
                   set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} } };
   const jget = (k, d) => { try { const v = JSON.parse(store.get(k)); return v == null ? d : v; } catch (e) { return d; } };
-  const en = root.lang === 'en';
+  const TRL = window.TRL || null, B = TRL ? '../' : '', en = !!TRL;   // TRL: نصوص اللغة من i18n/<code>.js في صفحات اللغات
   const AR = { back: 'الرجوع للإذاعة', copy: 'نسخ الآية', tafsir: 'التفسير المختصر', tafsirS: 'التفسير', tfGroup: 'تفسير الآيات {a}-{b} معًا', tfH: 'المختصر في التفسير', mushaf: 'المصحف', page: 'صفحة',
     tfSrc: 'المصدر: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية', tSurahs: 'السور', tJuz: 'الأجزاء', tMarks: 'العلامات', tSearch: 'البحث',
     index: 'الفهرس', search: 'البحث', marks: 'العلامات', close: 'إغلاق', swap: 'تبديل الجانبين', surah: 'سورة', juz: 'الجزء', ayah: 'الآية', ayat: 'آياتها',
@@ -273,20 +287,11 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     sPh: 'اكتب كلمة أو أكثر للبحث في القرآن', sCount: '{n} آية · اضغط على النتيجة لفتح صفحتها', sNone: 'لا توجد نتائج', sLoad: 'جارٍ تحميل فهرس البحث…', more: 'عرض المزيد',
     loading: '…', errLoad: 'تعذّر التحميل، تحقق من الاتصال ثم أعد المحاولة.', retry: 'إعادة المحاولة', lastPos: 'آخر موضع وصلت له',
     credit: 'نص المصحف: مجمع الملك فهد لطباعة المصحف الشريف (رواية حفص، خط KFGQPC Uthmanic Hafs). ترقيم الصفحات وفهرس البحث: Tanzil.net. التفسير: المختصر في تفسير القرآن الكريم، مركز تفسير للدراسات القرآنية (tafsir.net)، من قاعدة بيانات المركز الرسمية برخصة CC BY 4.0.' };
-  const EN = { back: 'Back to radio', copy: 'Copy verse', tafsir: 'Brief tafsir', tafsirS: 'Tafsir', tfGroup: 'Verses {a}-{b} explained together', tfH: 'Al-Mukhtasar fi al-Tafsir', mushaf: 'Mushaf', page: 'Page',
-    tfSrc: 'Source: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies', tSurahs: 'Surahs', tJuz: 'Juz', tMarks: 'Bookmarks', tSearch: 'Search',
-    index: 'Index', search: 'Search', marks: 'Bookmarks', close: 'Close', swap: 'Swap sides', surah: 'Surah', juz: 'Juz', ayah: 'Verse', ayat: 'verses',
-    pageOf: 'Page {p} of 604', pagesOf: 'Pages {a}-{b}', viewTwo: 'Mushaf only', viewRadio: 'With radio', fsOn: 'Full screen', fsOff: 'Exit full screen',
-    dockE: 'Tap any verse to read its brief tafsir, copy it, or bookmark it.', dockH: 'Use ← → to turn pages', mark: 'Bookmark', unmark: 'Remove bookmark',
-    copied: '✓ Verse copied', marked: '✓ Bookmark added', unmarked: 'Bookmark removed', now: 'Now reciting', follow: 'Follow', play: 'Play', pause: 'Pause', start: 'Recitation starts', here: 'Reciting about here',
-    resume: 'Your last position', resGo: 'Continue where I stopped', resNo: 'Dismiss', noMarks: 'No bookmarks yet. Tap any verse, then “Bookmark”.',
-    sPh: 'Type an Arabic word or more', sCount: '{n} verses · tap a result to open its page', sNone: 'No results', sLoad: 'Loading search index…', more: 'Show more',
-    loading: '…', errLoad: 'Could not load. Check your connection and retry.', retry: 'Retry', lastPos: 'Last position',
-    credit: 'Mushaf text: King Fahd Complex for the Printing of the Holy Quran (Hafs, KFGQPC Uthmanic Hafs font). Page numbering and search index: Tanzil.net. Tafsir: Al-Mukhtasar, Tafsir Center for Quranic Studies (tafsir.net), CC BY 4.0.' };
+  const EN = TRL ? TRL.m : {};
   const T = k => (en ? EN : AR)[k] ?? AR[k];
   document.querySelectorAll('[data-i]').forEach(e => e.textContent = T(e.dataset.i));
   document.querySelectorAll('[data-i-aria]').forEach(e => { e.setAttribute('aria-label', T(e.dataset.iAria)); e.title = T(e.dataset.iAria); });
-  if (en) document.title = 'Mushaf — Tartil';
+  if (en) document.title = T('mushaf') + ' — ' + TRL.brand;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const ind = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
   let tipT; const tip = t => { const e = $('tip'); e.textContent = t; e.hidden = false; clearTimeout(tipT); tipT = setTimeout(() => e.hidden = true, 2000); };
@@ -301,9 +306,9 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
 
   /* ---------- البيانات ---------- */
   let META = null; const PAGES = {}, PAGES_SYNC = {}, TAF = {};
-  const getJ = u => fetch(u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  const getJ = u => fetch(B + u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
   const page = n => PAGES[n] || (PAGES[n] = getJ('mushaf/p/' + n + '.json').then(d => (PAGES_SYNC[n] = d)).catch(e => { delete PAGES[n]; throw e; }));
-  const sName = s => META.surahs[s - 1][en ? 1 : 0];
+  const sName = s => en ? TRL.s[s - 1] : META.surahs[s - 1][0];
   function pageOf(s, a) { const P = META.pages; let lo = 0, hi = 603;
     while (lo < hi) { const m = (lo + hi + 1) >> 1, x = P[m]; if (x[0] < s || (x[0] === s && x[1] <= a)) lo = m; else hi = m - 1; }
     return lo + 1; }
@@ -473,13 +478,39 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     $('aMark').setAttribute('aria-pressed', !had); $('aMarkT').textContent = T(!had ? 'unmark' : 'mark'); paintSel(); tip(T(had ? 'unmarked' : 'marked')); };
   $('aTf').onclick = () => showTf($('tf').hidden);
   async function showTf(on) { if (!sel) return; $('aTf').setAttribute('aria-pressed', on); $('tf').hidden = !on; if (!on) return;
-    const [s, a] = sel; $('tfG').hidden = true; $('tfP').textContent = T('loading');
+    const [s, a] = sel; $('tfG').hidden = true; $('tfP').textContent = T('loading'); showTr(s, a);
     try { const t = await (TAF[s] || (TAF[s] = getJ('mushaf/t/' + s + '.json').catch(e => { delete TAF[s]; throw e; })));
       if (!(sel && sel[0] === s && sel[1] === a)) return;
       const x = t[a - 1] || '', g = Array.isArray(x), txt = g ? x[2] : x; // [من، إلى، نص] = تفسير مشترك لمجموعة آيات
       $('tfG').hidden = !g; if (g) $('tfG').textContent = T('tfGroup').replace('{a}', x[0]).replace('{b}', x[1]);
       $('tfP').innerHTML = esc(txt).replace(/_([^_\n]+)_/g, '<span class="qw">$1</span>').replace(/_/g, ''); }
     catch (e) { $('tfP').textContent = T('errLoad'); } }
+
+  /* ---------- ترجمة المعاني: نسخة محفوظة من QuranEnc.com في mushaf/tr/ (لا تظهر في الواجهة العربية) ---------- */
+  let TRI = null, trKey = '', TRD = {};
+  async function trInit() {
+    if (!TRL || TRI) return;
+    try { TRI = await getJ('mushaf/tr/index.json'); } catch (e) { TRI = null; return; }
+    const keys = Object.keys(TRI); if (!keys.length) return;
+    let nm; try { nm = new Intl.DisplayNames([TRL.code], { type: 'language' }); } catch (e) {}
+    const lab = k => { const c = TRI[k].language_iso_code; let n = ''; try { n = nm ? nm.of(c) : ''; } catch (e) {} return (n && n !== c ? n + ': ' : '') + TRI[k].title; };
+    const saved = store.get('mushaf:tr'), def = TRL.tr && TRI[TRL.tr] ? TRL.tr : '';
+    trKey = saved === '-' ? '' : (saved && TRI[saved] ? saved : def);
+    $('trSel').innerHTML = '<option value="">' + esc(T('trNone')) + '</option>' + keys.sort((a, b) => lab(a).localeCompare(lab(b), TRL.code)).map(k => '<option value="' + k + '"' + (k === trKey ? ' selected' : '') + '>' + esc(lab(k)) + '</option>').join('');
+    $('trSel').onchange = e => { trKey = e.target.value; store.set('mushaf:tr', trKey || '-'); if (sel) showTr(sel[0], sel[1]); };
+    $('trB').hidden = false;
+  }
+  async function showTr(s, a) {
+    await trInit(); if (!TRI || $('trB').hidden) return;
+    const k = trKey, P = $('trP'), F = $('trF'), S = $('trS');
+    if (!k) { P.textContent = ''; F.hidden = true; S.textContent = ''; return; }
+    const m = TRI[k]; P.dir = m.direction || 'ltr'; P.lang = m.language_iso_code; F.dir = P.dir; P.textContent = T('loading');
+    try { const d = await (TRD[k + s] || (TRD[k + s] = getJ('mushaf/tr/' + k + '/' + s + '.json').catch(e => { delete TRD[k + s]; throw e; })));
+      if (!(sel && sel[0] === s && sel[1] === a) || k !== trKey) return;
+      const x = d[a - 1], g = Array.isArray(x);
+      P.textContent = g ? x[0] : (x || ''); F.hidden = !g; F.textContent = g ? x[1] : '';
+      S.innerHTML = esc(m.title) + ' · ' + esc(T('trVer').replace('{v}', m.version)) + ' · <a href="https://quranenc.com/' + (TRL.qe || 'en') + '/browse/' + k + '/' + s + '" target="_blank" rel="noopener">QuranEnc.com</a>'; }
+    catch (e) { P.textContent = T('errLoad'); } }
 
   /* ---------- الفهرس والعلامات والبحث ---------- */
   let tab = 'surahs', SRCH = null, sq = '', sShown = 60;
@@ -497,7 +528,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
     $('dT').textContent = T({ surahs: 'tSurahs', juz: 'tJuz', marks: 'tMarks', search: 'tSearch' }[tab]);
     const B = $('dBody'); let h = '';
     if (tab === 'surahs') { const cs = shown.length && PAGES_SYNC[cur] ? PAGES_SYNC[cur][0][0] : 0;
-      h = META.surahs.map((x, i) => '<button type="button" class="row' + (i + 1 === cs ? ' cur' : '') + '" data-s="' + (i + 1) + '" data-a="1"><span class="n">' + (i + 1) + '</span><span class="nm">' + esc(x[en ? 1 : 0]) + '</span><span class="mt">' + (en ? x[2] + ' ' + T('ayat') : T('ayat') + ' ' + x[2]) + ' · ' + T('page') + ' ' + x[3] + '</span></button>').join('') + '<div class="credit">' + esc(T('credit')) + '</div>'; }
+      h = META.surahs.map((x, i) => '<button type="button" class="row' + (i + 1 === cs ? ' cur' : '') + '" data-s="' + (i + 1) + '" data-a="1"><span class="n">' + (i + 1) + '</span><span class="nm">' + esc((en ? TRL.s[i] : x[0])) + '</span><span class="mt">' + (en ? x[2] + ' ' + T('ayat') : T('ayat') + ' ' + x[2]) + ' · ' + T('page') + ' ' + x[3] + '</span></button>').join('') + '<div class="credit">' + esc(T('credit')) + '</div>'; }
     else if (tab === 'juz') { const cj = juzOf(cur);
       h = META.juz.map((x, i) => '<button type="button" class="row' + (i + 1 === cj ? ' cur' : '') + '" data-s="' + x[0] + '" data-a="' + x[1] + '"><span class="n">' + (i + 1) + '</span><span class="nm">' + T('juz') + ' ' + (i + 1) + '</span><span class="mt">' + esc(sName(x[0])) + ' ' + x[1] + ' · ' + T('page') + ' ' + x[2] + '</span></button>').join(''); }
     else if (tab === 'marks') { const m = marks(), last = jget('mushaf:last', null);
@@ -551,7 +582,7 @@ html[lang="en"] .ttl b,html[lang="en"] .row .nm,html[lang="en"] .sheet .hd b,htm
   $('nowF').onclick = () => { if (!NOW) return; follow(!fol); if (fol) { canSave = true; hideResume(); EST = 0; track(true); } };
   // موضع التلاوة التقريبي: نسبة الوقت المنقضي موزعة على آيات المقطع بحسب عدد حروفها (لا توجد توقيتات آية بآية لهذه التسجيلات)
   let LEN = null, lenP = null, EST = 0;
-  const loadLen = () => lenP || (lenP = fetch('mushaf/len.json').then(r => r.json()).then(j => { LEN = j; }).catch(() => { lenP = null; }));
+  const loadLen = () => lenP || (lenP = fetch(B + 'mushaf/len.json').then(r => r.json()).then(j => { LEN = j; }).catch(() => { lenP = null; }));
   function estAyah(m) { if (!LEN || !META || !(m.d > 0) || !(m.t >= 0)) return 0;
     const L = LEN[m.s - 1], a = Math.max(1, m.a | 0), b = Math.min(L.length, m.to >= a ? m.to : L.length); if (b <= a) return a;
     let tot = 0; for (let i = a; i <= b; i++) tot += L[i - 1] + 10; // +10: وقفة رأس الآية
