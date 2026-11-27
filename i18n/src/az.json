@@ -51,6 +51,7 @@
   "corr": "{d} tarixinə uyğun", "langs": "Dillər"
  },
  "m": {
+  "trMore": "Digər dillər…",
   "back": "Radioya qayıt", "copy": "Ayəni kopyala", "tafsir": "Qısa təfsir", "tafsirS": "Təfsir", "tfGroup": "{a}-{b} ayələrin birgə təfsiri", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Müshəf", "page": "Səhifə",
   "tfSrc": "Mənbə: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Quran Araşdırmaları üzrə Təfsir Mərkəzi", "tSurahs": "Surələr", "tJuz": "Cüzlər", "tMarks": "Əlfəcinlər", "tSearch": "Axtarış",
   "index": "Mündəricat", "search": "Axtarış", "marks": "Əlfəcinlər", "close": "Bağla", "swap": "Tərəfləri dəyiş", "surah": "Surə", "juz": "Cüz", "ayah": "Ayə", "ayat": "ayə",

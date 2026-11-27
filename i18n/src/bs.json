@@ -51,6 +51,7 @@
   "corr": "odnosno {d}", "langs": "Jezici"
  },
  "m": {
+  "trMore": "Drugi jezici…",
   "back": "Nazad na radio", "copy": "Kopiraj ajet", "tafsir": "Kratki tefsir", "tafsirS": "Tefsir", "tfGroup": "Tefsir ajeta {a}-{b} zajedno", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushaf", "page": "Stranica",
   "tfSrc": "Izvor: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Centar Tefsir za kur'anske studije", "tSurahs": "Sure", "tJuz": "Džuzovi", "tMarks": "Oznake", "tSearch": "Pretraga",
   "index": "Sadržaj", "search": "Pretraga", "marks": "Oznake", "close": "Zatvori", "swap": "Zamijeni strane", "surah": "Sura", "juz": "Džuz", "ayah": "Ajet", "ayat": "ajeta",

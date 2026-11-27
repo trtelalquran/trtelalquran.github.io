@@ -50,6 +50,7 @@
   "corr": "(양력 {d})", "langs": "언어"
  },
  "m": {
+  "trMore": "다른 언어…",
   "back": "라디오로 돌아가기", "copy": "아야 복사", "tafsir": "간추린 타프시르", "tafsirS": "타프시르", "tfGroup": "아야 {a}-{b} 함께 해설", "tfH": "알무크타사르 피 알타프시르", "mushaf": "무스하프", "page": "페이지",
   "tfSrc": "출처: 알무크타사르 피 타프시르 알꾸란 알카림, 타프시르 꾸란 연구 센터", "tSurahs": "수라", "tJuz": "주즈", "tMarks": "책갈피", "tSearch": "검색",
   "index": "목차", "search": "검색", "marks": "책갈피", "close": "닫기", "swap": "좌우 바꾸기", "surah": "수라", "juz": "주즈", "ayah": "아야", "ayat": "아야",

@@ -50,6 +50,7 @@
   "corr": "katumbas ng {d}", "langs": "Mga wika"
  },
  "m": {
+  "trMore": "Iba pang wika…",
   "back": "Bumalik sa radyo", "copy": "Kopyahin ang ayah", "tafsir": "Maikling tafsir", "tafsirS": "Tafsir", "tfGroup": "Magkasamang paliwanag ng mga ayah {a}-{b}", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushaf", "page": "Pahina",
   "tfSrc": "Pinagmulan: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Tafsir Center for Quranic Studies", "tSurahs": "Mga surah", "tJuz": "Juz", "tMarks": "Mga bookmark", "tSearch": "Hanapin",
   "index": "Talaan", "search": "Hanapin", "marks": "Mga bookmark", "close": "Isara", "swap": "Pagpalitin ang mga panig", "surah": "Surah", "juz": "Juz", "ayah": "Ayah", "ayat": "ayah",

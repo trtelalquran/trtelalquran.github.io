@@ -51,6 +51,7 @@
   "corr": "እ.ኤ.አ. {d}", "langs": "ቋንቋዎች"
  },
  "m": {
+  "trMore": "ሌሎች ቋንቋዎች…",
   "back": "ወደ ሬዲዮው ተመለስ", "copy": "አንቀጹን ቅዳ", "tafsir": "አጭር ተፍሲር", "tafsirS": "ተፍሲር", "tfGroup": "የአንቀጾች {a}-{b} ተፍሲር በአንድነት", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "ሙስሐፍ", "page": "ገጽ",
   "tfSrc": "ምንጭ፦ Al-Mukhtasar fi Tafsir al-Quran al-Karim፣ የቁርኣን ጥናቶች ተፍሲር ማዕከል", "tSurahs": "ሱራዎች", "tJuz": "ጁዞች", "tMarks": "ዕልባቶች", "tSearch": "ፍለጋ",
   "index": "ማውጫ", "search": "ፍለጋ", "marks": "ዕልባቶች", "close": "ዝጋ", "swap": "ጎኖቹን ቀያይር", "surah": "ሱራ", "juz": "ጁዝ", "ayah": "አንቀጽ", "ayat": "አንቀጾች",

@@ -51,6 +51,7 @@
   "corr": "daidai da {d}", "langs": "Harsuna"
  },
  "m": {
+  "trMore": "Wasu harsuna…",
   "back": "Koma zuwa rediyo", "copy": "Kwafi aya", "tafsir": "Taƙaitaccen tafsiri", "tafsirS": "Tafsiri", "tfGroup": "Tafsirin ayoyi {a}-{b} tare", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushafi", "page": "Shafi",
   "tfSrc": "Madogara: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Cibiyar Tafsir don Nazarin Alƙur'ani", "tSurahs": "Surori", "tJuz": "Juz'i", "tMarks": "Alamomi", "tSearch": "Bincike",
   "index": "Fihirisa", "search": "Bincike", "marks": "Alamomi", "close": "Rufe", "swap": "Musanya gefe", "surah": "Sura", "juz": "Juz'i", "ayah": "Aya", "ayat": "ayoyi",

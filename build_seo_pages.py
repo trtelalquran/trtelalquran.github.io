@@ -190,6 +190,9 @@ FALLBACK = {k: v for k, v in J('i18n/src/_fallback.json').items() if not k.start
 for c, v in FALLBACK.items():
     sel = TRSEL.get(c, {})
     LANG_LIST.append([c, v['name'], v['dir'], v['base'], sel.get('tr') if sel.get('tr') in TRIDX else '', sel.get('tf') if sel.get('tf') in TRIDX else ''])
+# ترتيب قائمة اللغات (أيوب 2026-11-27): العربية ثم الإنجليزية، ثم لغات البلدان الأكثر مسلمين بحسب عددهم، ثم الباقي، والفارسية آخرًا
+LORDER = 'en id ur bn hi tr ha ms uz ps sw so am az kk ku fr ru ff yo tg ky ug prs ta ml te zh sq bs tl th'.split()
+LANG_LIST.sort(key=lambda x: (2, 0, '') if x[0] == 'fa' else (0, LORDER.index(x[0]), '') if x[0] in LORDER else (1, 0, x[0]))
 ALL = ['ar'] + list(LANGS)
 SRE = re.compile('(^|[\\s،(])(' + '|'.join(sorted(map(re.escape, SURAH_AR), key=len, reverse=True)) + ')(?=$|[\\s،)])')
 

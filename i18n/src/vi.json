@@ -50,6 +50,7 @@
   "corr": "tức ngày {d}", "langs": "Ngôn ngữ"
  },
  "m": {
+  "trMore": "Ngôn ngữ khác…",
   "back": "Quay lại radio", "copy": "Sao chép câu", "tafsir": "Tafsir tóm lược", "tafsirS": "Tafsir", "tfGroup": "Giải thích chung các câu {a}-{b}", "tfH": "Al-Mukhtasar fi al-Tafsir", "mushaf": "Mushaf", "page": "Trang",
   "tfSrc": "Nguồn: Al-Mukhtasar fi Tafsir al-Quran al-Karim, Trung tâm Tafsir nghiên cứu Qur'an", "tSurahs": "Surah", "tJuz": "Juz", "tMarks": "Dấu trang", "tSearch": "Tìm kiếm",
   "index": "Mục lục", "search": "Tìm kiếm", "marks": "Dấu trang", "close": "Đóng", "swap": "Đổi hai bên", "surah": "Surah", "juz": "Juz", "ayah": "Câu", "ayat": "câu",

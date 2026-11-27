@@ -50,6 +50,7 @@
   "corr": "{d} tarihine denk gelir", "langs": "Diller"
  },
  "m": {
+  "trMore": "Diğer diller…",
   "back": "Radyoya dön", "copy": "Ayeti kopyala", "tafsir": "Muhtasar tefsir", "tafsirS": "Tefsir", "tfGroup": "{a}-{b}. ayetlerin birlikte tefsiri", "tfH": "el-Muhtasar fi’t-Tefsir", "mushaf": "Mushaf", "page": "Sayfa",
   "tfSrc": "Kaynak: el-Muhtasar fi Tefsiri’l-Kur’ani’l-Kerim, Tefsir Kur’an Araştırmaları Merkezi", "tSurahs": "Sureler", "tJuz": "Cüzler", "tMarks": "İşaretler", "tSearch": "Arama",
   "index": "Fihrist", "search": "Arama", "marks": "İşaretler", "close": "Kapat", "swap": "Tarafları değiştir", "surah": "Sure", "juz": "Cüz", "ayah": "Ayet", "ayat": "ayet",
