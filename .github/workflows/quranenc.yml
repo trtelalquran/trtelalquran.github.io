@@ -1,0 +1,45 @@
+name: QuranEnc translations sync
+# يحفظ نسخة ترجمات معاني القرآن من QuranEnc.com داخل الموقع ويحدّثها شهريًا إن صدر إصدار جديد.
+on:
+  schedule:
+    - cron: '17 3 2 * *'
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'list or sync', default: 'sync' }
+  push:
+    branches: ['claude/**']
+    paths: ['mushaf/tr/select.json', 'mushaf/fetch_quranenc.py', '.github/workflows/quranenc.yml']
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: { group: quranenc, cancel-in-progress: false }
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Fetch
+        run: |
+          if [ -f mushaf/tr/select.json ]; then MODE="${{ github.event.inputs.mode || 'sync' }}"; else MODE=list; fi
+          python mushaf/fetch_quranenc.py "$MODE"
+      - name: Commit
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A mushaf/tr
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            B="quranenc-update-$(date +%Y-%m)"
+            git checkout -b "$B"
+            git commit -m "تحديث ترجمات المعاني من QuranEnc ($(date +%Y-%m))"
+            git push -f origin "$B"
+            gh pr create --base main --head "$B" --title "تحديث ترجمات المعاني من QuranEnc ($(date +%Y-%m))" --body "تحديث آلي شهري: صدرت إصدارات جديدة لبعض الترجمات في QuranEnc.com. النصوص منقولة كما هي بلا تعديل. التفاصيل في mushaf/tr/last_sync.txt" || true
+          else
+            git commit -m "نسخة ترجمات المعاني من QuranEnc"
+            git pull --rebase origin "${{ github.ref_name }}"
+            git push origin "HEAD:${{ github.ref_name }}"
+          fi
