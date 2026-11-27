@@ -1,0 +1,279 @@
+{
+"en": {
+"tr": "english_rwwad"
+},
+"fr": {
+"tr": "french_rashid",
+"tf": "french_mokhtasar"
+},
+"es": {
+"tr": "spanish_garcia",
+"tf": "spanish_mokhtasar"
+},
+"pt": {
+"tr": "portuguese_nasr"
+},
+"de": {
+"tr": "german_rwwad"
+},
+"ro": {
+"tr": "romanian_project"
+},
+"nl": {
+"tr": "dutch_center"
+},
+"sv": {
+"tr": "swedish_rwwad"
+},
+"tr": {
+"tr": "turkish_rwwad",
+"tf": "turkish_mokhtasar"
+},
+"az": {
+"tr": "azeri_musayev",
+"tf": "azeri_mokhtasar"
+},
+"mk": {
+"tr": "macedonian_group"
+},
+"sq": {
+"tr": "albanian_rwwad"
+},
+"bs": {
+"tr": "bosnian_rwwad",
+"tf": "bosnian_mokhtasar"
+},
+"sr": {
+"tr": "serbian_rwwad",
+"tf": "serbian_mokhtasar"
+},
+"hr": {
+"tr": "croatian_rwwad"
+},
+"lt": {
+"tr": "lithuanian_rwwad"
+},
+"uz": {
+"tr": "uzbek_rwwad",
+"tf": "uzbek_mokhtasar"
+},
+"tg": {
+"tr": "tajik_arifi"
+},
+"ky": {
+"tr": "kyrgyz_hakimov",
+"tf": "kyrgyz_mokhtasar"
+},
+"id": {
+"tr": "indonesian_sabiq",
+"tf": "indonesian_mokhtasar"
+},
+"tl": {
+"tr": "tagalog_rwwad",
+"tf": "tagalog_mokhtasar"
+},
+"ceb": {
+"tr": "bisayan_rwwad"
+},
+"mdh": {
+"tr": "maguindanao_rwwad"
+},
+"zh": {
+"tr": "chinese_suliman",
+"tf": "chinese_mokhtasar"
+},
+"ug": {
+"tr": "uyghur_saleh",
+"tf": "uyghur_mokhtasar"
+},
+"ja": {
+"tr": "japanese_saeedsato",
+"tf": "japanese_mokhtasar"
+},
+"vi": {
+"tr": "vietnamese_rwwad",
+"tf": "vietnamese_mokhtasar"
+},
+"th": {
+"tr": "thai_rwwad",
+"tf": "thai_mokhtasar"
+},
+"km": {
+"tr": "khmer_rwwad",
+"tf": "khmer_mokhtasar"
+},
+"fa": {
+"tr": "persian_ih",
+"tf": "persian_mokhtasar"
+},
+"ku": {
+"tr": "kurdish_bamoki",
+"tf": "kurdish_mokhtasar"
+},
+"ps": {
+"tr": "pashto_rwwad",
+"tf": "pashto_mokhtasar"
+},
+"ur": {
+"tr": "urdu_junagarhi"
+},
+"hi": {
+"tr": "hindi_omari",
+"tf": "hindi_mokhtasar"
+},
+"bn": {
+"tr": "bengali_rwwad",
+"tf": "bengali_mokhtasar"
+},
+"te": {
+"tr": "telugu_muhammad",
+"tf": "telugu_mokhtasar"
+},
+"gu": {
+"tr": "gujarati_omari"
+},
+"ml": {
+"tr": "malayalam_kunhi",
+"tf": "malayalam_mokhtasar"
+},
+"kn": {
+"tr": "kannada_hamza"
+},
+"as": {
+"tr": "assamese_rafeeq",
+"tf": "assamese_mokhtasar"
+},
+"pa": {
+"tr": "punjabi_arif"
+},
+"ta": {
+"tr": "tamil_omar",
+"tf": "tamil_mokhtasar"
+},
+"si": {
+"tr": "sinhalese_mahir",
+"tf": "sinhalese_mokhtasar"
+},
+"sw": {
+"tr": "swahili_rwwad"
+},
+"so": {
+"tr": "somali_yacob"
+},
+"am": {
+"tr": "amharic_zain"
+},
+"yo": {
+"tr": "yoruba_mikail"
+},
+"ha": {
+"tr": "hausa_gummi"
+},
+"om": {
+"tr": "oromo_rwwad"
+},
+"aa": {
+"tr": "afar_hamza"
+},
+"nqo": {
+"tr": "ankobambara_dayyan"
+},
+"rw": {
+"tr": "kinyarwanda_assoc"
+},
+"rn": {
+"tr": "ikirundi_gehiti"
+},
+"mos": {
+"tr": "moore_rwwad"
+},
+"ak": {
+"tr": "asante_harun"
+},
+"ff": {
+"tr": "fulani_rwwad",
+"tf": "fulani_mokhtasar"
+},
+"ln": {
+"tr": "lingala_zakaria"
+},
+"ca": {
+"tr": "catalan_garcia"
+},
+"el": {
+"tr": "greek_rwwad"
+},
+"it": {
+"tr": "italian_rwwad",
+"tf": "italian_mokhtasar"
+},
+"bg": {
+"tr": "bulgarian_translation"
+},
+"ka": {
+"tr": "georgian_rwwad"
+},
+"ru": {
+"tr": "russian_rwwad"
+},
+"be": {
+"tr": "belarusian_krivtsov"
+},
+"uk": {
+"tr": "ukrainian_yakubovych"
+},
+"kk": {
+"tr": "kazakh_altai"
+},
+"kbd": {
+"tr": "circassian_rwwad"
+},
+"ilp": {
+"tr": "iranun_sarro"
+},
+"ms": {
+"tr": "malay_basumayyah"
+},
+"ko": {
+"tr": "korean_rwwad"
+},
+"prs": {
+"tr": "dari_badkhashani"
+},
+"kmr": {
+"tr": "kurmanji_ismail"
+},
+"he": {
+"tr": "hebrew_darussalam"
+},
+"ne": {
+"tr": "nepali_central"
+},
+"mr": {
+"tr": "marathi_ansari"
+},
+"mg": {
+"tr": "malagasy_rwwad"
+},
+"luy": {
+"tr": "luhya_center"
+},
+"lg": {
+"tr": "luganda_foundation"
+},
+"dag": {
+"tr": "dagbani_ghatubo"
+},
+"ny": {
+"tr": "chichewa_betala"
+},
+"yao": {
+"tr": "yaw_silika"
+},
+"sn": {
+"tr": "shona_institute"
+},
+"zu": {
+"tr": "zulu_adel"
+}
+}

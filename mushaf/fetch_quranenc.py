@@ -101,7 +101,6 @@ def fetch(key):
             r = by[a]; tx, fn = r.get('translation') or '', r.get('footnotes') or ''
             one.append([tx, fn] if fn else tx)
         res.append(one)
-        time.sleep(0.15)
     return res
 
 
@@ -130,6 +129,8 @@ def main():
     old = json.load(open(idx_path, encoding='utf-8')) if os.path.exists(idx_path) else {}
     by_key = {t['key']: t for t in cat}
     new, changed, failed = {}, [], []
+    from concurrent.futures import ThreadPoolExecutor
+    todo = []
     for key in sorted({k for v in sel.values() for k in v.values() if k}):
         t = by_key.get(key)
         if not t:
@@ -137,17 +138,22 @@ def main():
             if key in old: new[key] = old[key]
             continue
         have = old.get(key)
-        if have and have.get('version') == t['version'] and have.get('last_update') == t['last_update'] and os.path.exists(os.path.join(HERE, key, '114.json')):
+        if have and have.get('version') == t['version'] and os.path.exists(os.path.join(HERE, key, '114.json')):
             new[key] = have; continue
-        try:
-            data = fetch(key)
-        except Exception as e:
-            print('FAILED', key, e); failed.append(key)
-            if have: new[key] = have
-            continue
-        for s, one in enumerate(data, 1): dump(os.path.join(HERE, key, f'{s}.json'), one)
-        new[key] = {k: t.get(k) for k in ('language_iso_code', 'direction', 'version', 'last_update', 'title', 'title_ar', 'issuer', 'issuer_ar') if t.get(k) is not None}
-        changed.append(key); print('updated', key, t['version'])
+        todo.append(key)
+    def one(key):
+        try: return key, fetch(key), None
+        except Exception as e: return key, None, e
+    with ThreadPoolExecutor(6) as ex:
+        for key, data, err in ex.map(one, todo):
+            t = by_key[key]
+            if err:
+                print('FAILED', key, err); failed.append(key)
+                if key in old: new[key] = old[key]
+                continue
+            for s, lst in enumerate(data, 1): dump(os.path.join(HERE, key, f'{s}.json'), lst)
+            new[key] = {k: t.get(k) for k in ('language_iso_code', 'direction', 'version', 'last_update', 'title', 'title_ar', 'issuer', 'issuer_ar') if t.get(k) is not None}
+            changed.append(key); print('updated', key, t['version'], flush=True)
     dump(idx_path, new, indent=None)
     print('changed:', len(changed), 'failed:', len(failed))
     open(os.path.join(HERE, 'last_sync.txt'), 'w').write('changed: ' + ', '.join(changed) + '\nfailed: ' + ', '.join(failed) + '\n')
