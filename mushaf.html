@@ -520,7 +520,9 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
     const UL = TRL ? TRL.code : 'ar';
     let nm; try { nm = new Intl.DisplayNames([UL], { type: 'language' }); } catch (e) {}
     const lab = k => { const c = TRI[k].language_iso_code; let n = ''; try { n = c === UL ? '' : nm ? nm.of(c) : ''; } catch (e) {} const t = UL === 'ar' && TRI[k].title_ar ? TRI[k].title_ar : TRI[k].title; return (n && n !== c ? n + ': ' : '') + t; };
-    const own = k => TRI[k].language_iso_code === UL ? 0 : 1, srt = (a, b) => own(a) - own(b) || lab(a).localeCompare(lab(b), UL);
+    // ترتيب التفاسير (أيوب 2026-11-27): لغة الواجهة أولًا، وفي كل لغة: المختصر ثم الميسر ثم السعدي ثم الباقي
+    const KR = k => /mokhtasar/.test(k) ? 0 : /moyassar/.test(k) ? 1 : /saadi/.test(k) ? 2 : 3;
+    const own = k => TRI[k].language_iso_code === UL ? 0 : 1, srt = (a, b) => own(a) - own(b) || KR(a) - KR(b) || lab(a).localeCompare(lab(b), UL);
     const opt = (k, cur) => '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + esc(lab(k)) + '</option>';
     // القائمتان تعرضان ما يخص لغة الزائر فقط (لغة الواجهة، واللغة التي اختارها من قائمة اللغات، ولغة اختياره المحفوظ)، والباقي تحت «أخرى…» التي تفتح كل شيء
     const L2 = store.get('lang2'), lng = k => TRI[k].language_iso_code;
