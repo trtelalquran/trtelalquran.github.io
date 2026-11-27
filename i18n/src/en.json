@@ -16,8 +16,6 @@
   "stNab": "Recitations of the Prophet's Mosque",
   "stTrt": "Tartil Radio",
   "stTar": "Tarawih of the Prophet's Mosque",
-  "fatiha": "Al-Fatihah",
-  "nas": "An-Nas",
   "nextBtn": "Next surah",
   "mus": "Mushaf",
   "musL": "Open the Mushaf at this surah",
@@ -225,8 +223,6 @@
   "recTitle": "{name} mp3 — listen and download | Tartil",
   "recDesc": "{desc}. Recordings: {n} (about {h} hours), to listen online or download as mp3 for free, alongside Tartil, a Quran radio on air around the clock.",
   "recLead": "{desc}. Recordings: {n}, about {h} hours. Press ▶ to listen here, or download the file.",
-  "kindRecited": "Recited Mushaf",
-  "kindHaramain": "Haramain Mushaf",
   "descMushaf": "{kind}, complete, recited by {who} at the Prophet's Mosque: all 114 surahs",
   "namePartial": "Recordings from the Mushaf of {who}",
   "descPartial": "Recordings from the Mushaf of {who} at the Prophet's Mosque",
@@ -257,8 +253,7 @@
   "homeOgDesc": "Listen now to live Quran recitations around the clock, without interruption.",
   "homeKeywords": "Quran recitation, Holy Quran, Quran radio, live Quran radio, imams of the Two Holy Mosques, Tarawih Prophet's Mosque, Al-Shuraim, Al-Muaiqly, Al-Jaleel, Quran podcast, Quran mp3",
   "musTitle": "Mushaf — Tartil",
-  "musDesc": "The Holy Mushaf in the Hafs narration with translation of the meanings and Al-Mukhtasar fi al-Tafsir, part of the Tartil radio website.",
-  "quranNote": "The Quran is recited and displayed in Arabic. Translations convey its meanings only."
+  "musDesc": "The Holy Mushaf in the Hafs narration with translation of the meanings and Al-Mukhtasar fi al-Tafsir, part of the Tartil radio website."
  },
  "latinSurahs": true
 }

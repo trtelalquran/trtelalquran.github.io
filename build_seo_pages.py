@@ -156,8 +156,11 @@ def load_langs():
             L[sec] = {**en[sec], **L.get(sec, {})}
         names = SOWAR.get(L.get('sowar', code)) if L.get('sowar', code) else None
         s = list(names) if names and len(names) == 114 and not L.get('latinSurahs') else list(NAMES['surahs_latin'])
+        s = [re.sub(r'\s*-\s+', '-', re.sub(r'\s+', ' ', x)).strip() for x in s]     # تنظيف مسافات زائدة في بعض القوائم
         for k, v in (L.get('s_fix') or {}).items(): s[int(k) - 1] = v
         L['s'] = s
+        L['t'].setdefault('fatiha', s[0]) if 'fatiha' in json.load(open(f, encoding='utf-8')).get('t', {}) else L['t'].update(fatiha=s[0], nas=s[113])
+        L.setdefault('qe', code if code in SOWAR else 'en')
         L['rec'] = {} if L.get('script') in ARABIC_SCRIPT else {**NAMES['reciters_latin'], **(L.get('rec') or {})}
         if L.get('script') in ARABIC_SCRIPT: L['rec'] = dict(L.get('rec') or {})
         sel = TRSEL.get(L.get('trLang', code), {})
