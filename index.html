@@ -563,7 +563,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     fatiha: 'Al-Fatihah', nas: 'An-Nas', nextBtn: 'Next surah', mus: 'Mushaf', musL: 'Open the Mushaf at this surah', backLive: 'Back to live', surahW: 'Surah',
     lblMus: 'Mushaf', lblYear: 'Year', lblList: 'List',
     allImams: 'Radio of all imams', allImamsSub: 'Each surah by a different imam',
-    allTar: 'Tarawih radio', allTarSub: 'Oldest to newest', hintTar: 'From the oldest year to the newest, then repeats',
+    allTar: 'Tarawih radio', allTarSub: 'Each surah from a different year', hintTar: 'Each surah from a different year, old then recent',
     hintDragDial: 'Drag the dial to choose a surah', hintDragBar: 'Drag the bar to choose a surah',
     dragOff: 'The dial moves when you pick a Mushaf or a year', dragOffBar: 'The bar can be dragged when you pick a Mushaf or a year',
     ofN: 'Surah {n} of 114', ayat: 'Verses', ayah: 'Verse', tarY: 'Tarawih {y} AH',
@@ -603,7 +603,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
     title: 'تلاوات من القرآن الكريم', stNab: 'تلاوات المسجد النبوي', stTrt: 'إذاعة ترتيل', stTar: 'تراويح المسجد النبوي',
     backLive: 'العودة للبث المباشر', surahW: 'سورة', lblMus: 'المصحف', lblYear: 'السنة', lblList: 'القائمة',
     allImams: 'إذاعة لكل الأئمة', allImamsSub: 'كل سورة بقراءة إمام مختلف',
-    allTar: 'إذاعة التراويح', allTarSub: 'من الأقدم إلى الأحدث', hintTar: 'من أقدم سنة إلى أحدث سنة ثم تعيد',
+    allTar: 'إذاعة التراويح', allTarSub: 'كل سورة من سنة مختلفة', hintTar: 'كل سورة من سنة مختلفة، مرة قديمة ومرة جديدة',
     hintDragDial: 'اسحب المؤشر لاختيار السورة', hintDragBar: 'اسحب الشريط لاختيار السورة',
     dragOff: 'المؤشر يتحرك معك عند اختيار مصحف أو سنة', dragOffBar: 'الشريط ينسحب عند اختيار مصحف أو سنة',
     ofN: 'السورة {n} من 114', ayat: 'الآيات', ayah: 'الآية', tarY: 'تراويح {y}هـ', hrs: 'ساعة', about: 'نحو', plPart: 'مصاحف غير مكتملة', plRec: 'تلاوات حسب القارئ', plAllG: 'كل التلاوات', dlAllH: 'تحميل كل التلاوات دفعة واحدة',
@@ -704,7 +704,7 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
   /* ---------- المحطات ----------
      trtel: الإذاعة المتزامنة من playlist.json.
      nabawi: 0 = «إذاعة لكل الأئمة» متزامنة (كل سورة بإمام غير السابق، وتتبدل التوزيعة كل ختمة)، أو مصحف إمام بعينه.
-     tarawih: 0 = «إذاعة التراويح» متزامنة من أقدم سنة إلى أحدثها، أو سنة بعينها.
+     tarawih: 0 = «إذاعة التراويح» متزامنة (ختمات، كل سورة من سنة مختلفة قديمة ثم جديدة)، أو سنة بعينها.
      المدد والروابط في stations.json. لا يُغيَّر epoch. */
   const audio = $('audio');
   let PLAY = null, STN = null, LISTS = null;
@@ -734,7 +734,14 @@ html[lang="en"] .tabs button{font-size:14.5px;font-weight:600}
       if (s === 'nabawi' && c === '0') { items = []; const all = M.map(m => one(m)); // ختمة k: السورة s يقرؤها المصحف (s+k) mod N
         for (let kh = 0; kh < M.length; kh++) for (let n = 0; n < 114; n++) { const it = all[(n + kh) % M.length].find(x => x.s === n); if (it) items.push(it); } }
       else if (s === 'nabawi') { items = one(M[+c - 1]); radio = false; }
-      else if (c === '0') { items = []; Y.slice().sort((a, b) => a.y - b.y).forEach(y => items.push(...one(y, true))); }
+      else if (c === '0') { // ختمات من الفاتحة إلى الناس: كل سورة من سنة غير التي قبلها (قديمة ثم جديدة)، وكل ليلة تُذاع مرة في الدورة
+        const ys = Y.slice().sort((a, b) => a.y - b.y), h = Math.ceil(ys.length / 2), o = ys.slice(0, h), w = ys.slice(h), A = [];
+        const g = (a, b) => b ? g(b, a % b) : a, mix = (L, m) => { while (g(m, L.length) > 1) m++; return L.map((_, i) => L[i * m % L.length]); };
+        const O = mix(o, 7), W = mix(w, 5); for (let i = 0; i < h; i++) { A.push(O[i]); if (W[i]) A.push(W[i]); }
+        const all = A.map(y => one(y, true)), N = A.length; let stp = 12; while (g(stp, N) > 1) stp++;
+        items = []; // الختمة k: السورة n من السنة A[(n + stp*k) mod N]؛ والسورة الناقصة من سنة تؤخذ من سنة أخرى
+        for (let kh = 0; kh < N; kh++) for (let n = 0; n < 114; n++) { const j = (n + stp * kh) % N;
+          const it = all[j].find(x => x.s === n) || all[(j + 17) % N].find(x => x.s === n); if (it) items.push(it); } }
       else { items = one(Y[+c - 1], true); radio = false; }
     }
     let sum = 0; const cum = items.map(it => { const x = sum; sum += it.d; return x; });
