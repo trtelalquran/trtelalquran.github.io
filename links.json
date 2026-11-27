@@ -72,6 +72,12 @@
       "icon": "tunein"
     },
     {
+      "name": "مهارة أليكسا",
+      "en": "Alexa Skill",
+      "url": "https://www.amazon.com/dp/B0HRYB4786",
+      "icon": "alexa"
+    },
+    {
       "url": "https://www.facebook.com/profile.php?id=61596505418252",
       "name": "فيسبوك",
       "en": "Facebook",
