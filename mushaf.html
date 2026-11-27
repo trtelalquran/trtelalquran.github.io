@@ -533,7 +533,7 @@ html:not([lang="ar"]) .ttl b,html:not([lang="ar"]) .row .nm,html:not([lang="ar"]
       // «أخرى…» تفتح القائمة كاملة في لوحة فوق الصفحة مباشرة، وزر الإغلاق (أو الضغط خارجها أو Esc) يتراجع بلا تغيير
       const pickAll = () => { const o = $('trAll'), close = () => { o.hidden = true; el.value = get() || ''; document.removeEventListener('keydown', esc2); }, esc2 = e => { if (e.key === 'Escape') close(); };
         o.innerHTML = '<div class="trall"><div class="hd"><b>' + esc(T('trMore').replace('…', '')) + '</b><button type="button" class="x" aria-label="' + esc(T('close')) + '">×</button></div><div class="ls">' +
-          list.map(k => '<button type="button" data-k="' + k + '" dir="auto"' + (k === get() ? ' class="cur"' : '') + '>' + esc(lab(k)) + '</button>').join('') + '</div></div>';
+          '<button type="button" data-k=""' + (get() ? '' : ' class="cur"') + '>' + esc(el.options[0].text) + '</button>' + list.map(k => '<button type="button" data-k="' + k + '" dir="auto"' + (k === get() ? ' class="cur"' : '') + '>' + esc(lab(k)) + '</button>').join('') + '</div></div>';
         o.hidden = false; document.addEventListener('keydown', esc2);
         o.onclick = e => { const b = e.target.closest('[data-k]'); if (b) { const v = b.dataset.k; o.hidden = true; document.removeEventListener('keydown', esc2); set(v); fill(el, list, v, first, false); return; }
           if (e.target === o || e.target.closest('.x')) close(); };
