@@ -17,7 +17,8 @@ for f in sorted(glob.glob(os.path.join(D, '*.json'))):
             if k not in L.get(sec, {}):
                 if k not in OPT: print(code, sec, 'MISSING', k); bad += 1
                 continue
-            if sig(v) != sig(L[sec][k]): print(code, sec, 'PLACEHOLDER/TAG MISMATCH', k, sig(v), sig(L[sec][k])); bad += 1
+            if k in ('surah', 'surahW') and sig(L[sec][k])[0] in ([], ['{s}']): pass
+            elif sig(v) != sig(L[sec][k]): print(code, sec, 'PLACEHOLDER/TAG MISMATCH', k, sig(v), sig(L[sec][k])); bad += 1
             if not L[sec][k].strip() and k != 'surah': print(code, sec, 'EMPTY', k); bad += 1
         for k in L.get(sec, {}):
             if k not in en[sec] and k not in OPT: print(code, sec, 'EXTRA', k); bad += 1

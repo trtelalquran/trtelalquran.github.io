@@ -157,6 +157,8 @@ def load_langs():
         names = SOWAR.get(L.get('sowar', code)) if L.get('sowar', code) else None
         s = list(names) if names and len(names) == 114 and not L.get('latinSurahs') else list(NAMES['surahs_latin'])
         s = [re.sub(r'\s*-\s+', '-', re.sub(r'\s+', ' ', x)).strip() for x in s]     # تنظيف مسافات زائدة في بعض القوائم
+        s = [x.title() if sum(c.isupper() for c in x) > sum(c.islower() for c in x) else x for x in s]   # أسماء مكتوبة بحروف كبيرة كلها (hr, mk, ro)
+        s = [re.sub(r"^S[ûu]r[ae]tu(?:'[a-zş]-|\s+)", '', x) for x in s] if code == 'tr' else s       # «Sûretu'l-Haşr» → «Haşr» لأن كلمة «Sure» تُضاف قبله
         for k, v in (L.get('s_fix') or {}).items(): s[int(k) - 1] = v
         L['s'] = s
         L['t'].setdefault('fatiha', s[0]) if 'fatiha' in json.load(open(f, encoding='utf-8')).get('t', {}) else L['t'].update(fatiha=s[0], nas=s[113])
@@ -201,7 +203,10 @@ class Ctx:
         if self.ar: return t
         X = self.L['x']
         t = re.sub(r'^(?:سورة\s+)?من\s+(.+?)\s+إلى\s+', lambda m: m.group(1) + ' – ', t)      # «من كذا إلى كذا» ← «كذا – كذا»
-        t = re.sub(r'^سورة\s+', lambda m: X['surah'], t)
+        if '{s}' in X['surah']:   # لغات يأتي فيها اسم السورة قبل كلمة «سورة» (مثل «{s}章»)
+            t = re.sub(r'^سورة\s+(' + SRE.pattern.split(')(', 1)[1].split(')(?=', 1)[0] + ')', lambda m: X['surah'].replace('{s}', m.group(1)), t)
+        else:
+            t = re.sub(r'^سورة\s+', lambda m: X['surah'], t)
         t = SRE.sub(lambda m: (X['comma'] if m.group(1) == '،' else m.group(1)) + self.snames[SURAH_AR.index(m.group(2))], t)
         t = t.replace('،', X['comma'])
         t = re.sub(r'(\d+)هـ', lambda m: X['ah'].replace('$1', m.group(1)), t)
