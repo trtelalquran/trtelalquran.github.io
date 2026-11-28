@@ -90,6 +90,8 @@
 
   /* حفظ مجموعة تلاوات: g معرّف القائمة (مسار صفحتها، أو fav، أو one) */
   function save(list, g, gname, gpg) {
+    // داخل تطبيق أندرويد: إن عرّف التطبيق TrtelApp.save يتولى التنزيل بمشغّله ومخزنه، ونتوقف هنا (يعيد false ليتركه للمتصفح)
+    if (window.TrtelApp && typeof TrtelApp.save === 'function') { const r = TrtelApp.save(list.map(t => Object.assign({}, t, { u: canon(t.u) || t.u })), g, gname, gpg); if (r !== false) return typeof r === 'number' ? r : list.length; }
     const it = items(), gs = groups(); let n = 0;
     list.forEach(t => { const u = canon(t.u); if (!u) return; const o = it[u] || {};
       o.t = t.t || o.t || ''; o.r = t.r || o.r || ''; o.d = t.d || o.d || 0; o.pg = t.pg || o.pg || ''; o.gs = Array.from(new Set([...(o.gs || []), g]));
