@@ -50,10 +50,10 @@
   "instPcS": "Chrome iyo Edge daaqadda rakibiddu si toos ah ayay u soo baxdaa. Browser-yada kale:", "instPc1": "Safari ee Mac: {file} → {dock}", "instPc2": "Firefox: astaanta qufulka ka jiid barta cinwaanka una keen desktop-ka", "instPc3": "Ama boggan ku dar calaamadaha (bookmarks) {ctrl}", "instFile": "Fayl", "instDock": "Ku dar Dock",
   "corr": "oo u dhiganta {d}", "langs": "Luqadaha",
   "instPcH": "Ku rakib Tartil kombiyuutarkaaga",
-  "offPlay": "Ma jiro internet. Akhrinta la keydiyay waxay ka shaqeysaa «Waxyaabaha aan soo dejiyay».",
+  "offPlay": "Ma jiro internet. Tilaawadaha la keydiyay waxaa laga dhegeysan karaa «Waxyaabaha aan soo dejiyay».",
   "myH": "Waxyaabaha aan soo dejiyay (internet la’aan)",
   "shareTr": "La wadaag",
-  "shareTrL": "La wadaag akhrintan"
+  "shareTrL": "La wadaag tilaawadan"
  },
  "m": {
   "trMore": "Luqado kale…",
@@ -127,7 +127,7 @@
   "queued": "Wuxuu sugayaa in la keydiyo",
   "saveAll": "Keydi dhammaan si aad u dhegeysato internet la’aan",
   "savedAll": "Dhammaan waa lagu keydiyay qalabkaaga",
-  "confirmAll": "Ma ku keydinaysaa {n} tilaawo qalabkaaga ({mb})? Way joogayaan internet la’aan ilaa aad tirtirto.",
+  "confirmAll": "Ma ku keydinaysaa {n} tilaawo qalabkaaga ({mb})? Waxay diyaar ahaanayaan internet la’aan ilaa aad tirtirto.",
   "favAdd": "Ku dar kuwa aad jeceshahay",
   "favDel": "Ka saar kuwa aad jeceshahay",
   "shareNow": "La wadaag barnaamijyada",

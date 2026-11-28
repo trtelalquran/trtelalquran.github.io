@@ -328,7 +328,7 @@
   "installH": "将 Tartil 安装为应用",
   "installD": "通过桌面或主屏幕图标在独立窗口中打开，可离线使用，并自动获得网站的每次更新。",
   "installBtn": "安装",
-  "radioNote": "在线电台需要网络连接。",
+  "radioNote": "电台直播需要网络连接。",
   "playAll": "播放",
   "mushafGo": "古兰经"
  }

@@ -48,7 +48,7 @@
   "instAndS": "Firefox și alte browsere", "instAnd1": "Deschide meniul {dots}", "instAnd2": "Alege {add} sau „Instalează”", "instAnd3": "Confirmă cu {ok}", "instAndA": "Adaugă pe ecranul de pornire",
   "instPcS": "În Chrome și Edge fereastra de instalare apare direct. În alte browsere:", "instPc1": "Safari pe Mac: {file} → {dock}", "instPc2": "Firefox: trage lacătul din bara de adrese pe desktop", "instPc3": "Sau adaugă pagina la marcaje {ctrl}", "instFile": "Fișier", "instDock": "Adaugă în Dock",
   "corr": "corespunzător datei de {d}", "langs": "Limbi",
-  "instPcH": "Instalați Tartil pe computer",
+  "instPcH": "Instalează Tartil pe computer",
   "offPlay": "Nu există conexiune la internet. Recitările salvate se redau din „Descărcările mele”.",
   "myH": "Descărcările mele (offline)",
   "shareTr": "Distribuie",

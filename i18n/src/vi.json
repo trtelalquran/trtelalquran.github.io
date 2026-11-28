@@ -49,10 +49,10 @@
   "instPcS": "Trên Chrome và Edge, cửa sổ cài đặt hiện ra ngay. Với các trình duyệt khác:", "instPc1": "Safari trên Mac: {file} → {dock}", "instPc2": "Firefox: kéo biểu tượng ổ khóa từ thanh địa chỉ ra màn hình nền", "instPc3": "Hoặc đánh dấu trang này {ctrl}", "instFile": "Tệp", "instDock": "Thêm vào Dock",
   "corr": "tức ngày {d}", "langs": "Ngôn ngữ",
   "instPcH": "Cài đặt Tartil trên máy tính",
-  "offPlay": "Không có kết nối internet. Các bài đọc đã lưu phát từ «Tải xuống của tôi».",
+  "offPlay": "Không có kết nối internet. Các bài xướng đọc đã lưu được phát từ «Tải xuống của tôi».",
   "myH": "Tải xuống của tôi (ngoại tuyến)",
   "shareTr": "Chia sẻ",
-  "shareTrL": "Chia sẻ bài đọc này"
+  "shareTrL": "Chia sẻ bài xướng đọc này"
  },
  "m": {
   "trMore": "Ngôn ngữ khác…",
@@ -153,10 +153,10 @@
   "resume": "Nghe tiếp",
   "savedH": "Đã lưu trên thiết bị",
   "favH": "Yêu thích",
-  "favEmpty": "Chạm ♡ cạnh bài xướng đọc bất kỳ trên trang người đọc và trang chương để tìm lại ở đây.",
+  "favEmpty": "Chạm ♡ cạnh bài xướng đọc bất kỳ trên trang người đọc và trang surah để tìm lại ở đây.",
   "favSave": "Lưu mục yêu thích để nghe ngoại tuyến",
   "emptyH": "Chưa lưu gì",
-  "emptyD": "Mở trang người đọc, mushaf hoặc chương rồi chạm ⬇ cạnh bài xướng đọc, hoặc «Lưu tất cả».",
+  "emptyD": "Mở trang người đọc, mushaf hoặc surah rồi chạm ⬇ cạnh bài xướng đọc, hoặc «Lưu tất cả».",
   "addFrom": "Thêm từ:",
   "delAll": "Xóa danh sách",
   "open": "Trang danh sách",
