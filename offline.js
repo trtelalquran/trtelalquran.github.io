@@ -65,13 +65,16 @@
   /* ---------- عامل الخدمة ---------- */
   const swOk = 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost');
   if (swOk && !navigator.serviceWorker.controller) navigator.serviceWorker.register(BASE + 'sw.js').catch(() => {});
-  const canSave = swOk && 'caches' in window;   // بدون عامل الخدمة أو Cache Storage (تصفح خاص في بعض المتصفحات) لا نعرض الحفظ أصلًا
+  let canSave = swOk && 'caches' in window;   // بدون عامل الخدمة أو Cache Storage (تصفح خاص في بعض المتصفحات) لا نعرض الحفظ أصلًا
   const tellSW = m => { if (!swOk) return; navigator.serviceWorker.ready.then(r => r.active && r.active.postMessage(m)).catch(() => {}); };
   // صفحات اللغة الأساسية تُحفظ مسبقًا لتفتح بدون إنترنت ولو لم تُزر (الرئيسية والمصحف وتحميلاتي ونصوص اللغة)
   if (navigator.onLine && window === top) setTimeout(() => { const R = BASE + (LG === 'ar' ? '' : LG + '/');
     tellSW({ k: 'warm', urls: [R + 'index.html', R + 'mushaf.html', R + 'surahs.html', R + 'reciters.html', BASE + 'offline.html'].concat(LG === 'ar' ? [] : [BASE + 'i18n/' + LG + '.js', BASE + 'i18n/o/' + LG + '.js']) }); }, 2000);
 
   /* ---------- البيانات ---------- */
+  // داخل تطبيق أندرويد: التنزيل في مخزن التطبيق نفسه، فيشغّله المشغّل في الجوال والسيارة بدون إنترنت (يعرّفه app-bridge.js في التطبيق)
+  const APP = window.TrtelApp && typeof TrtelApp.download === 'function' ? TrtelApp : null;
+  if (APP) canSave = true;   // التطبيق يحفظ في مخزنه ولو لم يتوفر عامل الخدمة
   const canon = u => u && u.indexOf(SRV) === 0 ? ARCH + u.slice(SRV.length) : u;
   const items = () => ls.get('off:items', {}), groups = () => ls.get('off:groups', {});
   const setItems = v => ls.set('off:items', v), setGroups = v => ls.set('off:groups', v);
@@ -115,7 +118,8 @@
     let again = false; if (gone.length) Object.values(it).forEach(o => { if (o.st === 'err' && o.full) { o.st = 'q'; o.tries = 0; delete o.full; again = true; } });   // فُرّغت مساحة: يكمل ما أوقفه امتلاء التخزين
     Object.keys(gs).forEach(k => { gs[k].us = (gs[k].us || []).filter(u => it[u]); if (!gs[k].us.length) delete gs[k]; });
     setItems(it); setGroups(gs);
-    const c = await caches.open(AUDIO).catch(() => null); if (c) for (const u of gone) await c.delete(u).catch(() => {});
+    if (APP) APP.remove(gone);
+    const c = window.caches ? await caches.open(AUDIO).catch(() => null) : null; if (c) for (const u of gone) await c.delete(u).catch(() => {});
     tellSW({ k: 'saved', del: gone }); changed({ k: 'del' }); if (again) run();
   }
 
@@ -173,7 +177,24 @@
     }
     return ok;
   }
+  /* التنزيل داخل التطبيق: يتولاه التطبيق واحدًا بعد واحد ويبلّغ بالتقدّم والاكتمال */
+  let appOk = 0, appTm = 0;
+  const appU = k => { const it = items(); return Object.keys(it).find(u => APP.keyOf(u) === k); };
+  function appRun() {
+    const it = items(), q = Object.keys(it).filter(u => it[u].st === 'q').sort((a, b) => (it[a].at || 0) - (it[b].at || 0));
+    if (q.length) APP.download(q.map(u => ({ u, t: it[u].t, r: it[u].r, d: it[u].d })));
+  }
+  if (APP) addEventListener('trtel:dl', e => {
+    const d = e.detail || {}, u = appU(d.k); if (!u) return;
+    if (d.st === 'p') { prog[u] = d.p; paintProg(u); if (bc) try { bc.postMessage({ k: 'p', u, p: d.p }); } catch (x) {} return; }
+    const it = items(), o = it[u]; if (!o) return; delete prog[u];
+    if (d.st === 'ok') { if (o.st !== 'ok') appOk++; o.st = 'ok'; o.sz = d.sz || o.sz; o.tries = 0; o.done = Date.now(); }
+    else { o.tries = (o.tries || 0) + 1; o.at = Date.now(); if (!navigator.onLine) o.st = 'q'; else if (o.tries >= 3) { o.st = 'err'; toast(T('fail', { t: o.t })); } else { o.st = 'q'; setTimeout(appRun, 5000); } }
+    setItems(it); changed({ k: d.st === 'ok' ? 'ok' : 'err' });
+    clearTimeout(appTm); appTm = setTimeout(() => { if (appOk && !Object.values(items()).some(x => x.st === 'q')) { toast(T('done', { n: appOk })); appOk = 0; } }, 800);
+  });
   function run() {
+    if (APP) return appRun();
     if (running || !canSave) return; running = true;
     const go = () => loop().then(n => { if (n) toast(T('done', { n })); }).catch(() => {}).finally(() => { running = false; });
     // قفل واحد بين كل التبويبات: إن كان تبويب آخر ينزّل ننتظر دورنا، فإن أُغلق ذاك التبويب أكملنا نحن ما بقي
@@ -185,6 +206,12 @@
   setTimeout(run, 1500);
   // تحقق أن المحفوظ موجود فعلًا (قد يمسح المتصفح التخزين)
   async function verify() {
+    if (APP) {   // داخل التطبيق: المرجع مخزن التطبيق
+      const ks = new Set(APP.saved()), it = items(); let f = false;
+      Object.keys(it).forEach(u => { if (it[u].st === 'ok' && !ks.has(APP.keyOf(u))) { it[u].st = 'q'; f = true; } });
+      if (f) { setItems(it); changed({ k: 'q' }); }
+      run(); return;
+    }
     if (!canSave) return;
     const c = await caches.open(AUDIO), ks = new Set((await c.keys()).map(r => r.url)), it = items(); let f = false;
     Object.keys(it).forEach(u => { if (it[u].st === 'ok' && !ks.has(u)) { it[u].st = 'q'; f = true; } });
