@@ -59,7 +59,7 @@
   const size = b => b >= 1e9 ? (b / 1e9).toFixed(1) + ' ' + T('gb') : Math.max(1, Math.round(b / 1e6)) + ' ' + T('mb');
   if (LG !== 'ar' && !(window.TRL && window.TRL.o) && !window.TRO && LG !== 'en') {   // نصوص اللغة عند الحاجة
     const s = document.createElement('script'); s.src = BASE + 'i18n/o/' + LG + '.js'; s.async = true;
-    s.onload = () => { if (window.TRO) { D = Object.assign({}, EN, window.TRO); paintAll(); } }; document.head.appendChild(s);
+    s.onload = () => { if (window.TRO) { D = Object.assign({}, EN, window.TRO); onChange({ k: 'lang' }); } }; document.head.appendChild(s);
   }
 
   /* ---------- عامل الخدمة ---------- */

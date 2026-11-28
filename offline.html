@@ -195,10 +195,8 @@ ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
   $('instBtn').onclick = () => { if (dp) { dp.prompt(); dp = null; $('inst').hidden = true; } };
 
   texts(); draw(); mushafState(); O.verify();
-  let rt = 0; O.on(m => { if (m.k === 'p') return; clearTimeout(rt); rt = setTimeout(draw, 150); });
+  let rt = 0; O.on(m => { if (m.k === 'p') return; if (m.k === 'lang') { texts(); mushafState(); } clearTimeout(rt); rt = setTimeout(draw, 150); });
   addEventListener('online', draw); addEventListener('offline', draw);
-  // إن وصلت نصوص اللغة بعد التحميل
-  setTimeout(() => { texts(); draw(); }, 800);
 })();
 </script>
 </body>

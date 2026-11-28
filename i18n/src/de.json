@@ -326,6 +326,8 @@
   "installH": "Tartil als App installieren",
   "installD": "Öffnet sich in einem eigenen Fenster mit Symbol auf dem Desktop oder Startbildschirm, funktioniert offline und erhält jedes Website-Update automatisch.",
   "installBtn": "Installieren",
-  "radioNote": "Das Live-Radio benötigt eine Internetverbindung."
+  "radioNote": "Das Live-Radio benötigt eine Internetverbindung.",
+  "playAll": "Wiedergabe",
+  "mushafGo": "Mushaf"
  }
 }

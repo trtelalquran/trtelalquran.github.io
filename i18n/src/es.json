@@ -327,6 +327,8 @@
   "installH": "Instala Tartil como aplicación",
   "installD": "Se abre en su propia ventana con un icono en el escritorio o la pantalla de inicio, funciona sin conexión y recibe cada actualización del sitio automáticamente.",
   "installBtn": "Instalar",
-  "radioNote": "La radio en directo necesita conexión a internet."
+  "radioNote": "La radio en directo necesita conexión a internet.",
+  "playAll": "Reproducir",
+  "mushafGo": "Mushaf"
  }
 }

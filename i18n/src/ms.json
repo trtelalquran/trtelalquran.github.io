@@ -174,6 +174,8 @@
   "installH": "Pasang Tartil sebagai aplikasi",
   "installD": "Dibuka dalam tetingkap sendiri dengan ikon di desktop atau skrin utama, berfungsi luar talian, dan menerima setiap kemas kini laman secara automatik.",
   "installBtn": "Pasang",
-  "radioNote": "Radio langsung memerlukan sambungan internet."
+  "radioNote": "Radio langsung memerlukan sambungan internet.",
+  "playAll": "Main",
+  "mushafGo": "Mushaf"
  }
 }
