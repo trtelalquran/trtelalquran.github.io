@@ -65,10 +65,11 @@
   /* ---------- عامل الخدمة ---------- */
   const swOk = 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost');
   if (swOk && !navigator.serviceWorker.controller) navigator.serviceWorker.register(BASE + 'sw.js').catch(() => {});
+  const canSave = swOk && 'caches' in window;   // بدون عامل الخدمة أو Cache Storage (تصفح خاص في بعض المتصفحات) لا نعرض الحفظ أصلًا
   const tellSW = m => { if (!swOk) return; navigator.serviceWorker.ready.then(r => r.active && r.active.postMessage(m)).catch(() => {}); };
   // صفحات اللغة الأساسية تُحفظ مسبقًا لتفتح بدون إنترنت ولو لم تُزر (الرئيسية والمصحف وتحميلاتي ونصوص اللغة)
   if (navigator.onLine && window === top) setTimeout(() => { const R = BASE + (LG === 'ar' ? '' : LG + '/');
-    tellSW({ k: 'warm', urls: [R + 'index.html', R + 'mushaf.html', R + 'surahs.html', R + 'reciters.html', BASE + 'offline.html'].concat(LG === 'ar' ? [] : [BASE + 'i18n/' + LG + '.js', BASE + 'i18n/o/' + LG + '.js']) }); }, 4000);
+    tellSW({ k: 'warm', urls: [R + 'index.html', R + 'mushaf.html', R + 'surahs.html', R + 'reciters.html', BASE + 'offline.html'].concat(LG === 'ar' ? [] : [BASE + 'i18n/' + LG + '.js', BASE + 'i18n/o/' + LG + '.js']) }); }, 2000);
 
   /* ---------- البيانات ---------- */
   const canon = u => u && u.indexOf(SRV) === 0 ? ARCH + u.slice(SRV.length) : u;
@@ -92,10 +93,12 @@
   function save(list, g, gname, gpg) {
     // داخل تطبيق أندرويد: إن عرّف التطبيق TrtelApp.save يتولى التنزيل بمشغّله ومخزنه، ونتوقف هنا (يعيد false ليتركه للمتصفح)
     if (window.TrtelApp && typeof TrtelApp.save === 'function') { const r = TrtelApp.save(list.map(t => Object.assign({}, t, { u: canon(t.u) || t.u })), g, gname, gpg); if (r !== false) return typeof r === 'number' ? r : list.length; }
+    if (!canSave) return 0;
     const it = items(), gs = groups(); let n = 0;
     list.forEach(t => { const u = canon(t.u); if (!u) return; const o = it[u] || {};
       o.t = t.t || o.t || ''; o.r = t.r || o.r || ''; o.d = t.d || o.d || 0; o.pg = t.pg || o.pg || ''; o.gs = Array.from(new Set([...(o.gs || []), g]));
       if (o.st !== 'ok') { o.st = 'q'; o.at = Date.now(); n++; } it[u] = o; });
+    Object.values(it).forEach(o => { if (o.st === 'err' && o.full) { o.st = 'q'; o.tries = 0; delete o.full; } });   // طلب حفظ جديد: نجرّب معه ما أوقفه امتلاء التخزين
     const old = gs[g] || {};
     gs[g] = { name: gname || old.name || g, pg: gpg || old.pg || '', at: old.at || Date.now(), us: Array.from(new Set([...(old.us || []), ...list.map(t => canon(t.u))])) };
     setItems(it); setGroups(gs); changed({ k: 'q' });
@@ -109,28 +112,42 @@
     if (g) { delete gs[g]; us.forEach(u => { const o = it[u]; if (!o) return; o.gs = (o.gs || []).filter(x => x !== g); if (!o.gs.length) gone.push(u); }); }
     else us.forEach(u => { if (it[u]) gone.push(u); });
     gone.forEach(u => delete it[u]);
+    let again = false; if (gone.length) Object.values(it).forEach(o => { if (o.st === 'err' && o.full) { o.st = 'q'; o.tries = 0; delete o.full; again = true; } });   // فُرّغت مساحة: يكمل ما أوقفه امتلاء التخزين
     Object.keys(gs).forEach(k => { gs[k].us = (gs[k].us || []).filter(u => it[u]); if (!gs[k].us.length) delete gs[k]; });
     setItems(it); setGroups(gs);
     const c = await caches.open(AUDIO).catch(() => null); if (c) for (const u of gone) await c.delete(u).catch(() => {});
-    tellSW({ k: 'saved', del: gone }); changed({ k: 'del' });
+    tellSW({ k: 'saved', del: gone }); changed({ k: 'del' }); if (again) run();
   }
 
   /* ---------- التنزيل: واحد بعد واحد (اثنان معًا)، ويكمل عند العودة لأي صفحة من ترتيل ---------- */
   let running = false; const prog = {};
-  async function fetchAudio(u) {
+  async function fetchAudio(u, signal) {
     const tries = [SRV + u.slice(ARCH.length), u];
-    let last;
-    for (const x of tries) { try { const r = await fetch(x, { mode: 'cors', credentials: 'omit', cache: 'no-store' }); if (r.ok && r.body) return r; last = new Error(r.status); } catch (e) { last = e; } }
+    let last, gone = 0;
+    for (const x of tries) { try { const r = await fetch(x, { mode: 'cors', credentials: 'omit', cache: 'no-store', signal }); if (r.ok && r.body) return r; last = new Error(r.status); if (r.status === 404 || r.status === 410) gone++; } catch (e) { last = e; if (signal && signal.aborted) break; } }
+    if (gone === tries.length && last) last.gone = true;   // غير موجود في المصدرين: لا فائدة من إعادة المحاولة تلقائيًا
     throw last || new Error('fetch');
   }
+  const STALL = 45000, sleep = ms => new Promise(r => setTimeout(r, ms));
+  const quotaErr = () => { const e = new Error('quota'); e.name = 'QuotaExceededError'; return e; };
   async function dl1(u) {
-    const r = await fetchAudio(u), len = +r.headers.get('content-length') || 0; let got = 0, tk = 0;
-    const counter = new TransformStream({ transform(ch, ctl) { got += ch.byteLength; prog[u] = len ? got / len : 0; if (Date.now() - tk > 500) { tk = Date.now(); paintProg(u); if (bc) try { bc.postMessage({ k: 'p', u, p: prog[u] }); } catch (e) {} } ctl.enqueue(ch); } });
-    const c = await caches.open(AUDIO);
-    const h = { 'Content-Type': r.headers.get('content-type') || 'audio/mpeg' }; if (len) h['Content-Length'] = String(len);
-    await c.put(u, new Response(r.body.pipeThrough(counter), { headers: h }));
-    if (len && got < len) { await c.delete(u); throw new Error('short'); }
-    return got;
+    // مهلة توقف: إن لم تصل بيانات 45 ثانية نقطع الطلب ليُعاد لاحقًا بدل أن يعلّق الطابور كله
+    const ac = new AbortController(); let wd = setTimeout(() => ac.abort(), STALL);
+    const kick = () => { clearTimeout(wd); wd = setTimeout(() => ac.abort(), STALL); };
+    try {
+      const r = await fetchAudio(u, ac.signal), len = +r.headers.get('content-length') || 0; let got = 0, tk = 0; kick();
+      // لا نبدأ ملفًا لا تكفيه المساحة الباقية
+      if (len && navigator.storage && navigator.storage.estimate) { const e = await navigator.storage.estimate().catch(() => null); if (e && e.quota && e.quota - (e.usage || 0) < len + 5e6) { ac.abort(); throw quotaErr(); } }
+      const c = await caches.open(AUDIO);
+      const h = { 'Content-Type': r.headers.get('content-type') || 'audio/mpeg' }; if (len) h['Content-Length'] = String(len);
+      let body = r.body;
+      if (body.pipeThrough && typeof TransformStream === 'function') body = body.pipeThrough(new TransformStream({ transform(ch, ctl) { kick(); got += ch.byteLength; prog[u] = len ? got / len : 0; if (Date.now() - tk > 500) { tk = Date.now(); paintProg(u); if (bc) try { bc.postMessage({ k: 'p', u, p: prog[u] }); } catch (e) {} } ctl.enqueue(ch); } }));
+      else clearTimeout(wd);   // متصفح قديم بلا TransformStream: نحفظ بلا نسبة تقدم
+      await c.put(u, new Response(body, { headers: h }));
+      if (!got) { const m = await c.match(u); got = m ? (await m.blob()).size : 0; }
+      if (!got || (len && got < len)) { await c.delete(u); throw new Error('short'); }
+      return got;
+    } finally { clearTimeout(wd); }
   }
   async function loop() {
     let ok = 0;
@@ -139,32 +156,36 @@
       if (!q.length) break;
       const batch = q.slice(0, 2);
       const res = await Promise.all(batch.map(u => dl1(u).then(n => ({ u, n }), e => ({ u, e }))));
-      const now = items();
+      const now = items(); let bad = 0;
       for (const x of res) {
         delete prog[x.u]; const o = now[x.u]; if (!o) { if (!x.e) caches.open(AUDIO).then(c => c.delete(x.u)); continue; }
         if (x.e) {
-          if (x.e && (x.e.name === 'QuotaExceededError' || /quota/i.test(String(x.e)))) { setItems(now); toast(T('quota')); changed({ k: 'err' }); return ok; }
-          o.tries = (o.tries || 0) + 1; o.at = Date.now();
+          if (x.e && (x.e.name === 'QuotaExceededError' || /quota/i.test(String(x.e)))) {
+            // امتلأ التخزين: نوقف كل المنتظر (لا نعيد تنزيله مع كل فتح صفحة)، ويكمل بعد حذف شيء أو بزر «إعادة المحاولة»
+            Object.values(now).forEach(v => { if (v.st === 'q') { v.st = 'err'; v.full = 1; } }); setItems(now); toast(T('quota')); changed({ k: 'err' }); return ok; }
+          o.tries = (o.tries || 0) + 1; o.at = Date.now(); bad = Math.max(bad, o.tries);
           if (!navigator.onLine) { setItems(now); return ok; }   // انقطع الإنترنت: يكمل لاحقًا
-          if (o.tries >= 3) { o.st = 'err'; toast(T('fail', { t: o.t })); }
-        } else { o.st = 'ok'; o.sz = x.n; o.tries = 0; o.done = Date.now(); ok++; tellSW({ k: 'saved', add: [x.u] }); }
+          if (x.e.gone || o.tries >= 3) { o.st = 'err'; if (x.e.gone) o.gone = 1; toast(T('fail', { t: o.t })); }
+        } else { o.st = 'ok'; o.sz = x.n; o.tries = 0; delete o.full; delete o.gone; o.done = Date.now(); ok++; tellSW({ k: 'saved', add: [x.u] }); }
       }
       setItems(now); changed({ k: 'ok' });
+      if (bad) await sleep(Math.min(30000, 4000 * bad));   // تمهّل قبل إعادة المحاولة على شبكة متعثرة
     }
     return ok;
   }
   function run() {
-    if (running || !('caches' in window)) return; running = true;
+    if (running || !canSave) return; running = true;
     const go = () => loop().then(n => { if (n) toast(T('done', { n })); }).catch(() => {}).finally(() => { running = false; });
-    if (navigator.locks && navigator.locks.request) navigator.locks.request('trtel-dl', { ifAvailable: true }, l => l ? go() : (running = false));
+    // قفل واحد بين كل التبويبات: إن كان تبويب آخر ينزّل ننتظر دورنا، فإن أُغلق ذاك التبويب أكملنا نحن ما بقي
+    if (navigator.locks && navigator.locks.request) navigator.locks.request('trtel-dl', go).catch(() => { running = false; });
     else go();
   }
-  addEventListener('online', () => { const it = items(); let f = false; Object.values(it).forEach(o => { if (o.st === 'err') { o.st = 'q'; o.tries = 0; f = true; } }); if (f) setItems(it); run(); banner(); });
+  addEventListener('online', () => { const it = items(); let f = false; Object.values(it).forEach(o => { if (o.st === 'err' && !o.full && !o.gone) { o.st = 'q'; o.tries = 0; f = true; } }); if (f) setItems(it); run(); banner(); });
   addEventListener('offline', banner);
   setTimeout(run, 1500);
   // تحقق أن المحفوظ موجود فعلًا (قد يمسح المتصفح التخزين)
   async function verify() {
-    if (!('caches' in window)) return;
+    if (!canSave) return;
     const c = await caches.open(AUDIO), ks = new Set((await c.keys()).map(r => r.url)), it = items(); let f = false;
     Object.keys(it).forEach(u => { if (it[u].st === 'ok' && !ks.has(u)) { it[u].st = 'q'; f = true; } });
     if (f) { setItems(it); changed({ k: 'q' }); run(); }
@@ -245,7 +266,7 @@
     lis.forEach((li, i) => {
       li.dataset.n = i + 1;
       const box = document.createElement('span'); box.className = 'oact';
-      box.innerHTML = `<button type="button" class="ob ofav">${IC.heart}</button><button type="button" class="ob osv">${IC.down}<i></i></button><button type="button" class="ob osh">${IC.share}</button>`;
+      box.innerHTML = `<button type="button" class="ob ofav">${IC.heart}</button>${canSave ? `<button type="button" class="ob osv">${IC.down}<i></i></button>` : ''}<button type="button" class="ob osh">${IC.share}</button>`;
       const dl = li.querySelector('.dl'); li.insertBefore(box, dl || null);
     });
     document.addEventListener('click', e => {
@@ -256,7 +277,7 @@
       else { const s = state(canon(t.u)); if (s === 'ok' || s === 'q') remove([canon(t.u)]); else save([t], location.pathname, groupName(), pageUrl()); }
     });
     // زر «حفظ الكل» في صفحات القرّاء والمصاحف والتراويح
-    if (/\/reciter\//.test(location.pathname)) {
+    if (canSave && /\/reciter\//.test(location.pathname)) {
       const chips = document.querySelector('.chips');
       if (chips) { const a = document.createElement('button'); a.type = 'button'; a.className = 'osaveall'; a.innerHTML = IC.down + '<span></span>'; chips.insertBefore(a, chips.firstChild);
         a.onclick = async () => {
@@ -285,7 +306,7 @@
       const u = canon(li.dataset.u), s = (it[u] || {}).st || '', fv = li.querySelector('.ofav'), sv = li.querySelector('.osv'), sh = li.querySelector('.osh');
       if (!fv) return;
       fv.classList.toggle('on', f.has(u)); fv.title = fv.ariaLabel = T(f.has(u) ? 'favDel' : 'favAdd'); fv.setAttribute('aria-pressed', f.has(u));
-      sv.dataset.s = s; sv.innerHTML = (s === 'ok' ? IC.ok : IC.down) + '<i></i>'; sv.title = sv.ariaLabel = T(s === 'ok' ? 'saved' : s === 'q' ? 'saving' : 'save');
+      if (sv) sv.dataset.s = s, sv.innerHTML = (s === 'ok' ? IC.ok : IC.down) + '<i></i>'; if (sv) sv.title = sv.ariaLabel = T(s === 'ok' ? 'saved' : s === 'q' ? 'saving' : 'save');
       sh.title = sh.ariaLabel = T('share');
       if (s !== 'ok') all = false; if (s === 'q') paintProg(u);
     });
@@ -337,7 +358,7 @@
 .obanner a{color:#fff;font-weight:600}.obanner button{background:none;border:0;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:0 4px}.otoast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#22303f;color:#fff;padding:9px 16px;border-radius:12px;z-index:100;font-size:14px;max-width:90vw}`;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
-  window.TrtelOff = { save, remove, items, groups, favs, isFav, toggleFav, share, state, canon, size, T, D: () => D, on: f => listeners.push(f), prog, run, verify, trackPos, pos, setPos, copy, toast, BASE, AUDIO, ARCH, SRV, ls };
+  window.TrtelOff = { save, remove, items, groups, favs, isFav, toggleFav, share, state, canon, size, T, D: () => D, on: f => listeners.push(f), prog, run, verify, canSave, trackPos, pos, setPos, copy, toast, BASE, AUDIO, ARCH, SRV, ls };
   const start = () => { enhance(); banner(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

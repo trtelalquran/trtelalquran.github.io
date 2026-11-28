@@ -4,8 +4,9 @@
    - التلاوات: لا يُخزَّن منها شيء تلقائيًا. ما يحفظه المستخدم (offline.js) يُشغَّل من الجهاز، مع دعم التقديم والتأخير (Range).
      وما لم يُحفظ يذهب للشبكة كما كان تمامًا (files.trtel.vip ثم الأرشيف).
    - البث المباشر (radio.trtel.vip وlive.trtel.vip) لا يمر على التخزين أبدًا. */
-const V = 'v3';
-const SHELL = 'trtel-shell-' + V, RUN = 'trtel-run-' + V, AUDIO = 'trtel-audio-v1', KEEP = 'trtel-keep-v1';   // KEEP: المصحف المحفوظ بطلب المستخدم
+const V = 'v4';
+// RUN ثابت الاسم: لا تضيع الصفحات التي زارها المستخدم عند كل تحديث لعامل الخدمة، وحجمه محدود بـ trim
+const SHELL = 'trtel-shell-' + V, RUN = 'trtel-run-v3', AUDIO = 'trtel-audio-v1', KEEP = 'trtel-keep-v1';   // KEEP: المصحف المحفوظ بطلب المستخدم
 const ARCH = 'https://archive.org/download/', SRV = 'https://files.trtel.vip/a/';
 const CORE = ['./', 'index.html', 'offline.html', 'mushaf.html', 'surahs.html', 'reciters.html', 'manifest.webmanifest', 'offline.js',
   'icon-192.png', 'icon-512.png', 'logo512.jpg?v=2', 'playlist.json', 'stations.json', 'lists.json', 'links.json',
@@ -19,7 +20,7 @@ self.addEventListener('install', e => {
 });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('trtel-') && k !== SHELL && k !== RUN && k !== AUDIO && k !== KEEP).map(k => caches.delete(k))))
-    .then(() => self.clients.claim()).then(loadKeys));
+    .then(() => self.clients.claim()).then(loadKeys).then(() => trim(true)));
 });
 
 /* مفاتيح التلاوات المحفوظة في الذاكرة: لنقرر فورًا هل نتدخل في طلب الصوت أم نتركه للشبكة كما هو */
@@ -49,6 +50,16 @@ async function serveAudio(req, key) {
     headers: { 'Content-Type': type, 'Content-Length': part.size, 'Content-Range': `bytes ${a}-${z}/${n}`, 'Accept-Ranges': 'bytes' } });
 }
 
+// سقف للمحفوظ التلقائي (الصفحات والملفات الثابتة): عند تجاوزه يُحذف الأقدم. المحفوظ بطلب المستخدم (AUDIO وKEEP) لا يُمس.
+const MAXRUN = 1500; let puts = 0;
+async function trim(force) {
+  if (!force && ++puts % 40) return;
+  try { const c = await caches.open(RUN), ks = await c.keys(); if (ks.length > MAXRUN) await Promise.all(ks.slice(0, ks.length - MAXRUN + 300).map(k => c.delete(k))); } catch (e) {}
+}
+const put = (name, key, r) => caches.open(name).then(c => c.put(key, r)).then(() => name === RUN && trim()).catch(() => {});
+// رد جاء بعد تحويل (301) لا يقبله المتصفح جوابًا لطلب تنقل من المحفوظ: نعيد بناءه بلا علامة التحويل
+const clean = r => !r.redirected ? r : r.blob().then(b => new Response(b, { status: r.status, statusText: r.statusText, headers: r.headers }));
+
 const timeout = (p, ms) => new Promise((ok, no) => { const t = setTimeout(() => no(new Error('timeout')), ms); p.then(v => { clearTimeout(t); ok(v); }, e => { clearTimeout(t); no(e); }); });
 const pageKey = u => { const x = new URL(u); x.search = ''; x.hash = ''; if (x.pathname.endsWith('/')) x.pathname += 'index.html'; return x.href; };
 
@@ -57,23 +68,25 @@ async function fromCache(key) { return (await caches.match(key, { ignoreSearch: 
 // الصفحات: الشبكة أولًا (مع مهلة إن كانت عندنا نسخة)، ثم المحفوظ، ثم صفحة «تحميلاتي»
 async function page(e) {
   const key = pageKey(e.request.url), have = await fromCache(key);
-  const net = fetch(e.request).then(r => { if (r.ok && r.type === 'basic') { const cp = r.clone(); caches.open(RUN).then(c => c.put(key, cp)); } return r; });
+  const net = fetch(e.request).then(r => { if (r.ok && r.type === 'basic') { const cp = r.clone(); Promise.resolve(clean(cp)).then(x => put(RUN, key, x)); } return r; });
   try { return await (have ? timeout(net, 6000) : net); }
   catch (err) {
-    if (have) return have;
+    if (have) return clean(have);
     return (await fromCache(abs('offline.html'))) || new Response('<meta charset="utf-8"><p dir="rtl">لا يوجد اتصال بالإنترنت.</p>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
   }
 }
 // البيانات المتغيرة (json): الشبكة أولًا ثم المحفوظ
 async function data(e) {
-  try { const r = await fetch(e.request); if (r.ok) { const cp = r.clone(); caches.open(RUN).then(c => c.put(e.request, cp)); } return r; }
-  catch (err) { const h = await caches.match(e.request, { ignoreSearch: !new URL(e.request.url).search }); if (h) return h; throw err; }
+  const h = await caches.match(e.request, { ignoreSearch: !new URL(e.request.url).search });
+  const net = fetch(e.request).then(r => { if (r.ok) put(RUN, e.request, r.clone()); return r; });
+  try { return await (h ? timeout(net, 8000) : net); }   // شبكة بطيئة جدًا: لا تعلق الصفحة ما دام عندنا نسخة
+  catch (err) { if (h) { e.waitUntil(net.catch(() => {})); return h; } throw err; }
 }
 // الثابت: المحفوظ فورًا، ويُحدَّث في الخلفية
 async function swr(e) {
   const h = await caches.match(e.request);
   const keep = /\/(mushaf|quran-tr)\//.test(new URL(e.request.url).pathname) && h && await caches.open(KEEP).then(c => c.match(e.request)).catch(() => null);
-  const net = fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') { const cp = r.clone(); caches.open(keep ? KEEP : RUN).then(c => c.put(e.request, cp)); } return r; });
+  const net = fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') put(keep ? KEEP : RUN, e.request, r.clone()); return r; });
   if (h) { e.waitUntil(net.catch(() => {})); return h; }
   try { return await net; }
   catch (err) { const o = await caches.match(e.request, { ignoreSearch: true }); if (o) return o; throw err; }   // نسخة أقدم من الملف نفسه أفضل من لا شيء
