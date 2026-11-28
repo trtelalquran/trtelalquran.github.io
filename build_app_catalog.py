@@ -150,10 +150,14 @@ def build_i18n():
             "various": P.get("whoVarious", ""),
         }
         out[L["code"]] = {"s": L["s"], "rec": L["rec"], "x": L["x"], "ui": ui}
+    # لغات بلا واجهة مترجمة: تفتح بلغة بلدها الرسمية (base) كما في الموقع
+    fb = load(os.path.join("i18n", "src", "_fallback.json"))
+    out["_fallback"] = {k: v["base"] for k, v in fb.items()
+                        if not k.startswith("_") and k not in out and (v["base"] in out or v["base"] == "ar")}
     path = os.path.join(ROOT, "app", "i18n.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
-    print(f"i18n.json: {len(out)} لغة، {os.path.getsize(path)//1024} KB")
+    print(f"i18n.json: {len(out)-1} لغة + {len(out['_fallback'])} لغة تابعة، {os.path.getsize(path)//1024} KB")
 
 
 if __name__ == "__main__":
