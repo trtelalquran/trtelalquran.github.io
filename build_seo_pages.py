@@ -376,7 +376,7 @@ def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}logo1200.jpg?v=2"><meta property="og:locale" content="{'ar_AR' if C.ar else C.L['loc'].replace('-', '_')}">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="{rup}logo512.jpg?v=2">
+<link rel="icon" href="{rup}logo512.jpg?v=2"><link rel="manifest" href="{rup}manifest.webmanifest">
 <meta name="theme-color" content="#f5efe2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
@@ -397,6 +397,7 @@ def page(C, path, title, desc, h1, crumbs, body, lead='', player=False, extra_ld
 {lang_links(C, path, rup)}</footer>
 </div>
 {f'<script>{PLAY_JS}</script>' if player else ''}
+<script src="{rup}offline.js?v={OFFV}" defer></script>
 </body>
 </html>
 """
@@ -534,6 +535,7 @@ def update_root(fname, path, anchor):
     p = os.path.join(ROOT, fname); s = open(p, encoding='utf-8').read()
     s = re.sub(r'/\*LANGS\*/.*?/\*/LANGS\*/', lambda m: '/*LANGS*/' + json.dumps(LANG_LIST, ensure_ascii=False, separators=(',', ':')) + '/*/LANGS*/', s, count=1, flags=re.S)
     s = set_block(s, 'HREFLANG', alternates(path), anchor)
+    s = re.sub(r'offline\.js\?v=\w+', 'offline.js?v=' + OFFV, s)
     open(p, 'w', encoding='utf-8').write(s)
     return s
 
@@ -592,10 +594,14 @@ def localize(s, C, fname, title, desc, og_title=None, og_desc=None, keywords=Non
 def write_lang_js(C):
     L = C.L
     obj = {'code': C.code, 'dir': L['dir'], 'loc': L['loc'], 'name': L['name'], 'brand': L['p']['brand'], 'qe': L.get('qe', 'en'), 'tr': L.get('tr'), 'tf': L.get('tf'),
-           't': L['t'], 'm': L['m'], 'x': L['x'], 's': L['s'], 'rec': L['rec']}
+           't': L['t'], 'm': L['m'], 'x': L['x'], 's': L['s'], 'rec': L['rec'], 'o': L.get('o', {})}
     os.makedirs(os.path.join(ROOT, 'i18n'), exist_ok=True)
     open(os.path.join(ROOT, 'i18n', C.code + '.js'), 'w', encoding='utf-8').write(
         '/* يولّده build_seo_pages.py من i18n/src/' + C.code + '.json — لا تعدّله يدويًا */\nwindow.TRL=' + json.dumps(obj, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    # نصوص «بدون إنترنت» وحدها لصفحات القرّاء والسور و«تحميلاتي» (offline.js)
+    os.makedirs(os.path.join(ROOT, 'i18n', 'o'), exist_ok=True)
+    open(os.path.join(ROOT, 'i18n', 'o', C.code + '.js'), 'w', encoding='utf-8').write(
+        '/* يولّده build_seo_pages.py من i18n/src/' + C.code + '.json → o */\nwindow.TRO=' + json.dumps(L.get('o', {}), ensure_ascii=False, separators=(',', ':')) + ';\n')
 
 
 # ---------- التنفيذ ----------
@@ -603,6 +609,7 @@ os.makedirs(os.path.join(ROOT, 'mushaf', 'q'), exist_ok=True)
 for _n, _q in enumerate(QTEXT, 1):
     json.dump(_q, open(os.path.join(ROOT, 'mushaf', 'q', f'{_n}.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 SHARED = shared_files()
+OFFV = hashlib.md5(open(os.path.join(ROOT, 'offline.js'), 'rb').read()).hexdigest()[:8]   # بصمة offline.js في روابطه
 ROOT_INDEX = update_root('index.html', '', '<link rel="canonical" href="https://trtel.vip/">')
 ROOT_MUSHAF = update_root('mushaf.html', 'mushaf.html', '<link rel="canonical" href="https://trtel.vip/mushaf.html">')
 REDIR = lang_redirect_js() if LANGS else ''

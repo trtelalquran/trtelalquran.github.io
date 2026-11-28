@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="../i18n/ur.js?v=74b73c00"></script>
+<script src="../i18n/ur.js?v=f1c04152"></script>
 <script>
 /* يطبّق الثيم واللغة المحفوظين قبل الرسم لتجنّب الوميض. الثيمات: paper (الافتراضي منذ 2026-11-23) و blue و dark */
 (function(){try{var d=document.documentElement,t=localStorage.getItem('theme');t=t==='blue'?'blue':(t==='dark'||t==='gold')?'dark':'paper';
@@ -127,6 +127,7 @@ button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--re
 .hrow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(max-content,1fr);align-items:center;margin:8px 0 0}
 .hrow .big{margin:0;min-width:0;grid-column:2}
 .hrow .mus{grid-column:3;justify-self:start;margin-inline-start:22px}
+.hrow .shr{grid-column:1;grid-row:1;justify-self:end;margin-inline-end:22px;cursor:pointer;font-family:var(--body)}
 .logo[data-mus]{cursor:pointer}
 .mus{flex:none;display:flex;flex-direction:column;align-items:center;gap:1px;border:1px solid var(--gold);border-radius:12px;padding:6px 7px 3px;color:var(--gold);background:var(--panel);font:600 10.5px/1.2 var(--body);text-decoration:none;box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 14%,transparent)}
 .mus svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
@@ -428,6 +429,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
 /* زر «أضف للشاشة الرئيسية» بجانب المشاركة، وشريط يظهر مرة لزائر الجوال (2026-11-24) */
 .frow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .frow .btn.fshare{margin:0}
+.btn.fshare.inst{text-decoration:none;color:inherit}
 .btn.fshare.inst svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;width:15px;height:15px}
 .ibar{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;background:var(--panel);color:var(--ink);border:1px solid var(--gold);border-radius:14px;padding:10px 12px;box-shadow:0 10px 30px #0003;max-width:436px;margin:auto}
 .ibar img{width:42px;height:42px;border-radius:10px;flex:none}
@@ -477,7 +479,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
         <ul class="picklist" role="listbox" hidden></ul>
       </div>
       <div class="hint" id="hint"></div>
-      <div class="hrow"><h1 class="big" id="big">…</h1><a class="mus" id="musBtn" href="mushaf.html" target="trtelMushaf" data-i18n-aria="musL" aria-label="مصحف کو اسی سورت پر کھولیں"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13"/></svg><span data-i18n="mus">مصحف</span></a></div>
+      <div class="hrow"><button class="mus shr" id="shrBtn" type="button" data-i18n-aria="shareTrL" aria-label="یہ تلاوت شیئر کریں"><svg viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></svg><span data-i18n="shareTr">شیئر</span></button><h1 class="big" id="big">…</h1><a class="mus" id="musBtn" href="mushaf.html" target="trtelMushaf" data-i18n-aria="musL" aria-label="مصحف کو اسی سورت پر کھولیں"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13"/></svg><span data-i18n="mus">مصحف</span></a></div>
       <div class="ay" id="ay"></div>
       <div class="rc" id="rc"></div>
       <div class="dial" id="dial">
@@ -553,6 +555,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
     <div class="frow">
     <button class="btn fshare" id="shareBtn" type="button"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.2 1l-7-4a3 3 0 0 0 0-2l7-4A3 3 0 1 0 15 5a3 3 0 0 0 .1.7l-7 4a3 3 0 1 0 0 4.6l7 4A3 3 0 1 0 18 16z"/></svg><span data-i18n="shareH">ریڈیو شیئر کریں</span></button>
     <button class="btn fshare inst" id="instBtn" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/></svg><span data-i18n="instH">ہوم اسکرین پر شامل کریں</span></button>
+    <a class="btn fshare inst" id="myBtn" href="../offline.html"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="myH">میری ڈاؤن لوڈز (آف لائن)</span></a>
     </div>
     <p class="lead" data-i18n="waqf">یہ ریڈیو اللہ تعالیٰ کی رضا کے لیے وقف ہے، اسے پھیلانے میں حصہ لیں، کیونکہ نیکی کی طرف رہنمائی کرنے والا اسے کرنے والے کی طرح ہے۔</p>
     <p><span data-i18n="mailL">آرا اور تجاویز کے لیے؛ اور اگر کسی مواد پر آپ کا حق ہو تو آپ کی درخواست پر ہم اسے فوراً ہٹا دیں گے:</span> <a class="mail" href="mailto:info@trtel.vip">info@trtel.vip</a></p>
@@ -603,7 +606,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
     instT: 'أضف ترتيل للشاشة الرئيسية', instTpc: 'أضف ترتيل لسطح المكتب', instOk: 'تم', instDone: 'تمت إضافة ترتيل',
     instIosS: 'آيفون وآيباد (سفاري وكروم)', instIos1: 'اضغط زر المشاركة {share} في شريط المتصفح', instIos2: 'اختر {add}', instIos3: 'اضغط {ok} أعلى الشاشة', instIosA: 'إضافة إلى الشاشة الرئيسية', instIosN: 'في سفاري زر المشاركة في الشريط السفلي',
     instAndS: 'فايرفوكس والمتصفحات الأخرى', instAnd1: 'افتح القائمة {dots}', instAnd2: 'اختر {add} أو «تثبيت»', instAnd3: 'أكّد بـ {ok}', instAndA: 'إضافة إلى الشاشة الرئيسية',
-    instPcS: 'في كروم وإيدج تظهر نافذة التثبيت مباشرة. وفي غيرهما:', instPc1: 'سفاري على الماك: {file} ← {dock}', instPc2: 'فايرفوكس: اسحب القفل من شريط العنوان إلى سطح المكتب', instPc3: 'أو أضف الصفحة للمفضلة {ctrl}', instFile: 'ملف', instDock: 'إضافة إلى Dock'
+    instPcH: 'ثبّت ترتيل على الكمبيوتر', offPlay: 'لا يوجد اتصال بالإنترنت. التلاوات المحفوظة تعمل من «تحميلاتي».', instPcS: 'في كروم وإيدج تظهر نافذة التثبيت مباشرة. وفي غيرهما:', instPc1: 'سفاري على الماك: {file} ← {dock}', instPc2: 'فايرفوكس: اسحب القفل من شريط العنوان إلى سطح المكتب', instPc3: 'أو أضف الصفحة للمفضلة {ctrl}', instFile: 'ملف', instDock: 'إضافة إلى Dock'
   };
   document.querySelectorAll('[data-i18n]').forEach(e => AR[e.dataset.i18n] = e.textContent);
   document.querySelectorAll('[data-i18n-html]').forEach(e => AR[e.dataset.i18nHtml] = e.innerHTML);
@@ -864,7 +867,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
     fillPick();
     if (!cur) { render(); return; }
     if (cur.radio) { cur.live = true; cur.idx = livePos(cur)[0]; }
-    if (wantPlay) { if (cur.radio) goLive(); else load(cur.idx, 0); }
+    if (wantPlay) { if (cur.radio) goLive(); else load(cur.idx, resumeAt()); }
     else { if (!audio.paused) audio.pause(); render(); paint(cur.radio ? livePos(cur)[1] : 0); }
   }
   function go(s) { st.station = s; [...$('tabs').children].forEach(b => b.setAttribute('aria-selected', b.dataset.st === s)); drops.forEach(d => d.close()); use(); }
@@ -881,10 +884,16 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
 
   $('playBtn').onclick = () => {
     if (!cur) return;
-    if (audio.paused) { wantPlay = true; if (cur.radio && cur.live) goLive(); else if (!isLoaded()) load(cur.idx, 0); else audio.play().catch(() => {}); }
+    if (audio.paused) { wantPlay = true; if (cur.radio && cur.live) goLive(); else if (!isLoaded()) load(cur.idx, resumeAt()); else audio.play().catch(() => {}); }
     else { wantPlay = false; audio.pause(); }
   };
   $('nextBtn').onclick = next;
+  // مشاركة التلاوة الحالية: رابط صفحة السورة أو رابط ملف mp3 أو الملف نفسه (offline.js)
+  $('shrBtn').onclick = () => { if (!cur || !window.TrtelOff) return; const it = cur.items[cur.idx], x = info(it);
+    TrtelOff.share({ u: it.u, t: (x.long ? x.big : sW(x.big)) + (it.t && x.ay ? ' · ' + x.ay : ''), r: x.rc, pg: new URL('surah/' + (it.s + 1) + '.html', location.href).href }); };
+  // آخر موضع استماع داخل التلاوة للمصاحف والسنوات (الإذاعات المتزامنة تتبع الوقت)
+  const resumeAt = () => { if (!cur || cur.radio) return 0; const v = (store.get('pt:' + cur.key) || '').split(':');
+    return +v[0] === cur.idx && +v[1] > 15 ? +v[1] : 0; };
 
   audio.onplay = () => { setPlaying(true); if (bc) try { bc.postMessage({ k: 'playing', id: tabId }); } catch (e) {} tellNow(); };
   audio.onpause = () => { setPlaying(false); tellNow(); };
@@ -895,9 +904,12 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
   };
   audio.onerror = () => { if (!audio.src || !cur || (audio.error && audio.error.code === 1)) return;
     if (useSrv && audio.src.indexOf(SRV) === 0) { useSrv = false; if (cur.radio && cur.live) goLive(); else load(cur.idx, audio.currentTime || lastOff); return; }
-    switching = false; toast(T('loadErr'));
+    switching = false;
+    if (!navigator.onLine) { wantPlay = false; audio.pause(); toast(T('offPlay')); return; }   // بدون إنترنت: لا نتنقل بين المقاطع بلا فائدة (التلاوات المحفوظة تعمل من «تحميلاتي»)
+    toast(T('loadErr'));
     const k = cur.key, i = cur.idx; setTimeout(() => { if (cur && cur.key === k && cur.idx === i && wantPlay) { if (cur.radio) cur.live = false; load((i + 1) % cur.items.length, 0); } }, 3000); };
 
+  let ptN = 0;
   setInterval(() => {
     if (!cur) return;
     if (cur.radio && cur.live) {
@@ -907,7 +919,8 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
       else if (i === (cur.idx + 1) % n && off < 8) paint(audio.currentTime);              // التلاوة أطول قليلًا من المدة المسجلة: تُترك لتنتهي
       else if ((i + 1) % n === cur.idx && cur.items[i].d - off < 8) paint(audio.currentTime); // سبقنا الساعة بثوانٍ
       else goLive();                                                                        // الساعة هي المرجع في البث المباشر
-    } else paint(isLoaded() ? audio.currentTime : 0);
+    } else { paint(isLoaded() ? audio.currentTime : 0);
+      if (isLoaded() && !audio.paused && ++ptN % 5 === 0) { const t = audio.currentTime || 0, d = cur.items[cur.idx].d || 0; store.set('pt:' + cur.key, t > 15 && (!d || d - t > 20) ? cur.idx + ':' + Math.floor(t) : null); } }
     if ($('musFrame') || !audio.paused) { if (++nowN % 3 === 0) tellNow(); } // موضع التلاوة للمصحف (للتتبّع)
   }, 1000);
 
@@ -982,6 +995,7 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
   if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register(B + 'sw.js').catch(() => {});
   const hideInstall = () => { $('instBtn').hidden = true; $('ibar').hidden = true; };
   if (standalone()) hideInstall();
+  else if (!mobile) { const sp = $('instBtn').querySelector('span'); sp.dataset.i18n = 'instPcH'; sp.textContent = T('instPcH'); }   // الكمبيوتر: تثبيت تطبيق بنافذة مستقلة
   addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
   addEventListener('appinstalled', () => { deferredPrompt = null; hideInstall(); store.set('installed', '1'); toast(T('instDone')); });
   const K = t => '<span class="k">' + t + '</span>';
@@ -1131,5 +1145,6 @@ html:not([lang="ar"]) .tabs button{font-size:14.5px;font-weight:600}
   applyLang();
 })();
 </script>
+<script src="../offline.js?v=151ac96d" defer></script>
 </body>
 </html>

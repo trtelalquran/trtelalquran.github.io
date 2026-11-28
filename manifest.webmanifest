@@ -1,7 +1,7 @@
 {
   "name": "ترتيل — تلاوات من القرآن الكريم",
   "short_name": "ترتيل",
-  "description": "إذاعة تلاوات قرآنية مباشرة على مدار الساعة لأئمة الحرمين وقرّاء آخرين.",
+  "description": "إذاعة تلاوات قرآنية مباشرة على مدار الساعة لأئمة الحرمين وقرّاء آخرين، مع المصحف والتفسير، وحفظ التلاوات للاستماع بدون إنترنت.",
   "lang": "ar",
   "dir": "rtl",
   "id": "/",
@@ -11,8 +11,72 @@
   "background_color": "#f5efe2",
   "theme_color": "#f5efe2",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "books",
+    "education",
+    "music"
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "shortcuts": [
+    {
+      "name": "تحميلاتي (بدون إنترنت)",
+      "short_name": "تحميلاتي",
+      "url": "/offline.html?source=pwa",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "المصحف",
+      "short_name": "المصحف",
+      "url": "/mushaf.html?source=pwa",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "السور",
+      "short_name": "السور",
+      "url": "/surahs.html?source=pwa",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ]
 }
