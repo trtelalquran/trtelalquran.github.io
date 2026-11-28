@@ -37,6 +37,6 @@ au.dataset.u=u;au.dataset.f='';au.src=(srv&&u.indexOf(A)===0)?S+u.slice(A.length
 au.addEventListener('error',function(){if(au.dataset.f||!au.dataset.u)return;au.dataset.f='1';srv=false;au.src=au.dataset.u;au.play().catch(function(){});});
 au.addEventListener('ended',function(){var n=cur&&cur.nextElementSibling;if(n)go(n);});
 document.addEventListener('click',function(e){var b=e.target.closest('.pl');if(!b)return;var li=b.closest('li');if(li===cur&&!au.paused){au.pause();return;}if(li===cur){au.play();return;}go(li);});})();</script>
-<script src="../../offline.js?v=b45f4392" defer></script>
+<script src="../../offline.js?v=9a37acdf" defer></script>
 </body>
 </html>

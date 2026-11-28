@@ -89,7 +89,7 @@ ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
       return `<li data-g="${E(g)}" data-i="${i}" class="${s === 'q' ? 'q' : ''}"><button class="pl" type="button" aria-label="${E(T('play'))}">${IC_PLAY}</button>` +
         `<span class="t"><b>${E(t.t)}</b><small>${t.d ? fmt(t.d) + ' · ' : ''}${E(t.r || '')}${o.sz ? ' · ' + O.size(o.sz) : ''}${st ? ' · <span class="st">' + E(st) + '</span>' : ''}</small></span>` +
         `<span class="oact"><button type="button" class="ob osh" title="${E(T('share'))}" aria-label="${E(T('share'))}"></button>` +
-        (s ? `<button type="button" class="ob odel" title="${E(T('delOne'))}" aria-label="${E(T('delOne'))}"></button>` : `<button type="button" class="ob osv" title="${E(T('save'))}" aria-label="${E(T('save'))}"></button>`) + `</span></li>`; }).join('');
+        (s ? `<button type="button" class="ob odel" title="${E(T('delOne'))}" aria-label="${E(T('delOne'))}"></button>` : O.canSave ? `<button type="button" class="ob osv" title="${E(T('save'))}" aria-label="${E(T('save'))}"></button>` : '') + `</span></li>`; }).join('');
   }
   const SH = '<svg viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></svg>';
   const DEL = '<svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg>', DN = '<svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>';
@@ -114,7 +114,7 @@ ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
     const f = O.favs(); LISTS.fav = f.map(x => Object.assign({}, x, O.items()[x.u] || {}, { u: x.u, t: x.t, r: x.r, pg: x.pg }));
     $('fav').innerHTML = !f.length ? `<p class="ofl">${E(T('favEmpty'))}</p>` :
       `<div class="row" style="margin:0 0 8px"><button class="bt pri" type="button" data-a="play" data-g="fav">${E(T('playAll'))}</button>` +
-      (f.some(x => !O.state(x.u)) ? `<button class="bt" type="button" data-a="savefav">${DN.replace('<svg', '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"')} ${E(T('favSave'))}</button>` : '') + `</div><ul class="tr">${rows(LISTS.fav, 'fav')}</ul>`;
+      (O.canSave && f.some(x => !O.state(x.u)) ? `<button class="bt" type="button" data-a="savefav">${DN.replace('<svg', '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"')} ${E(T('favSave'))}</button>` : '') + `</div><ul class="tr">${rows(LISTS.fav, 'fav')}</ul>`;
     icons($('fav'));
     space(); mark();
   }
@@ -132,25 +132,30 @@ ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
     if (li) { const t = LISTS[li.dataset.g][+li.dataset.i];
       if (b.classList.contains('pl')) play(li.dataset.g, +li.dataset.i);
       else if (b.classList.contains('osh')) O.share(t);
-      else if (b.classList.contains('odel')) O.remove([t.u]);
+      else if (b.classList.contains('odel')) { if (O.state(t.u) !== 'ok' || O.askDel(t)) O.remove([t.u]); }
       else if (b.classList.contains('osv')) O.save([t], 'fav', T('favH'), '');
       return; }
     if (a === 'play') { const list = LISTS[g] || [], i = list.findIndex(t => t.st === 'ok'); play(g, i < 0 ? 0 : i); }
     else if (a === 'del') { const list = LISTS[g] || []; if (confirm(T('delQ', { n: list.length }))) O.remove(list.map(t => t.u), g); }
-    else if (a === 'retry') { const it = O.items(); (LISTS[g] || []).forEach(t => { if (it[t.u] && it[t.u].st === 'err') { it[t.u].st = 'q'; it[t.u].tries = 0; } }); ls.set('off:items', it); O.run(); draw(); }
+    else if (a === 'retry') { const it = O.items(); (LISTS[g] || []).forEach(t => { if (it[t.u] && it[t.u].st === 'err') { it[t.u].st = 'q'; it[t.u].tries = 0; delete it[t.u].full; delete it[t.u].gone; } }); ls.set('off:items', it); O.run(); draw(); }
     else if (a === 'savefav') O.save(O.favs(), 'fav', T('favH'), '');
   });
 
   /* ---------- المشغّل: من الجهاز إن حُفظت، وإلا من الشبكة (سيرفر ترتيل ثم الأرشيف) ---------- */
-  const au = $('au'); let cur = null;
+  const au = $('au'); let cur = null, blobUrl = '';
   O.trackPos(au, () => cur && cur.t.u);
   function play(g, i) {
     const list = LISTS[g] || [], t = list[i]; if (!t) return;
     cur = { g, i, t }; ls.set('off:last', { g, u: t.u });
     $('obar').classList.add('on'); $('now').textContent = t.t + (t.r ? ' · ' + t.r : '');
     const saved = O.state(t.u) === 'ok';
-    au.dataset.f = saved ? '1' : ''; au.src = saved ? t.u : O.SRV + t.u.slice(O.ARCH.length);
-    au.play().catch(() => {}); mark();
+    if (blobUrl) { URL.revokeObjectURL(blobUrl); blobUrl = ''; }
+    au.dataset.f = saved ? '1' : '';
+    // إن لم يكن عامل الخدمة متحكمًا بالصفحة (تحديث قسري Ctrl+Shift+R مثلًا) نشغّل المحفوظ من التخزين مباشرة
+    if (saved && !(navigator.serviceWorker && navigator.serviceWorker.controller)) {
+      caches.open(O.AUDIO).then(c => c.match(t.u)).then(r => r && r.blob()).then(b => { if (!cur || cur.t !== t) return; if (b) { blobUrl = URL.createObjectURL(b); au.src = blobUrl; } else au.src = t.u; au.play().catch(() => {}); }).catch(() => {});
+    } else { au.src = saved ? t.u : O.SRV + t.u.slice(O.ARCH.length); au.play().catch(() => {}); }
+    mark();
     if ('mediaSession' in navigator && window.MediaMetadata) navigator.mediaSession.metadata = new MediaMetadata({ title: t.t, artist: t.r || '', album: T('brand'), artwork: [{ src: 'logo512.jpg?v=2', sizes: '512x512', type: 'image/jpeg' }] });
   }
   au.addEventListener('error', () => { if (!cur || au.dataset.f) return; au.dataset.f = '1'; au.src = cur.t.u; au.play().catch(() => {}); });
