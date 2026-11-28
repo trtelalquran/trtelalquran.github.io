@@ -48,7 +48,12 @@
   "instIosS": "iPhone na iPad (Safari na Chrome)", "instIos1": "Gusa kitufe cha Kushiriki {share} kwenye upau wa kivinjari", "instIos2": "Chagua {add}", "instIos3": "Gusa {ok} juu ya skrini", "instIosA": "Ongeza kwenye Skrini ya Mwanzo", "instIosN": "Katika Safari kitufe cha Kushiriki kiko kwenye upau wa chini",
   "instAndS": "Firefox na vivinjari vingine", "instAnd1": "Fungua menyu {dots}", "instAnd2": "Chagua {add} au “Sakinisha”", "instAnd3": "Thibitisha kwa {ok}", "instAndA": "Ongeza kwenye skrini ya kwanza",
   "instPcS": "Katika Chrome na Edge dirisha la kusakinisha huonekana moja kwa moja. Katika vivinjari vingine:", "instPc1": "Safari kwenye Mac: {file} → {dock}", "instPc2": "Firefox: buruta alama ya kufuli kutoka upau wa anwani hadi kwenye eneo-kazi", "instPc3": "Au weka ukurasa kwenye vialamisho {ctrl}", "instFile": "Faili", "instDock": "Ongeza kwenye Dock",
-  "corr": "sawa na {d}", "langs": "Lugha"
+  "corr": "sawa na {d}", "langs": "Lugha",
+  "instPcH": "Sakinisha Tartil kwenye kompyuta yako",
+  "offPlay": "Hakuna muunganisho wa intaneti. Visomo vilivyohifadhiwa vinachezwa kutoka «Vipakuliwa vyangu».",
+  "myH": "Vipakuliwa vyangu (bila intaneti)",
+  "shareTr": "Shiriki",
+  "shareTrL": "Shiriki kisomo hiki"
  },
  "m": {
   "trMore": "Lugha nyingine…",
@@ -106,5 +111,15 @@
   "qText": "Maandishi na tafsiri ya maana",
   "qSrc": "Tafsiri ya maana: {t}, toleo la {v}, imechapishwa bila mabadiliko kutoka QuranEnc.com.",
   "qNote": "Tafsiri huwasilisha maana za Qur'ani tu; si Qur'ani yenyewe. Qur'ani ni maandishi ya Kiarabu yaliyo hapo juu."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Redio mubashara",
+  "navRec": "Wasomaji na Misahafu",
+  "navSur": "Sura",
+  "play": "Cheza",
+  "my": "Vipakuliwa vyangu",
+  "share": "Shiriki",
+  "shareT": "Shiriki kisomo hiki"
  }
 }

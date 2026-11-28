@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحميلاتي — ترتيل</title>
+<meta name="description" content="التلاوات والمصحف المحفوظة على جهازك للاستماع والقراءة بدون إنترنت.">
+<meta name="robots" content="noindex">
+<base href="/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="logo512.jpg?v=2">
+<meta name="theme-color" content="#f5efe2">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var S=localStorage,t=S.getItem('theme'),l=S.getItem('lang')||S.getItem('lastLang')||'ar',h=document.documentElement;
+if(t==='dark'||t==='gold')h.setAttribute('data-theme','dark');
+if(/^[a-z]{2,3}$/.test(l)&&l!=='ar'){h.lang=l;h.dir=/^(ur|fa|ps|he|ug|prs|ku|nqo)$/.test(l)?'rtl':'ltr';}}catch(e){}})();</script>
+<link rel="stylesheet" href="seo.css">
+<style>
+[hidden]{display:none!important}
+.card{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:14px 16px;margin:14px 0}
+.card h2{margin:0 0 4px}.card p{margin:4px 0;color:var(--mut);font-size:14.5px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.bt{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.bt.pri{background:var(--on);color:var(--on-ink);border-color:transparent}.bt:disabled{opacity:.6;cursor:default}.bt.dan{color:#b03a2e}
+.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:8px 0 2px}.meter i{display:block;height:100%;background:var(--gold);width:0}
+details.g{border:1px solid var(--line);background:var(--bg2);border-radius:14px;margin:10px 0;overflow:hidden}
+details.g>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px}details.g>summary::-webkit-details-marker{display:none}
+details.g>summary .t{flex:1;min-width:0}details.g>summary b{display:block;font-weight:500}details.g>summary small{color:var(--mut);font-size:13px}
+details.g .acts{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+details.g ul.tr{border:0;border-top:1px solid var(--line);border-radius:0}
+ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
+.empty{text-align:center;padding:22px 10px}.empty b{display:block;font:700 19px var(--display);color:var(--ink)}
+#obar{position:sticky;bottom:0;margin-top:16px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:8px 12px;display:none;box-shadow:0 -6px 20px #0001}
+#obar.on{display:block}#obar .nm{display:flex;align-items:center;gap:8px}#obar .nm b{flex:1;font-weight:500;font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#obar audio{width:100%;height:38px;margin-top:4px}.nb{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.nb svg{width:15px;height:15px;fill:currentColor}[dir="rtl"] .nb svg{transform:scaleX(-1)}
+.ofl{font-size:13px;color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" id="home" href="./"><img src="logo512.jpg?v=2" alt="" width="40" height="40"><span id="brand">ترتيل</span></a><a class="live" id="liveA" href="./">الإذاعة المباشرة</a></header>
+<h1 id="h1">تحميلاتي</h1>
+<p class="lead" id="lead"></p>
+
+<div class="card" id="inst" hidden><h2 id="instH"></h2><p id="instD"></p><div class="row"><button class="bt pri" type="button" id="instBtn"></button></div></div>
+
+<div class="card" id="spaceC"><div class="meter"><i id="meter"></i></div><p id="space"></p><div class="row" id="resumeR" hidden><button class="bt pri" type="button" id="resumeB"></button></div></div>
+
+<h2 id="savedH"></h2>
+<div id="groups"></div>
+
+<h2 id="favH"></h2>
+<div id="fav"></div>
+
+<div class="card"><h2 id="mushafH"></h2><p id="mushafD"></p><p id="mushafS" class="ofl"></p>
+  <div class="row"><button class="bt pri" type="button" id="mushafBtn"></button><a class="bt" id="mushafGo" href="mushaf.html"></a></div></div>
+
+<p class="ofl" id="radioNote"></p>
+<div id="obar"><div class="nm"><button class="nb" type="button" id="pv"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button><b id="now"></b><button class="nb" type="button" id="nx"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5l11 7-11 7z"/></svg></button></div><audio controls preload="none" id="au"></audio></div>
+<footer><p><a href="./" id="fLive"></a> · <a href="reciters.html" id="fRec"></a> · <a href="surahs.html" id="fSur"></a> · <a href="mushaf.html" id="fMus"></a> · <a href="mailto:info@trtel.vip">info@trtel.vip</a></p></footer>
+</div>
+<script src="offline.js"></script>
+<script>
+(function () {
+  const O = window.TrtelOff, T = O.T, $ = id => document.getElementById(id), ls = O.ls, E = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let LANG = 'ar'; try { LANG = localStorage.getItem('lang') || localStorage.getItem('lastLang') || 'ar'; } catch (e) {}
+  const L = LANG !== 'ar' && /^[a-z]{2,3}$/.test(LANG) && LANG === document.documentElement.lang ? LANG + '/' : '';   // صفحات الموقع بلغة الزائر
+  const fmt = s => { s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = String(s % 60).padStart(2, '0'); return h ? `${h}:${String(m).padStart(2, '0')}:${x}` : `${m}:${x}`; };
+  const IC_PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+
+  function texts() {
+    document.title = T('my') + ' — ' + T('brand');
+    $('brand').textContent = T('brand'); $('h1').textContent = T('my'); $('lead').textContent = T('pageLead');
+    $('liveA').textContent = $('fLive').textContent = T('live'); $('fRec').textContent = T('navRec'); $('fSur').textContent = T('navSur'); $('fMus').textContent = T('mushafGo');
+    ['home', 'liveA', 'fLive'].forEach(i => $(i).href = './' + L); $('fRec').href = L + 'reciters.html'; $('fSur').href = L + 'surahs.html'; $('fMus').href = $('mushafGo').href = L + 'mushaf.html';
+    $('savedH').textContent = T('savedH'); $('favH').textContent = T('favH'); $('mushafH').textContent = T('mushafH'); $('mushafD').textContent = T('mushafD');
+    $('mushafGo').textContent = T('mushafGo'); $('radioNote').textContent = T('radioNote');
+    $('instH').textContent = T('installH'); $('instD').textContent = T('installD'); $('instBtn').textContent = T('installBtn');
+    $('pv').ariaLabel = T('prev'); $('nx').ariaLabel = T('next');
+  }
+
+  /* ---------- القوائم المحفوظة ---------- */
+  const open = new Set();
+  function rows(list, g) {
+    const it = O.items();
+    return list.map((t, i) => { const o = it[t.u] || {}, s = o.st || '';
+      const st = s === 'q' ? T('queued') : s === 'err' ? T('errN', { n: '' }).trim() : '';
+      return `<li data-g="${E(g)}" data-i="${i}" class="${s === 'q' ? 'q' : ''}"><button class="pl" type="button" aria-label="${E(T('play'))}">${IC_PLAY}</button>` +
+        `<span class="t"><b>${E(t.t)}</b><small>${t.d ? fmt(t.d) + ' · ' : ''}${E(t.r || '')}${o.sz ? ' · ' + O.size(o.sz) : ''}${st ? ' · <span class="st">' + E(st) + '</span>' : ''}</small></span>` +
+        `<span class="oact"><button type="button" class="ob osh" title="${E(T('share'))}" aria-label="${E(T('share'))}"></button>` +
+        (s ? `<button type="button" class="ob odel" title="${E(T('delOne'))}" aria-label="${E(T('delOne'))}"></button>` : `<button type="button" class="ob osv" title="${E(T('save'))}" aria-label="${E(T('save'))}"></button>`) + `</span></li>`; }).join('');
+  }
+  const SH = '<svg viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></svg>';
+  const DEL = '<svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg>', DN = '<svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>';
+  const icons = el => { el.querySelectorAll('.osh').forEach(b => b.innerHTML = SH); el.querySelectorAll('.odel').forEach(b => b.innerHTML = DEL); el.querySelectorAll('.osv').forEach(b => b.innerHTML = DN); };
+  let LISTS = {};   // g → [track]
+  function groupList(g) { const it = O.items(), gs = O.groups()[g]; return gs ? gs.us.filter(u => it[u]).map(u => Object.assign({ u }, it[u])) : []; }
+  function draw() {
+    const gs = O.groups(), keys = Object.keys(gs).sort((a, b) => (gs[b].at || 0) - (gs[a].at || 0)), box = $('groups');
+    LISTS = {};
+    if (!keys.length) box.innerHTML = `<div class="card empty"><b>${E(T('emptyH'))}</b><p>${E(T('emptyD'))}</p><div class="row" style="justify-content:center"><span class="ofl">${E(T('addFrom'))}</span><a class="bt" href="${L}reciters.html">${E(T('navRec'))}</a><a class="bt" href="${L}surahs.html">${E(T('navSur'))}</a></div></div>`;
+    else box.innerHTML = keys.map(g => { const list = LISTS[g] = groupList(g), it = O.items();
+      const ok = list.filter(t => t.st === 'ok'), q = list.filter(t => t.st === 'q').length, er = list.filter(t => t.st === 'err').length, sz = ok.reduce((a, t) => a + (t.sz || 0), 0);
+      const sub = [T('nRec', { n: list.length }), sz ? O.size(sz) : '', q ? T('waiting', { n: q }) : '', er ? T('errN', { n: er }) : ''].filter(Boolean).join(' · ');
+      return `<details class="g" data-g="${E(g)}"${open.has(g) ? ' open' : ''}><summary><span class="t"><b>${E(gs[g].name)}</b><small>${E(sub)}</small></span></summary>` +
+        `<div class="acts"><button class="bt pri" type="button" data-a="play">${IC_PLAY.replace('<svg', '<svg width="14" height="14" fill="currentColor"')} ${E(T('playAll'))}</button>` +
+        (er ? `<button class="bt" type="button" data-a="retry">${E(T('retry'))}</button>` : '') +
+        (gs[g].pg ? `<a class="bt" href="${E(gs[g].pg)}">${E(T('open'))}</a>` : '') + `<button class="bt dan" type="button" data-a="del">${E(T('delAll'))}</button></div>` +
+        `<ul class="tr">${rows(list, g)}</ul></details>`; }).join('');
+    icons(box);
+    box.querySelectorAll('details.g').forEach(d => d.addEventListener('toggle', () => d.open ? open.add(d.dataset.g) : open.delete(d.dataset.g)));
+    // المفضلة
+    const f = O.favs(); LISTS.fav = f.map(x => Object.assign({}, x, O.items()[x.u] || {}, { u: x.u, t: x.t, r: x.r, pg: x.pg }));
+    $('fav').innerHTML = !f.length ? `<p class="ofl">${E(T('favEmpty'))}</p>` :
+      `<div class="row" style="margin:0 0 8px"><button class="bt pri" type="button" data-a="play" data-g="fav">${E(T('playAll'))}</button>` +
+      (f.some(x => !O.state(x.u)) ? `<button class="bt" type="button" data-a="savefav">${DN.replace('<svg', '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"')} ${E(T('favSave'))}</button>` : '') + `</div><ul class="tr">${rows(LISTS.fav, 'fav')}</ul>`;
+    icons($('fav'));
+    space(); mark();
+  }
+  async function space() {
+    const it = O.items(), used = Object.values(it).reduce((a, o) => a + (o.sz || 0), 0);
+    let free = 0, quota = 0; try { const e = await navigator.storage.estimate(); quota = e.quota || 0; free = Math.max(0, quota - (e.usage || 0)); } catch (e) {}
+    $('space').textContent = T('space', { u: O.size(used) }) + (free ? ' · ' + T('free', { f: O.size(free) }) : '');
+    $('meter').style.width = quota ? Math.min(100, Math.max(1, used / quota * 100)) + '%' : '0';
+    const last = ls.get('off:last', null), l = last && (LISTS[last.g] || []).find(t => t.u === last.u);
+    $('resumeR').hidden = !l; if (l) { const p = O.pos()[l.u]; $('resumeB').textContent = '▶ ' + T('resume') + ': ' + l.t + (l.r ? ' · ' + l.r : '') + (p ? ' (' + fmt(p) + ')' : ''); $('resumeB').onclick = () => play(last.g, LISTS[last.g].indexOf(l)); }
+  }
+  document.addEventListener('click', async e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const li = b.closest('li[data-g]'), d = b.closest('[data-g]'), g = d && d.dataset.g, a = b.dataset.a;
+    if (li) { const t = LISTS[li.dataset.g][+li.dataset.i];
+      if (b.classList.contains('pl')) play(li.dataset.g, +li.dataset.i);
+      else if (b.classList.contains('osh')) O.share(t);
+      else if (b.classList.contains('odel')) O.remove([t.u]);
+      else if (b.classList.contains('osv')) O.save([t], 'fav', T('favH'), '');
+      return; }
+    if (a === 'play') { const list = LISTS[g] || [], i = list.findIndex(t => t.st === 'ok'); play(g, i < 0 ? 0 : i); }
+    else if (a === 'del') { const list = LISTS[g] || []; if (confirm(T('delQ', { n: list.length }))) O.remove(list.map(t => t.u), g); }
+    else if (a === 'retry') { const it = O.items(); (LISTS[g] || []).forEach(t => { if (it[t.u] && it[t.u].st === 'err') { it[t.u].st = 'q'; it[t.u].tries = 0; } }); ls.set('off:items', it); O.run(); draw(); }
+    else if (a === 'savefav') O.save(O.favs(), 'fav', T('favH'), '');
+  });
+
+  /* ---------- المشغّل: من الجهاز إن حُفظت، وإلا من الشبكة (سيرفر ترتيل ثم الأرشيف) ---------- */
+  const au = $('au'); let cur = null;
+  O.trackPos(au, () => cur && cur.t.u);
+  function play(g, i) {
+    const list = LISTS[g] || [], t = list[i]; if (!t) return;
+    cur = { g, i, t }; ls.set('off:last', { g, u: t.u });
+    $('obar').classList.add('on'); $('now').textContent = t.t + (t.r ? ' · ' + t.r : '');
+    const saved = O.state(t.u) === 'ok';
+    au.dataset.f = saved ? '1' : ''; au.src = saved ? t.u : O.SRV + t.u.slice(O.ARCH.length);
+    au.play().catch(() => {}); mark();
+    if ('mediaSession' in navigator && window.MediaMetadata) navigator.mediaSession.metadata = new MediaMetadata({ title: t.t, artist: t.r || '', album: T('brand'), artwork: [{ src: 'logo512.jpg?v=2', sizes: '512x512', type: 'image/jpeg' }] });
+  }
+  au.addEventListener('error', () => { if (!cur || au.dataset.f) return; au.dataset.f = '1'; au.src = cur.t.u; au.play().catch(() => {}); });
+  function step(k) { if (!cur) return; const list = LISTS[cur.g] || []; let i = cur.i;
+    for (let n = 0; n < list.length; n++) { i = (i + k + list.length) % list.length; if (navigator.onLine || O.state(list[i].u) === 'ok') return play(cur.g, i); } }
+  au.addEventListener('ended', () => step(1)); $('nx').onclick = () => step(1); $('pv').onclick = () => step(-1);
+  if ('mediaSession' in navigator) try { navigator.mediaSession.setActionHandler('nexttrack', () => step(1)); navigator.mediaSession.setActionHandler('previoustrack', () => step(-1)); } catch (e) {}
+  function mark() { document.querySelectorAll('ul.tr li').forEach(li => li.classList.toggle('on', !!cur && li.dataset.g === cur.g && +li.dataset.i === cur.i)); }
+
+  /* ---------- المصحف والتفسير بدون إنترنت ---------- */
+  const KEEP = 'trtel-keep-v1';
+  function mushafState() { const m = ls.get('off:mushaf', null);
+    $('mushafS').textContent = m ? T('mushafOk') + ' · ' + new Date(m.at).toLocaleDateString(document.documentElement.lang + '-u-nu-latn') : '';
+    $('mushafBtn').textContent = m ? T('mushafRe') : T('mushafBtn'); $('mushafBtn').disabled = false; }
+  async function trKeys() {
+    let tr = '', tf = '';
+    try { tr = localStorage.getItem('mushaf:tr') || ''; tf = localStorage.getItem('mushaf:tf') || ''; } catch (e) {}
+    if (L && (!tr || !tf)) try { const s = await (await fetch('i18n/' + LANG + '.js')).text(), a = /"tr":"([^"]*)"/.exec(s), b = /"tf":"([^"]*)"/.exec(s); if (!tr && a) tr = a[1]; if (!tf && b) tf = b[1]; } catch (e) {}
+    return [tr, tf].filter(k => k && k !== '-' && /^[a-z_]+$/.test(k));
+  }
+  $('mushafBtn').onclick = async () => {
+    const b = $('mushafBtn'); b.disabled = true;
+    const urls = ['mushaf.html', 'mushaf/len.json', 'mushaf/meta.json', 'mushaf/search.json', 'mushaf/uthmanic_hafs_v22.ttf'];
+    if (L) urls.push(L + 'mushaf.html');
+    for (let n = 1; n <= 604; n++) urls.push('mushaf/p/' + n + '.json');
+    for (let n = 1; n <= 114; n++) urls.push('mushaf/t/' + n + '.json');
+    const ks = await trKeys(); if (ks.length) urls.push('/quran-tr/index.json');
+    ks.forEach(k => { for (let n = 1; n <= 114; n++) urls.push('/quran-tr/' + k + '/' + n + '.json'); });
+    // سكربتات صفحة المصحف بلغة الزائر (مثل i18n/<code>.js بإصدارها)
+    try { const h = await (await fetch(L + 'mushaf.html', { cache: 'no-store' })).text(); (h.match(/\b(?:src|href)="([^"#:]+\.(?:js|css)(?:\?[^"]*)?)"/g) || []).forEach(m => urls.push(new URL(m.replace(/^[^"]*"|"$/g, ''), new URL(L + 'mushaf.html', location.href)).href)); } catch (e) {}
+    const c = await caches.open(KEEP); let done = 0, fail = 0; const all = [...new Set(urls.map(u => new URL(u, location.href).href))];
+    const one = async u => { try { const r = await fetch(u, { cache: 'no-cache' }); if (r.ok) await c.put(u, r); else fail++; } catch (e) { fail++; } done++; if (done % 10 === 0 || done === all.length) b.textContent = T('mushafP', { p: Math.round(done / all.length * 100) }); };
+    for (let i = 0; i < all.length; i += 8) await Promise.all(all.slice(i, i + 8).map(one));
+    if (fail < 3) ls.set('off:mushaf', { at: Date.now(), ks }); else O.toast(T('fail', { t: T('mushafH') }));
+    mushafState(); space();
+  };
+
+  /* ---------- التثبيت ---------- */
+  let dp = null; const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); dp = e; if (!standalone()) $('inst').hidden = false; });
+  addEventListener('appinstalled', () => { $('inst').hidden = true; });
+  $('instBtn').onclick = () => { if (dp) { dp.prompt(); dp = null; $('inst').hidden = true; } };
+
+  texts(); draw(); mushafState(); O.verify();
+  let rt = 0; O.on(m => { if (m.k === 'p') return; clearTimeout(rt); rt = setTimeout(draw, 150); });
+  addEventListener('online', draw); addEventListener('offline', draw);
+  // إن وصلت نصوص اللغة بعد التحميل
+  setTimeout(() => { texts(); draw(); }, 800);
+})();
+</script>
+</body>
+</html>

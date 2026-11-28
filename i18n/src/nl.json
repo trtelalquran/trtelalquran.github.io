@@ -127,7 +127,12 @@
   "instFile": "Archief",
   "instDock": "Voeg toe aan Dock",
   "corr": "overeenkomend met {d}",
-  "langs": "Talen"
+  "langs": "Talen",
+  "instPcH": "Installeer Tartil op je computer",
+  "offPlay": "Geen internetverbinding. Opgeslagen recitaties spelen af vanuit ‘Mijn downloads’.",
+  "myH": "Mijn downloads (offline)",
+  "shareTr": "Delen",
+  "shareTrL": "Deze recitatie delen"
  },
  "m": {
   "trMore": "Andere talen…",
@@ -259,5 +264,15 @@
   "qText": "Tekst en vertaling van de betekenissen",
   "qSrc": "Vertaling van de betekenissen: {t}, versie {v}, ongewijzigd overgenomen van QuranEnc.com.",
   "qNote": "Een vertaling geeft de betekenissen van de Koran weer; zij is niet de Koran zelf, die de Arabische tekst hierboven is."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Live radio",
+  "navRec": "Reciteurs en Mushafs",
+  "navSur": "Soera's",
+  "play": "Afspelen",
+  "my": "Mijn downloads",
+  "share": "Delen",
+  "shareT": "Deze recitatie delen"
  }
 }

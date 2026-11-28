@@ -48,7 +48,12 @@
   "instIosS": "iPhone da iPad (Safari da Chrome)", "instIos1": "Taɓa maɓallin Raba {share} a sandar burauza", "instIos2": "Zaɓi {add}", "instIos3": "Taɓa {ok} a saman allo", "instIosA": "Ƙara zuwa Allon Gida", "instIosN": "A Safari maɓallin Raba yana sandar ƙasa",
   "instAndS": "Firefox da sauran burauzoji", "instAnd1": "Buɗe menu {dots}", "instAnd2": "Zaɓi {add} ko “Shigar”", "instAnd3": "Tabbatar da {ok}", "instAndA": "Ƙara zuwa allon gida",
   "instPcS": "A Chrome da Edge tagar shigarwa tana bayyana kai tsaye. A sauran burauzoji:", "instPc1": "Safari a Mac: {file} → {dock}", "instPc2": "Firefox: ja alamar kulle daga sandar adireshi zuwa tebur ɗin kwamfuta", "instPc3": "Ko ka adana shafin a alamomi {ctrl}", "instFile": "Fayil", "instDock": "Ƙara zuwa Dock",
-  "corr": "daidai da {d}", "langs": "Harsuna"
+  "corr": "daidai da {d}", "langs": "Harsuna",
+  "instPcH": "Saka Tartil a kwamfutarka",
+  "offPlay": "Babu haɗin intanet. Karatuttukan da aka adana suna kunnawa daga «Abubuwan da na sauke».",
+  "myH": "Abubuwan da na sauke (ba intanet)",
+  "shareTr": "Raba",
+  "shareTrL": "Raba wannan karatun"
  },
  "m": {
   "trMore": "Wasu harsuna…",
@@ -106,5 +111,15 @@
   "qText": "Rubutu da fassarar ma'anoni",
   "qSrc": "Fassarar ma'anoni: {t}, bugu na {v}, an wallafa ta daga QuranEnc.com ba tare da wani canji ba.",
   "qNote": "Fassara tana isar da ma'anonin Alƙur'ani ne kawai; ba ita ce Alƙur'ani kansa ba. Alƙur'ani shi ne rubutun Larabci da ke sama."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Rediyo kai tsaye",
+  "navRec": "Masu karatu da Mushafai",
+  "navSur": "Surori",
+  "play": "Kunna",
+  "my": "Abubuwan da na sauke",
+  "share": "Raba",
+  "shareT": "Raba wannan karatun"
  }
 }

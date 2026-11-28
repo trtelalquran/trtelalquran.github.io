@@ -130,7 +130,12 @@
   "instFile": "File",
   "instDock": "Add to Dock",
   "corr": "corresponding to {d}",
-  "langs": "Languages"
+  "langs": "Languages",
+  "instPcH": "Install Tartil on your computer",
+  "offPlay": "No internet connection. Saved recitations play from My downloads.",
+  "myH": "My downloads (offline)",
+  "shareTr": "Share",
+  "shareTrL": "Share this recitation"
  },
  "m": {
   "trMore": "Other languages…",
@@ -264,5 +269,15 @@
   "qSrc": "Translation of the meanings: {t}, version {v}, published unchanged from QuranEnc.com.",
   "qNote": "A translation conveys the meanings of the Quran; it is not the Quran itself, which is the Arabic text above."
  },
- "latinSurahs": true
+ "latinSurahs": true,
+ "o": {
+  "brand": "Tartil",
+  "live": "Live radio",
+  "navRec": "Reciters and Mushafs",
+  "navSur": "Surahs",
+  "play": "Play",
+  "my": "My downloads",
+  "share": "Share",
+  "shareT": "Share this recitation"
+ }
 }

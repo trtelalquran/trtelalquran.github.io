@@ -125,7 +125,12 @@
     "instFile": "Arquivo",
     "instDock": "Adicionar ao Dock",
     "corr": "correspondente a {d}",
-    "langs": "Idiomas"
+    "langs": "Idiomas",
+  "instPcH": "Instale o Tartil no seu computador",
+  "offPlay": "Sem ligação à internet. As recitações guardadas tocam a partir de «Os meus downloads».",
+  "myH": "Os meus downloads (offline)",
+  "shareTr": "Partilhar",
+  "shareTrL": "Partilhar esta recitação"
   },
   "m": {
     "trMore": "Outros idiomas…",
@@ -257,5 +262,15 @@
     "qText": "Texto e tradução dos significados",
     "qSrc": "Tradução dos significados: {t}, versão {v}, publicada sem alterações a partir do QuranEnc.com.",
     "qNote": "Uma tradução transmite os significados do Alcorão; não é o próprio Alcorão, que é o texto árabe acima."
-  }
+  },
+ "o": {
+  "brand": "Tartil",
+  "live": "Rádio ao vivo",
+  "navRec": "Recitadores e Mushafs",
+  "navSur": "Suratas",
+  "play": "Reproduzir",
+  "my": "Os meus downloads",
+  "share": "Partilhar",
+  "shareT": "Partilhar esta recitação"
+ }
 }

@@ -47,7 +47,12 @@
   "instIosS": "iPhone e iPad (Safari e Chrome)", "instIos1": "Tocca il pulsante Condividi {share} nella barra del browser", "instIos2": "Scegli {add}", "instIos3": "Tocca {ok} in alto", "instIosA": "Aggiungi alla schermata Home", "instIosN": "In Safari il pulsante Condividi si trova nella barra in basso",
   "instAndS": "Firefox e altri browser", "instAnd1": "Apri il menu {dots}", "instAnd2": "Scegli {add} o «Installa»", "instAnd3": "Conferma con {ok}", "instAndA": "Aggiungi a schermata Home",
   "instPcS": "In Chrome ed Edge la finestra di installazione compare subito. Negli altri browser:", "instPc1": "Safari su Mac: {file} → {dock}", "instPc2": "Firefox: trascina il lucchetto dalla barra degli indirizzi sul desktop", "instPc3": "Oppure aggiungi la pagina ai preferiti {ctrl}", "instFile": "File", "instDock": "Aggiungi al Dock",
-  "corr": "corrispondente al {d}", "langs": "Lingue"
+  "corr": "corrispondente al {d}", "langs": "Lingue",
+  "instPcH": "Installa Tartil sul computer",
+  "offPlay": "Nessuna connessione a internet. Le recitazioni salvate si ascoltano da «I miei download».",
+  "myH": "I miei download (offline)",
+  "shareTr": "Condividi",
+  "shareTrL": "Condividi questa recitazione"
  },
  "m": {
   "trMore": "Altre lingue…",
@@ -105,5 +110,15 @@
   "qText": "Testo e traduzione dei significati",
   "qSrc": "Traduzione dei significati: {t}, versione {v}, pubblicata senza modifiche da QuranEnc.com.",
   "qNote": "Una traduzione trasmette i significati del Corano; non è il Corano stesso, che è il testo arabo qui sopra."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Radio in diretta",
+  "navRec": "Recitatori e Mushaf",
+  "navSur": "Sure",
+  "play": "Riproduci",
+  "my": "I miei download",
+  "share": "Condividi",
+  "shareT": "Condividi questa recitazione"
  }
 }

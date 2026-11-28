@@ -48,7 +48,12 @@
   "instIosS": "iPhone iyo iPad (Safari iyo Chrome)", "instIos1": "Taabo badhanka La wadaag {share} ee barta browser-ka", "instIos2": "Dooro {add}", "instIos3": "Taabo {ok} xagga sare ee shaashadda", "instIosA": "Ku dar Shaashadda Hore", "instIosN": "Safari-ga badhanka La wadaag wuxuu ku yaal barta hoose",
   "instAndS": "Firefox iyo browser-yada kale", "instAnd1": "Fur liiska {dots}", "instAnd2": "Dooro {add} ama “Rakib”", "instAnd3": "Ku xaqiiji {ok}", "instAndA": "Ku dar shaashadda hore",
   "instPcS": "Chrome iyo Edge daaqadda rakibiddu si toos ah ayay u soo baxdaa. Browser-yada kale:", "instPc1": "Safari ee Mac: {file} → {dock}", "instPc2": "Firefox: astaanta qufulka ka jiid barta cinwaanka una keen desktop-ka", "instPc3": "Ama boggan ku dar calaamadaha (bookmarks) {ctrl}", "instFile": "Fayl", "instDock": "Ku dar Dock",
-  "corr": "oo u dhiganta {d}", "langs": "Luqadaha"
+  "corr": "oo u dhiganta {d}", "langs": "Luqadaha",
+  "instPcH": "Ku rakib Tartil kombiyuutarkaaga",
+  "offPlay": "Ma jiro internet. Akhrinta la keydiyay waxay ka shaqeysaa «Waxyaabaha aan soo dejiyay».",
+  "myH": "Waxyaabaha aan soo dejiyay (internet la’aan)",
+  "shareTr": "La wadaag",
+  "shareTrL": "La wadaag akhrintan"
  },
  "m": {
   "trMore": "Luqado kale…",
@@ -106,5 +111,15 @@
   "qText": "Qoraalka iyo turjumaadda macnayaasha",
   "qSrc": "Turjumaadda macnayaasha: {t}, nuqulka {v}, laga soo daabacay QuranEnc.com iyadoon wax laga beddelin.",
   "qNote": "Turjumaaddu waxay gudbisaa macnayaasha Qur'aanka; ma aha Qur'aanka laftiisa. Qur'aanku waa qoraalka Carabiga ee kor ku yaal."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Raadiyaha tooska ah",
+  "navRec": "Akhristayaasha iyo Masxafyada",
+  "navSur": "Suuradaha",
+  "play": "Daar",
+  "my": "Waxyaabaha aan soo dejiyay",
+  "share": "La wadaag",
+  "shareT": "La wadaag akhrintan"
  }
 }

@@ -127,7 +127,12 @@
   "instFile": "Arkiv",
   "instDock": "Lägg till i Dock",
   "corr": "motsvarande {d}",
-  "langs": "Språk"
+  "langs": "Språk",
+  "instPcH": "Installera Tartil på datorn",
+  "offPlay": "Ingen internetanslutning. Sparade recitationer spelas upp från ”Mina nedladdningar”.",
+  "myH": "Mina nedladdningar (offline)",
+  "shareTr": "Dela",
+  "shareTrL": "Dela denna recitation"
  },
  "m": {
   "trMore": "Andra språk…",
@@ -259,5 +264,15 @@
   "qText": "Text och översättning av betydelserna",
   "qSrc": "Översättning av betydelserna: {t}, version {v}, publicerad oförändrad från QuranEnc.com.",
   "qNote": "En översättning förmedlar Koranens betydelser; den är inte själva Koranen, som är den arabiska texten ovan."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Direktsänd radio",
+  "navRec": "Recitatörer och Mushafer",
+  "navSur": "Suror",
+  "play": "Spela",
+  "my": "Mina nedladdningar",
+  "share": "Dela",
+  "shareT": "Dela denna recitation"
  }
 }

@@ -47,7 +47,12 @@
   "instIosS": "iPhone at iPad (Safari at Chrome)", "instIos1": "I-tap ang Share button {share} sa bar ng browser", "instIos2": "Piliin ang {add}", "instIos3": "I-tap ang {ok} sa itaas", "instIosA": "Add to Home Screen", "instIosN": "Sa Safari, nasa ibabang bar ang Share button",
   "instAndS": "Firefox at iba pang browser", "instAnd1": "Buksan ang menu {dots}", "instAnd2": "Piliin ang {add} o “I-install”", "instAnd3": "Kumpirmahin gamit ang {ok}", "instAndA": "Idagdag sa Home screen",
   "instPcS": "Sa Chrome at Edge, direktang lalabas ang window ng pag-install. Sa ibang browser:", "instPc1": "Safari sa Mac: {file} → {dock}", "instPc2": "Firefox: i-drag ang icon ng kandado mula sa address bar papunta sa iyong desktop", "instPc3": "O i-bookmark ang pahina {ctrl}", "instFile": "File", "instDock": "Add to Dock",
-  "corr": "katumbas ng {d}", "langs": "Mga wika"
+  "corr": "katumbas ng {d}", "langs": "Mga wika",
+  "instPcH": "I-install ang Tartil sa iyong computer",
+  "offPlay": "Walang koneksyon sa internet. Ang mga naka-save na pagbigkas ay mapapakinggan sa «Aking mga download».",
+  "myH": "Aking mga download (offline)",
+  "shareTr": "Ibahagi",
+  "shareTrL": "Ibahagi ang pagbigkas na ito"
  },
  "m": {
   "trMore": "Iba pang wika…",
@@ -105,5 +110,15 @@
   "qText": "Teksto at salin ng kahulugan",
   "qSrc": "Salin ng kahulugan: {t}, bersiyon {v}, inilathala nang walang pagbabago mula sa QuranEnc.com.",
   "qNote": "Ang salin ay naghahatid ng kahulugan ng Qur'an; hindi ito ang Qur'an mismo, na siyang tekstong Arabe sa itaas."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Live na radyo",
+  "navRec": "Mga qari at Mushaf",
+  "navSur": "Mga surah",
+  "play": "I-play",
+  "my": "Aking mga download",
+  "share": "Ibahagi",
+  "shareT": "Ibahagi ang pagbigkas na ito"
  }
 }

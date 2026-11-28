@@ -48,7 +48,12 @@
   "instIosS": "iPhone va iPad (Safari va Chrome)", "instIos1": "Brauzer panelidagi Ulashish {share} tugmasini bosing", "instIos2": "{add} ni tanlang", "instIos3": "Yuqoridagi {ok} ni bosing", "instIosA": "Bosh ekranga qoʻshish", "instIosN": "Safarida Ulashish tugmasi pastki panelda joylashgan",
   "instAndS": "Firefox va boshqa brauzerlar", "instAnd1": "{dots} menyusini oching", "instAnd2": "{add} yoki “Oʻrnatish” ni tanlang", "instAnd3": "{ok} bilan tasdiqlang", "instAndA": "Bosh ekranga qoʻshish",
   "instPcS": "Chrome va Edge da oʻrnatish oynasi darhol chiqadi. Boshqa brauzerlarda:", "instPc1": "Mac dagi Safari: {file} → {dock}", "instPc2": "Firefox: manzil satridagi qulf belgisini ish stoliga suring", "instPc3": "Yoki sahifani xatchoʻplarga qoʻshing {ctrl}", "instFile": "Fayl", "instDock": "Dockka qoʻshish",
-  "corr": "milodiy {d}", "langs": "Tillar"
+  "corr": "milodiy {d}", "langs": "Tillar",
+  "instPcH": "Tartilni kompyuteringizga oʻrnating",
+  "offPlay": "Internet aloqasi yoʻq. Saqlangan tilovatlar «Yuklanmalarim» boʻlimidan ijro etiladi.",
+  "myH": "Yuklanmalarim (oflayn)",
+  "shareTr": "Ulashish",
+  "shareTrL": "Bu tilovatni ulashish"
  },
  "m": {
   "trMore": "Boshqa tillar…",
@@ -106,5 +111,15 @@
   "qText": "Matn va maʼnolar tarjimasi",
   "qSrc": "Maʼnolar tarjimasi: {t}, {v}-versiya, QuranEnc.com saytidan oʻzgarishsiz eʼlon qilingan.",
   "qNote": "Tarjima Qurʼon maʼnolarini yetkazadi, lekin Qurʼonning oʻzi emas; Qurʼon yuqoridagi arabcha matndir."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Jonli radio",
+  "navRec": "Qorilar va musʼhaflar",
+  "navSur": "Suralar",
+  "play": "Ijro etish",
+  "my": "Yuklanmalarim",
+  "share": "Ulashish",
+  "shareT": "Bu tilovatni ulashish"
  }
 }

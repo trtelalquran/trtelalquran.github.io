@@ -48,7 +48,12 @@
   "instIosS": "iPhone i iPad (Safari i Chrome)", "instIos1": "Dodirnite dugme Dijeli {share} na traci preglednika", "instIos2": "Odaberite {add}", "instIos3": "Dodirnite {ok} na vrhu ekrana", "instIosA": "Dodaj na početni zaslon", "instIosN": "U Safariju je dugme Dijeli na donjoj traci",
   "instAndS": "Firefox i drugi preglednici", "instAnd1": "Otvorite meni {dots}", "instAnd2": "Odaberite {add} ili „Instaliraj”", "instAnd3": "Potvrdite sa {ok}", "instAndA": "Dodaj na početni ekran",
   "instPcS": "U Chromeu i Edgeu prozor za instalaciju pojavljuje se odmah. U drugim preglednicima:", "instPc1": "Safari na Macu: {file} → {dock}", "instPc2": "Firefox: prevucite ikonu lokota iz adresne trake na radnu površinu", "instPc3": "Ili dodajte stranicu u oznake {ctrl}", "instFile": "Datoteka", "instDock": "Dodaj u Dock",
-  "corr": "odnosno {d}", "langs": "Jezici"
+  "corr": "odnosno {d}", "langs": "Jezici",
+  "instPcH": "Instalirajte Tartil na računar",
+  "offPlay": "Nema internet veze. Sačuvana učenja se puštaju iz „Moja preuzimanja“.",
+  "myH": "Moja preuzimanja (offline)",
+  "shareTr": "Podijeli",
+  "shareTrL": "Podijeli ovo učenje"
  },
  "m": {
   "trMore": "Drugi jezici…",
@@ -106,5 +111,15 @@
   "qText": "Tekst i prijevod značenja",
   "qSrc": "Prijevod značenja: {t}, verzija {v}, objavljen bez izmjena s QuranEnc.com.",
   "qNote": "Prijevod prenosi značenja Kur'ana, ali nije sam Kur'an; Kur'an je arapski tekst iznad."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Radio uživo",
+  "navRec": "Učači i mushafi",
+  "navSur": "Sure",
+  "play": "Pusti",
+  "my": "Moja preuzimanja",
+  "share": "Podijeli",
+  "shareT": "Podijeli ovo učenje"
  }
 }

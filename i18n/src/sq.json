@@ -48,7 +48,12 @@
   "instIosS": "iPhone dhe iPad (Safari dhe Chrome)", "instIos1": "Prekni butonin Ndaj {share} në shiritin e shfletuesit", "instIos2": "Zgjidhni {add}", "instIos3": "Prekni {ok} në krye të ekranit", "instIosA": "Shto në ekranin bazë", "instIosN": "Në Safari butoni Ndaj ndodhet në shiritin e poshtëm",
   "instAndS": "Firefox dhe shfletues të tjerë", "instAnd1": "Hapni menynë {dots}", "instAnd2": "Zgjidhni {add} ose “Instalo”", "instAnd3": "Konfirmoni me {ok}", "instAndA": "Shto në ekranin bazë",
   "instPcS": "Në Chrome dhe Edge dritarja e instalimit shfaqet menjëherë. Në shfletues të tjerë:", "instPc1": "Safari në Mac: {file} → {dock}", "instPc2": "Firefox: tërhiqni ikonën e drynit nga shiriti i adresës te desktopi", "instPc3": "Ose shtojeni faqen te faqeruajtësit {ctrl}", "instFile": "Skedari", "instDock": "Shto në Dock",
-  "corr": "që i përgjigjet {d}", "langs": "Gjuhët"
+  "corr": "që i përgjigjet {d}", "langs": "Gjuhët",
+  "instPcH": "Instaloni Tartil në kompjuter",
+  "offPlay": "Nuk ka lidhje interneti. Recitimet e ruajtura luhen nga «Shkarkimet e mia».",
+  "myH": "Shkarkimet e mia (jashtë linje)",
+  "shareTr": "Ndaj",
+  "shareTrL": "Ndaje këtë recitim"
  },
  "m": {
   "trMore": "Gjuhë të tjera…",
@@ -106,5 +111,15 @@
   "qText": "Teksti dhe përkthimi i kuptimeve",
   "qSrc": "Përkthimi i kuptimeve: {t}, versioni {v}, botuar pa ndryshime nga QuranEnc.com.",
   "qNote": "Përkthimi përcjell kuptimet e Kur'anit; ai nuk është vetë Kur'ani, i cili është teksti arab më sipër."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Radio drejtpërdrejt",
+  "navRec": "Lexuesit dhe Mus'hafët",
+  "navSur": "Suret",
+  "play": "Luaj",
+  "my": "Shkarkimet e mia",
+  "share": "Ndaj",
+  "shareT": "Ndaje këtë recitim"
  }
 }

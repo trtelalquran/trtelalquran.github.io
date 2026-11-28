@@ -48,7 +48,12 @@
   "instIosS": "iPhone və iPad (Safari və Chrome)", "instIos1": "Brauzer panelindəki Paylaş {share} düyməsinə toxunun", "instIos2": "{add} seçin", "instIos3": "Yuxarıdakı {ok} düyməsinə toxunun", "instIosA": "Əsas ekrana əlavə et", "instIosN": "Safari-də Paylaş düyməsi aşağı paneldədir",
   "instAndS": "Firefox və digər brauzerlər", "instAnd1": "{dots} menyusunu açın", "instAnd2": "{add} və ya “Quraşdır” seçin", "instAnd3": "{ok} ilə təsdiqləyin", "instAndA": "Əsas ekrana əlavə et",
   "instPcS": "Chrome və Edge-də quraşdırma pəncərəsi birbaşa görünür. Digər brauzerlərdə:", "instPc1": "Mac-də Safari: {file} → {dock}", "instPc2": "Firefox: ünvan sətrindəki kilid işarəsini iş masasına sürükləyin", "instPc3": "Və ya səhifəni əlfəcinlərə əlavə edin {ctrl}", "instFile": "Fayl", "instDock": "Dock-a əlavə et",
-  "corr": "{d} tarixinə uyğun", "langs": "Dillər"
+  "corr": "{d} tarixinə uyğun", "langs": "Dillər",
+  "instPcH": "Tartili kompüterinizə quraşdırın",
+  "offPlay": "İnternet bağlantısı yoxdur. Saxlanılmış tilavətlər «Yükləmələrim» bölməsindən oxunur.",
+  "myH": "Yükləmələrim (oflayn)",
+  "shareTr": "Paylaş",
+  "shareTrL": "Bu tilavəti paylaş"
  },
  "m": {
   "trMore": "Digər dillər…",
@@ -106,5 +111,15 @@
   "qText": "Mətn və mənaların tərcüməsi",
   "qSrc": "Mənaların tərcüməsi: {t}, {v} versiyası, QuranEnc.com saytından dəyişdirilmədən dərc olunub.",
   "qNote": "Tərcümə Quranın mənalarını çatdırır, Quranın özü deyil; Quran yuxarıdakı ərəbcə mətndir."
+ },
+ "o": {
+  "brand": "Tartil",
+  "live": "Canlı radio",
+  "navRec": "Qarilər və müshəflər",
+  "navSur": "Surələr",
+  "play": "Oxut",
+  "my": "Yükləmələrim",
+  "share": "Paylaş",
+  "shareT": "Bu tilavəti paylaş"
  }
 }

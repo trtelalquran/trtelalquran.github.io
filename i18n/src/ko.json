@@ -47,7 +47,12 @@
   "instIosS": "iPhone 및 iPad(Safari, Chrome)", "instIos1": "브라우저 막대에서 공유 버튼 {share}을(를) 탭하세요", "instIos2": "{add}을(를) 선택하세요", "instIos3": "화면 위쪽의 {ok}을(를) 탭하세요", "instIosA": "홈 화면에 추가", "instIosN": "Safari에서는 공유 버튼이 아래쪽 막대에 있습니다",
   "instAndS": "Firefox 및 기타 브라우저", "instAnd1": "메뉴 {dots}을(를) 여세요", "instAnd2": "{add} 또는 ‘설치’를 선택하세요", "instAnd3": "{ok}(으)로 확인하세요", "instAndA": "홈 화면에 추가",
   "instPcS": "Chrome과 Edge에서는 설치 창이 바로 나타납니다. 그 밖의 브라우저:", "instPc1": "Mac의 Safari: {file} → {dock}", "instPc2": "Firefox: 주소 표시줄의 자물쇠 아이콘을 데스크톱으로 끌어다 놓으세요", "instPc3": "또는 페이지를 북마크에 추가하세요 {ctrl}", "instFile": "파일", "instDock": "Dock에 추가",
-  "corr": "(양력 {d})", "langs": "언어"
+  "corr": "(양력 {d})", "langs": "언어",
+  "instPcH": "컴퓨터에 타르틸 설치",
+  "offPlay": "인터넷에 연결되어 있지 않습니다. 저장한 낭송은 「내 다운로드」에서 재생됩니다.",
+  "myH": "내 다운로드 (오프라인)",
+  "shareTr": "공유",
+  "shareTrL": "이 낭송 공유"
  },
  "m": {
   "trMore": "다른 언어…",
@@ -105,5 +110,15 @@
   "qText": "본문과 의미 번역",
   "qSrc": "의미 번역: {t}, 버전 {v}, QuranEnc.com에서 변경 없이 게재.",
   "qNote": "번역은 꾸란의 의미를 전달할 뿐 꾸란 그 자체가 아닙니다. 꾸란은 위의 아랍어 본문입니다."
+ },
+ "o": {
+  "brand": "타르틸",
+  "live": "실시간 라디오",
+  "navRec": "낭송자와 무스하프",
+  "navSur": "수라",
+  "play": "재생",
+  "my": "내 다운로드",
+  "share": "공유",
+  "shareT": "이 낭송 공유"
  }
 }
