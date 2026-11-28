@@ -126,5 +126,36 @@ def main():
         print(" ", s["t"], len(s["groups"]), "مجموعة،", sum(len(g["items"]) for g in s["groups"]), "ملف، بلا مدة:", zero)
 
 
+def load_lang(path):
+    text = open(path, encoding="utf-8").read()
+    return json.loads(text[text.index("{"): text.rstrip().rstrip(";").rindex("}") + 1])
+
+
+def build_i18n():
+    """app/i18n.json: لكل لغة من لغات الموقع أسماء السور والقرّاء وقوالب العناوين ونصوص التبويبات،
+    والتطبيق يترجم عناوين الفهرس بنفس منطق trTitle في الموقع (Ctx.title في build_seo_pages.py)."""
+    import glob
+    out = {}
+    for f in sorted(glob.glob(os.path.join(ROOT, "i18n", "*.js"))):
+        L = load_lang(f)
+        src = os.path.join(ROOT, "i18n", "src", L["code"] + ".json")
+        P = load(os.path.relpath(src, ROOT))["p"] if os.path.exists(src) else {}
+        t = L["t"]
+        ui = {
+            "radio": t.get("stTrt", ""),
+            "live": P.get("live", ""),
+            "mushaf": t.get("lblMus", ""),
+            "tarawih": re.sub(r"<small>.*", "", t.get("tabTar", "")).strip(),
+            "reciters": P.get("navRec", ""),
+            "various": P.get("whoVarious", ""),
+        }
+        out[L["code"]] = {"s": L["s"], "rec": L["rec"], "x": L["x"], "ui": ui}
+    path = os.path.join(ROOT, "app", "i18n.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"i18n.json: {len(out)} لغة، {os.path.getsize(path)//1024} KB")
+
+
 if __name__ == "__main__":
     main()
+    build_i18n()
