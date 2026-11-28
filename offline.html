@@ -132,7 +132,7 @@ ul.tr li .st{font-size:12px;color:var(--mut)}ul.tr li.q .pl{opacity:.5}
     if (li) { const t = LISTS[li.dataset.g][+li.dataset.i];
       if (b.classList.contains('pl')) play(li.dataset.g, +li.dataset.i);
       else if (b.classList.contains('osh')) O.share(t);
-      else if (b.classList.contains('odel')) O.remove([t.u]);
+      else if (b.classList.contains('odel')) { if (O.state(t.u) !== 'ok' || O.askDel(t)) O.remove([t.u]); }
       else if (b.classList.contains('osv')) O.save([t], 'fav', T('favH'), '');
       return; }
     if (a === 'play') { const list = LISTS[g] || [], i = list.findIndex(t => t.st === 'ok'); play(g, i < 0 ? 0 : i); }

@@ -259,6 +259,8 @@
     // في صفحة القارئ: العنوان اسم التلاوة والقارئ عنوان الصفحة؛ وفي صفحة السورة: العنوان اسم القارئ
     return inSurah ? { u, t: groupName(), r: title, d: dur, pg: pageUrl() + '#n=' + (i + 1) } : { u, t: title, r: groupName(), d: dur, pg: pageUrl() + '#n=' + (i + 1) };
   }
+  // حذف تلاوة محفوظة يحتاج تأكيدًا (ضغطة بالخطأ تمسح ملفًا قد لا يُعاد تنزيله بدون إنترنت)
+  const askDel = t => confirm(T('delOne') + ' — ' + t.t + (t.r ? ' · ' + t.r : ''));
   let lis = [];
   function enhance() {
     lis = [...document.querySelectorAll('ul.tr li[data-u]')];
@@ -274,7 +276,7 @@
       const li = b.closest('li'), t = trackOf(li, +li.dataset.n - 1);
       if (b.classList.contains('ofav')) toggleFav(t);
       else if (b.classList.contains('osh')) share(t);
-      else { const s = state(canon(t.u)); if (s === 'ok' || s === 'q') remove([canon(t.u)]); else save([t], location.pathname, groupName(), pageUrl()); }
+      else { const s = state(canon(t.u)); if (s === 'q' || (s === 'ok' && askDel(t))) remove([canon(t.u)]); else save([t], location.pathname, groupName(), pageUrl()); }
     });
     // زر «حفظ الكل» في صفحات القرّاء والمصاحف والتراويح
     if (canSave && /\/reciter\//.test(location.pathname)) {
@@ -358,7 +360,7 @@
 .obanner a{color:#fff;font-weight:600}.obanner button{background:none;border:0;color:#fff;font-size:20px;line-height:1;cursor:pointer;padding:0 4px}.otoast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#22303f;color:#fff;padding:9px 16px;border-radius:12px;z-index:100;font-size:14px;max-width:90vw}`;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
-  window.TrtelOff = { save, remove, items, groups, favs, isFav, toggleFav, share, state, canon, size, T, D: () => D, on: f => listeners.push(f), prog, run, verify, canSave, trackPos, pos, setPos, copy, toast, BASE, AUDIO, ARCH, SRV, ls };
+  window.TrtelOff = { save, remove, items, groups, favs, isFav, toggleFav, share, state, canon, size, T, D: () => D, on: f => listeners.push(f), prog, run, verify, canSave, askDel, trackPos, pos, setPos, copy, toast, BASE, AUDIO, ARCH, SRV, ls };
   const start = () => { enhance(); banner(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
